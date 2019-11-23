@@ -16,18 +16,38 @@
             </ul>
 
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown mr-3">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user"></i> Welcome Michael
-                    </a>
-                    <div class="dropdown-menu">
-                        <a href="profile.html" class="dropdown-item"><i class="fas fa-user-circle"></i> Profile</a>
-                        <a href="settings.html" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a href="login.html" class="nav-link"><i class="fas fa-user-times"></i> Logout</a>
-                </li>
+
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-item dropdown mr-3">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user"></i> Welcome {{ auth()->user()->name }}
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item"><i class="fas fa-user-circle"></i> Profile</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                <i class="fas fa-user-times"></i> {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                @csrf
+                            </form>
+
+                        </div>
+                    </li>
+                @endguest
             </ul>
         </div>
     </div>
