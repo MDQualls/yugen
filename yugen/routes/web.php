@@ -15,8 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('category', 'CategoryController');
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('category', 'Admin\CategoryController');
+    Route::resource('post', 'Admin\PostController');
+    Route::resource('user', 'Admin\UserController');
+});
