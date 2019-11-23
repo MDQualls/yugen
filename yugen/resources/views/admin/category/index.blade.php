@@ -1,45 +1,50 @@
 @extends('layouts.admin')
 
-@section('header_section')
-    <header id="main-header" class="py-2 bg-success text-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1><i class="fas fa-folder"></i> Categories</h1>
-                </div>
-            </div>
-        </div>
-    </header>
-@endsection('header_section')
+@include('partials.admin.categoryheader')
+
+@section('section_actions')
+    <div class="col-md-3">
+        <a href="{{ route('home') }}" class="btn btn-light btn-block"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+    </div>
+    <div class="col-md-3">
+        <a href="{{ route('category.create') }}" class="btn btn-success btn-block"><i class="fas fa-plus"></i> Add Category</a>
+    </div>
+@endsection('section_actions')
 
 @section('content')
     <div class="col">
         <div class="card card-default">
-            <div class="card-header">Categories</div>
+            <div class="card-header">
+                <h4>Categories</h4>
+            </div>
             <div class="card-body">
-                <table class="table">
-                    <thead>
-                    <th>Name</th>
-                    <th>Post Count</th>
-                    <th></th>
-                    </thead>
-                    <tbody>
-                    @foreach($categories as $cat)
-                        <tr>
-                            <td>
-                                {{$cat->name}}
-                            </td>
-                            <td>
-                                {{$cat->posts->count()}}
-                            </td>
-                            <td>
-                                <a href="{{route('categories.edit', $cat->id)}}" class="btn btn-info btn-sm">Edit</a>
-                                <button onclick="handleDelete({{$cat->id}})" class="btn btn-warning btn-sm">delete</button>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                @if($categories->count() == 0)
+                    <h4>No categories in database</h4>
+                @else
+                    <table class="table">
+                        <thead>
+                        <th>Name</th>
+                        <th>Post Count</th>
+                        <th></th>
+                        </thead>
+                        <tbody>
+                        @foreach($categories as $cat)
+                            <tr>
+                                <td>
+                                    {{$cat->name}}
+                                </td>
+                                <td>
+                                    {{$cat->posts->count()}}
+                                </td>
+                                <td>
+                                    <a href="{{route('category.edit', $cat->id)}}" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
+                                    <button onclick="handleDelete({{$cat->id}})" class="btn btn-warning"><i class="fas fa-trash"></i> Delete</button>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                @endif
 
                 <!-- Modal -->
                 <form action="" method="post" id="deleteCategoryForm">
@@ -72,3 +77,14 @@
         </div>
     </div>
 @endsection('content')
+
+@section('scripts')
+    <script>
+        function handleDelete(id)
+        {
+            var form = document.getElementById("deleteCategoryForm");
+            form.action = '/category/' + id;
+            $('#deleteModal').modal('show');
+        }
+    </script>
+@endsection

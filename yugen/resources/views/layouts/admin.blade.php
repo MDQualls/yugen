@@ -52,21 +52,20 @@
 
 <section id="main">
     <div class="container">
+
+        @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{session()->get('success')}}
+            </div>
+        @endif
+        @if(session()->has('error'))
+            <div class="alert alert-danger">
+                {{session()->get('error')}}
+            </div>
+        @endif
+
         <div class="row">
-
-            @if(session()->has('success'))
-                <div class="alert alert-success">
-                    {{session()->get('success')}}
-                </div>
-            @endif
-            @if(session()->has('error'))
-                <div class="alert alert-danger">
-                    {{session()->get('error')}}
-                </div>
-            @endif
-
             @yield('content')
-
         </div>
     </div>
 </section>
@@ -103,6 +102,9 @@
     // Get the current year for the copyright
     $('#year').text(new Date().getFullYear());
 </script>
+
+@yield('scripts')
+
 </body>
 
 </html>

@@ -2,13 +2,13 @@
 
 @section('section_actions')
     <div class="col-md-3">
-        <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addPostModal"><i class="fas fa-plus"></i> Add Post</a>
+        <a href="{{ route('post.create') }}" class="btn btn-primary btn-block"><i class="fas fa-plus"></i> Add Post</a>
     </div>
     <div class="col-md-3">
-        <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#addCategoryModal"><i class="fas fa-plus"></i> Add Category</a>
+        <a href="{{ route('category.create') }}" class="btn btn-success btn-block"><i class="fas fa-plus"></i> Add Category</a>
     </div>
     <div class="col-md-3">
-        <a href="#" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#addUserModal"><i class="fas fa-plus"></i> Add Users</a>
+        <a href="{{ route('user.create') }}" class="btn btn-secondary btn-block"><i class="fas fa-plus"></i> Add User</a>
     </div>
 @endsection('section_actions')
 
