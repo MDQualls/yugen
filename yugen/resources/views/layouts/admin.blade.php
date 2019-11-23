@@ -25,15 +25,20 @@
 
 <!-- HEADER -->
 
-<header id="main-header" class="py-2 bg-primary text-white">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h1><i class="fas fa-cog"></i> @yield('section_title', 'Dashboard')</h1>
+
+@hassection('header_section')
+    @yield('header_section')
+@else
+    <header id="main-header" class="py-2 bg-primary text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1><i class="fas fa-cog"></i> Dashboard</h1>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
+@endif
 
 <!-- ACTIONS -->
 
