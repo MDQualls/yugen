@@ -13,6 +13,12 @@
                 <li class="nav-item px-2">
                     <a href="{{ route('user.index') }}" class="nav-link">Users</a>
                 </li>
+                <li class="nav-item px-2">
+                    <a href="{{ route('user.index') }}" class="nav-link">Users</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a href="{{ route('tag.index') }}" class="nav-link">Tags</a>
+                </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">

@@ -1,5 +1,17 @@
 @extends('layouts.admin')
 
+@section('header_section')
+    <header id="main-header" class="py-2 bg-primary text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1><i class="fas fa-cog"></i> Dashboard</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+@endsection('section_header')
+
 @section('section_actions')
     <div class="col-md-3">
         <a href="{{ route('post.create') }}" class="btn btn-primary btn-block"><i class="fas fa-plus"></i> Add Post</a>
