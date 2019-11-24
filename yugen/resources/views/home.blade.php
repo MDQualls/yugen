@@ -48,12 +48,12 @@
                         <tbody>
                         @foreach($posts as $post)
                             <tr>
-                                <td>1</td>
+                                <td>{{$post->id}}</td>
                                 <td>{{$post->title}}</td>
                                 <td>{{$post->category->name}}</td>
                                 <td>{{$post->published_at}}</td>
                                 <td>
-                                    <a href="#" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-right"></i> Details</a>
+                                    <a href="{{route('post.edit', $post->id)}}" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-right"></i> Details</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -77,7 +77,7 @@
         <div class="card text-center bg-success text-white mb-3">
             <div class="card-body">
                 <h3>Categories</h3>
-                <h4 class="display-4"><i class="fas fa-folder"></i> 4</h4>
+                <h4 class="display-4"><i class="fas fa-folder"></i> {{$categoryCount}}</h4>
                 <a href="{{ route('category.index') }}" class="btn btn-outline-light btn-sm">View</a>
             </div>
         </div>
@@ -85,7 +85,7 @@
         <div class="card text-center bg-secondary text-white mb-3">
             <div class="card-body">
                 <h3>Users</h3>
-                <h4 class="display-4"><i class="fas fa-users"></i> 6</h4>
+                <h4 class="display-4"><i class="fas fa-users"></i> {{$userCount}}</h4>
                 <a href="{{ route('user.index') }}" class="btn btn-outline-light btn-sm">View</a>
             </div>
         </div>
