@@ -31,79 +31,35 @@
                 <h4>Latest Posts</h4>
             </div>
             <div class="card-body">
-                <table class="table table-striped">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th>#</th>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Date</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Post One</td>
-                        <td>Web Development</td>
-                        <td>07/10/2018</td>
-                        <td>
-                            <a href="details.html" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-right"></i> Details</a>
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td>2</td>
-                        <td>Post Two</td>
-                        <td>Web Development</td>
-                        <td>08/10/2018</td>
-                        <td>
-                            <a href="details.html" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-right"></i> Details</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Post Three</td>
-                        <td>Tech Gadgets</td>
-                        <td>09/10/2018</td>
-                        <td>
-                            <a href="details.html" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-right"></i> Details</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>4</td>
-                        <td>Post Four</td>
-                        <td>Business</td>
-                        <td>01/10/2019</td>
-                        <td>
-                            <a href="details.html" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-right"></i> Details</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>5</td>
-                        <td>Post Five</td>
-                        <td>Business</td>
-                        <td>02/10/2019</td>
-                        <td>
-                            <a href="details.html" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-right"></i> Details</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>6</td>
-                        <td>Post Six</td>
-                        <td>Health & Wellness</td>
-                        <td>03/10/2019</td>
-                        <td>
-                            <a href="details.html" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-right"></i> Details</a>
-                        </td>
-                    </tr>
-
-                    </tbody>
-                </table>
+                @if($posts->count() == 0)
+                    <h4>No posts in database</h4>
+                @else
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($posts as $post)
+                            <tr>
+                                <td>1</td>
+                                <td>{{$post->title}}</td>
+                                <td>{{$post->category->name}}</td>
+                                <td>{{$post->published_at}}</td>
+                                <td>
+                                    <a href="#" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-right"></i> Details</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                @endif
             </div>
         </div>
     </div>
