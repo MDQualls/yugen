@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="description">Description</label>
+                        <label for="description">Summary of Post</label>
                         <textarea class="form-control" name="description" id="description" cols="5" rows="2">{{isset($post) ? $post->description : ''}}</textarea>
                     </div>
 
