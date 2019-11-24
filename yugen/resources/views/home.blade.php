@@ -69,7 +69,7 @@
         <div class="card text-center bg-primary text-white mb-3">
             <div class="card-body">
                 <h3>Posts</h3>
-                <h4 class="display-4"><i class="fas fa-pencil-alt"></i> 10</h4>
+                <h4 class="display-4"><i class="fas fa-pencil-alt"></i> {{$posts->count()}}</h4>
                 <a href="{{ route('post.index') }}" class="btn btn-outline-light btn-sm">View</a>
             </div>
         </div>
