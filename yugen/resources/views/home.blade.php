@@ -51,7 +51,7 @@
                                 <td>{{$post->id}}</td>
                                 <td>{{$post->title}}</td>
                                 <td>{{$post->category->name}}</td>
-                                <td>{{$post->published_at}}</td>
+                                <td>{{Carbon\Carbon::parse($post->published_at)->format('m/d/Y')}}</td>
                                 <td>
                                     <a href="{{route('post.edit', $post->id)}}" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-right"></i> Details</a>
                                 </td>

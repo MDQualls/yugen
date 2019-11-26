@@ -21,7 +21,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.post.index')->with('posts', Post::simplePaginate(3));
+        return view('admin.post.index')->with('posts', Post::simplePaginate(10));
     }
 
     /**
