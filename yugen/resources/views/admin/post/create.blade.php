@@ -33,13 +33,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="description">Summary of Post</label>
-                        <textarea class="form-control" name="description" id="description" cols="5" rows="2">{{isset($post) ? $post->description : ''}}</textarea>
+                        <label for="summary">Summary of Post</label>
+                        <textarea class="form-control" name="summary" id="summary" cols="5" rows="2">{{isset($post) ? $post->summary : ''}}</textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="post_content">Content</label>
-                        <textarea aria-multiline="true" name="post_content" id="post_content"></textarea>
+                        <label for="post_content">Post Content</label>
+                        <textarea aria-multiline="true" name="post_content" id="post_content">{{isset($post) ? $post->post_content : ''}}</textarea>
                     </div>
 
                     <div class="form-group">

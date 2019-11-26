@@ -27,6 +27,7 @@
                                 <th>Title</th>
                                 <th>Category</th>
                                 <th>Published at</th>
+                                <th>Author</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -36,6 +37,7 @@
                                 <td>{{$post->title}}</td>
                                 <td>{{$post->category->name}}</td>
                                 <td>{{$post->published_at}}</td>
+                                <td>{{$post->user->name}}</td>
                                 <td>
                                     <a href="{{route('post.edit', $post->id)}}" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-right"></i> Details</a>
                                 </td>

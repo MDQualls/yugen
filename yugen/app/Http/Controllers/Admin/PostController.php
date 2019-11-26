@@ -4,9 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Posts\CreatePostRequest;
+use App\Http\Requests\Posts\UpdatePostRequest;
 use App\Post;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 
 class PostController extends Controller
 {
@@ -17,7 +21,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.post.index')->with('posts', Post::simplePaginate(10));
+        return view('admin.post.index')->with('posts', Post::simplePaginate(3));
     }
 
     /**
@@ -31,14 +35,23 @@ class PostController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     * @return Response
+     * @param CreatePostRequest $request
+     * @return RedirectResponse|Redirector
      */
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
-        //
+        Post::create([
+            'title' => $request->title,
+            'summary' => $request->summary,
+            'post_content' => $request->post_content,
+            'published_at' => $request->published_at,
+            'category_id' => $request->category,
+            'user_id' => auth()->user()->id,
+        ]);
+
+        session()->flash('success', 'Post successfully created.');
+
+        return redirect(route('post.index'));
     }
 
     /**
@@ -53,26 +66,30 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
+     * @param Post $post
+     * @return mixed
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return view('admin.post.create')
+            ->with('post', $post)
+            ->with('categories', Category::all());
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param  int  $id
-     * @return Response
+     * @param UpdatePostRequest $request
+     * @param Post $post
+     * @return RedirectResponse|Redirector
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $data = $request->only('title', 'summary', 'post_content', 'published_at', 'category');
+
+        $post->update($data);
+
+        session()->flash('success', 'Post updated successfully.');
+
+        return redirect(route('post.index'));
     }
 
     /**
