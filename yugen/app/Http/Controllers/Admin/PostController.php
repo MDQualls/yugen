@@ -14,6 +14,12 @@ use Illuminate\Routing\Redirector;
 
 class PostController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('verifyCategoryCount')->only(['create', 'store']);
+    }
+
     /**
      * Display a listing of the resource.
      *
