@@ -15,6 +15,11 @@ use Illuminate\View\View;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('VerifyCategoryHasNoPosts')->only(['destroy']);
+    }
+
     /**
      * @return Factory|View
      */
