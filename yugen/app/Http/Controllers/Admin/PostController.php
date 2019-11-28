@@ -7,10 +7,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Posts\CreatePostRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use App\Post;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
 
 class PostController extends Controller
 {
@@ -27,7 +29,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.post.index')->with('posts', Post::simplePaginate(10));
+        return view('admin.post.index')
+            ->with('title', 'Active Posts')
+            ->with('posts', Post::where('archived', '=', 0)->paginate(10));
     }
 
     /**
@@ -99,13 +103,53 @@ class PostController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
+     * @param Post $post
+     * @return RedirectResponse|Redirector
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        session()->flash('success', 'Post deleted successfully');
+
+        return redirect(route('archived-posts'));
+    }
+
+    /**
+     * @param Post $post
+     * @return RedirectResponse|Redirector
+     */
+    public function archive(Post $post)
+    {
+        $post->archived = 1;
+        $post->save();
+
+        session()->flash('success', 'Post successfully archived.');
+
+        return redirect(route('post.index'));
+    }
+
+    /**
+     * @return Factory|View
+     */
+    public function archivedPosts()
+    {
+        return view('admin.post.index')
+            ->with('title', 'Archived Posts')
+            ->with('posts', Post::where('archived', '=', 1)->paginate(10));
+    }
+
+    /**
+     * @param Post $post
+     * @return RedirectResponse|Redirector
+     */
+    public function restore(Post $post)
+    {
+        $post->archived = 0;
+        $post->save();
+
+        session()->flash('success', 'Post successfully restored.');
+
+        return redirect(route('post.index'));
     }
 }

@@ -13,6 +13,7 @@ class PostRepository implements PostRepositoryInterface
     public function getLatestPosts()
     {
         $posts = Post::all()
+            ->where('archived', '=', 0)
             ->sortByDesc('published_at')
             ->take(10);
 

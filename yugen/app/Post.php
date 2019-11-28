@@ -13,6 +13,7 @@ class Post extends Model
         'published_at',
         'category_id',
         'user_id',
+        'archived',
     ];
 
     public function category()

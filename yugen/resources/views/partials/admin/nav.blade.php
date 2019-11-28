@@ -4,6 +4,20 @@
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav">
+
+                <li class="nav-item dropdown px-2">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        Posts
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="{{ route('post.index') }}" class="dropdown-item">Active Posts</a>
+
+                        <a href="{{ route('archived-posts') }}" class="dropdown-item">Archived Posts</a>
+
+                    </div>
+                </li>
+
+
                 <li class="nav-item px-2">
                     <a href="{{ route('post.index') }}" class="nav-link">Posts</a>
                 </li>
