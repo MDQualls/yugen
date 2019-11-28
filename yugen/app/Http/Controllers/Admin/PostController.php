@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Posts\CreatePostRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use App\Post;
+use App\Services\Tag\TagServiceInterface;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -16,10 +17,16 @@ use Illuminate\View\View;
 
 class PostController extends Controller
 {
+    /**
+     * @var TagServiceInterface
+     */
+    var $tagService;
 
-    public function __construct()
+    public function __construct(TagServiceInterface $tagService)
     {
         $this->middleware('verifyCategoryCount')->only(['create', 'store']);
+
+        $this->tagService = $tagService;
     }
 
     /**
@@ -50,7 +57,7 @@ class PostController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
-        Post::create([
+        $post = Post::create([
             'title' => $request->title,
             'summary' => $request->summary,
             'post_content' => $request->post_content,
@@ -58,6 +65,10 @@ class PostController extends Controller
             'category_id' => $request->category,
             'user_id' => auth()->user()->id,
         ]);
+
+        if ($request->tags) {
+             $this->tagService->updateTags($post, $request->tags);
+        }
 
         session()->flash('success', 'Post successfully created.');
 
@@ -67,7 +78,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function show($id)
@@ -96,6 +107,8 @@ class PostController extends Controller
         $data = $request->only('title', 'summary', 'post_content', 'published_at', 'category');
 
         $post->update($data);
+
+        $this->tagService->updateTags($post, $request->tags);
 
         session()->flash('success', 'Post updated successfully.');
 

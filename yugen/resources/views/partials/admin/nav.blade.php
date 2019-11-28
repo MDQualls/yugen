@@ -16,11 +16,6 @@
 
                     </div>
                 </li>
-
-
-                <li class="nav-item px-2">
-                    <a href="{{ route('post.index') }}" class="nav-link">Posts</a>
-                </li>
                 <li class="nav-item px-2">
                     <a href="{{ route('category.index') }}" class="nav-link">Categories</a>
                 </li>

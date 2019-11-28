@@ -1,6 +1,7 @@
 <?php
 
 use App\Providers\PostRepositoryServiceProvider;
+use App\Providers\TagServiceProvider;
 
 return [
 
@@ -181,7 +182,8 @@ return [
          * Custom Providers
          */
 
-        PostRepositoryServiceProvider::class
+        PostRepositoryServiceProvider::class,
+        TagServiceProvider::class
 
     ],
 

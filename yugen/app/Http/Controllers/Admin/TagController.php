@@ -15,7 +15,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        return view('admin.tag.index')->with('tags', Tag::all());
+        return view('admin.tag.index')->with('tags', Tag::simplePaginate(20));
     }
 
     /**

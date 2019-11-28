@@ -30,4 +30,20 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    /**
+     * @param Post $post
+     * @return string
+     */
+    public function getTagsAsString(): string
+    {
+        $tags = $this->tags;
+
+        $result = "";
+        foreach ($tags as $tag) {
+            $result .= "#$tag->name ";
+        }
+
+        return $result;
+    }
 }

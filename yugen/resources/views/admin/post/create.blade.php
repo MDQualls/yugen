@@ -66,8 +66,7 @@
 
                     <div class="form-group">
                         <label for="tags">Tags</label>
-                        <textarea class="form-control" name="tags" id="tags" cols="30" rows="2"></textarea>
-
+                        <textarea class="form-control" name="tags" id="tags" cols="30" rows="2">{{isset($post) ? $post->getTagsAsString() : ''}}</textarea>
                     </div>
 
 
