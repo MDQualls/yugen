@@ -47,6 +47,21 @@
                         <input type="text" class="form-control" name="published_at" id="published_at" value="{{isset($post) ? $post->published_at : ''}}">
                     </div>
 
+                    @if(isset($post))
+                        <div class="form-group mt-4">
+                            @if($post->header_image == null)
+                                <h4><i class="fas fa-angle-double-right"></i> No header image for this post</h4>
+                            @else
+                                <img src="{{asset("storage/$post->header_image")}}" alt="Post Header Image" class="img-fluid img-thumbnail">
+                            @endif
+                        </div>
+                    @endif
+
+                    <div class="form-group">
+                        <label for="header_image">Header Image</label>
+                        <input type="file" class="form-control" name="header_image" id="header_image">
+                    </div>
+
                     <div class="form-group">
                         <label for="category">Category</label>
                         <select name="category" id="category" class="form-control">
@@ -90,12 +105,18 @@
 @section('scripts')
     <script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="{{ asset('js/ckfinder.js') }}"></script>
 
     <script>
         flatpickr("#published_at", {});
 
         ClassicEditor
-            .create( document.querySelector( '#post_content' ) )
+            .create( document.querySelector( '#post_content' ) , {
+                ckfinder: {
+                    uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+                },
+                toolbar: [ 'ckfinder', 'imageUpload', '|', 'heading', '|', 'bold', 'italic', '|', 'undo', 'redo' ]
+            })
             .catch( error => {
                 console.error( error );
             } );

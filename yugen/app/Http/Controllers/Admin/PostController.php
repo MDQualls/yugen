@@ -13,6 +13,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class PostController extends Controller
@@ -57,6 +58,8 @@ class PostController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
+        $img = $request->header_image->store('posts');
+
         $post = Post::create([
             'title' => $request->title,
             'summary' => $request->summary,
@@ -64,6 +67,7 @@ class PostController extends Controller
             'published_at' => $request->published_at,
             'category_id' => $request->category,
             'user_id' => auth()->user()->id,
+            'header_image' => $img,
         ]);
 
         if ($request->tags) {
@@ -106,6 +110,12 @@ class PostController extends Controller
     {
         $data = $request->only('title', 'summary', 'post_content', 'published_at', 'category');
 
+        if($request->hasFile('header_image'))  {
+            $img = $request->header_image->store('posts');
+            Storage::delete($post->header_image);
+            $data['header_image'] = $img;
+        }
+
         $post->update($data);
 
         $this->tagService->updateTags($post, $request->tags);
@@ -122,6 +132,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        Storage::delete($post->header_image);
         $post->delete();
         session()->flash('success', 'Post deleted successfully');
 

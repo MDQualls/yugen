@@ -14,6 +14,7 @@ class Post extends Model
         'category_id',
         'user_id',
         'archived',
+        'header_image',
     ];
 
     public function category()
