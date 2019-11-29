@@ -83,7 +83,7 @@
             </div>
         </div>
 
-        <div class="card text-center bg-secondary text-white mb-3">
+        <div class="card text-center bg-orange text-white mb-3">
             <div class="card-body">
                 <h3>Users</h3>
                 <h4 class="display-4"><i class="fas fa-users"></i> {{$userCount}}</h4>
