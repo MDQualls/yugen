@@ -1,6 +1,6 @@
 <?php
 
-use App\User_Status;
+use App\UserStatus;
 use Illuminate\Database\Seeder;
 
 class UserStatusTableSeeder extends Seeder
@@ -15,10 +15,10 @@ class UserStatusTableSeeder extends Seeder
         $seedStatuses = ['active', 'suspended'];
 
         foreach ($seedStatuses as $seedStatus)  {
-            $status = User_Status::where('status', $seedStatus)->first();
+            $status = UserStatus::where('status', $seedStatus)->first();
 
             if(!$status)  {
-                User_Status::create([
+                UserStatus::create([
                     'status' => $seedStatus,
                 ]);
             }

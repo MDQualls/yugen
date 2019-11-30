@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function status()
     {
-        return $this->belongsTo(User_Status::class);
+        return $this->belongsTo(UserStatus::class);
     }
 
     public function posts()

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User_Status extends Model
+class UserStatus extends Model
 {
     protected $fillable = [
         'status',
