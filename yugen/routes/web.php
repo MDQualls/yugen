@@ -27,4 +27,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::put('archive/{post}', 'Admin\PostController@archive')->name('archive-post');
     Route::put('restore/{post}', 'Admin\PostController@restore')->name('restore-post');
     Route::get('archived-posts', 'Admin\PostController@archivedPosts')->name('archived-posts');
+
+    Route::put('update/{user}', 'Admin\UserController@update')->name('user.member-update');
 });

@@ -31,7 +31,13 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->role->role_name}}</td>
-                            <td>{{$user->status->status}}</td>
+                            <td>
+                                @if($user->status->status == 'active')
+                                    <div class="text-success">{{$user->status->status}}</div>
+                                @else
+                                    <div class="text-danger">{{$user->status->status}}</div>
+                                @endif
+                            </td>
                             <td>
                                 <a href="{{route('user.edit', $user->id)}}" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-right"></i> Details</a>
                             </td>

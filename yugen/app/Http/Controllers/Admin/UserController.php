@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Users\UpdateUserRequest;
+use App\Role;
 use App\User;
+use App\UserStatus;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
 
 class UserController extends Controller
 {
@@ -26,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return redirect('user.index');
+        return redirect(route('users.index'));
     }
 
     /**
@@ -35,7 +40,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect('user.index');
+        return redirect(route('users.index'));
     }
 
     /**
@@ -44,30 +49,45 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return redirect('user.index');
+        return redirect(route('users.index'));
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
+     * @param User $user
+     * @return Factory|View
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        if($user->status->status == 'active')  {
+            session()->flash('success', 'This user is active');
+        } else {
+            session()->flash('error', 'This user is suspended');
+        }
+
+        return view('admin.user.create')
+            ->with('user', $user)
+            ->with('statuses', UserStatus::all())
+            ->with('roles', Role::all());
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return Response
+     * @param UpdateUserRequest $request
+     * @param User $user
+     * @return RedirectResponse|Redirector
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $data = [];
+        $data['name'] = ($request->name != '') ? $request->name : $user->name;
+        $data['email'] = ($request->email != '') ? $request->email : $user->email;
+        $data['role_id'] = ($request->role != '') ? $request->role : $user->role->id;
+        $data['status_id'] = ($request->status != '') ? $request->status : $user->status->id;
+
+         $user->update($data);
+
+        session()->flash('success', 'User updated successfully.');
+
+        return redirect(route('user.index'));
     }
 
     /**
