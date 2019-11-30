@@ -89,6 +89,7 @@
                         <button class="btn btn-success" type="submit">
                             {{ isset($post) ? 'Edit' : 'Create' }} Post
                         </button>
+                        <a href="{{route('post.index')}}" class="btn btn-secondary ml-3"><i class="fas fa-arrow-left"></i> Cancel </a>
                     </div>
 
                 </form>

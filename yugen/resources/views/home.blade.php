@@ -20,7 +20,7 @@
         <a href="{{ route('category.create') }}" class="btn btn-success btn-block"><i class="fas fa-plus"></i> Add Category</a>
     </div>
     <div class="col-md-3">
-        <a href="{{ route('user.create') }}" class="btn btn-secondary btn-block"><i class="fas fa-plus"></i> Add User</a>
+        <a href="{{ route('archived-posts') }}" class="btn btn-warning btn-block"><i class="fas fa-archive"></i> Archived Posts</a>
     </div>
 @endsection('section_actions')
 
