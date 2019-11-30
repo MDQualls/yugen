@@ -1,16 +1,15 @@
 @extends('layouts.admin')
 
-@section('header_section')
-    <header id="main-header" class="py-2 bg-orange text-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1><i class="fas fa-users"></i> Users</h1>
-                </div>
-            </div>
-        </div>
-    </header>
-@endsection('header_section')
+@include('partials.admin.userheader')
+
+@section('section_actions')
+    <div class="col-md-3">
+        <a href="{{ route('home') }}" class="btn btn-light btn-block"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+    </div>
+    <div class="col-md-3">
+        <a href="{{ route('user.create') }}" class="btn btn-secondary btn-block"><i class="fas fa-plus"></i> Add User</a>
+    </div>
+@endsection('section_actions')
 
 @section('content')
     <div class="col">

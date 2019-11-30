@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\User;
 use App\Role;
+use App\User_Status;
 
 class UsersTableSeeder extends Seeder
 {
@@ -15,6 +16,8 @@ class UsersTableSeeder extends Seeder
     {
         $role = Role::where('role_name', 'administrator')->first();
 
+        $status = User_Status::where('status', 'active')->first();
+
         $user = User::where('email', 'mqualls@gmail.com')->first();
 
         if (!$user) {
@@ -24,6 +27,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'mqualls@gmail.com',
                 'password' => Hash::make('password'),
                 'role_id' => $role->id,
+                'status_id' => $status->id,
             ]);
         }
 
