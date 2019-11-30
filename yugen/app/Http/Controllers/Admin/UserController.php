@@ -58,12 +58,6 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        if($user->status->status == 'active')  {
-            session()->flash('success', 'This user is active');
-        } else {
-            session()->flash('error', 'This user is suspended');
-        }
-
         return view('admin.user.create')
             ->with('user', $user)
             ->with('statuses', UserStatus::all())
@@ -98,6 +92,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return redirect(route('users.index'));
     }
 }

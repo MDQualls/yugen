@@ -10,6 +10,14 @@
 
 @section('content')
     <div class="col">
+
+        @if($user->status->status == 'active')
+            <div class="alert alert-success">This user is active</div>
+        @else
+            <div class="alert alert-danger">This user is suspended</div>
+        @endif
+
+
         <div class="card card-default">
             <div class="card-header">
                 <h4>Update User Account</h4>
