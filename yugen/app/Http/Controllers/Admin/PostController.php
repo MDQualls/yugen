@@ -58,7 +58,11 @@ class PostController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
-        $img = $request->header_image->store('posts');
+        $img = '';
+        if($request->hasFile('header_image'))  {
+            $img = $request->header_image->store('posts');
+        }
+
 
         $post = Post::create([
             'title' => $request->title,

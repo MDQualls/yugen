@@ -106,7 +106,7 @@
 @section('scripts')
     <script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="{{ asset('js/ckfinder.js') }}"></script>
+    @include('ckfinder::setup')
 
     <script>
         flatpickr("#published_at", {});
