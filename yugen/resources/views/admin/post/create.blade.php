@@ -100,12 +100,12 @@
 @endsection
 
 @section('css')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="{{asset('css/flatpickr.min.css')}}">
 @endsection
 
 @section('scripts')
-    <script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="{{asset('js/ckeditor.js')}}"></script>
+    <script src="{{asset('js/flatpickr.min.js')}}"></script>
     @include('ckfinder::setup')
 
     <script>
