@@ -49506,8 +49506,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\laravel\yugen\yugen\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\laravel\yugen\yugen\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\laravel6\yugen\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\laravel6\yugen\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
