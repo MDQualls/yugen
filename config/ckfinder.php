@@ -6,6 +6,8 @@
  * For the official documentation visit http://docs.cksource.com/ckfinder3-php/
  */
 
+use App\Http\Middleware\CustomCkFinderAuth;
+
 /*============================ PHP Error Reporting ====================================*/
 // http://docs.cksource.com/ckfinder3-php/debugging.html
 
@@ -22,7 +24,7 @@
 
 $config = array();
 
-$config['authentication'] = "\App\Http\Middleware\CustomCKFinderAuth";
+$config['authentication'] = CustomCKFinderAuth::class;
 
 /*============================ License Key ============================================*/
 // http://docs.cksource.com/ckfinder3-php/configuration.html#configuration_options_licenseKey
