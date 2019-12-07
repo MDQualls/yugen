@@ -14,6 +14,5 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
 
-mix.copy('E:\\laravel\\yugen\\yugen\\node_modules\\@ckeditor\\ckeditor5-build-classic\\build\\ckeditor.js', 'public/js/ckeditor.js');
 mix.copy('E:\\laravel\\yugen\\yugen\\node_modules\\flatpickr\\dist\\flatpickr.min.js', 'public/js/flatpickr.min.js');
 mix.copy('E:\\laravel\\yugen\\yugen\\node_modules\\flatpickr\\dist\\flatpickr.min.css', 'public/css/flatpickr.min.css');

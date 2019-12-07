@@ -2,7 +2,6 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\CustomCkFinderAuth;
 use App\Http\Middleware\VerifyCategoryCount;
 use App\Http\Middleware\VerifyCategoryHasNoPosts;
 use App\Http\Middleware\VerifyIsAdmin;
@@ -70,7 +69,6 @@ class Kernel extends HttpKernel
         'admin' => VerifyIsAdmin::class,
         'VerifyCategoryHasNoPosts' => VerifyCategoryHasNoPosts::class,
         'suspended' => VerifyNotSuspended::class,
-        'CustomCkFinderAuth' => CustomCkFinderAuth::class,
     ];
 
     /**
