@@ -24,9 +24,6 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "@ckeditor/ckeditor5-build-classic": "^15.0.0",
-        "@ckeditor/ckeditor5-ckfinder": "^15.0.0",
-        "ckeditor5": "^15.0.0",
         "flatpickr": "^4.6.3"
     }
 }

@@ -4,7 +4,8 @@
 
 @section('section_actions')
     <div class="col-md-3">
-        <a href="{{ route('home') }}" class="btn btn-light btn-block"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+        <a href="{{ route('home') }}" class="btn btn-light btn-block"><i class="fas fa-arrow-left"></i> Back to
+            Dashboard</a>
     </div>
 @endsection('section_actions')
 
@@ -19,7 +20,9 @@
 
                 @include('partials.errors')
 
-                <form action="{{isset($post) ? route('post.update', $post->id) : route('post.store')}}" method="POST" enctype="multipart/form-data">
+                <form id="blog_post_form" onsubmit="return validate_blog_post_form()"
+                      action="{{isset($post) ? route('post.update', $post->id) : route('post.store')}}" method="POST"
+                      enctype="multipart/form-data">
 
                     @csrf
 
@@ -28,23 +31,30 @@
                     @endif
 
                     <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" class="form-control" name="title" id="title" value="{{isset($post) ? $post->title : ''}}">
+                        <label for="title">Title</label> <span data-for="title" data-role="verification"
+                                                               class="ml-2 text-danger"><i
+                                class="fas fa-certificate"></i> Required.</span>
+                        <input type="text" class="form-control" name="title" id="title"
+                               value="{{isset($post) ? $post->title : ''}}">
                     </div>
 
                     <div class="form-group">
-                        <label for="summary">Summary of Post</label>
-                        <textarea class="form-control" name="summary" id="summary" cols="5" rows="2">{{isset($post) ? $post->summary : ''}}</textarea>
+                        <label for="summary">Summary of Post (optional)</label>
+                        <textarea class="form-control" name="summary" id="summary" cols="5"
+                                  rows="1">{{isset($post) ? $post->summary : ''}}</textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="post_content">Post Content</label>
+                        <label for="post_content">Post Content</label> <span data-for="post_content" data-role="verification" class="ml-2 text-danger"><i
+                                 class="fas fa-certificate"></i> Required.</span>
                         <textarea aria-multiline="true" name="post_content" id="post_content">{{isset($post) ? $post->post_content : ''}}</textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="published_at">Published At</label>
-                        <input type="text" class="form-control" name="published_at" id="published_at" value="{{isset($post) ? $post->published_at : ''}}">
+                        <label for="published_at">Published At</label> <span data-for="published_at" data-role="verification" class="ml-2 text-danger"><i
+                                 class="fas fa-certificate"></i> Required.</span>
+                        <input type="text" class="form-control" name="published_at" id="published_at"
+                               value="{{isset($post) ? $post->published_at : ''}}">
                     </div>
 
                     @if(isset($post))
@@ -52,7 +62,8 @@
                             @if($post->header_image == null)
                                 <h4><i class="fas fa-angle-double-right"></i> No header image for this post</h4>
                             @else
-                                <img src="{{asset("storage/$post->header_image")}}" alt="Post Header Image" class="img-fluid img-thumbnail">
+                                <img src="{{asset("storage/$post->header_image")}}" alt="Post Header Image"
+                                     class="img-fluid img-thumbnail">
                             @endif
                         </div>
                     @endif
@@ -63,7 +74,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="category">Category</label>
+                        <label for="category">Category</label> <span data-for="category" data-role="verification" class="ml-2 text-danger"><i
+                                    class="fas fa-certificate"></i> Required.</span>
                         <select name="category" id="category" class="form-control">
                             <option value="">Select</option>
                             @foreach($categories as $category)
@@ -81,7 +93,8 @@
 
                     <div class="form-group">
                         <label for="tags">Tags</label>
-                        <textarea class="form-control" name="tags" id="tags" cols="30" rows="2">{{isset($post) ? $post->getTagsAsString() : ''}}</textarea>
+                        <textarea class="form-control" name="tags" id="tags" cols="30"
+                                  rows="2">{{isset($post) ? $post->getTagsAsString() : ''}}</textarea>
                     </div>
 
 
@@ -89,12 +102,32 @@
                         <button class="btn btn-success" type="submit">
                             {{ isset($post) ? 'Edit' : 'Create' }} Post
                         </button>
-                        <a href="{{route('post.index')}}" class="btn btn-secondary ml-3"><i class="fas fa-arrow-left"></i> Cancel </a>
+                        <a href="{{route('post.index')}}" class="btn btn-secondary ml-3"><i
+                                class="fas fa-arrow-left"></i> Cancel </a>
                     </div>
 
                 </form>
             </div>
 
+        </div>
+    </div>
+
+    <div class="modal fade" id="verificationModal" tabindex="-1" role="dialog" aria-labelledby="verificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-danger">
+                <div class="modal-header">
+                    <h4 class="modal-title text-white" id="verificationModalLabel">Validation Error</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-white">
+                    A required field is blank.  Please review your entries in the required fields and try again.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
@@ -104,22 +137,29 @@
 @endsection
 
 @section('scripts')
-    <script src="{{asset('js/ckeditor.js')}}"></script>
     <script src="{{asset('js/flatpickr.min.js')}}"></script>
-    @include('ckfinder::setup')
 
     <script>
         flatpickr("#published_at", {});
 
-        ClassicEditor
-            .create( document.querySelector( '#post_content' ) , {
-                ckfinder: {
-                    uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
-                },
-                toolbar: [ 'ckfinder', 'imageUpload', '|', 'heading', '|', 'bold', 'italic', '|', 'undo', 'redo' ]
-            })
-            .catch( error => {
-                console.error( error );
-            } );
+        function iterateRequiredFields()
+        {
+            var invalid = 0;
+
+            $('span[data-role="verification"]').each(function () {
+                var ele = $(this).attr('data-for');
+                if ($("#" + ele).val().trim() === "") {
+                    $('#verificationModal').modal('show');
+                    invalid++;
+                }
+            });
+            return invalid;
+        }
+
+        function validate_blog_post_form() {
+            invalid = iterateRequiredFields();
+            return invalid === 0;
+        }
+
     </script>
 @endsection
