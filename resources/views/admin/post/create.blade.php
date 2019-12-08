@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 
+@section('css')
+    <link rel="stylesheet" href="{{asset('css/flatpickr.min.css')}}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+@endsection
+
 @include('partials.admin.postheader')
 
 @section('section_actions')
@@ -132,15 +137,18 @@
     </div>
 @endsection
 
-@section('css')
-    <link rel="stylesheet" href="{{asset('css/flatpickr.min.css')}}">
-@endsection
-
 @section('scripts')
     <script src="{{asset('js/flatpickr.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
 
     <script>
         flatpickr("#published_at", {});
+
+        $('#post_content').summernote({
+            placeholder: 'Enter or paste your post content here.',
+            tabsize: 2,
+            height: 100
+        });
 
         function iterateRequiredFields()
         {
@@ -148,7 +156,7 @@
 
             $('span[data-role="verification"]').each(function () {
                 var ele = $(this).attr('data-for');
-                if ($("#" + ele).val().trim() === "") {
+                if ($("#" + ele).val().replace(/(<([^>]+)>)|(&[^\s]*);/ig,"").trim() === "") {
                     $('#verificationModal').modal('show');
                     invalid++;
                 }

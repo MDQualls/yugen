@@ -1,6 +1,7 @@
 <?php
 
 use App\Providers\PostRepositoryServiceProvider;
+use App\Providers\SummerNoteImageServiceProvider;
 use App\Providers\TagServiceProvider;
 
 return [
@@ -183,7 +184,8 @@ return [
          */
 
         PostRepositoryServiceProvider::class,
-        TagServiceProvider::class
+        TagServiceProvider::class,
+        SummerNoteImageServiceProvider::class,
 
     ],
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Posts\CreatePostRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use App\Post;
+use App\Services\Post\SummerNoteImageInterface;
 use App\Services\Tag\TagServiceInterface;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -23,11 +24,17 @@ class PostController extends Controller
      */
     var $tagService;
 
-    public function __construct(TagServiceInterface $tagService)
+    /**
+     * @var SummerNoteImageInterface
+     */
+    var $summerNoteImageService;
+
+    public function __construct(TagServiceInterface $tagService, SummerNoteImageInterface $summerNoteImageService)
     {
         $this->middleware('verifyCategoryCount')->only(['create', 'store']);
 
         $this->tagService = $tagService;
+        $this->summerNoteImageService = $summerNoteImageService;
     }
 
     /**
@@ -63,11 +70,12 @@ class PostController extends Controller
             $img = $request->header_image->store('posts');
         }
 
+        $post_content = $this->summerNoteImageService->StoreImages($request->post_content);
 
         $post = Post::create([
             'title' => $request->title,
             'summary' => $request->summary,
-            'post_content' => $request->post_content,
+            'post_content' => $post_content,
             'published_at' => $request->published_at,
             'category_id' => $request->category,
             'user_id' => auth()->user()->id,
@@ -113,6 +121,8 @@ class PostController extends Controller
     public function update(UpdatePostRequest $request, Post $post)
     {
         $data = $request->only('title', 'summary', 'post_content', 'published_at', 'category');
+
+        $data['post_content'] = $this->summerNoteImageService->StoreImages($data['post_content']);
 
         if($request->hasFile('header_image'))  {
             $img = $request->header_image->store('posts');
