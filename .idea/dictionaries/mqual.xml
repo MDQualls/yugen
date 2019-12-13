@@ -2,6 +2,7 @@
   <dictionary name="mqual">
     <words>
       <w>fillable</w>
+      <w>imagedir</w>
     </words>
   </dictionary>
 </component>

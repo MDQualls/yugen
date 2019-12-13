@@ -2,17 +2,21 @@
 
 namespace App\Services\Post;
 
+use App\Services\File\FileStorageWithUrlInterface;
 use DOMDocument;
 use DOMNodeList;
 use Illuminate\Routing\UrlGenerator;
 
 class SummerNoteImageService implements SummerNoteImageInterface
 {
-    protected $url;
+    /**
+     * @var FileStorageWithUrlInterface
+     */
+    protected $s3;
 
-    public function __construct(UrlGenerator $url)
+    public function __construct(UrlGenerator $url, FileStorageWithUrlInterface $s3)
     {
-        $this->url = $url;
+        $this->s3 = $s3;
     }
 
     /**
@@ -48,11 +52,10 @@ class SummerNoteImageService implements SummerNoteImageInterface
                 // Create a new filename for the image
                 $newImageName = str_replace(".", "", uniqid("forum_img_", true));
                 $filename = $newImageName . '.' . $fileExt;
-                $file = public_path() . '/upload/' . $filename;
 
                 // Save the image to disk
-                $success = file_put_contents($file, $img);
-                $imgUrl = $this->url->to('/') . '/upload/' . $filename;
+                $success = $this->s3->put($filename, $img);
+                $imgUrl = $this->s3->url($filename);
 
                 // Update the forum thread text with an img tag for the new image
                 $newImgTag = '<img src="' . $imgUrl . '" />';

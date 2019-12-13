@@ -3,6 +3,7 @@
 use App\Providers\PostRepositoryServiceProvider;
 use App\Providers\SummerNoteImageServiceProvider;
 use App\Providers\TagServiceProvider;
+use App\Providers\S3ServiceProvider;
 
 return [
 
@@ -186,6 +187,7 @@ return [
         PostRepositoryServiceProvider::class,
         TagServiceProvider::class,
         SummerNoteImageServiceProvider::class,
+        S3ServiceProvider::class,
 
     ],
 

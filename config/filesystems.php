@@ -54,7 +54,7 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
-
+        //https://s3.console.aws.amazon.com/s3/buckets/yugenimagebucket
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
