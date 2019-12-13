@@ -36,7 +36,7 @@ class S3FileService implements FileStorageWithUrlInterface
      */
     public function delete($fileName)
     {
-        return $this->s3::disk('s3')->delete('file.jpg');
+        return $this->s3::disk('s3')->delete($fileName);
     }
 
     /**
@@ -46,7 +46,7 @@ class S3FileService implements FileStorageWithUrlInterface
      */
     public function get($fileName)
     {
-        $contents = $this->s3::disk('s3')->get(self::S3IMAGEDIR . 'file.jpg');
+        $contents = $this->s3::disk('s3')->get(self::S3IMAGEDIR . $fileName);
         return $contents;
     }
 
@@ -56,7 +56,7 @@ class S3FileService implements FileStorageWithUrlInterface
      */
     public function exists($fileName)
     {
-        $exists = $this->s3::disk('s3')->exists(self::S3IMAGEDIR . 'file.jpg');
+        $exists = $this->s3::disk('s3')->exists(self::S3IMAGEDIR . $fileName);
         return $exists;
     }
 
@@ -66,12 +66,12 @@ class S3FileService implements FileStorageWithUrlInterface
      */
     public function download($fileName)
     {
-        return $this->s3::disk('s3')->download('file.jpg');
+        return $this->s3::disk('s3')->download(self::S3IMAGEDIR . $fileName);
     }
 
     public function url($fileName)
     {
-        $url = $this->s3::disk('s3')->url('file.jpg');
+        $url = $this->s3::disk('s3')->url(self::S3IMAGEDIR . $fileName);
         return $url;
     }
 }
