@@ -50,7 +50,7 @@ class SummerNoteImageService implements SummerNoteImageInterface
                 $fileExt = str_replace('data:image/', '', $dataInfo);
 
                 // Create a new filename for the image
-                $newImageName = str_replace(".", "", uniqid("forum_img_", true));
+                $newImageName = str_replace(".", "", uniqid("post_img_", true));
                 $filename = $newImageName . '.' . $fileExt;
 
                 // Save the image to disk

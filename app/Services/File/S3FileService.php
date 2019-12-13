@@ -11,7 +11,7 @@ class S3FileService implements FileStorageWithUrlInterface
      */
     protected $s3;
 
-    const S3IMAGEDIR = '/images/';
+    const S3IMAGEDIR = 'images/';
 
     const ACCESSOPTION = 'public';
 
