@@ -9,13 +9,16 @@ use App\Http\Requests\Posts\UpdatePostRequest;
 use App\Post;
 use App\Services\Post\SummerNoteImageInterface;
 use App\Services\Tag\TagServiceInterface;
+use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+use Illuminate\Http\Exceptions\PostTooLargeException;
 
 class PostController extends Controller
 {
@@ -83,7 +86,7 @@ class PostController extends Controller
         ]);
 
         if ($request->tags) {
-             $this->tagService->updateTags($post, $request->tags);
+            $this->tagService->updateTags($post, $request->tags);
         }
 
         session()->flash('success', 'Post successfully created.');
@@ -142,11 +145,12 @@ class PostController extends Controller
     /**
      * @param Post $post
      * @return RedirectResponse|Redirector
-     * @throws \Exception
+     * @throws Exception
      */
     public function destroy(Post $post)
     {
         Storage::delete($post->header_image);
+        $this->summerNoteImageService->destroyImages($post->post_content);
         $post->delete();
         session()->flash('success', 'Post deleted successfully');
 

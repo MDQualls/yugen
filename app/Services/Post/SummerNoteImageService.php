@@ -55,6 +55,12 @@ class SummerNoteImageService implements SummerNoteImageInterface
             foreach ($tags as $tag) {
                 // Get base64 encoded string
                 $srcStr = $tag->getAttribute('src');
+
+                //if this is an existing image in s3, skip it
+                if (strstr($srcStr, "yugenimagebucket")) {
+                    continue;
+                }
+
                 $base64EncData = substr($srcStr, ($pos = strpos($srcStr, 'base64,')) !== false ? $pos + 7 : 0);
                 $base64EncData = substr($base64EncData, 0, -1);
 
