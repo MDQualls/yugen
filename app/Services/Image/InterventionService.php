@@ -3,16 +3,17 @@
 namespace App\Services\Image;
 
 use Intervention\Image\Image;
+use Intervention\Image\ImageManager;
 
 
 class InterventionService implements ImageResizeInterface
 {
     /**
-     * @var Image
+     * @var ImageManager
      */
     protected $interventionImage;
 
-    public function __construct(Image $interventionImage)
+    public function __construct(ImageManager $interventionImage)
     {
         $this->interventionImage = $interventionImage;
     }
@@ -35,7 +36,7 @@ class InterventionService implements ImageResizeInterface
         $img->resize($width, $height, function ($constraint) {
             $constraint->aspectRatio();
             $constraint->upsize();
-        });
+        })->save($image);
 
         return $img;
     }

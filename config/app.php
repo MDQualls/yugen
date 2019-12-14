@@ -4,6 +4,8 @@ use App\Providers\PostRepositoryServiceProvider;
 use App\Providers\SummerNoteImageServiceProvider;
 use App\Providers\TagServiceProvider;
 use App\Providers\S3ServiceProvider;
+use App\Providers\InterventionServiceProvider;
+use App\Providers\FileStorageServiceProvider;
 
 return [
 
@@ -189,6 +191,8 @@ return [
         SummerNoteImageServiceProvider::class,
         S3ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        InterventionServiceProvider::class,
+        FileStorageServiceProvider::class,
 
     ],
 
