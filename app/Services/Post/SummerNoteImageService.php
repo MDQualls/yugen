@@ -2,7 +2,6 @@
 
 namespace App\Services\Post;
 
-use App\Services\File\FileStorageInterface;
 use App\Services\File\FileStorageWithUrlInterface;
 use App\Services\Image\ImageResizeInterface;
 use DOMDocument;
