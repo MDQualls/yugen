@@ -33,10 +33,10 @@ class InterventionService implements ImageResizeInterface
         $img = $this->interventionImage->make($image);
 
         // prevent possible upsizing
-        $img->resize($width, $height, function ($constraint) {
+        $img = $img->resize($width, $height, function ($constraint) {
             $constraint->aspectRatio();
             $constraint->upsize();
-        })->save($image);
+        });//->save($image);
 
         return $img;
     }

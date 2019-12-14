@@ -3,7 +3,6 @@
 namespace App\Services\Post;
 
 use App\Services\File\FileStorageInterface;
-use App\Services\File\FileStorageService;
 use App\Services\File\FileStorageWithUrlInterface;
 use App\Services\Image\ImageResizeInterface;
 use DOMDocument;
@@ -21,19 +20,12 @@ class SummerNoteImageService implements SummerNoteImageInterface
      */
     protected $interventionService;
 
-    /**
-     * @var FileStorageService
-     */
-    protected $fileStorageService;
-
     public function __construct(
         FileStorageWithUrlInterface $s3,
-        ImageResizeInterface $interventionService,
-        FileStorageInterface $fileStorageService)
+        ImageResizeInterface $interventionService)
     {
         $this->s3 = $s3;
         $this->interventionService = $interventionService;
-        $this->fileStorageService = $fileStorageService;
     }
 
     /**
@@ -75,22 +67,16 @@ class SummerNoteImageService implements SummerNoteImageInterface
                 $newImageName = str_replace(".", "", uniqid("post_img_", true));
                 $filename = $newImageName . '.' . $fileExt;
 
-                //save the image to local storage
-                $this->fileStorageService->put($filename, $img);
-
                 //resize the locally stored image - set width to 1140 - matches blog width for our template
-                $localImage = storage_path('app/public/') . $filename;
-                $this->interventionService->resize(
-                    $localImage,
+                //$localImage = storage_path('app/public/') . $filename;
+                $resizedImage = $this->interventionService->resize(
+                    $img,
                     1140,
                     null);
 
                 // Save the image to s3 disk
-                $success = $this->s3->put($filename, file_get_contents($localImage));
+                $success = $this->s3->put($filename, $resizedImage->encode($fileExt));
                 $imgUrl = $this->s3->url($filename);
-
-                //delete the locally stored image
-                $this->fileStorageService->delete($filename);
 
                 $tag->setAttribute('src', $imgUrl);
                 $tag->setAttribute('data-original-filename', $tag->getAttribute('data-filename'));
