@@ -36,7 +36,7 @@ class S3FileService implements FileStorageWithUrlInterface
      */
     public function delete($fileName)
     {
-        return $this->s3::disk('s3')->delete($fileName);
+        return $this->s3::disk('s3')->delete(self::S3IMAGEDIR . $fileName);
     }
 
     /**

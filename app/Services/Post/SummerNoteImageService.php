@@ -40,10 +40,9 @@ class SummerNoteImageService implements SummerNoteImageInterface
      * @param string $submitted_text
      * @return string
      */
-    public function StoreImages($submitted_text)
+    public function storeImages($submitted_text)
     {
         // The text from Summernote here is saved in a variable called $submitted_text
-        // This if-statement could probably be better, but this is working well for me so far
         if (strpos($submitted_text, '<img') !== false && strpos($submitted_text, ';base64') !== false) {
 
             $doc = new DOMDocument();
@@ -95,5 +94,29 @@ class SummerNoteImageService implements SummerNoteImageInterface
         }
 
         return $submitted_text;
+    }
+
+    public function destroyImages($submitted_text)
+    {
+        $success = true;
+        if (strpos($submitted_text, '<img') !== false) {
+
+            $doc = new DOMDocument();
+            $doc->loadHTML($submitted_text);
+
+            /** @var DOMNodeList $tags */
+            $tags = $doc->getElementsByTagName('img');
+
+            /** @var DOMNodeList::item $tag */
+            foreach ($tags as $tag) {
+                // Get base64 encoded string
+                $srcStr = $tag->getAttribute('src');
+                $p = pathinfo($srcStr)['basename'];
+                // Delete the image from s3 disk
+                $success = $this->s3->delete($p);
+            }
+        }
+
+        return $success;
     }
 }

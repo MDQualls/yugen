@@ -70,7 +70,7 @@ class PostController extends Controller
             $img = $request->header_image->store('posts');
         }
 
-        $post_content = $this->summerNoteImageService->StoreImages($request->post_content);
+        $post_content = $this->summerNoteImageService->storeImages($request->post_content);
 
         $post = Post::create([
             'title' => $request->title,
@@ -122,7 +122,7 @@ class PostController extends Controller
     {
         $data = $request->only('title', 'summary', 'post_content', 'published_at', 'category');
 
-        $data['post_content'] = $this->summerNoteImageService->StoreImages($data['post_content']);
+        $data['post_content'] = $this->summerNoteImageService->storeImages($data['post_content']);
 
         if($request->hasFile('header_image'))  {
             $img = $request->header_image->store('posts');
