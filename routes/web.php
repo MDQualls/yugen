@@ -11,12 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
+//admin routes
 Route::middleware(['auth', 'suspended', 'admin'])->group(function () {
     Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard');
     Route::resource('category', 'Admin\CategoryController');

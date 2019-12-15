@@ -20,7 +20,6 @@ class HomeController extends Controller
      */
     public function __construct(PostRepositoryInterface $postRepository)
     {
-        $this->middleware('auth');
         $this->postRepository = $postRepository;
     }
 

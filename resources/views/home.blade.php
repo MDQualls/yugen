@@ -1,95 +1,56 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
-@section('header_section')
-    <header id="main-header" class="py-2 bg-primary text-white">
+
+@section('content')
+    <div class="page-titles-img title-space-lg bg-parallax parallax-overlay mb70" data-jarallax='{"speed": 0.2}' style="background-image: url('/images/bg14.jpg')">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h1><i class="fas fa-cog"></i> Dashboard</h1>
+                <div class=" col-md-8 ml-auto mr-auto">
+                    <h1 class='text-uppercase'>Welcome to Yugen Farm</h1>
+
                 </div>
             </div>
         </div>
-    </header>
-@endsection('section_header')
+    </div><!--page title end-->
+    <div class="container mb30">
+        <div class="row">
 
-@section('section_actions')
-    <div class="col-md-3">
-        <a href="{{ route('post.create') }}" class="btn btn-primary btn-block"><i class="fas fa-plus"></i> Add Post</a>
-    </div>
-    <div class="col-md-3">
-        <a href="{{ route('category.create') }}" class="btn btn-success btn-block"><i class="fas fa-plus"></i> Add Category</a>
-    </div>
-    <div class="col-md-3">
-        <a href="{{ route('archived-posts') }}" class="btn btn-warning btn-block"><i class="fas fa-archive"></i> Archived Posts</a>
-    </div>
-@endsection('section_actions')
-
-@section('content')
-    <div class="col-md-9">
-        <div class="card">
-            <div class="card-header">
-                <h4>Latest Posts</h4>
+            <div class="col-md-9">
+                @foreach($posts as $post)
+                    @include('partials.article', ['post' => $post])
+                @endforeach
             </div>
-            <div class="card-body">
-
-                @if($posts->count() == 0)
-                    <h4>No posts in database</h4>
-                @else
-                    <table class="table table-striped">
-                        <thead class="thead-dark">
-                        <tr>
-                            <th>#</th>
-                            <th>Title</th>
-                            <th>Category</th>
-                            <th>Date</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($posts as $post)
-                            <tr>
-                                <td>{{$post->id}}</td>
-                                <td>{{$post->title}}</td>
-                                <td>{{$post->category->name}}</td>
-                                <td>{{Carbon\Carbon::parse($post->published_at)->format('m/d/Y')}}</td>
-                                <td>
-                                    <a href="{{route('post.edit', $post->id)}}" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-right"></i> Details</a>
-                                    @include('partials.admin.postarchive')
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                @endif
+            <div class="col-md-3 mb40">
+                <div class="mb40">
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="search" aria-label="Email Id" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button type="button" class="input-group-text" id="basic-addon2">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div><!--/col-->
+                <div class="mb40">
+                    <h4 class="sidebar-title">Categories</h4>
+                    <ul class="list-unstyled categories">
+                        <li><a href="#">Branding</a></li>
+                        <li><a href="#">Photography</a></li>
+                        <li class="active"><a href="#">Wild</a>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Nature</a></li>
+                                <li><a href="#">Lorem</a></li>
+                                <li><a href="#">Ipsum</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Branding</a></li>
+                        <li><a href="#">Photography</a></li>
+                        <li><a href="#">Wild</a></li>
+                    </ul>
+                </div><!--/col-->
             </div>
         </div>
-    </div>
-
-    <div class="col-md-3">
-
-        <div class="card text-center bg-primary text-white mb-3">
-            <div class="card-body">
-                <h3>Posts</h3>
-                <h4 class="display-4"><i class="fas fa-pencil-alt"></i> {{$posts->count()}}</h4>
-                <a href="{{ route('post.index') }}" class="btn btn-outline-light btn-sm">View</a>
-            </div>
-        </div>
-
-        <div class="card text-center bg-success text-white mb-3">
-            <div class="card-body">
-                <h3>Categories</h3>
-                <h4 class="display-4"><i class="fas fa-folder"></i> {{$categoryCount}}</h4>
-                <a href="{{ route('category.index') }}" class="btn btn-outline-light btn-sm">View</a>
-            </div>
-        </div>
-
-        <div class="card text-center bg-orange text-white mb-3">
-            <div class="card-body">
-                <h3>Users</h3>
-                <h4 class="display-4"><i class="fas fa-users"></i> {{$userCount}}</h4>
-                <a href="{{ route('user.index') }}" class="btn btn-outline-light btn-sm">View</a>
-            </div>
-        </div>
-
     </div>
 @endsection
