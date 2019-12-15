@@ -34,7 +34,6 @@ class HomeController extends Controller
 
         return view('home')
             ->with('posts', $posts)
-            ->with('categoryCount', Category::count())
-            ->with('userCount', User::count());
+            ->with('categories', Category::orderBy('name', 'asc')->get());
     }
 }

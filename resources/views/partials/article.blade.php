@@ -1,10 +1,12 @@
 <article class="article-post mb70">
-    <a class="post-thumb mb30" href="#">
-        <img src="images/entry2.jpg" alt="" class="img-fluid">
-        <div class="post-overlay">
-            <span>In Photography</span>
-        </div>
-    </a><!--thumb-->
+    @if($post->header_image)
+        <a class="post-thumb mb30" href="#">
+            <img src="{{$post->header_image}}" alt="" class="img-fluid">
+            <div class="post-overlay">
+                <span>{{$post->title}}</span>
+            </div>
+        </a><!--thumb-->
+    @endif
     <div class="post-content">
         <a href="#"><h2 class="post-title">{{$post->title}}</h2></a>
         <ul class="post-meta list-inline">
