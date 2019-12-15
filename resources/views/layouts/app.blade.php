@@ -42,11 +42,11 @@
             <div class="row">
                 <div class="col-lg-6  ml-auto mr-auto text-center">
                     <ul class="social-icons list-inline">
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-facebook-square"></i>Facebook
-                            </a>
-                        </li>
+{{--                        <li class="list-inline-item">--}}
+{{--                            <a href="#">--}}
+{{--                                <i class="fab fa-facebook-square"></i>Facebook--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         {{--                        <li class="list-inline-item">--}}
                         {{--                            <a href="#">--}}
                         {{--                                <i class="fab fa-twitter-square"></i>twitter--}}
@@ -59,7 +59,9 @@
                         {{--                        </li>--}}
                     </ul>
                     <h4><i class="fas fa-envelope"></i> yugenfarm@gmail.com</h4>
-                    <p>&copy; Copyright &copy; <span id="year"></span> {{ config('app.name') }}</p>
+                    <p>
+                        <div>&copy; Copyright <span id="year"></span> {{ config('app.name') }} | Application by Michael Qualls</div>
+                    </p>
                 </div>
             </div>
         </div>
