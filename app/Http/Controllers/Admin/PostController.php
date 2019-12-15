@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Posts\CreatePostRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use App\Post;
+use App\Services\Post\HeaderImageInterface;
 use App\Services\Post\SummerNoteImageInterface;
 use App\Services\Tag\TagServiceInterface;
 use Exception;
@@ -29,12 +30,21 @@ class PostController extends Controller
      */
     var $summerNoteImageService;
 
-    public function __construct(TagServiceInterface $tagService, SummerNoteImageInterface $summerNoteImageService)
+    /**
+     * @var HeaderImageInterface
+     */
+    var $headerImageService;
+
+    public function __construct(
+        TagServiceInterface $tagService,
+        SummerNoteImageInterface $summerNoteImageService,
+        HeaderImageInterface $headerImageService)
     {
         $this->middleware('verifyCategoryCount')->only(['create', 'store']);
 
         $this->tagService = $tagService;
         $this->summerNoteImageService = $summerNoteImageService;
+        $this->headerImageService = $headerImageService;
     }
 
     /**
@@ -67,7 +77,9 @@ class PostController extends Controller
     {
         $img = '';
         if($request->hasFile('header_image'))  {
-            $img = $request->header_image->store('posts');
+            $img = $this->headerImageService->store(
+                $request->header_image->getClientOriginalName(),
+                $request->header_image);
         }
 
         $post_content = $this->summerNoteImageService->storeImages($request->post_content);
@@ -125,8 +137,10 @@ class PostController extends Controller
         $data['post_content'] = $this->summerNoteImageService->storeImages($data['post_content']);
 
         if($request->hasFile('header_image'))  {
-            $img = $request->header_image->store('posts');
-            Storage::delete($post->header_image);
+            $img = $this->headerImageService->store(
+                $request->header_image->getClientOriginalName(),
+                $request->header_image);
+            $this->headerImageService->delete($post->header_image);
             $data['header_image'] = $img;
         }
 
@@ -146,7 +160,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        Storage::delete($post->header_image);
+        $this->headerImageService->delete($post->header_image);
         $this->summerNoteImageService->destroyImages($post->post_content);
         $post->delete();
         session()->flash('success', 'Post deleted successfully');

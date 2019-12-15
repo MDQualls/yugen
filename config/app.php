@@ -6,6 +6,7 @@ use App\Providers\TagServiceProvider;
 use App\Providers\S3ServiceProvider;
 use App\Providers\InterventionServiceProvider;
 use App\Providers\FileStorageServiceProvider;
+use App\Providers\HeaderImageServiceProvider;
 
 return [
 
@@ -193,6 +194,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         InterventionServiceProvider::class,
         FileStorageServiceProvider::class,
+        HeaderImageServiceProvider::class,
 
     ],
 

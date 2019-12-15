@@ -67,7 +67,7 @@
                             @if($post->header_image == null)
                                 <h4><i class="fas fa-angle-double-right"></i> No header image for this post</h4>
                             @else
-                                <img src="{{asset("storage/$post->header_image")}}" alt="Post Header Image"
+                                <img src="{{$post->header_image}}" alt="Post Header Image"
                                      class="img-fluid img-thumbnail">
                             @endif
                         </div>
