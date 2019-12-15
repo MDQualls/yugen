@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::middleware(['auth', 'suspended', 'admin'])->group(function () {
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard');
     Route::resource('category', 'Admin\CategoryController');
     Route::resource('post', 'Admin\PostController');
     Route::resource('user', 'Admin\UserController');

@@ -18,7 +18,7 @@ class VerifyIsAdmin
     {
         if(!auth()->user()->isAdmin())  {
             session()->flash('error', 'You must be an administrator to access that area of the application.');
-            return redirect(route('home'));
+            return redirect(route('dashboard'));
         }
         return $next($request);
     }
