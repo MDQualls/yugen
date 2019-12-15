@@ -20,10 +20,15 @@
                 <i class="fas fa-tag"></i> <a href="#">{{$post->category->name}}</a>
             </li>
         </ul>
-        <p>
-            {!! Str::limit($post->post_content, strpos($post->post_content, '</p>')+4) !!}
-        </p>
-
-        <a href="#" class="btn btn-outline-secondary">Read More</a>
+        @if($fullArticle)
+            <p>
+                {!! $post->post_content !!}
+            </p>
+        @else
+            <p>
+                {!! Str::limit($post->post_content, strpos($post->post_content, '</p>')+4) !!}
+            </p>
+            <a href="{{route('blog-post', $post->id)}}" class="btn btn-outline-secondary">Read More</a>
+        @endif
     </div>
 </article><!--article-->

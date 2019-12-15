@@ -2,14 +2,12 @@
 
 
 @section('content')
-    @include('partials.pagetitle')
+    @include('partials.pagetitle', ['title' => $title])
     <div class="container mb30">
         <div class="row">
 
             <div class="col-md-9">
-                @foreach($posts as $post)
-                    @include('partials.article', ['post' => $post, 'fullArticle' => $fullArticle])
-                @endforeach
+                @include('partials.article', ['post' => $post, 'fullArticle' => $fullArticle])
             </div>
             <div class="col-md-3 mb40">
                 @include('partials.categories', ['categories', $categories])

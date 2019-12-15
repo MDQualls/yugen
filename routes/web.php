@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('article/{post}', 'HomeController@blogPost')->name('blog-post');
+Route::get('postcategory/{category}', 'HomeController@categoryPost')->name('post-category');
 
 Auth::routes();
 

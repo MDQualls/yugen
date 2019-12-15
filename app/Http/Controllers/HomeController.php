@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Post;
 use App\Repositories\Post\PostRepositoryInterface;
 use App\User;
 use Illuminate\Contracts\Support\Renderable;
@@ -34,6 +35,25 @@ class HomeController extends Controller
 
         return view('home')
             ->with('posts', $posts)
-            ->with('categories', Category::orderBy('name', 'asc')->get());
+            ->with('categories', Category::orderBy('name', 'asc')->get())
+            ->with('fullArticle', false);
+    }
+
+    public function blogPost(Post $post)
+    {
+        return view('post.post')
+            ->with('post', $post)
+            ->with('categories', Category::orderBy('name', 'asc')->get())
+            ->with('title', $post->title)
+            ->with('fullArticle', true);
+    }
+
+    public function categoryPost(Category $category)
+    {
+        return view('post.category')
+            ->with('category', $category)
+            ->with('categories', Category::orderBy('name', 'asc')->get())
+            ->with('title', "Blog Category: " . $category->name)
+            ->with('fullArticle', false);
     }
 }
