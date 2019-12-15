@@ -10,6 +10,7 @@
                 @foreach($posts as $post)
                     @include('partials.article', ['post' => $post, 'fullArticle' => $fullArticle])
                 @endforeach
+                {{$posts->links() }}
             </div>
             <div class="col-md-3 mb40">
                 @include('partials.categories', ['categories', $categories])

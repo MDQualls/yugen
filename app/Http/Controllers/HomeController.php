@@ -30,7 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = $this->postRepository->getLatestPosts();
+        $posts = Post::where('archived', '=', 0)->orderBy('published_at', 'asc')->paginate(5);
 
         return view('home')
             ->with('posts', $posts)
