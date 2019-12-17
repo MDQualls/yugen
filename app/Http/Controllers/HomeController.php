@@ -7,6 +7,8 @@ use App\Post;
 use App\Repositories\Post\PostRepositoryInterface;
 use App\User;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
@@ -25,13 +27,13 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the application home page.
      *
      * @return Renderable
      */
     public function index()
     {
-        $posts = Post::where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate(5);
+        $posts = $this->postRepository->getAllPostsPaginated();
 
         return view('home')
             ->with('posts', $posts)
@@ -39,6 +41,10 @@ class HomeController extends Controller
             ->with('fullArticle', false);
     }
 
+    /**
+     * @param Post $post
+     * @return Factory|View
+     */
     public function blogPost(Post $post)
     {
         return view('post.post')
@@ -48,12 +54,13 @@ class HomeController extends Controller
             ->with('fullArticle', true);
     }
 
+    /**
+     * @param Category $category
+     * @return Factory|View
+     */
     public function categoryPost(Category $category)
     {
-        $posts = Post::where('archived', '=', 0)
-            ->where('category_id', '=', $category->id)
-            ->orderBy('published_at', 'desc')
-            ->paginate(5);
+        $posts = $this->postRepository->getCategoryPostsPaginated($category->id);
 
         return view('home')
             ->with('posts', $posts)
@@ -62,12 +69,13 @@ class HomeController extends Controller
             ->with('fullArticle', false);
     }
 
+    /**
+     * @param User $user
+     * @return Factory|View
+     */
     public function authorPost(User $user)
     {
-        $posts = Post::where('archived', '=', 0)
-            ->where('user_id', '=', $user->id)
-            ->orderBy('published_at', 'desc')
-            ->paginate(5);
+        $posts = $this->postRepository->getAuthorPostsPaginated($user->id);
 
         return view('home')
             ->with('posts', $posts)
