@@ -26,7 +26,7 @@
             </p>
         @else
             <p>
-                {!! Str::limit($post->post_content, strpos($post->post_content, '</p>')+4) !!}
+                {!! substr($post->post_content,0, strpos($post->post_content, '</p>')+4) !!}
             </p>
             <a href="{{route('blog-post', $post->id)}}" class="btn btn-outline-secondary">Read More</a>
         @endif
