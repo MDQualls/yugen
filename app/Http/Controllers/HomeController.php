@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Post;
 use App\Repositories\Post\PostRepositoryInterface;
+use App\User;
 use Illuminate\Contracts\Support\Renderable;
 
 class HomeController extends Controller
@@ -49,10 +50,29 @@ class HomeController extends Controller
 
     public function categoryPost(Category $category)
     {
-        return view('post.category')
-            ->with('category', $category)
+        $posts = Post::where('archived', '=', 0)
+            ->where('category_id', '=', $category->id)
+            ->orderBy('published_at', 'desc')
+            ->paginate(5);
+
+        return view('home')
+            ->with('posts', $posts)
             ->with('categories', Category::orderBy('name', 'asc')->get())
             ->with('title', "Category: " . $category->name)
+            ->with('fullArticle', false);
+    }
+
+    public function authorPost(User $user)
+    {
+        $posts = Post::where('archived', '=', 0)
+            ->where('user_id', '=', $user->id)
+            ->orderBy('published_at', 'desc')
+            ->paginate(5);
+
+        return view('home')
+            ->with('posts', $posts)
+            ->with('categories', Category::orderBy('name', 'asc')->get())
+            ->with('title', "Posts by: " . $user->name)
             ->with('fullArticle', false);
     }
 }

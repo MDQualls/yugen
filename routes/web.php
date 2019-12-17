@@ -11,11 +11,13 @@
 |
 */
 
+Auth::routes();
+
+//public routes
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('article/{post}', 'HomeController@blogPost')->name('blog-post');
 Route::get('postcategory/{category}', 'HomeController@categoryPost')->name('post-category');
-
-Auth::routes();
+Route::get('postauthor/{user}', 'HomeController@authorPost')->name('post-author');
 
 //admin routes
 Route::middleware(['auth', 'suspended', 'admin'])->group(function () {
