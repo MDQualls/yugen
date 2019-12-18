@@ -11,13 +11,13 @@
         <a href="#"><h2 class="post-title">{{$post->title}}</h2></a>
         <ul class="post-meta list-inline">
             <li class="list-inline-item">
-                <i class="fas fa-user-circle"></i> <a href="{{route('post-author', $post->user->id)}}">{{$post->user->name}}</a>
+                <i class="fas fa-user-circle"></i> <a href="{{route('post-author', $post->user->name)}}">{{$post->user->name}}</a>
             </li>
             <li class="list-inline-item">
                 <i class="fas fa-calendar-o"></i> {{Carbon\Carbon::parse($post->published_at)->format('m/d/Y')}}
             </li>
             <li class="list-inline-item">
-                <i class="fas fa-tag"></i> <a href="{{route('post-category', $post->category->id)}}">{{$post->category->name}}</a>
+                <i class="fas fa-tag"></i> <a href="{{route('post-category', $post->category->name)}}">{{$post->category->name}}</a>
             </li>
         </ul>
         @if($fullArticle)
@@ -28,7 +28,7 @@
             <p>
                 {!! substr($post->post_content,0, strpos($post->post_content, '</p>')+4) !!}
             </p>
-            <a href="{{route('blog-post', $post->id)}}" class="btn btn-outline-secondary">Read More</a>
+            <a href="{{route('blog-post', $post->title)}}" class="btn btn-outline-secondary">Read More</a>
         @endif
     </div>
 </article><!--article-->

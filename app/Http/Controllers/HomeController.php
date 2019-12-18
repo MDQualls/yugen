@@ -42,11 +42,13 @@ class HomeController extends Controller
     }
 
     /**
-     * @param Post $post
+     * @param string $title
      * @return Factory|View
      */
-    public function blogPost(Post $post)
+    public function blogPost($title)
     {
+        $post = $this->postRepository->getPostWithTitle($title);
+
         return view('post.post')
             ->with('post', $post)
             ->with('categories', Category::orderBy('name', 'asc')->get())
@@ -55,32 +57,32 @@ class HomeController extends Controller
     }
 
     /**
-     * @param Category $category
+     * @param string $category
      * @return Factory|View
      */
-    public function categoryPost(Category $category)
+    public function categoryPost($category)
     {
-        $posts = $this->postRepository->getCategoryPostsPaginated($category->id);
+        $posts = $this->postRepository->getCategoryPostsPaginated($category);
 
         return view('home')
             ->with('posts', $posts)
             ->with('categories', Category::orderBy('name', 'asc')->get())
-            ->with('title', "Category: " . $category->name)
+            ->with('title', "Category: " . $category)
             ->with('fullArticle', false);
     }
 
     /**
-     * @param User $user
+     * @param string $user
      * @return Factory|View
      */
-    public function authorPost(User $user)
+    public function authorPost($user)
     {
-        $posts = $this->postRepository->getAuthorPostsPaginated($user->id);
+        $posts = $this->postRepository->getAuthorPostsPaginated($user);
 
         return view('home')
             ->with('posts', $posts)
             ->with('categories', Category::orderBy('name', 'asc')->get())
-            ->with('title', "Posts by: " . $user->name)
+            ->with('title', "Posts by: " . $user)
             ->with('fullArticle', false);
     }
 }

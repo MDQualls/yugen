@@ -2,6 +2,7 @@
 namespace App\Repositories\Post;
 
 use App\Post;
+use Illuminate\Database\Eloquent\Builder;
 
 class PostRepository implements PostRepositoryInterface
 {
@@ -28,26 +29,29 @@ class PostRepository implements PostRepositoryInterface
     }
 
     /**
-     * @param $categoryId
+     * @param $category
      * @return mixed
      */
-    public function getCategoryPostsPaginated($categoryId)
+    public function getCategoryPostsPaginated($category)
     {
-        return Post::where('archived', '=', 0)
-            ->where('category_id', '=', $categoryId)
-            ->orderBy('published_at', 'desc')
-            ->paginate(5);
+        return Post::whereHas('category', function (Builder $query) use ($category) {
+            $query->where('name', '=', $category);
+            })->where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate(5);
     }
 
     /**
-     * @param $userId
+     * @param $user
      * @return mixed
      */
-    public function getAuthorPostsPaginated($userId)
+    public function getAuthorPostsPaginated($user)
     {
-        return Post::where('archived', '=', 0)
-            ->where('user_id', '=', $userId)
-            ->orderBy('published_at', 'desc')
-            ->paginate(5);
+        return Post::whereHas('user', function (Builder $query) use ($user) {
+            $query->where('name', '=', $user);
+        })->where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate(5);
+    }
+
+    public function getPostWithTitle($title)
+    {
+        return Post::where('title','=',$title)->first();
     }
 }

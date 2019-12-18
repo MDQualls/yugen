@@ -7,7 +7,9 @@ interface PostRepositoryInterface
 
     public function getAllPostsPaginated();
 
-    public function getCategoryPostsPaginated($categoryId);
+    public function getCategoryPostsPaginated($category);
 
-    public function getAuthorPostsPaginated($userId);
+    public function getAuthorPostsPaginated($user);
+
+    public function getPostWithTitle($title);
 }
