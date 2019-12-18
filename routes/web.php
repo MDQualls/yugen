@@ -15,6 +15,7 @@ Auth::routes();
 
 //public routes
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('about', 'AboutController@index')->name('about');
 Route::get('article/{title}', 'HomeController@blogPost')->name('blog-post');
 Route::get('postcategory/{category}', 'HomeController@categoryPost')->name('post-category');
 Route::get('postauthor/{user}', 'HomeController@authorPost')->name('post-author');
