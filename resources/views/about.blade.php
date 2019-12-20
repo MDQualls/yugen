@@ -17,52 +17,52 @@
                 </p>
             </div>
         </div>
-{{--        <div class='row'>--}}
-{{--            <div class='col-lg-3 col-md-6 mb30'>--}}
-{{--                <div class='team-card'>--}}
-{{--                    <img src='images/team1.jpg' alt='' class='img-fluid'>--}}
-{{--                    <div class='team-overlay align-items-center'>--}}
-{{--                        <div class='team-detail'>--}}
-{{--                            <h4>Holly</h4>--}}
-{{--                            <span>Head Farmer and Lead Writer</span>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div><!--/col-->--}}
-{{--            <div class='col-lg-3 col-md-6 mb30'>--}}
-{{--                <div class='team-card'>--}}
-{{--                    <img src='images/team2.jpg' alt='' class='img-fluid'>--}}
-{{--                    <div class='team-overlay align-items-center'>--}}
-{{--                        <div class='team-detail'>--}}
-{{--                            <h4>Michael</h4>--}}
-{{--                            <span>Web Developer and Bee Keeper</span>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div><!--/col-->--}}
-{{--            <div class='col-lg-3 col-md-6 mb30'>--}}
-{{--                <div class='team-card'>--}}
-{{--                    <img src='images/team3.jpg' alt='' class='img-fluid'>--}}
-{{--                    <div class='team-overlay align-items-center'>--}}
-{{--                        <div class='team-detail'>--}}
-{{--                            <h4>Abigail & Onder</h4>--}}
-{{--                            <span>Scraps Patrol</span>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div><!--/col-->--}}
-{{--            <div class='col-lg-3 col-md-6 mb30'>--}}
-{{--                <div class='team-card'>--}}
-{{--                    <img src='images/team4.jpg' alt='' class='img-fluid'>--}}
-{{--                    <div class='team-overlay align-items-center'>--}}
-{{--                        <div class='team-detail'>--}}
-{{--                            <h4>Castor</h4>--}}
-{{--                            <span>The Bad Kitty</span>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div><!--/col-->--}}
-{{--        </div>--}}
+        <div class='row'>
+            <div class='col-lg-3 col-md-6 mb30'>
+                <div class='team-card'>
+                    <img src='{{url("images/holly1.jpg")}}' alt='' class='img-fluid'>
+                    <div class='team-overlay align-items-center'>
+                        <div class='team-detail'>
+                            <h4>Holly</h4>
+                            <span>Head Farmer and Lead Writer</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/col-->
+            <div class='col-lg-3 col-md-6 mb30'>
+                <div class='team-card'>
+                    <img src='{{url("images/michael1.jpg")}}' alt='' class='img-fluid'>
+                    <div class='team-overlay align-items-center'>
+                        <div class='team-detail'>
+                            <h4>Michael</h4>
+                            <span>Web Developer and Bee Keeper</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/col-->
+            <div class='col-lg-3 col-md-6 mb30'>
+                <div class='team-card'>
+                    <img src='{{url("images/abbiandonder2.jpg")}}' alt='' class='img-fluid'>
+                    <div class='team-overlay align-items-center'>
+                        <div class='team-detail'>
+                            <h4>Abigail & Onder</h4>
+                            <span>Security Detail</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/col-->
+            <div class='col-lg-3 col-md-6 mb30'>
+                <div class='team-card'>
+                    <img src='{{url("images/castor.jpg")}}' alt='' class='img-fluid'>
+                    <div class='team-overlay align-items-center'>
+                        <div class='team-detail'>
+                            <h4>Castor</h4>
+                            <span>The Bad Kitty</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/col-->
+        </div>
     </div><!--team-->
     <div class='bg-faded pt20 pb100'>
         <div class='container text-center'>
