@@ -2,7 +2,7 @@
 
 
 @section('content')
-    @include('partials.pagetitle', ['title' => $title])
+    @include('partials.pagetitle', ['title' => $title, 'tags' => $post->tags])
     <div class="container mb30">
         <div class="row">
 

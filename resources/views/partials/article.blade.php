@@ -32,7 +32,6 @@
         @endif
 
         <ul class="post-meta list-inline mt-5">
-
             @foreach($post->tags as $tag)
                 <li class="list-inline-item">
                     <i class="fas fa-tag"></i> <a href="{{route('post-tag',$tag->name)}}">#{{$tag->name}}</a>
