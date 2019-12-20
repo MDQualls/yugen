@@ -11,5 +11,7 @@ interface PostRepositoryInterface
 
     public function getAuthorPostsPaginated($user);
 
+    public function getTagPostsPaginated($tag);
+
     public function getPostWithTitle($title);
 }

@@ -54,4 +54,11 @@ class PostRepository implements PostRepositoryInterface
     {
         return Post::where('title','=',$title)->first();
     }
+
+    public function getTagPostsPaginated($tag)
+    {
+        return Post::whereHas('tags', function (Builder $query) use ($tag) {
+            $query->where('name', '=', $tag);
+        })->where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate(5);
+    }
 }

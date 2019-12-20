@@ -17,7 +17,7 @@
                 <i class="fas fa-calendar-o"></i> {{Carbon\Carbon::parse($post->published_at)->format('m/d/Y')}}
             </li>
             <li class="list-inline-item">
-                <i class="fas fa-tag"></i> <a href="{{route('post-category', $post->category->name)}}">{{$post->category->name}}</a>
+                <i class="fas fa-boxes"></i> <a href="{{route('post-category', $post->category->name)}}">{{$post->category->name}}</a>
             </li>
         </ul>
         @if($fullArticle)
@@ -30,5 +30,14 @@
             </p>
             <a href="{{route('blog-post', $post->title)}}" class="btn btn-outline-secondary">Read More</a>
         @endif
+
+        <ul class="post-meta list-inline mt-5">
+
+            @foreach($post->tags as $tag)
+                <li class="list-inline-item">
+                    <i class="fas fa-tag"></i> <a href="{{route('post-tag',$tag->name)}}">#{{$tag->name}}</a>
+                </li>
+            @endforeach
+        </ul>
     </div>
 </article><!--article-->

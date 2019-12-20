@@ -85,4 +85,15 @@ class HomeController extends Controller
             ->with('title', "Posts by: " . $user)
             ->with('fullArticle', false);
     }
+
+    public function tagPost($tag)
+    {
+        $posts = $this->postRepository->getTagPostsPaginated($tag);
+
+        return view('home')
+            ->with('posts', $posts)
+            ->with('categories', Category::orderBy('name', 'asc')->get())
+            ->with('title', "Posts with Tag: " . $tag)
+            ->with('fullArticle', false);
+    }
 }
