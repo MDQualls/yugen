@@ -11100,6 +11100,15 @@ a.text-dark:focus {
   }
 }
 
+html,
+body {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
 .bg-purple {
   background-color: #800080 !important;
 }
