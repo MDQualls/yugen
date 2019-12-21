@@ -82,9 +82,9 @@
     <a href="#" class="back-to-top hidden-xs-down" id="back-to-top"><i class="fas fa-angle-up"></i></a>
 
     <!-- Scripts -->
-    <script src="js/app.js'"></script>
-    <script src="js/plugins/plugins.js'"></script>
-    <script src="js/assan.custom.js'"></script>
+    <script src="js/app.js"></script>
+    <script src="js/plugins/plugins.js"></script>
+    <script src="js/assan.custom.js"></script>
 
     <script>
         // Get the current year for the copyright
