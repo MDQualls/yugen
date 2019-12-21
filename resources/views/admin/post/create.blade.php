@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('css')
-    <link rel="stylesheet" href="css/flatpickr.min.css">
+    <link rel="stylesheet" href="{{asset('css/flatpickr.min.css')}}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
 @endsection
 
@@ -67,7 +67,7 @@
                             @if($post->header_image == null)
                                 <h4><i class="fas fa-angle-double-right"></i> No header image for this post</h4>
                             @else
-                                <img src="storage/$post->header_image" alt="Post Header Image"
+                                <img src="{{asset("storage/$post->header_image")}}" alt="Post Header Image"
                                      class="img-fluid img-thumbnail">
                             @endif
                         </div>
@@ -138,7 +138,7 @@
 @endsection
 
 @section('scripts')
-    <script src="js/flatpickr.min.js"></script>
+    <script src="{{asset('js/flatpickr.min.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
 
     <script>
