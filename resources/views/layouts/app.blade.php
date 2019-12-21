@@ -65,6 +65,15 @@
                     <p>
                         <div>&copy; Copyright <span id="year"></span> {{ config('app.name') }} | Application by Michael Qualls</div>
                     </p>
+
+                    <p>
+                        <div>
+                            <a href="{{route('privacy')}}">Privacy Policy</a> |
+                            <a href="{{route('cookies')}}">Cookies Policy</a> |
+                            <a href="{{route('disclaimer')}}">Disclaimer</a>
+                        </div>
+                    </p>
+
                 </div>
             </div>
         </div>

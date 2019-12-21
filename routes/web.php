@@ -20,6 +20,9 @@ Route::get('article/{title}', 'HomeController@blogPost')->name('blog-post');
 Route::get('postcategory/{category}', 'HomeController@categoryPost')->name('post-category');
 Route::get('postauthor/{user}', 'HomeController@authorPost')->name('post-author');
 Route::get('posttag/{tag}', 'HomeController@tagPost')->name('post-tag');
+Route::get('privacypolicy', 'PrivacyController@index')->name('privacy');
+Route::get('cookiespolicy', 'PrivacyController@cookies')->name('cookies');
+Route::get('disclaimerpolicy', 'PrivacyController@disclaimer')->name('disclaimer');
 
 //admin routes
 Route::middleware(['auth', 'suspended', 'admin'])->group(function () {
