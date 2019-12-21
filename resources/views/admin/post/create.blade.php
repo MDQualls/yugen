@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('css')
-    <link rel="stylesheet" href="{{asset('css/flatpickr.min.css')}}">
+    <link rel="stylesheet" href="css/flatpickr.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
 @endsection
 
@@ -138,7 +138,7 @@
 @endsection
 
 @section('scripts')
-    <script src="{{asset('js/flatpickr.min.js')}}"></script>
+    <script src="js/flatpickr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
 
     <script>
