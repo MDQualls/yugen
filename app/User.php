@@ -4,9 +4,10 @@ namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -58,5 +59,16 @@ class User extends Authenticatable
 
     public function isMember()  {
         return $this->role->role_name == 'member';
+    }
+
+    public function toMail($notifiable)
+    {
+        $url = url('/');
+
+        return (new MailMessage)
+            ->greeting('Hello!')
+            ->line('One of your invoices has been paid!')
+            ->action('View Invoice', $url)
+            ->line('Thank you for using our application!');
     }
 }

@@ -11,7 +11,7 @@
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 //public routes
 Route::get('/', 'HomeController@index')->name('home');

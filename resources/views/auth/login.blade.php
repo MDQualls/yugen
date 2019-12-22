@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('partials.pagetitle')
     <div class="container">
-        <section id="cover" class="min-vh-100">
+        <section id="cover" class="mb70 mt-5" >
             <div id="cover-caption">
                 <div class="container">
                     <div class="col-md-8 ml-auto mr-auto">
@@ -59,11 +60,14 @@
                                                 {{ __('Login') }}
                                             </button>
 
-{{--                                            @if (Route::has('password.request'))--}}
-{{--                                                <a class="btn btn-link" href="{{ route('password.request') }}">--}}
-{{--                                                    {{ __('Forgot Your Password?') }}--}}
-{{--                                                </a>--}}
-{{--                                            @endif--}}
+                                            <div class="mt-3">
+                                                @if (Route::has('password.request'))
+                                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                        {{ __('Forgot Your Password?') }}
+                                                    </a>
+                                                @endif
+                                            </div>
+
                                         </div>
                                     </div>
                                 </form>
