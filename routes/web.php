@@ -24,6 +24,10 @@ Route::get('privacypolicy', 'PrivacyController@index')->name('privacy');
 Route::get('cookiespolicy', 'PrivacyController@cookies')->name('cookies');
 Route::get('disclaimerpolicy', 'PrivacyController@disclaimer')->name('disclaimer');
 
+Route::middleware(['verified', 'auth', 'suspended'])->group(function () {
+    Route::post('postcomment/{post}', 'PostCommentController@postComment')->name('post-comment');
+});
+
 //admin routes
 Route::middleware(['auth', 'suspended', 'admin'])->group(function () {
     Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard');
