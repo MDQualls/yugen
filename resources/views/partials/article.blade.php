@@ -48,7 +48,7 @@
             @if($post->comments->count() > 0)
                 <hr class="mb40">
                 <h4 class="mb40 text-uppercase font500">Comments</h4>
-                @foreach($post->comments as $comment)
+                @foreach($post->comments->where('parent_comment_id','=', 0) as $comment)
                     @include('partials.postcomment', ['comment' => $comment])
                 @endforeach
             @endif
@@ -69,7 +69,15 @@
                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </div>
             </form>
-
+            @section('scripts')
+                <script>
+                    function replyToComment($parentId)
+                    {
+                        $("#parent_comment_id").val($parentId);
+                        $("textarea#comment").focus();
+                    }
+                </script>
+            @endsection('scripts')
         @endif
     </div>
 
