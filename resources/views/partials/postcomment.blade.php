@@ -1,3 +1,4 @@
+<hr class="light">
 <div class="media mb40">
     <i class="d-flex mr-3"></i>
     <div class="media-body">
@@ -8,13 +9,12 @@
 
         @if($comment->replys->count())
             @foreach($comment->replys as $reply)
-                <div class=" ml-3 mt-3 bg-faded">
-                    <div class="p-1">
-                        <div class="media-body">
-                            <h5 class="mt-0 font400 clearfix">
-                                {{$reply->user->name}} replied to {{$comment->user->name}}</h5>
-                            {{$reply->comment}}
-                        </div>
+                <div class=" ml-4 mt-4">
+                    <div class="media-body">
+                        <h5 class="mt-0 font400 clearfix">
+                            <a href="#" onclick="replyToComment({{$comment->id}})" class="float-right">Reply</a>
+                            {{$reply->user->name}} replied ...</h5>
+                        {{$reply->comment}}
                     </div>
                 </div>
             @endforeach
