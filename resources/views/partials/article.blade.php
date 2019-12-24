@@ -30,7 +30,7 @@
             <p>
                 {!! substr($post->post_content,0, strpos($post->post_content, '</p>')+4) !!}
             </p>
-            <a href="{{route('blog-post', $post->title)}}" class="btn btn-outline-secondary">Read More</a>
+            <a href="{{route('blog-post', $post->title)}}" class="btn btn-outline-secondary mb-1">Read More</a>
         @endif
 
         @if($post->tags->count() > 0)
