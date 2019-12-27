@@ -23,6 +23,7 @@ Route::get('posttag/{tag}', 'HomeController@tagPost')->name('post-tag');
 Route::get('privacypolicy', 'PrivacyController@index')->name('privacy');
 Route::get('cookiespolicy', 'PrivacyController@cookies')->name('cookies');
 Route::get('disclaimerpolicy', 'PrivacyController@disclaimer')->name('disclaimer');
+Route::get('usersettings/{user}', 'UserSettingsController@index')->name('user-settings');
 
 Route::middleware(['verified', 'auth', 'suspended'])->group(function () {
     Route::post('postcomment/{post}', 'PostCommentController@postComment')->name('post-comment');

@@ -17,10 +17,10 @@
         <div  id="navbarNavDropdown" class="navbar-collapse collapse">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('home')}}">Home</a>
+                    <a class="nav-link" href="{{route('home')}}"><i class="fas fa-home"></i> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('about')}}">About</a>
+                    <a class="nav-link" href="{{route('about')}}"><i class="fas fa-door-open"></i> About</a>
                 </li>
             </ul>
             <!-- Right Side Of Navbar -->
@@ -28,11 +28,11 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> {{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user-plus"></i> {{ __('Register') }}</a>
                         </li>
                     @endif
                 @else
@@ -44,14 +44,20 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
+                            <a href="{{route('user-settings', auth()->user()->id)}}"
+                               class="dropdown-item"><i class="fas fa-user-circle"></i> User Settings</a>
+
+                            <a href="#"
+                               class="dropdown-item"><i class="fas fa-lock"></i> Change Password</a>
+
                             @if(Auth::user()->isAdmin())
-                                <a href="{{route('dashboard')}}" class="dropdown-item">Dashboard</a>
+                                <a href="{{route('dashboard')}}" class="dropdown-item"><i class="fas fa-cog"></i> Dashboard</a>
                             @endif
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
