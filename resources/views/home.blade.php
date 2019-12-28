@@ -4,8 +4,10 @@
 @section('content')
     @include('partials.pagetitle')
     <div class="container mb30">
-        <div class="row">
 
+        @include('partials.messages')
+
+        <div class="row">
             <div class="col-md-9">
                 @foreach($posts as $post)
                     @include('partials.article', ['post' => $post, 'fullArticle' => $fullArticle])

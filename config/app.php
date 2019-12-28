@@ -7,6 +7,7 @@ use App\Providers\S3ServiceProvider;
 use App\Providers\InterventionServiceProvider;
 use App\Providers\FileStorageServiceProvider;
 use App\Providers\HeaderImageServiceProvider;
+use App\Providers\UserPasswordProvider;
 
 return [
 
@@ -195,6 +196,7 @@ return [
         InterventionServiceProvider::class,
         FileStorageServiceProvider::class,
         HeaderImageServiceProvider::class,
+        UserPasswordProvider::class
 
     ],
 

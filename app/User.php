@@ -65,15 +65,4 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isMember()  {
         return $this->role->role_name == 'member';
     }
-
-    public function toMail($notifiable)
-    {
-        $url = url('/');
-
-        return (new MailMessage)
-            ->greeting('Hello!')
-            ->line('One of your invoices has been paid!')
-            ->action('View Invoice', $url)
-            ->line('Thank you for using our application!');
-    }
 }

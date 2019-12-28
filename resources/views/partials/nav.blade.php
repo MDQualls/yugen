@@ -47,7 +47,7 @@
                             <a href="{{route('user-settings', auth()->user()->id)}}"
                                class="dropdown-item"><i class="fas fa-user-circle"></i> User Settings</a>
 
-                            <a href="#"
+                            <a href="{{route('user-password', auth()->user()->id)}}"
                                class="dropdown-item"><i class="fas fa-lock"></i> Change Password</a>
 
                             @if(Auth::user()->isAdmin())
