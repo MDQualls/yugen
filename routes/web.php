@@ -24,12 +24,13 @@ Route::get('privacypolicy', 'PrivacyController@index')->name('privacy');
 Route::get('cookiespolicy', 'PrivacyController@cookies')->name('cookies');
 Route::get('disclaimerpolicy', 'PrivacyController@disclaimer')->name('disclaimer');
 
-//autheniticate routes
+//autheniticated routes
 Route::middleware(['verified', 'auth', 'suspended'])->group(function () {
     Route::post('postcomment/{post}', 'PostCommentController@postComment')->name('post-comment');
     Route::get('usersettings/{user}', 'UserSettingsController@index')->name('user-settings');
     Route::get('userpassword/{user}', 'UserSettingsController@editPassword')->name('user-password');
     Route::put('updatepassword/{user}', 'UserSettingsController@updatePassword')->name('update-password');
+    Route::put('updateuser/{user}', 'UserSettingsController@update')->name('update-user');
 
 });
 
