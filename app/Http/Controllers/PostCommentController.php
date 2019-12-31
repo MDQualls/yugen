@@ -6,11 +6,26 @@ use App\Http\Requests\Posts\PostCommentRequest;
 use App\Mail\ResponseAlert;
 use App\Post;
 use App\PostComment;
+use App\Services\Notification\ResponseAlertInterface;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Mail;
 
 class PostCommentController extends Controller
 {
+    /**
+     * @var ResponseAlertInterface
+     */
+    protected $responseAlertService;
+
+    /**
+     * PostCommentController constructor.
+     * @param ResponseAlertInterface $responseAlertService
+     */
+    public function __construct(ResponseAlertInterface $responseAlertService)
+    {
+        $this->responseAlertService = $responseAlertService;
+    }
+
     /**
      * @param PostCommentRequest $request
      * @param Post $post
@@ -28,7 +43,7 @@ class PostCommentController extends Controller
         $title = rawurlencode($post->title);
         $url = url("/article/{$title}");
 
-        Mail::to($comment->user)->send(new ResponseAlert($comment, $url));
+        $this->responseAlertService->sendAlerts($comment, $url);
 
         return redirect()->route('blog-post', ['title' => $post->title]);
     }

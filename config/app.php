@@ -8,6 +8,7 @@ use App\Providers\InterventionServiceProvider;
 use App\Providers\FileStorageServiceProvider;
 use App\Providers\HeaderImageServiceProvider;
 use App\Providers\UserPasswordProvider;
+use App\Providers\UserAlertProvider;
 
 return [
 
@@ -196,7 +197,8 @@ return [
         InterventionServiceProvider::class,
         FileStorageServiceProvider::class,
         HeaderImageServiceProvider::class,
-        UserPasswordProvider::class
+        UserPasswordProvider::class,
+        UserAlertProvider::class,
 
     ],
 
