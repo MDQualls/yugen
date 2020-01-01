@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Posts\CreatePostRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use App\Post;
+use App\Services\Notification\ContentAlertInterface;
 use App\Services\Post\HeaderImageInterface;
 use App\Services\Post\SummerNoteImageInterface;
 use App\Services\Tag\TagServiceInterface;
@@ -35,16 +36,23 @@ class PostController extends Controller
      */
     var $headerImageService;
 
+    /**
+     * @var ContentAlertInterface
+     */
+    var $contentAlertService;
+
     public function __construct(
         TagServiceInterface $tagService,
         SummerNoteImageInterface $summerNoteImageService,
-        HeaderImageInterface $headerImageService)
+        HeaderImageInterface $headerImageService,
+        ContentAlertInterface $contentAlertService)
     {
         $this->middleware('verifyCategoryCount')->only(['create', 'store']);
 
         $this->tagService = $tagService;
         $this->summerNoteImageService = $summerNoteImageService;
         $this->headerImageService = $headerImageService;
+        $this->contentAlertService = $contentAlertService;
     }
 
     /**
@@ -97,6 +105,11 @@ class PostController extends Controller
         if ($request->tags) {
             $this->tagService->updateTags($post, $request->tags);
         }
+
+        $title = rawurlencode($post->title);
+        $url = url("/article/{$title}");
+
+        $this->contentAlertService->sendAlerts($post, $url);
 
         session()->flash('success', 'Post successfully created.');
 

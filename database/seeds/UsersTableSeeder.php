@@ -43,5 +43,18 @@ class UsersTableSeeder extends Seeder
                 'status_id' => $status->id,
             ]);
         }
+
+//        $user = User::where('email', 'michael.qualls@yahoo.com')->first();
+//
+//        if (!$user) {
+//
+//            User::create([
+//                'name' => 'adminner',
+//                'email' => 'michael.qualls@yahoo.com',
+//                'password' => Hash::make('adminner'),
+//                'role_id' => $role->id,
+//                'status_id' => $status->id,
+//            ]);
+//        }
     }
 }
