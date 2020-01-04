@@ -12,4 +12,4 @@ This application is still in the feature development stage and I expect that con
 
 # Future Techonology enhancemnts
 
-* Redis for caching, social media integration and better SEO
+* Redis, Vue.js, social media integration and better SEO
