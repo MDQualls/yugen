@@ -25,7 +25,7 @@ class UsersTableSeeder extends Seeder
             User::create([
                 'name' => 'MichaelQ',
                 'email' => 'mqualls@gmail.com',
-                'password' => Hash::make('x6xzyi!!'),
+                'password' => Hash::make('password'),
                 'role_id' => $role->id,
                 'status_id' => $status->id,
             ]);
@@ -38,7 +38,7 @@ class UsersTableSeeder extends Seeder
             User::create([
                 'name' => 'HollyQ',
                 'email' => 'holly.qualls@gmail.com',
-                'password' => Hash::make('Anua2020'),
+                'password' => Hash::make('password'),
                 'role_id' => $role->id,
                 'status_id' => $status->id,
             ]);
@@ -51,7 +51,7 @@ class UsersTableSeeder extends Seeder
 //            User::create([
 //                'name' => 'adminner',
 //                'email' => 'michael.qualls@yahoo.com',
-//                'password' => Hash::make('adminner'),
+//                'password' => Hash::make('password'),
 //                'role_id' => $role->id,
 //                'status_id' => $status->id,
 //            ]);
