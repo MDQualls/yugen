@@ -66,11 +66,11 @@ class SummerNoteImageService implements SummerNoteImageInterface
                 $newImageName = str_replace(".", "", uniqid("post_img_", true));
                 $filename = $newImageName . '.' . $fileExt;
 
-                //resize the locally stored image - set width to 1140 - matches blog width for our template
+                //resize the locally stored image - set width to 800 - matches blog width for our template
                 //$localImage = storage_path('app/public/') . $filename;
                 $resizedImage = $this->interventionService->resize(
                     $img,
-                    1140,
+                    800,
                     null);
 
                 // Save the image to s3 disk
