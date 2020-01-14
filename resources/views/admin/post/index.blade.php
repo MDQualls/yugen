@@ -4,10 +4,10 @@
 
 @section('section_actions')
     <div class="col-md-3">
-        <a href="{{ route('dashboard') }}" class="btn btn-light btn-block"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+        <a href="{{ route('post.create') }}" class="btn btn-primary btn-block"><i class="fas fa-plus"></i> Add Post</a>
     </div>
     <div class="col-md-3">
-        <a href="{{ route('post.create') }}" class="btn btn-primary btn-block"><i class="fas fa-plus"></i> Add Post</a>
+        <a href="{{ route('dashboard') }}" class="btn btn-light btn-block"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
     </div>
 @endsection('section_actions')
 

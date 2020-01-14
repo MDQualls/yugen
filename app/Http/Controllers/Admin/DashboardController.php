@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\PostComment;
 use App\Repositories\Post\PostRepositoryInterface;
 use App\User;
 use Illuminate\Contracts\Support\Renderable;
@@ -35,9 +36,12 @@ class DashboardController extends Controller
     {
         $posts = $this->postRepository->getLatestPosts();
 
+        $comments = PostComment::where('parent_comment_id', '=', 0)->count();
+
         return view('admin.dashboard')
             ->with('posts', $posts)
             ->with('categoryCount', Category::count())
-            ->with('userCount', User::count());
+            ->with('userCount', User::count())
+            ->with('commentCount', $comments);
     }
 }

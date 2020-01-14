@@ -1,5 +1,4 @@
-@charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
@@ -11374,6 +11373,10 @@ body {
   background-color: #ffa500 !important;
 }
 
+.bg-wetasphalt {
+  background-color: #34495e !important;
+}
+
 #cover {
   height: 100%;
   text-align: center;
@@ -11390,7 +11393,7 @@ body {
   z-index: 1;
 }
 
-.blog-post {
-  font-size: 15px !important;
+.admin-dashboard-body {
+  height: 100vh;
 }
 

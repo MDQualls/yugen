@@ -25,6 +25,9 @@
                 <li class="nav-item px-2">
                     <a href="{{ route('tag.index') }}" class="nav-link">Tags</a>
                 </li>
+                <li class="nav-item px-2">
+                    <a href="{{ route('post-comments') }}" class="nav-link">Comments</a>
+                </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">

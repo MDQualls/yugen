@@ -39,7 +39,7 @@
 </section>
 
 <section id="main">
-    <div class="container">
+    <div class="container admin-dashboard-body">
 
         @if(session()->has('success'))
             <div class="alert alert-success">

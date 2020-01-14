@@ -24,6 +24,10 @@ html,body
     background-color: #ffa500 !important;
 }
 
+.bg-wetasphalt  {
+    background-color: #34495e !important;
+}
+
 #cover {
     height: 100%;
     text-align: center;
@@ -36,4 +40,8 @@ html,body
     width: 100%;
     position: relative;
     z-index: 1;
+}
+
+.admin-dashboard-body  {
+    height: 100vh;
 }

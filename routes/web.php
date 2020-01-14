@@ -47,4 +47,7 @@ Route::middleware(['auth', 'suspended', 'admin'])->group(function () {
     Route::get('archived-posts', 'Admin\PostController@archivedPosts')->name('archived-posts');
 
     Route::put('update/{user}', 'Admin\UserController@update')->name('user.member-update');
+
+    Route::get('comments', 'Admin\CommentController@index')->name('post-comments');
+    Route::get('comments/{comment}', 'Admin\CommentController@manage')->name('manage-comment');
 });

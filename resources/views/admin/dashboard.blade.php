@@ -17,10 +17,12 @@
         <a href="{{ route('post.create') }}" class="btn btn-primary btn-block"><i class="fas fa-plus"></i> Add Post</a>
     </div>
     <div class="col-md-3">
-        <a href="{{ route('category.create') }}" class="btn btn-success btn-block"><i class="fas fa-plus"></i> Add Category</a>
+        <a href="{{ route('category.create') }}" class="btn btn-success btn-block"><i class="fas fa-plus"></i> Add
+            Category</a>
     </div>
     <div class="col-md-3">
-        <a href="{{ route('archived-posts') }}" class="btn btn-warning btn-block"><i class="fas fa-archive"></i> Archived Posts</a>
+        <a href="{{ route('archived-posts') }}" class="btn btn-warning btn-block"><i class="fas fa-archive"></i>
+            Archived Posts</a>
     </div>
 @endsection('section_actions')
 
@@ -53,7 +55,8 @@
                                 <td>{{$post->category->name}}</td>
                                 <td>{{Carbon\Carbon::parse($post->published_at)->format('m/d/Y')}}</td>
                                 <td>
-                                    <a href="{{route('post.edit', $post->id)}}" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-right"></i> Details</a>
+                                    <a href="{{route('post.edit', $post->id)}}" class="btn btn-secondary btn-sm"><i
+                                            class="fas fa-angle-double-right"></i> Details</a>
                                     @include('partials.admin.postarchive')
                                 </td>
                             </tr>
@@ -88,6 +91,14 @@
                 <h3>Users</h3>
                 <h4 class="display-4"><i class="fas fa-users"></i> {{$userCount}}</h4>
                 <a href="{{ route('user.index') }}" class="btn btn-outline-light btn-sm">View</a>
+            </div>
+        </div>
+
+        <div class="card text-center bg-wetasphalt text-white mb-3">
+            <div class="card-body">
+                <h3>Comments</h3>
+                <h4 class="display-4"><i class="fas fa-comments"></i> {{$commentCount}}</h4>
+                <a href="{{ route('post-comments')  }}" class="btn btn-outline-light btn-sm">View</a>
             </div>
         </div>
 
