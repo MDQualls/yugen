@@ -45,3 +45,27 @@ html,body
 .admin-dashboard-body  {
     height: 100vh;
 }
+
+.manage-reply-span,
+.reply-delete-span  {
+    display: inline-block;
+}
+
+.manage-reply-span  {
+    float: left;
+}
+
+.reply-delete-span  {
+    float: right;
+}
+
+.manage-comment-header  {
+    h4  {
+        display: inline-block;
+        float: left;
+    }
+    button  {
+        float: right;
+        margin-right: 20px;
+    }
+}

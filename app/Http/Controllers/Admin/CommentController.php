@@ -23,4 +23,21 @@ class CommentController extends Controller
             ->with('title', 'Manage Comment')
             ->with('comment', $comment);
     }
+
+
+    public function delete(PostComment $comment)
+    {
+        if($comment->parent_comment_id == 0)  {
+            $route = route('post-comments');
+            $comment->replys()->delete();
+        } else {
+            $route = route('manage-comment', ['comment' => $comment->parent_comment_id]);
+        }
+
+        $comment->delete();
+
+        session()->flash('success', 'Comment deleted successfully');
+
+        return redirect($route);
+    }
 }
