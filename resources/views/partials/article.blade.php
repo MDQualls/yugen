@@ -46,14 +46,14 @@
         @if($fullArticle)
 
             @if($post->comments->count() > 0)
-                <hr class="mb40">
-                <h4 class="mb40 text-uppercase font500">Comments</h4>
+                <hr class="mb20">
+                <h4 class="mb20 text-uppercase font500 pt-1">Comments</h4>
                 @foreach($post->comments->where('parent_comment_id','=', 0) as $comment)
                     @include('partials.postcomment', ['comment' => $comment])
                 @endforeach
             @endif
-            <hr class="mb40">
-            <h4 class="mb40 text-uppercase font500">Post a comment</h4>
+            <hr class="mb20">
+            <h4 class="mb20 text-uppercase font500">Post a comment</h4>
 
             @include('partials.errors')
 
