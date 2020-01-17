@@ -99,6 +99,13 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="admin_note">Admin Note</label>
+                        <textarea name="admin_note" id="admin_note"
+                                  placeholder="Enter any administrative notes about this user account."
+                                  rows="3" class="form-control">{{$user->admin_note}}</textarea>
+                    </div>
+
+                    <div class="form-group">
                         <button class="btn btn-success" type="submit">
                             Edit User
                         </button>

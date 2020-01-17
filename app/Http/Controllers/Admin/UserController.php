@@ -76,8 +76,9 @@ class UserController extends Controller
         $data['email'] = ($request->email != '') ? $request->email : $user->email;
         $data['role_id'] = ($request->role != '') ? $request->role : $user->role->id;
         $data['status_id'] = ($request->status != '') ? $request->status : $user->status->id;
+        $data['admin_note'] = ($request->admin_note != '') ? $request->admin_note : $user->admin_note;
 
-         $user->update($data);
+        $user->update($data);
 
         session()->flash('success', 'User updated successfully.');
 
@@ -87,7 +88,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function destroy($id)
