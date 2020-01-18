@@ -16,8 +16,9 @@
             @endif
         </h5>
         {{$comment->comment}}
-        <div class="comment-reply-container my-1"><a class="text-info" href="#"
-                                                     onclick="replyToComment({{$comment->id}})">Reply</a></div>
+        <div class="comment-reply-container my-1">
+            <a data-parent-id="{{$comment->id}}" class="text-info" href="#">Reply</a>
+        </div>
         @if($comment->replys->count())
             @foreach($comment->replys as $reply)
                 <div class=" ml-4 mt-3">
@@ -36,8 +37,10 @@
                             @endif
                         </h5>
                         {{$reply->comment}}
-                        <div class="comment-reply-container my-1"><a class="text-info" href="#"
-                                                                     onclick="replyToComment({{$comment->id}})">Reply</a>
+                        <div class="comment-reply-container my-1">
+                            <span class="comment-reply-span">
+                                <a data-parent-id="{{$comment->id}}" class="text-info" href="#">Reply</a>
+                            </span>
                         </div>
                     </div>
                 </div>

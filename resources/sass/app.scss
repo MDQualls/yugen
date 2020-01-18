@@ -76,6 +76,11 @@ html, body {
 .comment-reply-form-container {
 
     visibility: hidden;
+}
+
+#comment-reply-form  {
+
+    margin-top: 10px;
 
     .form-group  {
         position: relative
@@ -86,7 +91,7 @@ html, body {
         -moz-border-radius: 15px;
         border-radius: 15px;
         display: inline-block;
-        width: 85%;
+        width: 80%;
     }
 
     .comment-reply-button-box  {

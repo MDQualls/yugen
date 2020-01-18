@@ -57,47 +57,60 @@
 
             @include('partials.errors')
 
-            <form  id="comment-form" method="post" action="{{route('post-comment', ['post' => $post->id])}}" role="form">
+            <form id="comment-form" method="post" action="{{route('post-comment', ['post' => $post->id])}}" role="form">
                 @csrf
                 <input type="hidden" id="parent_comment_id" name="parent_comment_id" value="">
                 <div class="form-group">
                     <label>Comment</label>
                     <textarea id="comment" name="comment" class="form-control" rows="3"
-                              placeholder="Comment"></textarea>
+                              placeholder="Comment" required></textarea>
                 </div>
                 <div class="clearfix float-right">
                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </div>
             </form>
 
-                <br><br><br><br><br><br>
-
             <div class="comment-reply-form-container mt-5">
                 <form id="comment-reply-form" method="post" action="{{route('post-comment', ['post' => $post->id])}}">
                     @csrf
-                    <input type="hidden" id="parent_comment_id" name="parent_comment_id" value="">
+                    <input type="hidden" id="parent_comment_id" name="parent_comment_id" value="{{$comment->id}}">
                     <div class="form-group">
-                        <textarea id="comment" name="comment" class="form-control" rows="1" placeholder="Reply"></textarea>
+                        <textarea id="comment-reply-textarea" name="comment-reply-textarea" class="form-control"
+                                  rows="1" placeholder="Reply" required></textarea>
                         <div class="comment-reply-button-box">
-                            <a href="#"><i class="fas fa-check-circle"></i></a>
-                            <a href="#"><i class="fas fa-times-circle"></i></a>
+                            <a class="comment-reply-submit" href="#"><i class="fas fa-check-circle"></i></a>
+                            <a class="comment-reply-cancel" href="#"><i class="fas fa-times-circle"></i></a>
                         </div>
                     </div>
                 </form>
             </div>
 
-            @section('scripts')
-                <script>
-                    function replyToComment($parentId)
-                    {
-                        //comment-reply-container
-                        //comment-reply-form-container
+        @section('scripts')
+            <script>
+                function toggleReplyForm(target)  {
+                    let formContainer = $('.comment-reply-form-container');
+                    let commentReplyContainer = $(target).closest('.comment-reply-container').html();
+                    let commentReplyForm = formContainer.html();
 
-                        $("#parent_comment_id").val($parentId);
-                        $("textarea#comment").focus();
-                    }
-                </script>
-            @endsection('scripts')
+                    $("#comment-reply-form #parent_comment_id").val($(target).attr('data-parent-id'));
+                    $(target).closest('.comment-reply-container').html(commentReplyForm);
+                    $(formContainer).html(commentReplyContainer);
+                }
+
+                $(document).on('click', 'div.comment-reply-container a.text-info', function () {
+                    toggleReplyForm(this);
+                });
+
+                $(document).on('click', 'div.comment-reply-button-box a.comment-reply-cancel', function () {
+                    toggleReplyForm(this);
+                });
+
+                $(document).on('click', 'div.comment-reply-button-box a.comment-reply-submit', function () {
+                    $('#comment-reply-form').submit();
+                });
+
+            </script>
+        @endsection('scripts')
         @endif
     </div>
 
