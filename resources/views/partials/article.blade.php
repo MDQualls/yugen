@@ -70,20 +70,22 @@
                 </div>
             </form>
 
-            <div class="comment-reply-form-container mt-5">
-                <form id="comment-reply-form" method="post" action="{{route('post-comment', ['post' => $post->id])}}">
-                    @csrf
-                    <input type="hidden" id="parent_comment_id" name="parent_comment_id" value="{{$comment->id}}">
-                    <div class="form-group">
-                        <textarea id="comment-reply-textarea" name="comment-reply-textarea" class="form-control"
-                                  rows="1" placeholder="Reply" required></textarea>
-                        <div class="comment-reply-button-box">
-                            <a class="comment-reply-submit" href="#"><i class="fas fa-check-circle"></i></a>
-                            <a class="comment-reply-cancel" href="#"><i class="fas fa-times-circle"></i></a>
+            @if($post->comments->count() > 0)
+                <div class="comment-reply-form-container mt-5">
+                    <form id="commentReplyForm" method="post" action="{{route('post-reply', ['post' => $post->id])}}">
+                        @csrf
+                        <input type="hidden" id="parent_comment_id" name="parent_comment_id" value="{{$comment->id}}">
+                        <div class="form-group">
+                            <textarea id="commentReplyTextarea" name="commentReplyTextarea" class="form-control"
+                                      rows="1" placeholder="Reply" required></textarea>
+                            <div class="comment-reply-button-box">
+                                <a class="comment-reply-submit" href="#"><i class="fas fa-check-circle"></i></a>
+                                <a class="comment-reply-cancel" href="#"><i class="fas fa-times-circle"></i></a>
+                            </div>
                         </div>
-                    </div>
-                </form>
-            </div>
+                    </form>
+                </div>
+            @endif
 
         @section('scripts')
             <script>
@@ -92,9 +94,10 @@
                     let commentReplyContainer = $(target).closest('.comment-reply-container').html();
                     let commentReplyForm = formContainer.html();
 
-                    $("#comment-reply-form #parent_comment_id").val($(target).attr('data-parent-id'));
+                    $("#commentReplyForm #parent_comment_id").val($(target).attr('data-parent-id'));
                     $(target).closest('.comment-reply-container').html(commentReplyForm);
                     $(formContainer).html(commentReplyContainer);
+                    $('#commentReplyTextarea').removeClass('required-error');
                 }
 
                 $(document).on('click', 'div.comment-reply-container a.text-info', function () {
@@ -106,7 +109,14 @@
                 });
 
                 $(document).on('click', 'div.comment-reply-button-box a.comment-reply-submit', function () {
-                    $('#comment-reply-form').submit();
+                    let textarea = $('#commentReplyTextarea');
+                    const regex = RegExp('[a-zA-Z0-9]+');
+                    if(textarea.val() === undefined || regex.test(textarea.val()) === false)  {
+                        textarea.addClass('required-error');
+                        return false;
+                    }
+
+                    $('#commentReplyForm').submit();
                 });
 
             </script>

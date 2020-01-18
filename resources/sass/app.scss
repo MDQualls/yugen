@@ -78,7 +78,7 @@ html, body {
     visibility: hidden;
 }
 
-#comment-reply-form  {
+#commentReplyForm  {
 
     margin-top: 10px;
 
@@ -92,6 +92,11 @@ html, body {
         border-radius: 15px;
         display: inline-block;
         width: 80%;
+    }
+
+    .required-error {
+        border: solid 2px #a90000;
+        background-color: #ffcfd6;
     }
 
     .comment-reply-button-box  {

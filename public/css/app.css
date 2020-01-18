@@ -11429,33 +11429,38 @@ body {
   visibility: hidden;
 }
 
-#comment-reply-form {
+#commentReplyForm {
   margin-top: 10px;
 }
 
-#comment-reply-form .form-group {
+#commentReplyForm .form-group {
   position: relative;
 }
 
-#comment-reply-form textarea {
+#commentReplyForm textarea {
   border-radius: 15px;
   display: inline-block;
   width: 80%;
 }
 
-#comment-reply-form .comment-reply-button-box {
+#commentReplyForm .required-error {
+  border: solid 2px #a90000;
+  background-color: #ffcfd6;
+}
+
+#commentReplyForm .comment-reply-button-box {
   display: inline-block;
   position: absolute;
   top: 10px;
   margin-left: 10px;
 }
 
-#comment-reply-form .comment-reply-button-box .fa-check-circle {
+#commentReplyForm .comment-reply-button-box .fa-check-circle {
   color: #2fa360;
   font-size: 1.2rem;
 }
 
-#comment-reply-form .comment-reply-button-box .fa-times-circle {
+#commentReplyForm .comment-reply-button-box .fa-times-circle {
   color: #8b0000;
   font-size: 1.2rem;
 }

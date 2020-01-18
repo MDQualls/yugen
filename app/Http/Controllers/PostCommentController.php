@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Posts\PostCommentRequest;
+use App\Http\Requests\Posts\PostReplyRequest;
 use App\Mail\ResponseAlert;
 use App\Post;
 use App\PostComment;
@@ -44,6 +45,25 @@ class PostCommentController extends Controller
         $url = url("/article/{$title}");
 
         $this->responseAlertService->sendAlerts($comment, $url);
+
+        return redirect()->route('blog-post', ['title' => $post->title]);
+    }
+
+    public function postReply(PostReplyRequest $request, Post $post)
+    {
+        $title = rawurlencode($post->title);
+        $url = url("/article/{$title}");
+
+        if(preg_match('/\w+/',$request->commentReplyTextarea))  {
+            $comment = PostComment::create([
+                'comment' => $request->commentReplyTextarea,
+                'user_id' => auth()->user()->id,
+                'post_id' => $post->id,
+                'parent_comment_id' => $request->parent_comment_id ?? 0,
+            ]);
+
+            $this->responseAlertService->sendAlerts($comment, $url);
+        }
 
         return redirect()->route('blog-post', ['title' => $post->title]);
     }
