@@ -1,14 +1,11 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-html,body
-{
+html, body {
     width: 100% !important;
     height: 100% !important;
     margin: 0 !important;
@@ -24,7 +21,7 @@ html,body
     background-color: #ffa500 !important;
 }
 
-.bg-wetasphalt  {
+.bg-wetasphalt {
     background-color: #34495e !important;
 }
 
@@ -42,35 +39,70 @@ html,body
     z-index: 1;
 }
 
-.admin-dashboard-body  {
+.admin-dashboard-body {
     height: 100vh;
 }
 
 .manage-reply-span,
-.reply-delete-span  {
+.reply-delete-span {
     display: inline-block;
 }
 
-.manage-reply-span  {
+.manage-reply-span {
     float: left;
 }
 
-.reply-delete-span  {
+.reply-delete-span {
     float: right;
 }
 
-.manage-comment-header  {
-    h4  {
+.manage-comment-header {
+    h4 {
         display: inline-block;
         float: left;
     }
-    button  {
+
+    button {
         float: right;
         margin-right: 20px;
     }
 }
 
-.update-comment-popover  {
+.update-comment-popover {
     display: inline-block;
     margin-left: 10px;
+}
+
+.comment-reply-form-container {
+
+    visibility: hidden;
+
+    .form-group  {
+        position: relative
+    }
+
+    textarea  {
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        display: inline-block;
+        width: 85%;
+    }
+
+    .comment-reply-button-box  {
+        display: inline-block;
+        position: absolute;
+        top:10px;
+        margin-left: 10px;
+
+        .fa-check-circle  {
+            color: #2fa360;
+            font-size: 1.2rem;
+        }
+
+        .fa-times-circle  {
+            color: #8b0000;
+            font-size: 1.2rem;
+        }
+    }
 }

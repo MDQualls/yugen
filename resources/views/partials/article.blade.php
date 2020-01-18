@@ -57,22 +57,42 @@
 
             @include('partials.errors')
 
-            <form method="post" action="{{route('post-comment', ['post' => $post->id])}}" role="form">
+            <form  id="comment-form" method="post" action="{{route('post-comment', ['post' => $post->id])}}" role="form">
                 @csrf
                 <input type="hidden" id="parent_comment_id" name="parent_comment_id" value="">
                 <div class="form-group">
                     <label>Comment</label>
-                    <textarea id="comment" name="comment" class="form-control" rows="5"
+                    <textarea id="comment" name="comment" class="form-control" rows="3"
                               placeholder="Comment"></textarea>
                 </div>
                 <div class="clearfix float-right">
                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </div>
             </form>
+
+                <br><br><br><br><br><br>
+
+            <div class="comment-reply-form-container mt-5">
+                <form id="comment-reply-form" method="post" action="{{route('post-comment', ['post' => $post->id])}}">
+                    @csrf
+                    <input type="hidden" id="parent_comment_id" name="parent_comment_id" value="">
+                    <div class="form-group">
+                        <textarea id="comment" name="comment" class="form-control" rows="1" placeholder="Reply"></textarea>
+                        <div class="comment-reply-button-box">
+                            <a href="#"><i class="fas fa-check-circle"></i></a>
+                            <a href="#"><i class="fas fa-times-circle"></i></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
             @section('scripts')
                 <script>
                     function replyToComment($parentId)
                     {
+                        //comment-reply-container
+                        //comment-reply-form-container
+
                         $("#parent_comment_id").val($parentId);
                         $("textarea#comment").focus();
                     }
