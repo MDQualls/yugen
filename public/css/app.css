@@ -11420,48 +11420,79 @@ body {
   margin-right: 20px;
 }
 
-.update-comment-popover {
-  display: inline-block;
-  margin-left: 10px;
-}
-
-.comment-reply-form-container {
+.comment-reply-form-container,
+.edit-comment-form-container {
   visibility: hidden;
 }
 
-#commentReplyForm {
+#commentReplyForm,
+#editCommentForm {
   margin-top: 10px;
 }
 
-#commentReplyForm .form-group {
+#commentReplyForm .form-group,
+#editCommentForm .form-group {
   position: relative;
 }
 
-#commentReplyForm textarea {
+#commentReplyForm textarea,
+#editCommentForm textarea {
   border-radius: 15px;
   display: inline-block;
   width: 80%;
 }
 
-#commentReplyForm .required-error {
+#commentReplyForm .required-error,
+#editCommentForm .required-error {
   border: solid 2px #a90000;
   background-color: #ffcfd6;
 }
 
-#commentReplyForm .comment-reply-button-box {
+#commentReplyForm .comment-reply-button-box,
+#commentReplyForm .edit-comment-button-box,
+#editCommentForm .comment-reply-button-box,
+#editCommentForm .edit-comment-button-box {
   display: inline-block;
   position: absolute;
   top: 10px;
   margin-left: 10px;
 }
 
-#commentReplyForm .comment-reply-button-box .fa-check-circle {
+#commentReplyForm .comment-reply-button-box .fa-check-circle,
+#commentReplyForm .edit-comment-button-box .fa-check-circle,
+#editCommentForm .comment-reply-button-box .fa-check-circle,
+#editCommentForm .edit-comment-button-box .fa-check-circle {
   color: #2fa360;
   font-size: 1.2rem;
 }
 
-#commentReplyForm .comment-reply-button-box .fa-times-circle {
+#commentReplyForm .comment-reply-button-box .fa-times-circle,
+#commentReplyForm .edit-comment-button-box .fa-times-circle,
+#editCommentForm .comment-reply-button-box .fa-times-circle,
+#editCommentForm .edit-comment-button-box .fa-times-circle {
   color: #8b0000;
   font-size: 1.2rem;
+}
+
+.edit-comment-link-box {
+  display: inline-block;
+}
+
+.edit-comment-link-box a {
+  margin-left: 10px;
+  font-size: 0.8rem;
+}
+
+.edit-comment-link-box a.edit-comment-link {
+  color: #2fa360;
+}
+
+.edit-comment-link-box a.delete-comment-link {
+  color: #8b0000;
+}
+
+.edit-comment-link-box a.edit-comment-link:hover,
+.edit-comment-link-box a.delete-comment-link:hover {
+  color: #666;
 }
 

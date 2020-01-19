@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Posts\PostCommentRequest;
 use App\Http\Requests\Posts\PostReplyRequest;
+use App\Http\Requests\Posts\UpdateCommentRequest;
 use App\Mail\ResponseAlert;
 use App\Post;
 use App\PostComment;
@@ -49,6 +50,11 @@ class PostCommentController extends Controller
         return redirect()->route('blog-post', ['title' => $post->title]);
     }
 
+    /**
+     * @param PostReplyRequest $request
+     * @param Post $post
+     * @return RedirectResponse
+     */
     public function postReply(PostReplyRequest $request, Post $post)
     {
         $title = rawurlencode($post->title);
@@ -63,6 +69,26 @@ class PostCommentController extends Controller
             ]);
 
             $this->responseAlertService->sendAlerts($comment, $url);
+        }
+
+        return redirect()->route('blog-post', ['title' => $post->title]);
+    }
+
+    /**
+     * @param UpdateCommentRequest $request
+     * @param Post $post
+     * @return RedirectResponse
+     */
+    public function updateComment(UpdateCommentRequest $request, Post $post)  {
+
+        if(preg_match('/\w+/',$request->editCommentTextarea))  {
+
+            $comment = PostComment::where('id', '=', $request->comment_id)->first();
+
+            if($comment) {
+                $comment->comment = $request->editCommentTextarea;
+                $comment->update();
+            }
         }
 
         return redirect()->route('blog-post', ['title' => $post->title]);

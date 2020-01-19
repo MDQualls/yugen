@@ -4,18 +4,15 @@
     <div class="media-body">
         <h5 class="mt-0 font400 clearfix">
             {{$comment->user->name}}
-            @if(auth()->user()->id == $comment->user->id)
-                <div class="update-comment-popover float-right mr-2">
-                    <a href="#" data-container="body"
-                       data-toggle="popover" data-placement="bottom"
-                       data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Delete</a></div>"
-                       title="Update Comment" data-html="true">
-                        <i class="fas fa-ellipsis-h"></i>
-                    </a>
+            @if(isset(auth()->user()->id) && auth()->user()->id == $comment->user->id)
+                <div class="edit-comment-link-box">
+                    <a title="Edit your comment" data-comment-id="{{$comment->id}}" class="edit-comment-link" href="#">Edit</a>
                 </div>
             @endif
         </h5>
-        {{$comment->comment}}
+        <div class="comment-box">
+            {{$comment->comment}}
+        </div>
         <div class="comment-reply-container my-1">
             <a data-parent-id="{{$comment->id}}" class="text-info" href="#">Reply</a>
         </div>
@@ -25,18 +22,15 @@
                     <div class="media-body">
                         <h5 class="mt-0 font400 clearfix">
                             {{$reply->user->name}} replied
-                            @if(auth()->user()->id == $reply->user->id)
-                                <div class="update-comment-popover float-right mr-2">
-                                    <a href="#" data-container="body"
-                                       data-toggle="popover" data-placement="bottom"
-                                       data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Delete</a></div>"
-                                       title="Update Comment" data-html="true">
-                                        <i class="fas fa-ellipsis-h"></i>
-                                    </a>
+                            @if(isset(auth()->user()->id) && auth()->user()->id == $reply->user->id)
+                                <div class="edit-comment-link-box">
+                                    <a title="Edit your comment" data-comment-id="{{$reply->id}}" class="edit-comment-link" href="#">Edit</a>
                                 </div>
                             @endif
                         </h5>
-                        {{$reply->comment}}
+                        <div class="comment-box">
+                            {{$reply->comment}}
+                        </div>
                         <div class="comment-reply-container my-1">
                             <span class="comment-reply-span">
                                 <a data-parent-id="{{$comment->id}}" class="text-info" href="#">Reply</a>

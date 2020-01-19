@@ -74,52 +74,41 @@
                 <div class="comment-reply-form-container mt-5">
                     <form id="commentReplyForm" method="post" action="{{route('post-reply', ['post' => $post->id])}}">
                         @csrf
-                        <input type="hidden" id="parent_comment_id" name="parent_comment_id" value="{{$comment->id}}">
+                        <input type="hidden" id="parent_comment_id" name="parent_comment_id" value="">
                         <div class="form-group">
                             <textarea id="commentReplyTextarea" name="commentReplyTextarea" class="form-control"
                                       rows="1" placeholder="Reply" required></textarea>
                             <div class="comment-reply-button-box">
                                 <a class="comment-reply-submit" href="#"><i class="fas fa-check-circle"></i></a>
-                                <a class="comment-reply-cancel" href="#"><i class="fas fa-times-circle"></i></a>
+                                <a data-parent-id="" class="comment-reply-cancel" href="#"><i class="fas fa-times-circle"></i></a>
                             </div>
                         </div>
                     </form>
                 </div>
+
+                @if(isset(auth()->user()->id) && auth()->user()->id == $comment->user->id)
+                    <div class="edit-comment-form-container mt-5">
+                        <form id="editCommentForm" method="post"
+                              action="{{route('update-comment', ['post' => $post->id])}}">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" id="comment_id" name="comment_id"
+                                   value="">
+                            <div class="form-group">
+                            <textarea style="font-size: .90rem" id="editCommentTextarea" name="editCommentTextarea" class="form-control"
+                                      rows="5" required></textarea>
+                                <div class="edit-comment-button-box">
+                                    <a class="edit-comment-submit" href="#"><i class="fas fa-check-circle"></i></a>
+                                    <a data-comment-id="" class="edit-comment-cancel" href="#"><i class="fas fa-times-circle"></i></a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                @endif
             @endif
 
         @section('scripts')
-            <script>
-                function toggleReplyForm(target)  {
-                    let formContainer = $('.comment-reply-form-container');
-                    let commentReplyContainer = $(target).closest('.comment-reply-container').html();
-                    let commentReplyForm = formContainer.html();
-
-                    $("#commentReplyForm #parent_comment_id").val($(target).attr('data-parent-id'));
-                    $(target).closest('.comment-reply-container').html(commentReplyForm);
-                    $(formContainer).html(commentReplyContainer);
-                    $('#commentReplyTextarea').removeClass('required-error');
-                }
-
-                $(document).on('click', 'div.comment-reply-container a.text-info', function () {
-                    toggleReplyForm(this);
-                });
-
-                $(document).on('click', 'div.comment-reply-button-box a.comment-reply-cancel', function () {
-                    toggleReplyForm(this);
-                });
-
-                $(document).on('click', 'div.comment-reply-button-box a.comment-reply-submit', function () {
-                    let textarea = $('#commentReplyTextarea');
-                    const regex = RegExp('[a-zA-Z0-9]+');
-                    if(textarea.val() === undefined || regex.test(textarea.val()) === false)  {
-                        textarea.addClass('required-error');
-                        return false;
-                    }
-
-                    $('#commentReplyForm').submit();
-                });
-
-            </script>
+            <script src="{{ asset('js/article.js') }}"></script>
         @endsection('scripts')
         @endif
     </div>

@@ -27,6 +27,8 @@ Route::get('disclaimerpolicy', 'PrivacyController@disclaimer')->name('disclaimer
 //autheniticated routes
 Route::middleware(['verified', 'auth', 'suspended'])->group(function () {
     Route::post('postcomment/{post}', 'PostCommentController@postComment')->name('post-comment');
+    Route::put('updatecomment/{post}', 'PostCommentController@updateComment')->name('update-comment');
+
     Route::post('postreply/{post}', 'PostCommentController@postReply')->name('post-reply');
     Route::get('usersettings/{user}', 'UserSettingsController@index')->name('user-settings');
     Route::get('userpassword/{user}', 'UserSettingsController@editPassword')->name('user-password');
