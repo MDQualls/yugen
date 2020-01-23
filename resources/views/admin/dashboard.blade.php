@@ -37,32 +37,59 @@
                 @if($posts->count() == 0)
                     <h4>No posts in database</h4>
                 @else
-                    <table class="table table-striped">
-                        <thead class="thead-dark">
-                        <tr>
-                            <th>#</th>
-                            <th>Title</th>
-                            <th>Category</th>
-                            <th>Date</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($posts as $post)
-                            <tr>
-                                <td>{{$post->id}}</td>
-                                <td>{{$post->title}}</td>
-                                <td>{{$post->category->name}}</td>
-                                <td>{{Carbon\Carbon::parse($post->published_at)->format('m/d/Y')}}</td>
-                                <td>
-                                    <a href="{{route('post.edit', $post->id)}}" class="btn btn-secondary btn-sm"><i
-                                            class="fas fa-angle-double-right"></i> Details</a>
-                                    @include('partials.admin.postarchive')
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+
+                    <div class="latest-posts-box">
+                        <div class="posts-box-header">
+                            <div>#</div>
+                            <div>Title</div>
+                            <div>Category</div>
+                            <div>Date</div>
+                            <div></div>
+                        </div>
+
+                        <div class="posts-box-body">
+                            @foreach($posts as $post)
+                                <div class="posts-box-row">
+                                    <div>{{$post->id}}</div>
+                                    <div>{{$post->title}}</div>
+                                    <div>{{$post->category->name}}</div>
+                                    <div>{{Carbon\Carbon::parse($post->published_at)->format('m/d/Y')}}</div>
+                                    <div>
+                                        <a href="{{route('post.edit', $post->id)}}" class="btn btn-secondary btn-sm"><i
+                                                class="fas fa-angle-double-right"></i> Details</a>
+                                        @include('partials.admin.postarchive')
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+
+{{--                    <table class="table table-striped">--}}
+{{--                        <thead class="thead-dark">--}}
+{{--                        <tr>--}}
+{{--                            <th>#</th>--}}
+{{--                            <th>Title</th>--}}
+{{--                            <th>Category</th>--}}
+{{--                            <th>Date</th>--}}
+{{--                            <th></th>--}}
+{{--                        </tr>--}}
+{{--                        </thead>--}}
+{{--                        <tbody>--}}
+{{--                        @foreach($posts as $post)--}}
+{{--                            <tr>--}}
+{{--                                <td>{{$post->id}}</td>--}}
+{{--                                <td>{{$post->title}}</td>--}}
+{{--                                <td>{{$post->category->name}}</td>--}}
+{{--                                <td>{{Carbon\Carbon::parse($post->published_at)->format('m/d/Y')}}</td>--}}
+{{--                                <td>--}}
+{{--                                    <a href="{{route('post.edit', $post->id)}}" class="btn btn-secondary btn-sm"><i--}}
+{{--                                            class="fas fa-angle-double-right"></i> Details</a>--}}
+{{--                                    @include('partials.admin.postarchive')--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
+{{--                        @endforeach--}}
+{{--                        </tbody>--}}
+{{--                    </table>--}}
                 @endif
             </div>
         </div>
