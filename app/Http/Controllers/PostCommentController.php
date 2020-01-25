@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Posts\PostCommentRequest;
 use App\Http\Requests\Posts\PostReplyRequest;
 use App\Http\Requests\Posts\UpdateCommentRequest;
+use App\Jobs\ProcessResponseAlerts;
 use App\Post;
 use App\PostComment;
 use App\Repositories\Comment\CommentRepository;
@@ -24,16 +25,24 @@ class PostCommentController extends Controller
     protected $commentRepository;
 
     /**
+     * @var ProcessResponseAlerts
+     */
+    protected $processResponseAlerts;
+
+    /**
      * PostCommentController constructor.
      * @param ResponseAlertInterface $responseAlertService
      * @param CommentRepository $commentRepository
+     * @param ProcessResponseAlerts $processResponseAlerts
      */
     public function __construct(
         ResponseAlertInterface $responseAlertService,
-        CommentRepository $commentRepository
+        CommentRepository $commentRepository,
+        ProcessResponseAlerts $processResponseAlerts
     ){
         $this->responseAlertService = $responseAlertService;
         $this->commentRepository = $commentRepository;
+        $this->processResponseAlerts = $processResponseAlerts;
     }
 
     /**
@@ -48,7 +57,7 @@ class PostCommentController extends Controller
         $title = rawurlencode($post->title);
         $url = url("/article/{$title}");
 
-        $this->responseAlertService->sendAlerts($comment, $url);
+        $this->processResponseAlerts::dispatch($this->responseAlertService, $comment, $url)->onConnection('sqs');;
 
         return redirect()->route('blog-post', ['title' => $post->title]);
     }
@@ -67,7 +76,7 @@ class PostCommentController extends Controller
 
             $comment = $this->commentRepository->create($request, $post);
 
-            $this->responseAlertService->sendAlerts($comment, $url);
+            $this->processResponseAlerts::dispatch($this->responseAlertService, $comment, $url)->onConnection('sqs');;
         }
 
         return redirect()->route('blog-post', ['title' => $post->title]);

@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Posts\CreatePostRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
+use App\Jobs\ProcessContentAlerts;
 use App\Post;
 use App\Services\Notification\ContentAlertInterface;
 use App\Services\Post\HeaderImageInterface;
@@ -24,28 +25,36 @@ class PostController extends Controller
     /**
      * @var TagServiceInterface
      */
-    var $tagService;
+    protected $tagService;
 
     /**
      * @var SummerNoteImageInterface
      */
-    var $summerNoteImageService;
+    protected $summerNoteImageService;
 
     /**
      * @var HeaderImageInterface
      */
-    var $headerImageService;
+    protected $headerImageService;
 
     /**
      * @var ContentAlertInterface
      */
-    var $contentAlertService;
+    protected $contentAlertService;
+
+    /**
+     * @var ProcessContentAlerts
+     */
+    protected $processContentAlerts;
+
+
 
     public function __construct(
         TagServiceInterface $tagService,
         SummerNoteImageInterface $summerNoteImageService,
         HeaderImageInterface $headerImageService,
-        ContentAlertInterface $contentAlertService)
+        ContentAlertInterface $contentAlertService,
+        ProcessContentAlerts $processContentAlerts)
     {
         $this->middleware('verifyCategoryCount')->only(['create', 'store']);
 
@@ -53,6 +62,7 @@ class PostController extends Controller
         $this->summerNoteImageService = $summerNoteImageService;
         $this->headerImageService = $headerImageService;
         $this->contentAlertService = $contentAlertService;
+        $this->processContentAlerts = $processContentAlerts;
     }
 
     /**
@@ -109,22 +119,11 @@ class PostController extends Controller
         $title = rawurlencode($post->title);
         $url = url("/article/{$title}");
 
-        $this->contentAlertService->sendAlerts($post, $url);
+        $this->processContentAlerts::dispatch($this->contentAlertService, $post, $url)->onConnection('sqs');
 
         session()->flash('success', 'Post successfully created.');
 
         return redirect(route('post.index'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
