@@ -9,6 +9,7 @@ This application is still in the feature development stage and I expect that con
 # Currrent Techonology Stack
 
 * PHP 7.X, Laravel 6, Mysql, Heroku, AWS S3, Sendgrid and GIT
+* 01/25/2020 added AWS SQS integration for notifications.
 
 # Future Techonology enhancemnts
 
