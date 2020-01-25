@@ -6,13 +6,22 @@ use Illuminate\Database\Eloquent\Builder;
 
 class PostRepository implements PostRepositoryInterface
 {
+    /**
+     * @var Post
+     */
+    private $post;
+
+    public function __construct(Post $post)
+    {
+        $this->post = $post;
+    }
 
     /**
      * @return mixed
      */
     public function getLatestPosts()
     {
-        $posts = Post::all()
+        $posts = $this->post::all()
             ->where('archived', '=', 0)
             ->sortByDesc('published_at')
             ->take(10);
@@ -25,7 +34,7 @@ class PostRepository implements PostRepositoryInterface
      */
     public function getAllPostsPaginated()
     {
-        return Post::where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate(5);
+        return $this->post::where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate(5);
     }
 
     /**
@@ -34,7 +43,7 @@ class PostRepository implements PostRepositoryInterface
      */
     public function getCategoryPostsPaginated($category)
     {
-        return Post::whereHas('category', function (Builder $query) use ($category) {
+        return $this->post::whereHas('category', function (Builder $query) use ($category) {
             $query->where('name', '=', $category);
             })->where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate(5);
     }
@@ -45,19 +54,19 @@ class PostRepository implements PostRepositoryInterface
      */
     public function getAuthorPostsPaginated($user)
     {
-        return Post::whereHas('user', function (Builder $query) use ($user) {
+        return $this->post::whereHas('user', function (Builder $query) use ($user) {
             $query->where('name', '=', $user);
         })->where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate(5);
     }
 
     public function getPostWithTitle($title)
     {
-        return Post::where('title','=',$title)->first();
+        return $this->post::where('title','=',$title)->first();
     }
 
     public function getTagPostsPaginated($tag)
     {
-        return Post::whereHas('tags', function (Builder $query) use ($tag) {
+        return $this->post::whereHas('tags', function (Builder $query) use ($tag) {
             $query->where('name', '=', $tag);
         })->where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate(5);
     }

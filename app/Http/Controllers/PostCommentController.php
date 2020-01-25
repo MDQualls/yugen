@@ -5,12 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Posts\PostCommentRequest;
 use App\Http\Requests\Posts\PostReplyRequest;
 use App\Http\Requests\Posts\UpdateCommentRequest;
-use App\Mail\ResponseAlert;
 use App\Post;
 use App\PostComment;
+use App\Repositories\Comment\CommentRepository;
 use App\Services\Notification\ResponseAlertInterface;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Mail;
 
 class PostCommentController extends Controller
 {
@@ -20,12 +19,21 @@ class PostCommentController extends Controller
     protected $responseAlertService;
 
     /**
+     * @var CommentRepository
+     */
+    protected $commentRepository;
+
+    /**
      * PostCommentController constructor.
      * @param ResponseAlertInterface $responseAlertService
+     * @param CommentRepository $commentRepository
      */
-    public function __construct(ResponseAlertInterface $responseAlertService)
-    {
+    public function __construct(
+        ResponseAlertInterface $responseAlertService,
+        CommentRepository $commentRepository
+    ){
         $this->responseAlertService = $responseAlertService;
+        $this->commentRepository = $commentRepository;
     }
 
     /**
@@ -35,12 +43,7 @@ class PostCommentController extends Controller
      */
     public function postComment(PostCommentRequest $request, Post $post)
     {
-        $comment = PostComment::create([
-            'comment' => $request->comment,
-            'user_id' => auth()->user()->id,
-            'post_id' => $post->id,
-            'parent_comment_id' => $request->parent_comment_id ?? 0,
-        ]);
+        $comment = $this->commentRepository->create($request, $post);
 
         $title = rawurlencode($post->title);
         $url = url("/article/{$title}");
@@ -61,12 +64,8 @@ class PostCommentController extends Controller
         $url = url("/article/{$title}");
 
         if(preg_match('/\w+/',$request->commentReplyTextarea))  {
-            $comment = PostComment::create([
-                'comment' => $request->commentReplyTextarea,
-                'user_id' => auth()->user()->id,
-                'post_id' => $post->id,
-                'parent_comment_id' => $request->parent_comment_id ?? 0,
-            ]);
+
+            $comment = $this->commentRepository->create($request, $post);
 
             $this->responseAlertService->sendAlerts($comment, $url);
         }
@@ -83,7 +82,7 @@ class PostCommentController extends Controller
 
         if(preg_match('/\w+/',$request->editCommentTextarea))  {
 
-            $comment = PostComment::where('id', '=', $request->comment_id)->first();
+            $comment = $this->commentRepository->get($request);
 
             if($comment) {
                 $comment->comment = $request->editCommentTextarea;

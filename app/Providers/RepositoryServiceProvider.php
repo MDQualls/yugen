@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Repositories\Comment\CommentRepository;
+use App\Repositories\Comment\CommentRepositoryInterface;
 use App\Repositories\Post\PostRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\Post\PostRepository;
 
-class PostRepositoryServiceProvider extends ServiceProvider
+class RepositoryServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -16,6 +18,7 @@ class PostRepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(PostRepositoryInterface::class, PostRepository::class);
+        $this->app->bind(CommentRepositoryInterface::class, CommentRepository::class);
     }
 
     /**

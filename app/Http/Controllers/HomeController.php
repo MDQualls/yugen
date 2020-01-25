@@ -86,6 +86,10 @@ class HomeController extends Controller
             ->with('fullArticle', false);
     }
 
+    /**
+     * @param $tag
+     * @return Factory|View
+     */
     public function tagPost($tag)
     {
         $posts = $this->postRepository->getTagPostsPaginated($tag);

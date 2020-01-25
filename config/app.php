@@ -1,6 +1,6 @@
 <?php
 
-use App\Providers\PostRepositoryServiceProvider;
+use App\Providers\RepositoryServiceProvider;
 use App\Providers\SummerNoteImageServiceProvider;
 use App\Providers\TagServiceProvider;
 use App\Providers\S3ServiceProvider;
@@ -189,7 +189,7 @@ return [
          * Custom Providers
          */
 
-        PostRepositoryServiceProvider::class,
+        RepositoryServiceProvider::class,
         TagServiceProvider::class,
         SummerNoteImageServiceProvider::class,
         S3ServiceProvider::class,
