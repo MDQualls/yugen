@@ -147,6 +147,7 @@ class PostController extends Controller
         $data = $request->only('title', 'summary', 'post_content', 'published_at', 'category');
 
         $data['post_content'] = $this->summerNoteImageService->storeImages($data['post_content']);
+        $data['category_id'] = $request->category;
 
         if($request->hasFile('header_image'))  {
             $img = $this->headerImageService->store(
