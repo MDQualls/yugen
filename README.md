@@ -10,7 +10,7 @@ This application is still in the feature development stage and I expect that con
 
 * PHP 7.X with Laravel 6 
 * Mysql
-* Heroku, 
+* Heroku
 * AWS S3 & SQS
 * Sendgrid 
 * GIT
