@@ -12,6 +12,7 @@
         "ext-dom": "*",
         "ext-gd": "*",
         "aws/aws-sdk-php": "^3.133",
+        "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
         "intervention/image": "^2.5",
         "laravel/framework": "^6.2",
@@ -25,8 +26,7 @@
         "laravel/ui": "^1.1",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
-        "phpunit/phpunit": "^8.0",
-        "doctrine/dbal" :  "^2.10.0"
+        "phpunit/phpunit": "^8.0"
     },
     "config": {
         "optimize-autoloader": true,
