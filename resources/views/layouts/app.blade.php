@@ -43,23 +43,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6  ml-auto mr-auto text-center">
-                    <ul class="social-icons list-inline">
+{{--                    <ul class="social-icons list-inline">--}}
 {{--                        <li class="list-inline-item">--}}
 {{--                            <a href="#">--}}
 {{--                                <i class="fab fa-facebook-square"></i>Facebook--}}
 {{--                            </a>--}}
 {{--                        </li>--}}
-                        {{--                        <li class="list-inline-item">--}}
-                        {{--                            <a href="#">--}}
-                        {{--                                <i class="fab fa-twitter-square"></i>twitter--}}
-                        {{--                            </a>--}}
-                        {{--                        </li>--}}
-                        {{--                        <li class="list-inline-item">--}}
-                        {{--                            <a href="#">--}}
-                        {{--                                <i class="fab fa-instagram"></i>instagram--}}
-                        {{--                            </a>--}}
-                        {{--                        </li>--}}
-                    </ul>
+{{--                                                <li class="list-inline-item">--}}
+{{--                                                    <a href="#">--}}
+{{--                                                        <i class="fab fa-twitter-square"></i>twitter--}}
+{{--                                                    </a>--}}
+{{--                                                </li>--}}
+{{--                                                <li class="list-inline-item">--}}
+{{--                                                    <a href="#">--}}
+{{--                                                        <i class="fab fa-pinterest"></i>Pinterest--}}
+{{--                                                    </a>--}}
+{{--                                                </li>--}}
+{{--                    </ul>--}}
                     <h4><i class="fas fa-envelope"></i> yugenfarm@gmail.com</h4>
                     <p>
                         <div>&copy; Copyright <span id="year"></span> {{ config('app.name') }} | Application by Michael Qualls</div>

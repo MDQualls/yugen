@@ -1,0 +1,66 @@
+.comment-reply-form-container,
+.edit-comment-form-container {
+    visibility: hidden;
+}
+
+#commentReplyForm,
+#editCommentForm  {
+
+    margin-top: 10px;
+
+    .form-group  {
+        position: relative
+    }
+
+    textarea  {
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        display: inline-block;
+        width: 80%;
+    }
+
+    .required-error {
+        border: solid 2px #a90000;
+        background-color: #ffcfd6;
+    }
+
+    .comment-reply-button-box,
+    .edit-comment-button-box {
+        display: inline-block;
+        position: absolute;
+        top:10px;
+        margin-left: 10px;
+
+        .fa-check-circle  {
+            color: #2fa360;
+            font-size: 1.2rem;
+        }
+
+        .fa-times-circle  {
+            color: #8b0000;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.edit-comment-link-box  {
+    display: inline-block;
+
+    a {
+        margin-left: 10px;
+        font-size: .80rem;
+    }
+
+    a.edit-comment-link  {
+        color: #2fa360;
+    }
+    a.delete-comment-link  {
+        color: #8b0000;
+    }
+
+    a.edit-comment-link:hover,
+    a.delete-comment-link:hover {
+        color: #666;
+    }
+}
