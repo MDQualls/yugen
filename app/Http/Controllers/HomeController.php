@@ -36,9 +36,20 @@ class HomeController extends Controller
         $posts = $this->postRepository->getAllPostsPaginated();
 
         return view('home')
+            ->with('title', 'Yugen Farm Blog Posts')
             ->with('posts', $posts)
             ->with('categories', Category::orderBy('name', 'asc')->get())
             ->with('fullArticle', false);
+    }
+
+    /**
+     * Display the welcome page
+     *
+     * @return Factory|View
+     */
+    public function welcome()
+    {
+        return view('welcome');
     }
 
     /**

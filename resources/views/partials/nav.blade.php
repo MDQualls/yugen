@@ -9,7 +9,7 @@
         <div  id="navbarNavDropdown" class="navbar-collapse collapse">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('home')}}"><i class="fas fa-home"></i> Home</a>
+                    <a class="nav-link" href="{{route('blog')}}"><i class="fas fa-home"></i> Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('about')}}"><i class="fas fa-door-open"></i> About</a>

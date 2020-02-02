@@ -1,0 +1,46 @@
+
+.yugen-farm-welcome  {
+    background-image: -webkit-linear-gradient(rgba(25, 12, 38, 0.7), rgba(25, 12, 38, 0.7)), url(public/images/welcome_hero_image.jpg);
+    background-image: linear-gradient(rgba(25, 12, 38, 0.7), rgba(25, 12, 38, 0.7)), url(public/images/welcome_hero_image.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+
+    .welcome-text-box  {
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-75%, -100%);
+
+        h1,
+        h2 {
+            font-weight: 400;
+            text-transform: uppercase;
+            word-spacing: 4px;
+            letter-spacing: 1px;
+            color: #efefef;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 340%;
+
+        }
+
+        h2  {
+            padding-left: 5px;
+        }
+
+        a  {
+            margin-left: 5px;
+            margin-top: 20px;
+            margin-right: 20px;
+        }
+
+        .btn  {
+            border-radius: 5px;
+        }
+    }
+}

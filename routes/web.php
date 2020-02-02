@@ -14,7 +14,8 @@
 Auth::routes(['verify' => true]);
 
 //public routes
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@welcome')->name('welcome');
+Route::get('blog', 'HomeController@index')->name('blog');
 Route::get('about', 'AboutController@index')->name('about');
 Route::get('article/{title}', 'HomeController@blogPost')->name('blog-post');
 Route::get('postcategory/{category}', 'HomeController@categoryPost')->name('post-category');
