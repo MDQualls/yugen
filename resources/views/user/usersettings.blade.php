@@ -99,7 +99,7 @@
                                         class="fas fa-lock"></i> Update Password </a>
 
 
-                                <a href="{{route('home')}}" class="btn btn-secondary ml-3"><i
+                                <a href="{{route('blog')}}" class="btn btn-secondary ml-3"><i
                                         class="fas fa-arrow-left"></i> Cancel </a>
                             </div>
                         </form>
