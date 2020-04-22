@@ -1,30 +1,21 @@
-// Fonts
 @import url('https://fonts.googleapis.com/css?family=Lato');
-// Variables
-@import 'variables';
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-//common styles
-@import 'common';
-//admin styles
-@import 'admin';
-//comment styles on client side
-@import "comments";
-//welcome page styling
-@import "welcome";
-//media queries
-@import "queries";
 
-#cover {
-    height: 100%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
+@import 'abstract/variables';
+@import "abstract/mixins";
+@import "abstract/extends";
+@import "abstract/utility";
 
-#cover-caption {
-    width: 100%;
-    position: relative;
-    z-index: 1;
-}
+@import "base/base";
+
+@import "components/hero";
+@import "components/article-card";
+@import "components/comments";
+@import "components/ad-box";
+
+@import "layout/section";
+@import "layout/grid";
+@import "layout/nav";
+@import "layout/footer";
+
+@import 'pages/admin';
+@import "pages/welcome";

@@ -1,0 +1,48 @@
+.nav  {
+    color: $dark-font;
+    background-color: $white-color;
+    padding: 4rem 0;
+    border-bottom: solid .2rem $dark-color;
+
+    &__brand  {
+        font-size: 2rem;
+        display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+
+        & a,
+        & a:visited  {
+            color: $dark-font;
+            text-decoration: none;
+        }
+    }
+
+    &__navbar {
+        list-style: none;
+        float: right;
+
+        & li  {
+            margin-left: 4rem;
+        }
+    }
+
+    &__item  {
+        display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+        font-size: 1.6rem;
+        margin-top: .5rem;
+    }
+
+    &__link,
+    &__link:visited {
+        text-decoration: none;
+        padding-bottom: 3.9rem;
+        color: $dark-font;
+    }
+
+    &__link:active,
+    &__link:hover  {
+        border-bottom: solid .4rem $black-color;
+    }
+}

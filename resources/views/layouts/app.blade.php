@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Yugen Farm is a sustainable, permaculture hobby farm in New Mexico.">
-    <meta name = "keywords" content = "Permaculture, Hügelkultur, Farming, Hobby Farming, Lavender Farming, Bee Keeping, Backyard Chickens" />
+    <meta name="description" content="Yugen Farm is a sustainable, permaculture hobby farm in Oklahoma.">
+    <meta name = "keywords" content = "Permaculture, Hügelkultur, Farming, Hobby Farming, Alpacas, Bee Keeping, Backyard Chickens" />
     <meta name="author" content="Michael Qualls">
 
     <title>{{ config('app.name') }}</title>
@@ -14,8 +14,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/plugins/plugins.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     @yield('css')
 
@@ -31,18 +29,12 @@
     <div id="app">
         @include('partials.nav')
         <main>
-            <div class="row">
-                <div class="col-md-12">
-                    @yield('content')
-                </div>
-            </div>
+            @yield('content')
         </main>
     </div>
 
-    <footer class="footer footer-dark pt50 pb30">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6  ml-auto mr-auto text-center">
+    <footer class="footer">
+            <div class="footer__content">
 {{--                    <ul class="social-icons list-inline">--}}
 {{--                        <li class="list-inline-item">--}}
 {{--                            <a href="#">--}}
@@ -60,30 +52,24 @@
 {{--                                                    </a>--}}
 {{--                                                </li>--}}
 {{--                    </ul>--}}
-                    <h4><i class="fas fa-envelope"></i> yugenfarm@gmail.com</h4>
-                    <p>
-                        <div>&copy; Copyright <span id="year"></span> {{ config('app.name') }} | Application by Michael Qualls</div>
-                    </p>
+                <h4><i class="fas fa-envelope"></i> yugenfarm@gmail.com</h4>
 
-                    <p>
-                        <div>
-                            <a href="{{route('privacy')}}">Privacy Policy</a> |
-                            <a href="{{route('cookies')}}">Cookies Policy</a> |
-                            <a href="{{route('disclaimer')}}">Disclaimer</a>
-                        </div>
-                    </p>
+                <div>&copy; Copyright <span id="year"></span> {{ config('app.name') }} | Application by Michael Qualls</div>
 
+
+
+                <div>
+                    <a href="{{route('privacy')}}">Privacy Policy</a> |
+                    <a href="{{route('cookies')}}">Cookies Policy</a> |
+                    <a href="{{route('disclaimer')}}">Disclaimer</a>
                 </div>
-            </div>
-        </div>
-    </footer>
-    <!--back to top-->
-    <a href="#" class="back-to-top hidden-xs-down" id="back-to-top"><i class="fas fa-angle-up"></i></a>
 
+            </div>
+
+
+    </footer>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/plugins/plugins.js') }}"></script>
-    <script src="{{ asset('js/assan.custom.js') }}"></script>
 
     <script>
         // Get the current year for the copyright

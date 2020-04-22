@@ -1,0 +1,28 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html  {
+    background-color: $white-color;
+    font-size: $font-base-size;
+    color: $dark-font;
+    font-family: 'Lato', 'Arial', sans-serif;
+    line-height: 1.1;
+    height: 100vh;
+
+    @include respond(big-desktop)  {
+        font-size: 68.75%;        //1 rem = 11px; 11px/16px = 75%
+    }
+
+    @include respond(tab-port)  {
+        font-size: 50%;     //1 rem = 8px; 8px/16px = 50%
+    }
+
+    @include respond(phone)  {
+        font-size: 43.75%;     //1 rem = 7px; 7px/16px = 43.75%
+    }
+}

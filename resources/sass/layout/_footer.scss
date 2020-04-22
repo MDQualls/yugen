@@ -1,0 +1,29 @@
+.footer  {
+    @include gridWidthCenterd;
+    background-color: $black-color;
+    color: $light-color;
+    text-align: center;
+    height: 12rem;
+
+    &__content  {
+        letter-spacing: .3rem;
+
+        & h4  {
+            text-transform: uppercase;
+            font-weight: 300;
+            font-size: 1.6rem;
+            padding: 2rem 0;
+        }
+
+        & div  {
+            font-size: 1.2rem;
+            padding-bottom: 2rem;
+        }
+
+        & a,
+        & a:visited {
+            color: $light-color;
+            text-decoration: none;
+        }
+    }
+}

@@ -16,5 +16,7 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.js('resources/js/article.js', 'public/js');
 
-mix.copy('E:\\laravel\\yugen\\yugen\\node_modules\\flatpickr\\dist\\flatpickr.min.js', 'public/js/flatpickr.min.js');
-mix.copy('E:\\laravel\\yugen\\yugen\\node_modules\\flatpickr\\dist\\flatpickr.min.css', 'public/css/flatpickr.min.css');
+mix.copy('E:\\laravel6\\yugen\\node_modules\\flatpickr\\dist\\flatpickr.min.js', 'public/js/flatpickr.min.js');
+mix.copy('E:\\laravel6\\yugen\\node_modules\\flatpickr\\dist\\flatpickr.min.css', 'public/css/flatpickr.min.css');
+
+mix.browserSync();

@@ -1,0 +1,29 @@
+
+.hero-section {
+    @include gridWidthCenterd;
+    padding-bottom: .5rem;
+}
+
+.article-section {
+    @include gridWidthCenterd;
+    padding-top: 5.8rem;
+    border-top: solid 2px $black-color;
+    border-bottom: solid 2px $black-color;
+    position: relative;
+    margin-top: 2.8rem;
+    margin-bottom: 2.8rem;
+
+    &__title  {
+        display: inline-block;
+        padding: 1rem;
+        letter-spacing: .7px;
+        font-size: 1.6rem;
+        background-color: $black-color;
+        color: $white-color;
+        text-transform: uppercase;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

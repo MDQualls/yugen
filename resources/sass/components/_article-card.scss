@@ -1,0 +1,70 @@
+.article-card {
+
+    width: 100%;
+    height: 35rem;
+    background-color: $light-color;
+    border-radius: .2rem;
+    overflow: hidden;
+
+    & a,
+    & a:visited {
+        text-decoration: none;
+        color: $black-color;
+    }
+
+    &__image {
+        height: 20rem;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+
+        &--text {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 1;
+            color: $light-font;
+        }
+
+        &--text div:first-child {
+            background-color: $black-color;
+            display: inline-block;
+            padding: .8rem;
+            transition: width .2s;
+            width: 10rem;
+            font-size: 1.2rem;
+            letter-spacing: .3rem;
+            text-transform: uppercase;
+        }
+
+        &--text div:last-child {
+            background-color: $light-grey;
+            opacity: .8;
+            color: $black-color;
+            display: inline-block;
+            padding: .92rem;
+            margin-left: -3px;
+        }
+
+        &:hover &--text div:first-child {
+            width: 11rem;
+        }
+
+        &--img {
+            transition: all .2s;
+        }
+
+        &:hover &--img {
+            transform: scale(1.1);
+        }
+    }
+
+    &__body {
+        font-size: 1.6rem;
+        height: 15rem;
+        padding: 1rem 0;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+    }
+}
