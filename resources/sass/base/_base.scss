@@ -12,7 +12,6 @@ html  {
     color: $dark-font;
     font-family: 'Lato', 'Arial', sans-serif;
     line-height: 1.1;
-    height: 100vh;
 
     @include respond(big-desktop)  {
         font-size: 68.75%;        //1 rem = 11px; 11px/16px = 75%
@@ -25,4 +24,10 @@ html  {
     @include respond(phone)  {
         font-size: 43.75%;     //1 rem = 7px; 7px/16px = 43.75%
     }
+}
+
+body {
+    margin-top: 13em;
+    height: 100%;
+    position: relative;
 }

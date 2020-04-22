@@ -1,5 +1,5 @@
-<nav class="row">
-    <div class="nav">
+<nav class="sticky-top">
+    <div class="row nav">
         <div class="nav__brand" >
             <a href="{{ url('/') }}">
                 {{ config('app.name', 'Yugen Farm') }}

@@ -47,6 +47,7 @@ $breakpoint arguement choices:
 
 @mixin gridWidthCenterd {
     max-width: $grid-width;
+    min-width: $grid-width;
     margin: 0 auto;
 }
 

@@ -20,3 +20,8 @@ mix.copy('E:\\laravel6\\yugen\\node_modules\\flatpickr\\dist\\flatpickr.min.js',
 mix.copy('E:\\laravel6\\yugen\\node_modules\\flatpickr\\dist\\flatpickr.min.css', 'public/css/flatpickr.min.css');
 
 mix.browserSync();
+
+mix.browserSync({
+    proxy: '127.0.0.1:8000'
+});
+
