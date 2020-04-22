@@ -19,55 +19,33 @@
 
 </head>
 <body>
-    <div id="preloader">
-        <div id="preloader-inner"></div>
-    </div><!--/preloader-->
+    <div class="container">
+        <div id="preloader">
+            <div id="preloader-inner"></div>
+        </div><!--/preloader-->
 
-    <!-- Site Overlay -->
-    <div class="site-overlay"></div>
+        <!-- Site Overlay -->
+        <div class="site-overlay"></div>
 
-    <div id="app">
-        @include('partials.nav')
-        <main>
-            @yield('content')
-        </main>
-    </div>
+        <div id="app">
+            @include('partials.nav')
+            <main>
+                @yield('content')
+            </main>
+        </div>
 
-    <footer class="footer">
+        <footer class="footer">
             <div class="footer__content">
-{{--                    <ul class="social-icons list-inline">--}}
-{{--                        <li class="list-inline-item">--}}
-{{--                            <a href="#">--}}
-{{--                                <i class="fab fa-facebook-square"></i>Facebook--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                                                <li class="list-inline-item">--}}
-{{--                                                    <a href="#">--}}
-{{--                                                        <i class="fab fa-twitter-square"></i>twitter--}}
-{{--                                                    </a>--}}
-{{--                                                </li>--}}
-{{--                                                <li class="list-inline-item">--}}
-{{--                                                    <a href="#">--}}
-{{--                                                        <i class="fab fa-pinterest"></i>Pinterest--}}
-{{--                                                    </a>--}}
-{{--                                                </li>--}}
-{{--                    </ul>--}}
                 <h4><i class="fas fa-envelope"></i> yugenfarm@gmail.com</h4>
-
                 <div>&copy; Copyright <span id="year"></span> {{ config('app.name') }} | Application by Michael Qualls</div>
-
-
-
                 <div>
                     <a href="{{route('privacy')}}">Privacy Policy</a> |
                     <a href="{{route('cookies')}}">Cookies Policy</a> |
                     <a href="{{route('disclaimer')}}">Disclaimer</a>
                 </div>
-
             </div>
-
-
-    </footer>
+        </footer>
+    </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 

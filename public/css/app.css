@@ -72,6 +72,13 @@ body {
   position: relative;
 }
 
+.container {
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+}
+
 .hero {
   height: 36rem;
   border-radius: 0.2rem;
@@ -304,7 +311,7 @@ body {
   border-bottom: solid 2px #000;
   position: relative;
   margin-top: 2.8rem;
-  margin-bottom: 2.8rem;
+  margin-bottom: 5rem;
 }
 
 .article-section__title {
@@ -430,6 +437,12 @@ body {
   color: #FFFAFA;
   text-align: center;
   height: 12rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  width: 100%;
 }
 
 .footer__content {
