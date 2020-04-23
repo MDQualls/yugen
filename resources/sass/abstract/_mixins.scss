@@ -55,3 +55,15 @@ $breakpoint arguement choices:
     padding-bottom: 2.2rem;
     border-bottom: solid .2rem $black-color;
 }
+
+@mixin hero-common  {
+    display: inline-block;
+    margin: 0;
+}
+
+@mixin link-hover  {
+    &:hover,
+    &:active  {
+        border-bottom: solid 1px $blue;
+    }
+}

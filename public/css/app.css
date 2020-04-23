@@ -12,12 +12,6 @@ $breakpoint arguement choices:
 - big-desktop
 */
 
-.hero__content,
-.hero__image {
-  display: inline-block;
-  margin: 0;
-}
-
 .black-bottom-border {
   padding-bottom: 2rem;
   border-bottom: solid 0.2rem #000;
@@ -68,15 +62,32 @@ html {
 
 body {
   margin-top: 13em;
-  height: 100%;
-  position: relative;
 }
 
-.container {
-  min-height: 100vh;
-  overflow: hidden;
-  display: block;
-  position: relative;
+.lead-link:link,
+.lead-link:visited {
+  font-size: 1.6rem;
+  letter-spacing: 0.3rem;
+  line-height: 1.5;
+  text-decoration: none;
+  color: #3490dc;
+}
+
+.lead-link:hover,
+.lead-link:active {
+  border-bottom: solid 1px #3490dc;
+}
+
+.body-link:link,
+.body-link:visited {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: #3490dc;
+}
+
+.body-link:hover,
+.body-link:active {
+  border-bottom: solid 1px #3490dc;
 }
 
 .hero {
@@ -87,29 +98,20 @@ body {
 }
 
 .hero__image {
+  display: inline-block;
+  margin: 0;
   width: 65%;
   overflow: hidden;
 }
 
 .hero__content {
+  display: inline-block;
+  margin: 0;
   background-color: #fff;
   border: solid 2rem lightgrey;
   width: 34.5%;
   padding: 1rem;
   position: relative;
-}
-
-.hero__content h1 {
-  font-size: 3rem;
-  letter-spacing: 0.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.hero__content p {
-  font-size: 1.6rem;
-  letter-spacing: 0.5rem;
-  line-height: 1.5;
 }
 
 .hero__content--explore {
@@ -278,21 +280,44 @@ body {
   color: #666;
 }
 
-.home-right-col {
-  height: 36rem;
+main {
+  min-height: calc(100vh - 148px - 127px);
+  overflow: hidden;
+  display: block;
 }
 
-.home-right-col__ad-box {
-  background-color: lightgrey;
-  padding: 2rem;
+.h1__title {
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+  font-weight: 600;
   margin-bottom: 1rem;
-  height: 17rem;
 }
 
-.home-right-col__email-box {
-  background-color: #000;
-  padding: 2rem;
-  height: 10rem;
+.h4__title {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 1.6rem;
+  padding: 2rem 0;
+}
+
+.p__content--lead {
+  font-size: 1.6rem;
+  letter-spacing: 0.3rem;
+  line-height: 1.5;
+}
+
+.p__content--lead:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.p__content--body {
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.2;
+}
+
+.p__content--body:not(:last-child) {
+  margin-bottom: 2rem;
 }
 
 .hero-section {
@@ -311,7 +336,7 @@ body {
   border-bottom: solid 2px #000;
   position: relative;
   margin-top: 2.8rem;
-  margin-bottom: 14rem;
+  margin-bottom: 2.8rem;
 }
 
 .article-section__title {
@@ -437,11 +462,6 @@ body {
   color: #FFFAFA;
   text-align: center;
   height: 12rem;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
   width: 100%;
 }
 
@@ -449,22 +469,20 @@ body {
   letter-spacing: 0.3rem;
 }
 
-.footer__content h4 {
-  text-transform: uppercase;
-  font-weight: 300;
-  font-size: 1.6rem;
-  padding: 2rem 0;
-}
-
 .footer__content div {
   font-size: 1.2rem;
   padding-bottom: 2rem;
 }
 
-.footer__content a,
+.footer__content a:link,
 .footer__content a:visited {
   color: #FFFAFA;
   text-decoration: none;
+}
+
+.footer__content a:active,
+.footer__content a:hover {
+  color: lightgrey;
 }
 
 .admin-dashboard-body {
@@ -537,5 +555,32 @@ body {
 
 .yugen-farm-welcome .welcome-text-box .btn {
   border-radius: 5px;
+}
+
+.home-right-col {
+  height: 36rem;
+}
+
+.home-right-col__ad-box {
+  background-color: lightgrey;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  height: 17rem;
+}
+
+.home-right-col__email-box {
+  background-color: #000;
+  padding: 2rem;
+  height: 9rem;
+}
+
+.user-rights-list {
+  list-style: none;
+  font-size: 1.4rem;
+  margin-left: 2rem;
+}
+
+.user-rights-list__item:not(:last-child) {
+  margin-bottom: 1rem;
 }
 

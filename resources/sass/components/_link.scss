@@ -1,0 +1,25 @@
+
+.lead-link  {
+    &:link,
+    &:visited  {
+        font-size: 1.6rem;
+        letter-spacing: .3rem;
+        line-height: 1.5;
+        text-decoration: none;
+        color: $blue;
+    }
+
+    @include link-hover;
+}
+
+.body-link  {
+
+    &:link,
+    &:visited  {
+        font-size: 1.4rem;
+        text-decoration: none;
+        color: $blue;
+    }
+
+    @include link-hover;
+}

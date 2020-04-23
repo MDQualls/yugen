@@ -36,7 +36,7 @@
 
         <footer class="footer">
             <div class="footer__content">
-                <h4><i class="fas fa-envelope"></i> yugenfarm@gmail.com</h4>
+                <h4 class="h4__title"><i class="fas fa-envelope"></i> yugenfarm@gmail.com</h4>
                 <div>&copy; Copyright <span id="year"></span> {{ config('app.name') }} | Application by Michael Qualls</div>
                 <div>
                     <a href="{{route('privacy')}}">Privacy Policy</a> |

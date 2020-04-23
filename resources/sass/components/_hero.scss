@@ -4,31 +4,18 @@
     display: flex;
 
     &__image  {
-        @extend %hero-common;
+        @include hero-common;
         width: 65%;
         overflow: hidden;
     }
 
     &__content  {
-        @extend %hero-common;
+        @include hero-common;
         background-color: $white-color;
         border: solid 2rem $light-grey;
         width: 34.5%;
         padding: 1rem;
         position: relative;
-
-        h1  {
-            font-size: 3rem;
-            letter-spacing: .5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        p  {
-            font-size: 1.6rem;
-            letter-spacing: .5rem;
-            line-height: 1.5;
-        }
 
         &--explore  {
             position: absolute;

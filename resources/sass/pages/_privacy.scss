@@ -1,0 +1,13 @@
+.user-rights-list  {
+
+    list-style: none;
+    font-size: 1.4rem;
+    margin-left: 2rem;
+
+    &__item  {
+
+        &:not(:last-child)  {
+            margin-bottom: 1rem;
+        }
+    }
+}
