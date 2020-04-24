@@ -1,0 +1,42 @@
+.card  {
+    border: solid 1px $light-grey;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 .2rem .5rem rgba($black-color, .1);
+
+
+    &__header   {
+        font-size: 2rem;
+        letter-spacing: .2rem;
+        border-bottom: solid 1px $light-grey;
+        padding: 1rem;
+    }
+
+    &__body  {
+        font-size: 1.6rem;
+        letter-spacing: .1rem;
+        padding: 2rem 1rem;
+    }
+}
+
+.card  {
+    &--black  {
+        background-color: $black-color;
+        color: $light-font;
+    }
+
+    &--primary  {
+        background-color: $primary-color;
+        color: $light-font;
+    }
+
+    &--light  {
+        background-color: $light-color;
+        color: $dark-font
+    }
+
+    &--dark  {
+        background-color: $dark-color;
+        color: $light-font;
+    }
+}

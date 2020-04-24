@@ -2,6 +2,8 @@
     height: 36rem;
     border-radius: .2rem;
     display: flex;
+    border: solid 1px $light-grey;
+    box-shadow: 0 .2rem .5rem rgba($black-color, .1);
 
     &__image  {
         @include hero-common;

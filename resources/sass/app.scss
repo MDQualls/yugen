@@ -8,15 +8,18 @@
 
 @import "components/link";
 @import "components/hero";
+@import "components/card";
 @import "components/article-card";
+@import "components/image-card";
 @import "components/comments";
 
 
-@import "layout/common";
+@import "layout/typography";
 @import "layout/section";
 @import "layout/grid";
 @import "layout/nav";
 @import "layout/footer";
+
 
 @import 'pages/admin';
 @import "pages/welcome";

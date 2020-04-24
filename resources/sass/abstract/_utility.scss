@@ -10,3 +10,24 @@
     transform: translate(-50%, 0);
     z-index: 9999;
 }
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.text-center  {
+    text-align: center;
+}
+
+.bottom-margin-rem2  {
+    margin-bottom: 2rem !important;
+}
+
+.bottom-margin-rem4  {
+    margin-bottom: 4rem !important;
+}
+
+.bottom-margin-rem6  {
+    margin-bottom: 6rem !important;
+}

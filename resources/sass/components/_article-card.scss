@@ -5,6 +5,7 @@
     background-color: $light-color;
     border-radius: .2rem;
     overflow: hidden;
+    box-shadow: 0 .2rem .5rem rgba($black-color, .1);
 
     & a,
     & a:visited {
