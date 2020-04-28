@@ -26,7 +26,7 @@
                         </div>
                     </div>
 
-                    <div class="form__group">
+                    <div class="form__group bottom-margin-rem4">
                         <label for="password" class="form__label">{{ __('Password') }}</label>
                         <div>
                             <input id="password" type="password"
@@ -42,11 +42,11 @@
                         </div>
                     </div>
 
-                    <div class="form__group">
+                    <div class="form__group bottom-margin-rem4">
                         <div class="form__check">
                             <input class="form__check-input" type="checkbox" name="remember"
                                    id="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label class="form__check-label1" for="remember">
+                            <label class="form__check-label" for="remember">
                                 {{ __('Remember Me') }}
                             </label>
                         </div>
@@ -56,9 +56,9 @@
                             {{ __('Login') }}
                         </button>
 
-                        <div>
+                        <div class="forgot-pass-link">
                             @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="lead-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif

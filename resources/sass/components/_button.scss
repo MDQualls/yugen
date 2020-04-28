@@ -1,0 +1,34 @@
+.btn  {
+
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: .2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    font-size: 1.6rem;
+    letter-spacing: .2rem;
+    border: none;
+    cursor: pointer;
+
+    &:hover  {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($black-color,0.2);
+
+        &::after  {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &--primary  {
+        background-color: $primary-color;
+        color: $light-font;
+    }
+
+    &--dark  {
+        background-color: $dark-color;
+        color: $light-font;
+    }
+}

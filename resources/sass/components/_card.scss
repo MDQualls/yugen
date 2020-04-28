@@ -3,13 +3,14 @@
     border-radius: 2px;
     overflow: hidden;
     box-shadow: 0 .2rem .5rem rgba($black-color, .1);
-    background-color: $light-color;
+    background-color: #efefef;
 
     &__header   {
         font-size: 2rem;
         letter-spacing: .2rem;
         border-bottom: solid 1px $light-grey;
         padding: 1rem;
+        border-radius: 2px;
     }
 
     &__body  {
