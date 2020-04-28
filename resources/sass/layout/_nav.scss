@@ -1,6 +1,6 @@
 .nav  {
     color: $dark-font;
-    background-color: $white-color;
+    background-color: $body-bg;
     padding: 4rem 0;
     border-bottom: solid .2rem $dark-color;
 
@@ -43,6 +43,6 @@
 
     &__link:active,
     &__link:hover  {
-        border-bottom: solid .4rem $black-color;
+        border-bottom: solid .4rem $dark-color;
     }
 }

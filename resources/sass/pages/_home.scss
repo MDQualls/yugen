@@ -7,11 +7,13 @@
         padding: 2rem;
         margin-bottom: 2rem;
         height: 17rem;
+        box-shadow: 0 .2rem .5rem rgba($black-color, .1);
     }
 
     &__email-box  {
-        background-color: $black-color;
+        background-color: $dark-color;
         padding: 2rem;
         height: 9rem;
+        box-shadow: 0 .2rem .5rem rgba($black-color, .2);
     }
 }

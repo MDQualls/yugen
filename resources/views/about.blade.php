@@ -20,7 +20,7 @@
                 once established, the farm is enjoyable, cheap and kind to the planet.
             </p>
         </div>
-        <div class='row bottom-margin-rem6 black-bottom-border'>
+        <div class='row bottom-margin-rem6 dark-bottom-border'>
             <div class='col-1-of-4'>
 
                 <div class='image-card'>
@@ -90,7 +90,7 @@
 
                 Yūgen suggests that beyond what can be said but is not an allusion to another world. It is about this world, this experience.
             </p>
-            <p class="p__content--lead text-center black-bottom-border">
+            <p class="p__content--lead text-center dark-bottom-border">
                 (Ortolani, 325). Ortolani, Benito. The Japanese Theatre. Princeton University Press: Princeton, 1995
             </p>
         </div>

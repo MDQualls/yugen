@@ -6,23 +6,24 @@ $font-family: 'Lato', sans-serif;
 $font-base-size: 62.5%;
 $line-height-base: 1.6;
 
-// Colors
+// Colors ~ main colors
 $primary-color: #344955;
 $secondary-color: #f9aa33;
 $secondary-color-shaded: #d78a2d;
 $invalid-color: orangered;
-
 $light-color: #FFFAFA;
 $dark-color: #263238;
-$light-grey: lightgrey;
 
-$white-color: #fff;
-$black-color: #000;
-
+// Colors ~ fonts
 $dark-font: #333;
 $light-font: #efefef;
 
-$blue: #3490dc;
+// Colors ~ supporting colors
+$light-grey: lightgrey;
+$white-color: #fff;
+$black-color: #000;
+
+$blue: #2980b9;
 $indigo: #6574cd;
 $purple: #9561e2;
 $pink: #f66d9b;

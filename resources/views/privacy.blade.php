@@ -4,7 +4,7 @@
 
 
 
-        <div class="row black-bottom-border">
+        <div class="row dark-bottom-border">
 
                 <h1 class="h1__title" >Privacy Notice</h1>
                 <p class="p__content--lead">

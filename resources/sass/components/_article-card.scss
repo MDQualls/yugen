@@ -10,7 +10,7 @@
     & a,
     & a:visited {
         text-decoration: none;
-        color: $black-color;
+        color: $dark-font;
     }
 
     &__image {
@@ -28,7 +28,7 @@
         }
 
         &--text div:first-child {
-            background-color: $black-color;
+            background-color: $dark-color;
             display: inline-block;
             padding: .8rem;
             transition: width .2s;
@@ -41,7 +41,7 @@
         &--text div:last-child {
             background-color: $light-grey;
             opacity: .8;
-            color: $black-color;
+            color: $dark-font;
             display: inline-block;
             padding: .92rem;
             margin-left: -3px;
