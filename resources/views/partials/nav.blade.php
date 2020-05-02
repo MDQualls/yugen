@@ -23,31 +23,32 @@
                     </li>
                 @endif
             @else
-                <li class="nav__item dropdown">
-                    <a id="navbarDropdown" class="nav__link dropdown-toggle" href="#" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        Welcome {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
+                <li class="nav__item--dropdown">
+                    <input type="checkbox" class="nav__item--dropdown__checkbox" id="navi-toggle">
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <label class="nav__item--dropdown__label" for="navi-toggle">
+                        Welcome, {{ Auth::user()->name }} <i class="fas fa-caret-up"></i>
+                    </label>
+
+                    <div class="dropdown__menu dropdown__menu--right" aria-labelledby="navbarDropdown">
 
                         <a href="{{route('user-settings', auth()->user()->id)}}"
-                           class="dropdown-item"><i class="fas fa-user-circle"></i> User Settings</a>
+                           class="dropdown__item"><i class="fas fa-user-circle"></i> User Settings</a>
 
                         <a href="{{route('user-password', auth()->user()->id)}}"
-                           class="dropdown-item"><i class="fas fa-lock"></i> Change Password</a>
+                           class="dropdown__item"><i class="fas fa-lock"></i> Change Password</a>
 
                         @if(Auth::user()->isAdmin())
-                            <a href="{{route('dashboard')}}" class="dropdown-item"><i class="fas fa-cog"></i> Dashboard</a>
+                            <a href="{{route('dashboard')}}" class="dropdown__item"><i class="fas fa-cog"></i> Dashboard</a>
                         @endif
 
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        <a class="dropdown__item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
+                                                 document.getElementById('logout__form').submit();">
                             <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
                         </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                        <form id="logout__form" action="{{ route('logout') }}" method="POST"
                               style="display: none;">
                             @csrf
                         </form>

@@ -19,7 +19,7 @@
 
 </head>
 <body>
-    <div class="container">
+
         <div id="preloader">
             <div id="preloader-inner"></div>
         </div><!--/preloader-->
@@ -27,12 +27,12 @@
         <!-- Site Overlay -->
         <div class="site-overlay"></div>
 
-        <div id="app">
+
             @include('partials.nav')
             <main>
                 @yield('content')
             </main>
-        </div>
+
 
         <footer class="footer">
             <div class="footer__content">
@@ -45,7 +45,7 @@
                 </div>
             </div>
         </footer>
-    </div>
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 

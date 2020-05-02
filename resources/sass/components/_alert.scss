@@ -1,0 +1,22 @@
+.alert  {
+    font-size: 1.6rem;
+    border: solid 1pt $light-grey;
+    padding: 2rem;
+    border-radius: 2px;
+
+    &--success  {
+        background-color: $green;
+        color: $light-font;
+        border: solid 1pt darkgreen;
+    }
+
+    &--danger  {
+        background-color: $red;
+        color: $light-font;
+        border: solid 1pt darkred;
+    }
+
+    &--float  {
+        z-index: 9999;
+    }
+}

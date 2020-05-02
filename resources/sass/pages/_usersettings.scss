@@ -1,0 +1,19 @@
+.img__row  {
+
+    position: relative;
+    margin-left: .5rem;
+
+    &__thumbnail  {
+        display: inline-block;
+        border: 1pt solid $dark-color;
+        border-radius: 2px;
+    }
+
+    &__desc  {
+        display: inline-block;
+        position: absolute;
+        top: 1rem;
+        left: 10rem;
+        width: 80%;
+    }
+}
