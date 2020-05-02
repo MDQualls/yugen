@@ -463,10 +463,49 @@ body {
 
 .form__check {
   margin-left: 0.5rem;
+  display: inline-block;
+}
+
+.form__check-input {
+  display: none;
 }
 
 .form__check-label {
-  margin-left: 0.5rem;
+  padding-left: 3.8rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.form__check-button {
+  height: 1.8rem;
+  width: 1.8rem;
+  border: 4px solid #344955;
+  border-radius: 1rem;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: -0.65rem;
+}
+
+.form__check-button::after {
+  content: "";
+  display: block;
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 0.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #344955;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+.form__check-input:checked ~ .form__check-label .form__check-button:after {
+  opacity: 1;
 }
 
 .btn {

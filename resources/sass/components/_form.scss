@@ -34,13 +34,45 @@
 
     &__check  {
         margin-left: .5rem;
+        display: inline-block;
     }
 
     &__check-input  {
-
+        display: none;
     }
 
     &__check-label  {
-        margin-left: .5rem;
+        padding-left: 3.8rem;
+        cursor: pointer;
+        position: relative;
+    }
+
+    &__check-button  {
+        height: 1.8rem;
+        width: 1.8rem;
+        border: 4px solid $primary-color;
+        border-radius: 1rem;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: -.65rem;
+
+        &::after  {
+            content: "";
+            display: block;
+            height: 1.2rem;
+            width: 1.2rem;
+            border-radius: .4rem;
+
+            @include centerHorizontalVertical;
+
+            background-color: $primary-color;
+            opacity: 0;
+            transition: opacity .2s;
+        }
+    }
+
+    &__check-input:checked ~ &__check-label &__check-button:after  {
+        opacity: 1;
     }
 }
