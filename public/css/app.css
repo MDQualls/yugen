@@ -569,7 +569,7 @@ body {
   text-decoration: none;
   padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 0.2rem;
+  border-radius: 5px;
   -webkit-transition: box-shadow 0.2s, -webkit-transform 0.2s;
   transition: box-shadow 0.2s, -webkit-transform 0.2s;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -581,26 +581,37 @@ body {
   cursor: pointer;
 }
 
-.btn:hover {
-  -webkit-transform: translateY(-1px);
-          transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
-
-.btn:hover::after {
-  -webkit-transform: scaleX(1.4) scaleY(1.6);
-          transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
-
 .btn--primary {
   background-color: #344955;
   color: #efefef;
 }
 
+.btn--primary:hover {
+  background-color: #476475;
+  -webkit-transition: background-color ease 0.2s;
+  transition: background-color ease 0.2s;
+}
+
 .btn--dark {
   background-color: #263238;
   color: #efefef;
+}
+
+.btn--dark:hover {
+  background-color: #476475;
+  -webkit-transition: background-color ease 0.2s;
+  transition: background-color ease 0.2s;
+}
+
+.btn--grey {
+  background-color: lightgrey;
+  color: #333;
+}
+
+.btn--grey:hover {
+  background-color: #bababa;
+  -webkit-transition: background-color ease 0.2s;
+  transition: background-color ease 0.2s;
 }
 
 .alert__container {

@@ -92,11 +92,11 @@
                                     Settings
                                 </button>
 
-                                <a href="{{route('user-password', $user->id)}}" class="lead-link left-margin-rem4"><i
+                                <a href="{{route('user-password', $user->id)}}" class="btn btn--primary"><i
                                         class="fas fa-lock"></i> Update Password</a>
 
 
-                                <a href="{{route('blog')}}" class="lead-link left-margin-rem4"><i
+                                <a href="{{route('blog')}}" class="btn btn--grey"><i
                                         class="fas fa-arrow-left"></i> Cancel</a>
                             </div>
                         </form>

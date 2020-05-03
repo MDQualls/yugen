@@ -40,10 +40,10 @@
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-success" type="submit">
+                            <button class="btn btn--primary" type="submit">
                                 Update Password
                             </button>
-                            <a href="{{route('blog')}}" class="btn btn-secondary ml-3"><i
+                            <a href="{{route('blog')}}" class="btn btn--grey"><i
                                     class="fas fa-arrow-left"></i> Cancel </a>
                         </div>
                     </form>
