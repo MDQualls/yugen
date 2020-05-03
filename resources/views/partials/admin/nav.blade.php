@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0 admin-nav-fontsize">
     <div class="container">
         <a href="{{ route('dashboard')  }}" class="navbar-brand">{{ config('app.name') }}</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button>

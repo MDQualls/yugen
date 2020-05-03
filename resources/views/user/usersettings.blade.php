@@ -2,13 +2,6 @@
 
 @section('content')
 
-        <div class="row">
-            @if($user->status->status == 'active')
-                <div class="alert alert--success">Your account is active</div>
-            @else
-                <div class="alert alert--danger">Your account is suspended</div>
-            @endif
-        </div>
         <div class='row'>
             @include('partials.errors')
 
