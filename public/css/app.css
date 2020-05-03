@@ -899,6 +899,18 @@ main {
   margin-right: 20px;
 }
 
+.bg-orange {
+  background-color: #f6993f !important;
+}
+
+.bg-purple {
+  background-color: #9561e2 !important;
+}
+
+.bg-wetasphalt {
+  background-color: #34495e !important;
+}
+
 .yugen-farm-welcome {
   background-color: lightgrey;
   background-size: cover;

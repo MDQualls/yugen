@@ -27,7 +27,7 @@
 @endsection('section_actions')
 
 @section('content')
-    <div class="col-md-9">
+    <div class="col-md-8">
         <div class="card">
             <div class="card-header">
                 <h4>Latest Posts</h4>
