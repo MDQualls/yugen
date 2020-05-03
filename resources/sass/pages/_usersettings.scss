@@ -3,12 +3,6 @@
     position: relative;
     margin-left: .5rem;
 
-    &__thumbnail  {
-        display: inline-block;
-        border: 1pt solid $dark-color;
-        border-radius: 2px;
-    }
-
     &__desc  {
         display: inline-block;
         position: absolute;

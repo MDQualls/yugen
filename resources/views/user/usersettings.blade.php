@@ -15,7 +15,7 @@
 
                 <div class="card card--light">
                     <div class="card__header">
-                        <h4 class="h4__title">Update User Settings</h4>
+                        <h4>Update User Settings</h4>
                     </div>
                     <div class="card__body">
                         <form method="POST" action="{{route('update-user', $user->id)}}#">
@@ -26,8 +26,8 @@
                             <div class="form__group">
                                 <h4 class="h4__title">{{$user->name}}'s User Gravatar</h4>
                                 <div class="img__row row">
-                                    <div class="img__row__thumbnail right-margin-rem2">
-                                        <img class="img-thumbnail" src="{{ Gravatar::src($user->email) }}" alt="Gravatar">
+                                    <div class="thumbnail__image right-margin-rem2">
+                                        <img class="thumbnail__image--thumbnail" src="{{ Gravatar::src($user->email) }}" alt="Gravatar">
                                     </div>
                                     <div class="p__content--lead img__row__desc">
                                         We use Gravatar for our user images. If you do not have an

@@ -1,0 +1,11 @@
+
+.thumbnail__image  {
+    display: inline-block;
+    border: 1pt solid $dark-color;
+    border-radius: 2px;
+
+    &--thumbnail  {
+        width: 100%;
+        height: auto;
+    }
+}
