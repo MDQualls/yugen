@@ -1,4 +1,4 @@
-# Yugen Farm Blog @ [www.yugenfarm.com](https://www.yugenfarm.com)
+# Yugen Farm Blog
 
 A blogging application which was built to document our journey from Oklahoma to New Mexico and beyond.  The hope is that this will serve as a historical reference for ourselves and somewhat of a guide for others hoping to make the transition from city life to farm life.
 
