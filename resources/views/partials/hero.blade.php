@@ -6,7 +6,7 @@
         <h1 class="h1__title">Hello from Yugen Farm.</h1>
         <p class="p__content--lead">We are a sustainable hobby farm located in Oklahoma City.  We hope you enjoy our content.</p>
         <div class="hero__content--explore">
-            <a href="#">Explore &rarr;</a>
+            <a href="#">Explore <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 </div>

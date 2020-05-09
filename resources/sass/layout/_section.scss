@@ -7,23 +7,37 @@
 .article-section {
     @include gridWidthCenterd;
     padding-top: 5.8rem;
+    padding-bottom: 3rem;
     border-top: solid 2px $dark-color;
     border-bottom: solid 2px $dark-color;
     position: relative;
     margin-top: 2.8rem;
-    margin-bottom: 2.8rem;
+    margin-bottom: 3.8rem;
 
     &__title  {
-        display: inline-block;
-        padding: 1rem;
-        letter-spacing: .7px;
-        font-size: 1.6rem;
-        background-color: $dark-color;
-        color: $white-color;
-        text-transform: uppercase;
+        @include articalSectionTitle;
         position: absolute;
         top: 0;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    &__title--bottom  {
+        @include articalSectionTitle;
+        position: absolute;
+        bottom: -4.4%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        a:link,
+        a:visited {
+            color: $light-font;
+            text-decoration: none;
+        }
+
+        a:active,
+        a:hover  {
+            color: $light-grey;
+        }
     }
 }

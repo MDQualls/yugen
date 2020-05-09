@@ -26,7 +26,7 @@
     <!-- blog post summaries -->
     <section class="article-section">
         <div class="article-section__title">
-            /// Recent news from the farm
+            <i class="fas fa-angle-double-right"></i> Recent news from the farm
         </div>
         <div class="row">
             <div class="col-1-of-3">
@@ -49,16 +49,9 @@
             <div class="col-1-of-3">
                 @include('partials.summary')
             </div>
+        </div>
+        <div class="article-section__title--bottom">
+            <a href="#">Visit all the blog posts <i class="fas fa-angle-double-right"></i></a>
         </div>
     </section>
-
-    {{--            <div class="col-md-9">--}}
-    {{--                @foreach($posts as $post)--}}
-    {{--                    @include('partials.article', ['post' => $post, 'fullArticle' => $fullArticle])--}}
-    {{--                @endforeach--}}
-    {{--                {{$posts->links() }}--}}
-    {{--            </div>--}}
-    {{--            <div class="col-md-3 mb40">--}}
-    {{--                @include('partials.categories', ['categories', $categories])--}}
-    {{--            </div>--}}
 @endsection

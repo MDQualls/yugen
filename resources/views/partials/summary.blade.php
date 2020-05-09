@@ -3,7 +3,7 @@
         <div class="article-card__image">
             <div class="article-card__image--text">
                 <div>Read More</div>
-                <div>&rarr;</div>
+                <div><i class="fas fa-arrow-right"></i></div>
             </div>
             <div class="article-card__image--img">
                 <img src="https://placeimg.com/565/250/any" alt="any">

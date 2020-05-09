@@ -67,3 +67,13 @@ $breakpoint arguement choices:
         border-bottom: solid 1px $blue;
     }
 }
+
+@mixin articalSectionTitle  {
+    display: inline-block;
+    padding: 1rem;
+    letter-spacing: .7px;
+    font-size: 1.6rem;
+    background-color: $dark-color;
+    color: $white-color;
+    text-transform: uppercase;
+}
