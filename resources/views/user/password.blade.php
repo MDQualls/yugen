@@ -9,7 +9,7 @@
             @include('partials.messages')
             @include('partials.errors')
 
-            <div class="card card--light">
+            <div class="card card--grey">
                 <div class="card__header">
                     <h4>Update User Password</h4>
                 </div>
