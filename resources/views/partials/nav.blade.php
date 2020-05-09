@@ -7,7 +7,7 @@
         </div>
         <ul class="nav__navbar">
             <li class="nav__item">
-                <a class="nav__link" href="{{route('blog')}}"><i class="fas fa-home"></i> Home</a>
+                <a class="nav__link" href="{{route('/')}}"><i class="fas fa-home"></i> Home</a>
             </li>
             <li class="nav__item">
                 <a class="nav__link" href="{{route('about')}}"><i class="fas fa-door-open"></i> About</a>
