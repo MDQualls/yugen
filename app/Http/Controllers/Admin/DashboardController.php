@@ -34,7 +34,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $posts = $this->postRepository->getLatestPosts();
+        $posts = $this->postRepository->getLatestPosts(10);
 
         $comments = PostComment::where('parent_comment_id', '=', 0)->count();
 

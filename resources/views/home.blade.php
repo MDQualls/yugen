@@ -28,17 +28,19 @@
         <div class="article-section__title">
             <i class="fas fa-angle-double-right"></i> Recent news from the farm
         </div>
-        <div class="row">
-            <div class="col-1-of-3">
-                @include('partials.summary')
+        @foreach($posts as $post)
+            <div class="row">
+                <div class="col-1-of-3">
+                    @include('partials.summary', ['post' => $post])
+                </div>
+                <div class="col-1-of-3">
+                    @include('partials.summary')
+                </div>
+                <div class="col-1-of-3">
+                    @include('partials.summary')
+                </div>
             </div>
-            <div class="col-1-of-3">
-                @include('partials.summary')
-            </div>
-            <div class="col-1-of-3">
-                @include('partials.summary')
-            </div>
-        </div>
+        @endforeach
         <div class="row">
             <div class="col-1-of-3">
                 @include('partials.summary')

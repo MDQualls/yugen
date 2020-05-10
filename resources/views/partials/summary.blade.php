@@ -10,7 +10,8 @@
             </div>
         </div>
         <div class="article-card__body">
-            card body
+            <h4 class="h4__title">{{$post->title}}</h4>
+            <p class="p__content--lead">{{$post->summary}}</p>
         </div>
     </a>
 </div>

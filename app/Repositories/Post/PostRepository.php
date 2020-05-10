@@ -19,12 +19,12 @@ class PostRepository implements PostRepositoryInterface
     /**
      * @return mixed
      */
-    public function getLatestPosts()
+    public function getLatestPosts($number)
     {
         $posts = $this->post::all()
             ->where('archived', '=', 0)
             ->sortByDesc('published_at')
-            ->take(10);
+            ->take($number);
 
         return $posts;
     }

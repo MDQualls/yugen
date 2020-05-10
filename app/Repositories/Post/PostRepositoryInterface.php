@@ -3,7 +3,7 @@ namespace App\Repositories\Post;
 
 interface PostRepositoryInterface
 {
-    public function getLatestPosts();
+    public function getLatestPosts($number);
 
     public function getAllPostsPaginated();
 

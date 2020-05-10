@@ -33,7 +33,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = $this->postRepository->getAllPostsPaginated();
+        $posts = $this->postRepository->getLatestPosts(6);
 
         return view('home')
             ->with('title', 'Yugen Farm Blog Posts')

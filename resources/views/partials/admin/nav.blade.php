@@ -49,7 +49,7 @@
                         <div class="dropdown-menu">
                             <a href="{{route('user.edit', auth()->user()->id)}}" class="dropdown-item"><i class="fas fa-user-circle"></i> Profile</a>
 
-                            <a href="{{route('blog')}}" class="dropdown-item"><i class="fas fa-home"></i> Home Page</a>
+                            <a href="{{route('/')}}" class="dropdown-item"><i class="fas fa-home"></i> Home Page</a>
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
