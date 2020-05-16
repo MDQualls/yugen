@@ -110,12 +110,15 @@ $(function () {
   }
 
   $(document).on('click', 'div.comment-reply-container a.text-info', function (e) {
+    e.preventDefault();
     toggleReplyForm(e.target);
   });
   $(document).on('click', 'div.comment-reply-button-box a.comment-reply-cancel', function (e) {
+    e.preventDefault();
     toggleReplyForm(e.target);
   });
-  $(document).on('click', 'div.comment-reply-button-box a.comment-reply-submit', function () {
+  $(document).on('click', 'div.comment-reply-button-box a.comment-reply-submit', function (e) {
+    e.preventDefault();
     var textarea = $('#commentReplyTextarea');
     var regex = RegExp('[a-zA-Z0-9]+');
 
@@ -144,15 +147,18 @@ $(function () {
     $('#editCommentTextarea').removeClass('required-error');
   }
 
-  $(document).on('click', 'div.edit-comment-link-box a.edit-comment-link', function () {
+  $(document).on('click', 'div.edit-comment-link-box a.edit-comment-link', function (e) {
+    e.preventDefault();
     $('.edit-comment-link-box').css('visibility', 'hidden');
     toggleCommentForm(this);
   });
-  $(document).on('click', 'div.comment-box a.edit-comment-cancel', function () {
+  $(document).on('click', 'div.comment-box a.edit-comment-cancel', function (e) {
+    e.preventDefault();
     $('.edit-comment-link-box').css('visibility', 'visible');
     toggleCommentForm(this);
   });
-  $(document).on('click', 'div.edit-comment-button-box a.edit-comment-submit', function () {
+  $(document).on('click', 'div.edit-comment-button-box a.edit-comment-submit', function (e) {
+    e.preventDefault();
     var textarea = $('#editCommentTextarea');
     var regex = RegExp('[a-zA-Z0-9]+');
 

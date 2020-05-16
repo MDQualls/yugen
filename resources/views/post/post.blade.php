@@ -40,7 +40,7 @@
                         <ul class="article__post--meta list-inline">
                             @foreach($post->tags as $tag)
                                 <li class="list-inline__item">
-                                    <i class="fas fa-tag"></i> <a
+                                    <i class="fas fa-tag"></i> <a class="lead-link"
                                         href="{{route('post-tag',$tag->name)}}">#{{$tag->name}}</a>
                                 </li>
                             @endforeach
@@ -48,8 +48,8 @@
                     @endif
 
                     @if($post->comments->count() > 0)
-                        <hr class="bottom-margin-rem2">
-                        <h4 class="h4__title bottom-margin-rem2">Comments</h4>
+                        <hr>
+                        <h4 class="h4__title">Comments</h4>
                         @foreach($post->comments->where('parent_comment_id','=', 0) as $comment)
                             @include('partials.postcomment', ['comment' => $comment])
                         @endforeach
@@ -75,13 +75,13 @@
                     </form>
 
                     @if($post->comments->count() > 0)
-                        <div class="comment-reply-form-container mt-5">
+                        <div class="comment-reply-form-container top-margin-rem2">
                             <form id="commentReplyForm" method="post"
                                   action="{{route('post-reply', ['post' => $post->id])}}">
                                 @csrf
                                 <input type="hidden" id="parent_comment_id" name="parent_comment_id" value="">
                                 <div class="form-group">
-                            <textarea id="commentReplyTextarea" name="commentReplyTextarea" class="form-control"
+                                    <textarea id="commentReplyTextarea" name="commentReplyTextarea" class="form-control"
                                       rows="1" placeholder="Reply" required></textarea>
                                     <div class="comment-reply-button-box">
                                         <a class="comment-reply-submit" href="#"><i class="fas fa-check-circle"></i></a>
@@ -93,7 +93,7 @@
                         </div>
 
                         @if(isset(auth()->user()->id) && auth()->user()->id == $comment->user->id)
-                            <div class="edit-comment-form-container mt-5">
+                            <div class="edit-comment-form-container top-margin-rem2">
                                 <form id="editCommentForm" method="post"
                                       action="{{route('update-comment', ['post' => $post->id])}}">
                                     @csrf
@@ -101,7 +101,7 @@
                                     <input type="hidden" id="comment_id" name="comment_id"
                                            value="">
                                     <div class="form-group">
-                            <textarea style="font-size: .90rem" id="editCommentTextarea" name="editCommentTextarea"
+                            <textarea id="editCommentTextarea" name="editCommentTextarea"
                                       class="form-control"
                                       rows="5" required></textarea>
                                         <div class="edit-comment-button-box">

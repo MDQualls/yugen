@@ -55,6 +55,10 @@ $breakpoint arguement choices:
   margin-left: 2rem !important;
 }
 
+.top-margin-rem2 {
+  margin-left: 2rem !important;
+}
+
 .left-margin-rem4 {
   margin-left: 4rem !important;
 }
@@ -447,9 +451,11 @@ body {
 
 #commentReplyForm textarea,
 #editCommentForm textarea {
-  border-radius: 15px;
+  border-radius: 2px;
   display: inline-block;
   width: 80%;
+  padding: 5px;
+  font-size: inherit;
 }
 
 #commentReplyForm .required-error,
@@ -464,7 +470,7 @@ body {
 #editCommentForm .edit-comment-button-box {
   display: inline-block;
   position: absolute;
-  top: 10px;
+  top: 5px;
   margin-left: 10px;
 }
 
@@ -490,7 +496,8 @@ body {
 
 .edit-comment-link-box a {
   margin-left: 10px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
 }
 
 .edit-comment-link-box a.edit-comment-link {

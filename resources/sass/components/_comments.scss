@@ -13,11 +13,13 @@
     }
 
     textarea  {
-        -webkit-border-radius: 15px;
-        -moz-border-radius: 15px;
-        border-radius: 15px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
         display: inline-block;
         width: 80%;
+        padding: 5px;
+        font-size: inherit;
     }
 
     .required-error {
@@ -29,7 +31,7 @@
     .edit-comment-button-box {
         display: inline-block;
         position: absolute;
-        top:10px;
+        top:5px;
         margin-left: 10px;
 
         .fa-check-circle  {
@@ -49,7 +51,8 @@
 
     a {
         margin-left: 10px;
-        font-size: .80rem;
+        font-size: .90rem;
+        letter-spacing: 1px;
     }
 
     a.edit-comment-link  {
