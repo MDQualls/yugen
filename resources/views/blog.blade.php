@@ -26,13 +26,13 @@
             {{ $posts->links() }}
         </div>
         @foreach($posts as $idx => $post)
-            @if($loop->first || $loop->iteration == 4)
+            @if($loop->first || $loop->iteration % 3 == 0)
                 <div class="row">
-                    @endif
-                    <div class="col-1-of-3">
-                        @include('partials.summary', ['post' => $post])
-                    </div>
-                    @if($loop->iteration == 3 || $loop->last)
+            @endif
+                <div class="col-1-of-3">
+                    @include('partials.summary', ['post' => $post])
+                </div>
+            @if($loop->iteration % 3 == 0 || $loop->last)
                 </div>
             @endif
         @endforeach
