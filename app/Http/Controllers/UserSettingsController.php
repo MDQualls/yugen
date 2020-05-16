@@ -45,7 +45,7 @@ class UserSettingsController extends Controller
 
         session()->flash('success', 'Your user settings were updated successfully.');
 
-        return redirect(route('blog'));
+        return redirect(route('/'));
     }
 
     /**

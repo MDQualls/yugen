@@ -15,6 +15,7 @@
 
     & .dropdown__menu  {
         opacity: 0;
+        display: none;
         position: absolute;
         top: 6.4rem;
         z-index: 100;
@@ -46,6 +47,7 @@
 
     &__checkbox:checked ~ .dropdown__menu {
         opacity: 1;
+        display: block;
     }
 
     &__label i  {

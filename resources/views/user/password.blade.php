@@ -43,7 +43,7 @@
                             <button class="btn btn--primary" type="submit">
                                 Update Password
                             </button>
-                            <a href="{{route('blog')}}" class="btn btn--grey"><i
+                            <a href="{{route('/')}}" class="btn btn--grey"><i
                                     class="fas fa-arrow-left"></i> Cancel </a>
                         </div>
                     </form>

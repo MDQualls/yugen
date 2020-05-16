@@ -96,7 +96,7 @@
                                         class="fas fa-lock"></i> Update Password</a>
 
 
-                                <a href="{{route('blog')}}" class="btn btn--grey"><i
+                                <a href="{{route('/')}}" class="btn btn--grey"><i
                                         class="fas fa-arrow-left"></i> Cancel</a>
                             </div>
                         </form>

@@ -1,5 +1,5 @@
 <div class="article-card">
-    <a href="#">
+    <a href="{{route('blog-post', $post->title)}}">
         <div class="article-card__image">
             <div class="article-card__image--text">
                 <div>Read More</div>

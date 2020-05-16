@@ -67,8 +67,10 @@
                             @if($post->header_image == null)
                                 <h4><i class="fas fa-angle-double-right"></i> No header image for this post</h4>
                             @else
-                                <img src="{{asset("storage/$post->header_image")}}" alt="Post Header Image"
-                                     class="img-fluid img-thumbnail">
+                                <div class="thumbnail__image">
+                                    <img src="{{asset("storage/$post->header_image")}}" alt="Post Header Image"
+                                         class="img--fluid thumbnail__image--thumbnail">
+                                </div>
                             @endif
                         </div>
                     @endif
@@ -149,6 +151,8 @@
             tabsize: 2,
             height: 100
         });
+
+        $('.note-editable').css('font-size','18px');
 
         function iterateRequiredFields()
         {

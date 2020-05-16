@@ -24,7 +24,7 @@
             <div class='col-1-of-4'>
 
                 <div class='image-card'>
-                    <img src='{{url("images/holly1.jpg")}}' alt='' class='img-fluid'>
+                    <img src='{{url("images/holly1.jpg")}}' alt='' class='img--fluid'>
                     <div class='image-card__overlay'>
                         <div class='image-card__detail'>
                             <h4 class="h4__title">Holly</h4>
@@ -37,7 +37,7 @@
             <div class='col-1-of-4'>
 
                 <div class='image-card'>
-                    <img src='{{url("images/michael1.jpg")}}' alt='' class='img-fluid'>
+                    <img src='{{url("images/michael1.jpg")}}' alt='' class='img--fluid'>
                     <div class='image-card__overlay'>
                         <div class='image-card__detail'>
                             <h4>Michael</h4>
@@ -50,7 +50,7 @@
             <div class='col-1-of-4'>
 
                 <div class='image-card'>
-                    <img src='{{url("images/abbiandonder2.jpg")}}' alt='' class='img-fluid'>
+                    <img src='{{url("images/abbiandonder2.jpg")}}' alt='' class='img--fluid'>
                     <div class='image-card__overlay'>
                         <div class='image-card__detail'>
                             <h4>Abigail & Onder</h4>
@@ -63,7 +63,7 @@
             <div class='col-1-of-4'>
 
                 <div class='image-card'>
-                    <img src='{{url("images/castor.jpg")}}' alt='' class='img-fluid'>
+                    <img src='{{url("images/castor.jpg")}}' alt='' class='img--fluid'>
                     <div class='image-card__overlay'>
                         <div class='image-card__detail'>
                             <h4>Castor</h4>

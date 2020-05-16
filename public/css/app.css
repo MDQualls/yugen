@@ -26,7 +26,7 @@ $breakpoint arguement choices:
   z-index: 100;
 }
 
-.img-fluid {
+.img--fluid {
   max-width: 100%;
   height: auto;
 }
@@ -68,6 +68,24 @@ $breakpoint arguement choices:
 
 .d-inline-block {
   display: inline-block !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.font500 {
+  font-weight: 500;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.light-font {
+  color: #efefef;
 }
 
 @-webkit-keyframes fadeIn {
@@ -490,6 +508,7 @@ body {
 
 .form__group {
   font-size: 1.6rem;
+  overflow: hidden;
 }
 
 .form__group:not(:last-child) {
@@ -506,7 +525,6 @@ body {
   font-family: inherit;
   color: inherit;
   display: block;
-  margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 0.2rem;
   background-color: rgba(127, 140, 141, 0.1);
@@ -514,11 +532,11 @@ body {
   border-top: none;
   border-right: none;
   border-bottom: 0.3rem solid transparent;
-  width: 95%;
+  width: 100%;
 }
 
 .form__check {
-  margin-left: 0.5rem;
+  margin: 1rem 0.5rem;
   display: inline-block;
 }
 
@@ -654,6 +672,26 @@ body {
 .thumbnail__image--thumbnail {
   width: 100%;
   height: auto;
+}
+
+.list-inline {
+  list-style: none;
+}
+
+.list-inline__item {
+  display: inline-block;
+}
+
+.list-inline__item:not(:last-of-type) {
+  margin-right: 1rem;
+}
+
+.list-unstyled {
+  list-style: none;
+}
+
+.list-unstyled li:not(:last-of-type) {
+  margin-bottom: 1rem;
 }
 
 main {
@@ -881,6 +919,7 @@ main {
 
 .nav__item--dropdown .dropdown__menu {
   opacity: 0;
+  display: none;
   position: absolute;
   top: 6.4rem;
   z-index: 100;
@@ -913,6 +952,7 @@ main {
 
 .nav__item--dropdown__checkbox:checked ~ .dropdown__menu {
   opacity: 1;
+  display: block;
 }
 
 .nav__item--dropdown__label i {
@@ -955,6 +995,23 @@ main {
 .footer__content a:active,
 .footer__content a:hover {
   color: lightgrey;
+}
+
+.article__post {
+  font-size: 1.6rem;
+}
+
+.article__post__container {
+  margin-bottom: 2rem;
+}
+
+.article__post__content {
+  margin-bottom: 20rem;
+  font-size: 1.6rem !important;
+}
+
+.article__post--meta {
+  margin-bottom: 2rem;
 }
 
 .admin-dashboard-body {

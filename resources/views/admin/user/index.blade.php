@@ -26,7 +26,9 @@
                     @foreach($users as $user)
                         <tr>
                             <td>
-                                <img class="img-thumbnail" src="{{ Gravatar::src($user->email) }}" alt="Gravatar">
+                                <div class="thumbnail__image">
+                                    <img class="thumbnail__image--thumbnail" src="{{ Gravatar::src($user->email) }}" alt="Gravatar">
+                                </div>
                             </td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>

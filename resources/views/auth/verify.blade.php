@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('partials.pagetitle', ['title' => 'Please verify your email'])
+    @include('partials._____pagetitle', ['title' => 'Please verify your email'])
     <div class="container mb100">
         <div class="row justify-content-center">
             <div class="col-md-8">

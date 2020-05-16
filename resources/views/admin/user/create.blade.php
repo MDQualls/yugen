@@ -30,7 +30,9 @@
 
                     <div class="form-group">
                         <label class="d-block" for="">{{$user->name}}'s User Gravatar</label>
-                        <img class="img-thumbnail" src="{{ Gravatar::src($user->email) }}" alt="Gravatar">
+                        <div class="thumbnail__image">
+                            <img class="thumbnail__image--thumbnail" src="{{ Gravatar::src($user->email) }}" alt="Gravatar">
+                        </div>
                     </div>
                     @if(auth()->user()->id != $user->id)
                         <div class="form-group">

@@ -14,10 +14,10 @@
 
             <div class="col-1-of-4 home-right-col">
                 <div class="home-right-col__ad-box">
-
+                    <h3 class="h3__title">This Content Coming Soon!</h3>
                 </div>
                 <div class="home-right-col__email-box">
-
+                    <h4 class="h4__title light-font">This Content Coming Soon!</h4>
                 </div>
             </div>
         </div>
@@ -28,30 +28,17 @@
         <div class="article-section__title">
             <i class="fas fa-angle-double-right"></i> Recent news from the farm
         </div>
-        @foreach($posts as $post)
-            <div class="row">
+        @foreach($posts as $idx => $post)
+            @if($loop->first || $loop->iteration == 4)
+                <div class="row">
+            @endif
                 <div class="col-1-of-3">
                     @include('partials.summary', ['post' => $post])
                 </div>
-                <div class="col-1-of-3">
-                    @include('partials.summary')
+            @if($loop->iteration == 3 || $loop->last)
                 </div>
-                <div class="col-1-of-3">
-                    @include('partials.summary')
-                </div>
-            </div>
+            @endif
         @endforeach
-        <div class="row">
-            <div class="col-1-of-3">
-                @include('partials.summary')
-            </div>
-            <div class="col-1-of-3">
-                @include('partials.summary')
-            </div>
-            <div class="col-1-of-3">
-                @include('partials.summary')
-            </div>
-        </div>
         <div class="article-section__title--bottom">
             <a href="#">Visit all the blog posts <i class="fas fa-angle-double-right"></i></a>
         </div>

@@ -1,0 +1,17 @@
+.article__post  {
+
+    font-size: 1.6rem;
+
+    &__container  {
+        margin-bottom: 2rem;
+    }
+
+    &__content  {
+        margin-bottom: 20rem;
+        font-size: 1.6rem !important;
+    }
+
+    &--meta  {
+        margin-bottom: 2rem;
+    }
+}

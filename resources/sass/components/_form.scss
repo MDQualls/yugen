@@ -1,6 +1,7 @@
 .form  {
     &__group  {
         font-size: 1.6rem;
+        overflow: hidden;
     }
 
     &__group:not(:last-child)  {
@@ -19,7 +20,7 @@
         font-family: inherit;
         color: inherit;
         display: block;
-        margin: .5rem;
+
         padding: .5rem;
         border-radius: .2rem;
         background-color: rgba(#7f8c8d, .1);
@@ -27,13 +28,13 @@
         border-top: none;
         border-right: none;
         border-bottom: .3rem solid transparent;
-        width: 95%;
+        width: 100%;
     }
 
     //checkbox
 
     &__check  {
-        margin-left: .5rem;
+        margin: 1rem .5rem;
         display: inline-block;
     }
 
