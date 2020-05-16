@@ -6,6 +6,7 @@ use App\Category;
 use App\Post;
 use App\Repositories\Post\PostRepositoryInterface;
 use App\User;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
@@ -38,18 +39,21 @@ class HomeController extends Controller
         return view('home')
             ->with('title', 'Yugen Farm Blog Posts')
             ->with('posts', $posts)
-            ->with('categories', Category::orderBy('name', 'asc')->get())
-            ->with('fullArticle', false);
+            ->with('categories', Category::orderBy('name', 'asc')->get());
     }
 
     /**
-     * Display the welcome page
-     *
-     * @return Factory|View
+     * @return Application|Factory|View
      */
-    public function welcome()
+    public function blog()
     {
-        return view('welcome');
+        $posts = $this->postRepository->getAllPostsPaginated(9);
+        return view('blog')
+            ->with('title', 'All the news from the farm.')
+            ->with('summary', 'We hope that you are able to find something interesting that might
+                        help you on your own sustainable journey.')
+            ->with('posts', $posts)
+            ->with('categories', Category::orderBy('name', 'asc')->get());
     }
 
     /**
@@ -63,8 +67,7 @@ class HomeController extends Controller
         return view('post.post')
             ->with('post', $post)
             ->with('categories', Category::orderBy('name', 'asc')->get())
-            ->with('title', $post->title)
-            ->with('fullArticle', true);
+            ->with('title', $post->title);
     }
 
     /**
@@ -73,13 +76,14 @@ class HomeController extends Controller
      */
     public function categoryPost($category)
     {
-        $posts = $this->postRepository->getCategoryPostsPaginated($category);
+        $posts = $this->postRepository->getCategoryPostsPaginated($category, 9);
 
-        return view('home')
+        return view('blog')
+            ->with('title', sprintf('News for the category: %s', $category))
+            ->with('summary', sprintf('All of our blog posts categorized as: %s
+                We hope you find the posts in the category interesting and informative!', $category))
             ->with('posts', $posts)
-            ->with('categories', Category::orderBy('name', 'asc')->get())
-            ->with('title', "Category: " . $category)
-            ->with('fullArticle', false);
+            ->with('categories', Category::orderBy('name', 'asc')->get());
     }
 
     /**
@@ -88,13 +92,14 @@ class HomeController extends Controller
      */
     public function authorPost($user)
     {
-        $posts = $this->postRepository->getAuthorPostsPaginated($user);
+        $posts = $this->postRepository->getAuthorPostsPaginated($user, 9);
 
-        return view('home')
+        return view('blog')
+            ->with('title', sprintf('Posts authored by : %s', $user))
+            ->with('summary', sprintf('Here are all the posts that %s has written.
+                We hope you find the posts in the category interesting and informative!', $user))
             ->with('posts', $posts)
-            ->with('categories', Category::orderBy('name', 'asc')->get())
-            ->with('title', "Posts by: " . $user)
-            ->with('fullArticle', false);
+            ->with('categories', Category::orderBy('name', 'asc')->get());
     }
 
     /**
@@ -103,12 +108,13 @@ class HomeController extends Controller
      */
     public function tagPost($tag)
     {
-        $posts = $this->postRepository->getTagPostsPaginated($tag);
+        $posts = $this->postRepository->getTagPostsPaginated($tag, 9);
 
-        return view('home')
+        return view('blog')
+            ->with('title', sprintf('Posts tagged with: %s', $tag))
+            ->with('summary', sprintf('Here are all the posts that have been tagged %s.
+                We hope you find the posts in the category interesting and informative!', $tag))
             ->with('posts', $posts)
-            ->with('categories', Category::orderBy('name', 'asc')->get())
-            ->with('title', "Posts with Tag: " . $tag)
-            ->with('fullArticle', false);
+            ->with('categories', Category::orderBy('name', 'asc')->get());
     }
 }

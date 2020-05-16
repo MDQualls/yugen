@@ -756,6 +756,16 @@ main {
   padding-bottom: 0.5rem;
 }
 
+.blog-section {
+  max-width: 114rem;
+  min-width: 114rem;
+  margin: 0 auto;
+  border-top: solid 2px #263238;
+  border-bottom: solid 2px #263238;
+  padding: 2.7rem 0 1rem 0;
+  margin-bottom: 2.5rem;
+}
+
 .article-section {
   max-width: 114rem;
   min-width: 114rem;
@@ -1019,6 +1029,46 @@ main {
 
 .article__post--meta {
   margin-bottom: 2rem;
+}
+
+.blog-pagination {
+  max-width: 114rem;
+  min-width: 114rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.blog-pagination .pagination {
+  list-style: none;
+  margin: 2rem;
+  font-size: 2rem;
+}
+
+.blog-pagination .pagination .page-item {
+  display: inline-block;
+  padding: 0.5rem;
+  margin: 0 1rem;
+}
+
+.blog-pagination .pagination .page-item a:link,
+.blog-pagination .pagination .page-item a:visited {
+  color: #333;
+  text-decoration: none;
+}
+
+.blog-pagination .pagination .page-item a:hover,
+.blog-pagination .pagination .page-item a:active {
+  color: #4d4d4d;
+}
+
+.blog-pagination .active {
+  color: #6cb2eb !important;
+  border-bottom: solid 2px #6cb2eb;
+  border-top: solid 2px #6cb2eb;
+}
+
+.blog-pagination .disabled {
+  color: #263238 !important;
 }
 
 .admin-dashboard-body {

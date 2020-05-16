@@ -4,6 +4,14 @@
     padding-bottom: .5rem;
 }
 
+.blog-section  {
+    @include gridWidthCenterd;
+    border-top: solid 2px $dark-color;
+    border-bottom: solid 2px $dark-color;
+    padding: 2.7rem 0 1rem 0;
+    margin-bottom: 2.5rem;
+}
+
 .article-section {
     @include gridWidthCenterd;
     padding-top: 5.8rem;

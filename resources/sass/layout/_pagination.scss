@@ -1,0 +1,42 @@
+
+.blog-pagination {
+    @include gridWidthCenterd;
+    text-align: center;
+
+    .pagination {
+        list-style: none;
+        margin: 2rem;
+        font-size: 2rem;
+
+        .page-item {
+            display: inline-block;
+            padding: .5rem;
+            margin: 0 1rem;
+
+            a:link,
+            a:visited {
+                color: $dark-font;
+                text-decoration: none;
+            }
+
+            a:hover,
+            a:active {
+                color: lighten($dark-font, 10%);
+            }
+        }
+
+        .page-link {
+
+        }
+    }
+
+    .active {
+        color: $cyan !important;
+        border-bottom: solid 2px $cyan;
+        border-top: solid 2px $cyan;
+    }
+
+    .disabled {
+        color: $dark-color !important;
+    }
+}

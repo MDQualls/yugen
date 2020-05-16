@@ -40,7 +40,7 @@
             @endif
         @endforeach
         <div class="article-section__title--bottom">
-            <a href="#">Visit all the blog posts <i class="fas fa-angle-double-right"></i></a>
+            <a href="{{route('blog')}}">Visit all the blog posts <i class="fas fa-angle-double-right"></i></a>
         </div>
     </section>
 @endsection

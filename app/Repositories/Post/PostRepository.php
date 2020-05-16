@@ -30,44 +30,56 @@ class PostRepository implements PostRepositoryInterface
     }
 
     /**
+     * @param int $pageSize
      * @return mixed
      */
-    public function getAllPostsPaginated()
+    public function getAllPostsPaginated($pageSize = 6)
     {
-        return $this->post::where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate(5);
+        return $this->post::where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate($pageSize);
     }
 
     /**
      * @param $category
+     * @param int $pageSize
      * @return mixed
      */
-    public function getCategoryPostsPaginated($category)
+    public function getCategoryPostsPaginated($category, $pageSize = 6)
     {
         return $this->post::whereHas('category', function (Builder $query) use ($category) {
             $query->where('name', '=', $category);
-            })->where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate(5);
+            })->where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate($pageSize);
     }
 
     /**
      * @param $user
+     * @param int $pageSize
      * @return mixed
      */
-    public function getAuthorPostsPaginated($user)
+    public function getAuthorPostsPaginated($user, $pageSize = 6)
     {
         return $this->post::whereHas('user', function (Builder $query) use ($user) {
             $query->where('name', '=', $user);
-        })->where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate(5);
+        })->where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate($pageSize);
     }
 
+    /**
+     * @param $title
+     * @return mixed
+     */
     public function getPostWithTitle($title)
     {
         return $this->post::where('title','=',$title)->first();
     }
 
-    public function getTagPostsPaginated($tag)
+    /**
+     * @param $tag
+     * @param int $pageSize
+     * @return mixed
+     */
+    public function getTagPostsPaginated($tag, $pageSize = 6)
     {
         return $this->post::whereHas('tags', function (Builder $query) use ($tag) {
             $query->where('name', '=', $tag);
-        })->where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate(5);
+        })->where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate($pageSize);
     }
 }
