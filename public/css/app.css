@@ -305,6 +305,7 @@ body {
   width: 100%;
   position: relative;
   overflow: hidden;
+  text-align: center;
 }
 
 .article-card__image--text {

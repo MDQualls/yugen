@@ -1,6 +1,8 @@
 
 Make New layout RESPONSIVE!!!
 
+all blog posts page ... add category listings ... and maybe tags ...
+
 do facebook integration
 do twitter integration
 do newsletter signup box
