@@ -14,7 +14,7 @@
                     <p class="p__content--lead">{{$summary}}</p>
                 </div>
                 <div class="hero__image">
-                    <img src="https://placeimg.com/800/600/any" alt="any">
+                    <img src="{{url("images/coburnRd5.jpg")}}" alt="any">
                 </div>
             </div>
         </div>

@@ -1,8 +1,7 @@
 
 Make New layout RESPONSIVE!!!
 
-do newsletter signup box
-do amazon affiliate sign up
 do facebook integration
 do twitter integration
-
+do newsletter signup box
+do amazon affiliate sign up

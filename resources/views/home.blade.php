@@ -11,7 +11,7 @@
             <div class="col-3-of-4">
                 <div class="hero">
                     <div class="hero__image">
-                        <img src="https://placeimg.com/800/600/any" alt="any">
+                        <img src="{{url("images/coburnRd1.jpg")}}" alt="any">
                     </div>
                     <div class="hero__content">
                         <h1 class="h1__title">Hello from Yugen Farm.</h1>
