@@ -305,7 +305,10 @@ body {
   width: 100%;
   position: relative;
   overflow: hidden;
+  display: block;
   text-align: center;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .article-card__image--text {

@@ -18,7 +18,9 @@
         width: 100%;
         position: relative;
         overflow: hidden;
+        display: block;
         text-align: center;
+        object-fit: cover;
 
         &--text {
             position: absolute;
