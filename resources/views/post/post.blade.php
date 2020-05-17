@@ -9,11 +9,11 @@
                 @if($post->header_image)
                     <div class="image-card bottom-margin-rem2">
                         <img src="{{$post->header_image}}" alt="" class="img--fluid">
-                        <div class='image-card__overlay'>
-                            <div class='image-card__detail'>
-                                <span>{{$post->title}}</span>
-                            </div>
-                        </div>
+{{--                        <div class='image-card__overlay'>--}}
+{{--                            <div class='image-card__detail'>--}}
+{{--                                <span>{{$post->title}}</span>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div><!--thumb-->
                 @endif
                 <div class="article__post__container">
