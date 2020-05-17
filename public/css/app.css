@@ -307,8 +307,8 @@ body {
   overflow: hidden;
   display: block;
   text-align: center;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .article-card__image--text {
