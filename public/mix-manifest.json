@@ -1,7 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
     "/js/article.js": "/js/article.js",
     "/js/flatpickr.min.js": "/js/flatpickr.min.js",
-    "/css/flatpickr.min.css": "/css/flatpickr.min.css",
-    "/css/app.css": "/css/app.css"
+    "/css/flatpickr.min.css": "/css/flatpickr.min.css"
 }

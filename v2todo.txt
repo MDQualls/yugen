@@ -1,13 +1,5 @@
 
-all blog posts page
-post category page
-post tag page
-explore page ... link to all blog page for now.
-
-fix 'remember me'
-fix 'notification preferences'
-fix post summary listings on home page
-fix all (rest of) alert messages --> importante!
+Make New layout RESPONSIVE!!!
 
 do newsletter signup box
 do amazon affiliate sign up

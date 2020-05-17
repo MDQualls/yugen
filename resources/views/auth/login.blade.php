@@ -2,6 +2,8 @@
 
 @section('content')
     <div class="row">
+        @include('partials.errors')
+
         <div class="card">
             <div class="card__header card--dark">
                 {{ __('Login') }}
@@ -15,14 +17,8 @@
                     <div class="form__group">
                         <label for="email" class="form__label">{{ __('E-Mail Address') }}</label>
                         <div>
-                            <input id="email" type="email" class="form__control @error('email') is-invalid @enderror"
+                            <input id="email" type="email" class="form__control @if($errors->any()) is-invalid @endif"
                                    name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                         </div>
                     </div>
 
@@ -30,15 +26,9 @@
                         <label for="password" class="form__label">{{ __('Password') }}</label>
                         <div>
                             <input id="password" type="password"
-                                   class="form__control @error('password') is-invalid @enderror" name="password"
+                                   class="form__control @if($errors->any()) is-invalid @endif" name="password"
                                    required
                                    autocomplete="current-password">
-
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                         </div>
                     </div>
 

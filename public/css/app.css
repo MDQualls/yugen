@@ -56,7 +56,11 @@ $breakpoint arguement choices:
 }
 
 .top-margin-rem2 {
-  margin-left: 2rem !important;
+  margin-top: 2rem !important;
+}
+
+.top-margin-rem4 {
+  margin-top: 4rem !important;
 }
 
 .left-margin-rem4 {
@@ -540,6 +544,12 @@ body {
   border-right: none;
   border-bottom: 0.3rem solid transparent;
   width: 100%;
+}
+
+.form .is-invalid {
+  border-left: solid 3px orangered !important;
+  border-bottom: solid 2pt orangered !important;
+  background-color: lightpink;
 }
 
 .form__check {

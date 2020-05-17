@@ -31,6 +31,12 @@
         width: 100%;
     }
 
+    .is-invalid  {
+        border-left: solid 3px $invalid-color !important;
+        border-bottom: solid 2pt $invalid-color !important;
+        background-color: lightpink;
+    }
+
     //checkbox
 
     &__check  {

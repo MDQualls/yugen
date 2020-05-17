@@ -37,9 +37,9 @@ class UserSettingsController extends Controller
         $data['name'] = ($request->name != '') ? $request->name : $user->name;
         $data['email'] = ($request->email != '') ? $request->email : $user->email;
         $data['about'] = ($request->about != '') ? $request->about : $user->about;
-        $data['content_alert'] = ($request->content_alert != '') ? $request->content_alert : $user->content_alert;
-        $data['response_alert'] = ($request->response_alert != '') ? $request->response_alert : $user->response_alert;
-        $data['offering_alert'] = ($request->offering_alert != '') ? $request->offering_alert : $user->offering_alert;
+        $data['content_alert'] = ($request->content_alert != '') ? 1 : 0;
+        $data['response_alert'] = ($request->response_alert != '') ? 1 : 0;
+        $data['offering_alert'] = ($request->offering_alert != '') ? 1 : 0;
 
         $user->update($data);
 
