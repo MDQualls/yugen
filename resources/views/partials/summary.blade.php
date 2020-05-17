@@ -9,7 +9,7 @@
                 @if($post->header_image)
                     <img src="{{$post->header_image}}" alt="any">
                 @else
-                    <img class="img--fluid" src="{{url(sprintf("images/farm_stock_%s.jpg",rand(1,10)))}}" alt="any">
+                    <img class="img--fluid" src="{{url(sprintf("images/farm_stock_%s.jpg",rand(1,20)))}}" alt="any">
                 @endif
             </div>
         </div>
