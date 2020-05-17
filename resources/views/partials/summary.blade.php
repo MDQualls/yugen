@@ -6,7 +6,11 @@
                 <div><i class="fas fa-arrow-right"></i></div>
             </div>
             <div class="article-card__image--img">
-                <img src="https://placeimg.com/565/250/any" alt="any">
+                @if($post->header_image)
+                    <img src="{{$post->header_image}}" alt="any">
+                @else
+                    <img class="img--fluid" src="{{url(sprintf("images/farm_stock_%s.jpg",rand(1,10)))}}" alt="any">
+                @endif
             </div>
         </div>
         <div class="article-card__body">
