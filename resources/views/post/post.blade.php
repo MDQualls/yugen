@@ -7,7 +7,7 @@
             <h3 class='h3__title'>{{$title}}</h3>
             <article class="article__post">
                 @if($post->header_image)
-                    <div class="image-card">
+                    <div class="image-card bottom-margin-rem2">
                         <img src="{{$post->header_image}}" alt="" class="img--fluid">
                         <div class='image-card__overlay'>
                             <div class='image-card__detail'>
