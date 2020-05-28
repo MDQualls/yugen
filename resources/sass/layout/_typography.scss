@@ -2,6 +2,10 @@ main  {
     min-height: calc(100vh - 148px - 127px); //100% of view height - the header height - the footer top margin and footer
     overflow: hidden;
     display: block;
+
+    @include respond(tab-port)  {
+        min-height: calc(100vh - 188px);
+    }
 }
 
 .h1__title  {

@@ -5,7 +5,7 @@
 1200-1800 PX: NORMAL DESKTOP (DEFAULT STYLES)
 1800 PX + BIG DESKTOP
 
-$breakpoint arguement choices:
+$breakpoint argument choices:
 - phone
 - tab-port
 - tab-land
@@ -209,6 +209,12 @@ body {
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
 }
 
+@media (max-width: 56.25em) {
+  .hero {
+    margin: 0 4rem 0 2rem;
+  }
+}
+
 .hero__image {
   display: inline-block;
   margin: 0;
@@ -292,6 +298,13 @@ body {
   border-radius: 0.2rem;
   overflow: hidden;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 56.25em) {
+  .article-card {
+    width: 60%;
+    margin: 1rem auto;
+  }
 }
 
 .article-card a,
@@ -721,6 +734,12 @@ main {
   display: block;
 }
 
+@media (max-width: 56.25em) {
+  main {
+    min-height: calc(100vh - 188px);
+  }
+}
+
 .h1__title {
   font-size: 3rem;
   letter-spacing: 0.5rem;
@@ -823,6 +842,12 @@ main {
           transform: translate(-50%, -50%);
 }
 
+@media (max-width: 56.25em) {
+  .article-section__title--bottom {
+    bottom: -1.6%;
+  }
+}
+
 .article-section__title--bottom a:link,
 .article-section__title--bottom a:visited {
   color: #efefef;
@@ -905,6 +930,12 @@ main {
   text-decoration: none;
 }
 
+@media (max-width: 56.25em) {
+  .nav__brand {
+    margin-left: 2rem;
+  }
+}
+
 .nav__navbar {
   list-style: none;
   float: right;
@@ -912,6 +943,12 @@ main {
 
 .nav__navbar li {
   margin-left: 4rem;
+}
+
+@media (max-width: 56.25em) {
+  .nav__navbar {
+    margin-right: 2rem;
+  }
 }
 
 .nav__item {
@@ -1004,8 +1041,6 @@ main {
   background-color: #263238;
   color: #FFFAFA;
   text-align: center;
-  height: 12rem;
-  width: 100%;
 }
 
 .footer__content {
@@ -1032,6 +1067,12 @@ main {
   font-size: 1.6rem;
 }
 
+@media (max-width: 56.25em) {
+  .article__post {
+    margin: 0 4rem 0 2rem;
+  }
+}
+
 .article__post__container {
   margin-bottom: 2rem;
 }
@@ -1043,6 +1084,12 @@ main {
 
 .article__post--meta {
   margin-bottom: 2rem;
+}
+
+@media (max-width: 56.25em) {
+  .post-categories {
+    margin: 0 4rem 0 2rem;
+  }
 }
 
 .blog-pagination {
@@ -1176,6 +1223,12 @@ main {
 
 .home-right-col {
   height: 36rem;
+}
+
+@media (max-width: 56.25em) {
+  .home-right-col {
+    display: none;
+  }
 }
 
 .home-right-col__ad-box {

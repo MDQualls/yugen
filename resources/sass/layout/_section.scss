@@ -37,6 +37,10 @@
         left: 50%;
         transform: translate(-50%, -50%);
 
+        @include respond(tab-port)  {
+            bottom: -1.6%;
+        }
+
         a:link,
         a:visited {
             color: $light-font;

@@ -4,8 +4,8 @@
 @section('content')
     <div class="row">
         <div class="col-3-of-4">
-            <h3 class='h3__title'>{{$title}}</h3>
             <article class="article__post">
+                <h3 class='h3__title'>{{$title}}</h3>
                 @if($post->header_image)
                     <div class="image-card bottom-margin-rem2">
                         <img src="{{$post->header_image}}" alt="" class="img--fluid">
@@ -123,7 +123,9 @@
             </article><!--article-->
         </div>
         <div class="col-1-of-4">
-            @include('partials.categories', ['categories', $categories])
+            <div class="post-categories">
+                @include('partials.categories', ['categories', $categories])
+            </div>
         </div>
     </div>
 

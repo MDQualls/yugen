@@ -7,6 +7,11 @@
     overflow: hidden;
     box-shadow: 0 .2rem .5rem rgba($black-color, .1);
 
+    @include respond(tab-port)  {
+        width: 60%;
+        margin: 1rem auto
+    }
+
     & a,
     & a:visited {
         text-decoration: none;

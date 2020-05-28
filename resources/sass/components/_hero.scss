@@ -5,6 +5,10 @@
     border: solid 1px $light-grey;
     box-shadow: 0 .2rem .5rem rgba($black-color, .1);
 
+    @include respond(tab-port)  {
+        margin: 0 4rem 0 2rem;
+    }
+
     &__image  {
         @include hero-common;
         width: 65%;

@@ -2,6 +2,10 @@
 
     font-size: 1.6rem;
 
+    @include respond(tab-port)  {
+        margin: 0 4rem 0 2rem;
+    }
+
     &__container  {
         margin-bottom: 2rem;
     }
@@ -13,5 +17,10 @@
 
     &--meta  {
         margin-bottom: 2rem;
+    }
+}
+@include respond(tab-port) {
+    .post-categories {
+        margin: 0 4rem 0 2rem;
     }
 }
