@@ -458,6 +458,7 @@ body {
 .comment-reply-form-container,
 .edit-comment-form-container {
   visibility: hidden;
+  height: 0;
 }
 
 #commentReplyForm,
