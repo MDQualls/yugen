@@ -381,6 +381,17 @@ body {
   overflow: hidden;
 }
 
+@media (max-width: 56.25em) {
+  .image-card {
+    width: 50%;
+    max-width: 114rem;
+    min-width: 114rem;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
 .image-card h4 {
   color: #fff;
 }
@@ -401,6 +412,17 @@ body {
   opacity: 0;
   -webkit-transition: all 350ms;
   transition: all 350ms;
+}
+
+@media (max-width: 56.25em) {
+  .image-card__overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 55%;
+  }
 }
 
 .image-card__overlay .image-card__detail {
@@ -873,6 +895,15 @@ main {
   clear: both;
 }
 
+@media (max-width: 56.25em) {
+  .row {
+    max-width: 108.3rem;
+    min-width: 108.3rem;
+    margin: 0 auto;
+    margin-bottom: 2.2rem;
+  }
+}
+
 .row [class^=col-] {
   float: left;
 }
@@ -931,12 +962,6 @@ main {
   text-decoration: none;
 }
 
-@media (max-width: 56.25em) {
-  .nav__brand {
-    margin-left: 2rem;
-  }
-}
-
 .nav__navbar {
   list-style: none;
   float: right;
@@ -944,12 +969,6 @@ main {
 
 .nav__navbar li {
   margin-left: 4rem;
-}
-
-@media (max-width: 56.25em) {
-  .nav__navbar {
-    margin-right: 2rem;
-  }
 }
 
 .nav__item {

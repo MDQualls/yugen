@@ -16,9 +16,7 @@
             text-decoration: none;
         }
 
-        @include respond(tab-port)  {
-            margin-left: 2rem;
-        }
+
     }
 
     &__navbar {
@@ -29,9 +27,7 @@
             margin-left: 4rem;
         }
 
-        @include respond(tab-port)  {
-            margin-right: 2rem;
-        }
+
     }
 
     &__item  {

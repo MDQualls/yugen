@@ -36,23 +36,25 @@
     </section>
 
     <!-- blog post summaries -->
-    <section class="article-section">
-        <div class="article-section__title">
-            <i class="fas fa-angle-double-right"></i> Recent news from the farm
-        </div>
-        @foreach($posts as $idx => $post)
-            @if($loop->first || $loop->iteration == 4)
-                <div class="row">
-                    @endif
-                    <div class="col-1-of-3">
-                        @include('partials.summary', ['post' => $post])
+    <div class="row">
+        <section class="article-section">
+            <div class="article-section__title">
+                <i class="fas fa-angle-double-right"></i> Recent news from the farm
+            </div>
+            @foreach($posts as $idx => $post)
+                @if($loop->first || $loop->iteration == 4)
+                    <div class="row">
+                        @endif
+                        <div class="col-1-of-3">
+                            @include('partials.summary', ['post' => $post])
+                        </div>
+                        @if($loop->iteration == 3 || $loop->last)
                     </div>
-                    @if($loop->iteration == 3 || $loop->last)
-                </div>
-            @endif
-        @endforeach
-        <div class="article-section__title--bottom">
-            <a href="{{route('blog')}}">Visit all the blog posts <i class="fas fa-angle-double-right"></i></a>
-        </div>
-    </section>
+                @endif
+            @endforeach
+            <div class="article-section__title--bottom">
+                <a href="{{route('blog')}}">Visit all the blog posts <i class="fas fa-angle-double-right"></i></a>
+            </div>
+        </section>
+    </div>
 @endsection
