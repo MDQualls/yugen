@@ -9,6 +9,10 @@
         margin: 0 4rem 0 2rem;
     }
 
+    @include respond(phone)  {
+        margin: 0 2rem;
+    }
+
     &__image  {
         @include hero-common;
         width: 65%;

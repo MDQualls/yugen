@@ -13,8 +13,7 @@
     }
 
     @include respond(phone)  {
-        width: 80%;
-        margin: 1rem auto
+        width: 95%;
     }
 
     & a,

@@ -36,8 +36,9 @@
     </section>
 
     <!-- blog post summaries -->
-    <div class="row">
-        <section class="article-section">
+
+    <section class="article-section">
+
             <div class="article-section__title">
                 <i class="fas fa-angle-double-right"></i> Recent news from the farm
             </div>
@@ -55,6 +56,7 @@
             <div class="article-section__title--bottom">
                 <a href="{{route('blog')}}">Visit all the blog posts <i class="fas fa-angle-double-right"></i></a>
             </div>
-        </section>
-    </div>
+
+    </section>
+
 @endsection

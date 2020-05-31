@@ -11,8 +11,8 @@
     }
 
     @include respond(phone)  {
-        max-width: $grid-width * .77;
-        min-width: $grid-width * .77;
+        max-width: $grid-width * .75;
+        min-width: $grid-width * .75;
         margin: 0 auto;
         margin-bottom: $gutter-vertical;
     }
