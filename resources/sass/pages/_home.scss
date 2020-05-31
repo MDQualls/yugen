@@ -5,12 +5,20 @@
         display: none;
     }
 
+    @include respond(phone)  {
+        display: none;
+    }
+
     &__ad-box  {
         background-color: $light-grey;
         padding: 2rem;
         margin-bottom: 2rem;
         height: 17rem;
         box-shadow: 0 .2rem .5rem rgba($black-color, .1);
+
+        @include respond(tab-port)  {
+            display: none;
+        }
     }
 
     &__email-box  {
@@ -18,5 +26,9 @@
         padding: 2rem;
         height: 9rem;
         box-shadow: 0 .2rem .5rem rgba($black-color, .2);
+
+        @include respond(tab-port)  {
+            display: none;
+        }
     }
 }

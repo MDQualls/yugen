@@ -14,19 +14,19 @@ $breakpoint argument choices:
 */
 @mixin respond($breakpoint)  {
     @if $breakpoint == phone  {
-        @media (max-width: 37.5em) { @content };    // 600px
+        @media (max-width: 37.5em) { @content };    // 600px = 37.5 * 16
     }
 
     @if $breakpoint == tab-port  {
-        @media (max-width: 56.25em) { @content };     // 900px
+        @media (max-width: 56.25em) { @content };     // 900px = 56.25 * 16
     }
 
     @if $breakpoint == tab-land  {
-        @media (max-width: 75em) { @content };    // 1200px
+        @media (max-width: 75em) { @content };    // 1200px = 75 * 16
     }
 
     @if $breakpoint == big-desktop  {
-        @media (min-width: 112.5em) { @content };    //1800px
+        @media (min-width: 112.5em) { @content };    //1800px = 112.5 * 16
     }
 }
 

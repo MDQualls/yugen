@@ -34,17 +34,17 @@
             </main>
 
 
-        <footer class="footer">
-            <div class="footer__content">
-                <h4 class="h4__title"><i class="fas fa-envelope"></i> yugenfarm@gmail.com</h4>
-                <div>&copy; Copyright <span id="year"></span> {{ config('app.name') }} | Application by Michael Qualls</div>
-                <div>
-                    <a href="{{route('privacy')}}">Privacy Policy</a> |
-                    <a href="{{route('cookies')}}">Cookies Policy</a> |
-                    <a href="{{route('disclaimer')}}">Disclaimer</a>
-                </div>
-            </div>
-        </footer>
+{{--        <footer class="footer">--}}
+{{--            <div class="footer__content">--}}
+{{--                <h4 class="h4__title"><i class="fas fa-envelope"></i> yugenfarm@gmail.com</h4>--}}
+{{--                <div>&copy; Copyright <span id="year"></span> {{ config('app.name') }} | Application by Michael Qualls</div>--}}
+{{--                <div>--}}
+{{--                    <a href="{{route('privacy')}}">Privacy Policy</a> |--}}
+{{--                    <a href="{{route('cookies')}}">Cookies Policy</a> |--}}
+{{--                    <a href="{{route('disclaimer')}}">Disclaimer</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </footer>--}}
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
