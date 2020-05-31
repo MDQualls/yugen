@@ -12,6 +12,11 @@
         margin: 1rem auto
     }
 
+    @include respond(phone)  {
+        width: 80%;
+        margin: 1rem auto
+    }
+
     & a,
     & a:visited {
         text-decoration: none;

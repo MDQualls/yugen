@@ -10,6 +10,13 @@
         margin-bottom: $gutter-vertical;
     }
 
+    @include respond(phone)  {
+        max-width: $grid-width * .77;
+        min-width: $grid-width * .77;
+        margin: 0 auto;
+        margin-bottom: $gutter-vertical;
+    }
+
     [class^="col-"]  {
         float: left;
 
