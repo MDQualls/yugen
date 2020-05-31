@@ -58,3 +58,20 @@
         </ul>
     </div>
 </nav>
+
+<div class="mobile-nav__brand" ><a href="{{ url('/') }}">{{ config('app.name', 'Yugen Farm') }}</a></div>
+<div class="mobile-nav">
+    <input type="checkbox" class="mobile-nav__checkbox" id="navi-toggle">
+    <label for="navi-toggle" class="mobile-nav__button">
+        <span class="mobile-nav__icon">&nbsp;</span>
+    </label>
+
+    <div class="mobile-nav__nav">
+        <ul class="mobile-nav__list">
+            <li class="mobile-nav__item"><a href="{{route('/')}}" class="mobile-nav__link">Home</a></li>
+            <li class="mobile-nav__item"><a href="{{route('about')}}" class="mobile-nav__link">About</a></li>
+            <li class="mobile-nav__item"><a href="{{route('login')}}" class="mobile-nav__link">Login</a></li>
+            <li class="mobile-nav__item"><a href="{{route('register')}}" class="mobile-nav__link">Register</a></li>
+        </ul>
+    </div>
+</div>

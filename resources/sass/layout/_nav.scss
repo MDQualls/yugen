@@ -1,16 +1,22 @@
+@include respond(tab-port)  {
+    nav  {
+        display: none;
+    }
+}
+
 .nav  {
     width: 95vw;
     max-width: $grid-width;
     color: $dark-font;
     background-color: $body-bg;
-    padding: 4rem 2px;
+    padding: 4rem 2px 2rem 2px;
     border-bottom: solid .2rem $dark-color;
 
     &__brand  {
-        font-size: 2rem;
         display: inline-block;
-        text-transform: uppercase;
-        letter-spacing: .1rem;
+        font-size: 4rem;
+        font-weight: 600;
+        letter-spacing: 1.1rem;
 
         & a,
         & a:visited  {

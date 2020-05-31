@@ -1,0 +1,149 @@
+.mobile-nav {
+    visibility: hidden;
+    width: 0;
+    position: relative;
+
+    @include respond(tab-port) {
+        visibility: visible;
+        width: 100%;
+    }
+
+    &__brand  {
+        display: inline-block;
+        font-size: 4rem;
+        position: absolute;
+        top: 4rem;
+        left: 3rem;
+        font-weight: 600;
+        letter-spacing: 1.1rem;
+        visibility: hidden;
+        width: 0;
+
+        @include respond(tab-port) {
+            visibility: visible;
+            width: 100%;
+        }
+
+        & a:link,
+        & a:visited{
+            color: $dark-color;
+            text-decoration: none;
+            padding-bottom: 2rem;
+            border-bottom: 2px $secondary-color dashed;
+        }
+
+        & a:active,
+        & a:hover{
+            color: $dark-color;
+        }
+
+    }
+
+    &__nav {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -25rem;
+        padding: 15rem 5rem;
+        background-color: $dark-color;
+        z-index: 999;
+        box-shadow: -1rem 0 3rem rgba($black-color, .1);
+        transition: right .3s;
+    }
+
+    &__list {
+        list-style: none;
+        width: 100%;
+        text-align: center;
+
+        & li:not(:last-of-type)  {
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: .1rem dashed $secondary-color;
+        }
+    }
+
+    &__link {
+        display: inline-block;
+        font-size: 3rem;
+        font-weight: 300;
+        color: $light-font;
+        text-decoration: none;
+        font-family: inherit;
+        letter-spacing: .2rem;
+
+        &:active,
+        &:hover  {
+            border-bottom: .2rem solid transparent;
+        }
+    }
+
+    &__button  {
+        color: $light-color;
+        background: $secondary-color;
+        border-radius: 50%;
+        position: fixed;
+        width: 8rem;
+        height: 8rem;
+        top: 2rem;
+        right: 2rem;
+        z-index: 1000;
+        text-align: center;
+        cursor: pointer;
+        box-shadow: 0 1rem 2rem rgba($black-color, .2);
+    }
+
+    &__icon  {
+        position: relative;
+        margin-top: 3.9rem;
+
+        &,
+        &::before,
+        &::after  {
+            width: 3rem;
+            height: 2px;
+            background-color: $dark-font;
+            display: inline-block;
+        }
+
+        &::before,
+        &::after  {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+        }
+
+        &::before  {
+            top: -1rem
+        }
+
+        &::after  {
+            top: 1rem
+        }
+    }
+
+    &__checkbox {
+        display: none;
+    }
+
+    //animation functionality
+
+    &__checkbox:checked  ~ &__nav {
+        right: 0;
+    }
+
+    &__checkbox:checked + &__button &__icon {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked + &__button &__icon::before {
+        top: 0;
+        transform: rotate(135deg);
+    }
+
+    &__checkbox:checked + &__button &__icon::after {
+        top: 0;
+        transform: rotate(-135deg);
+    }
+}
