@@ -5,8 +5,8 @@
 
     @include respond(tab-port)  {
         width: 50%;
-        @include gridWidthCenterd;
         text-align: center;
+        margin: 0 auto;
         margin-bottom: 2rem;
     }
 
@@ -30,7 +30,7 @@
 
         @include respond(tab-port)  {
             @include centerHorizontalVertical;
-            width: 55%;
+            width: 100%;
         }
 
         .image-card__detail {

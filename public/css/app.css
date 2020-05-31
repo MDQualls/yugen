@@ -216,6 +216,12 @@ body {
   }
 }
 
+@media (max-width: 37.5em) {
+  .hero {
+    margin-bottom: 4rem;
+  }
+}
+
 .hero__image {
   display: inline-block;
   margin: 0;
@@ -410,10 +416,8 @@ body {
 @media (max-width: 56.25em) {
   .image-card {
     width: 50%;
-    max-width: 114rem;
-    min-width: 114rem;
-    margin: 0 auto;
     text-align: center;
+    margin: 0 auto;
     margin-bottom: 2rem;
   }
 }
@@ -447,7 +451,7 @@ body {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-    width: 55%;
+    width: 100%;
   }
 }
 
@@ -909,6 +913,10 @@ main {
 .article-section__title--bottom a:active,
 .article-section__title--bottom a:hover {
   color: lightgrey;
+}
+
+.about-section {
+  margin: 0 2.75rem;
 }
 
 .row {

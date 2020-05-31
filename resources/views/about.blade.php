@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="about-section">
         <div class='row'>
 
             <h3 class="h3__title">Welcome to the Yugen Farm Web Presence</h3>
@@ -94,5 +95,5 @@
                 (Ortolani, 325). Ortolani, Benito. The Japanese Theatre. Princeton University Press: Princeton, 1995
             </p>
         </div>
-
+    </div>
 @endsection
