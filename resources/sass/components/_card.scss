@@ -5,6 +5,10 @@
     box-shadow: 0 .2rem .5rem rgba($black-color, .1);
     background-color: #efefef;
 
+    @include respond(tab-port)  {
+        margin: 0 2.5rem;
+    }
+
     &__header   {
         font-size: 2rem;
         letter-spacing: .2rem;

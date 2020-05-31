@@ -1,21 +1,8 @@
 .row  {
-    @include gridWidthCenterd;
+    max-width: $grid-width;
+    margin: 0 auto;
     margin-bottom: $gutter-vertical;
     @include clearFix;
-
-    @include respond(tab-port)  {
-        max-width: $grid-width * .95;
-        min-width: $grid-width * .95;
-        margin: 0 auto;
-        margin-bottom: $gutter-vertical;
-    }
-
-    @include respond(phone)  {
-        max-width: $grid-width * .75;
-        min-width: $grid-width * .75;
-        margin: 0 auto;
-        margin-bottom: $gutter-vertical;
-    }
 
     [class^="col-"]  {
         float: left;

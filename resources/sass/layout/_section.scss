@@ -1,6 +1,8 @@
 
 .hero-section {
-    width: 100%;
+    width: 95vw;
+    max-width: $grid-width;
+    margin: 0 auto;
     padding-bottom: .5rem;
 }
 
@@ -13,14 +15,16 @@
 }
 
 .article-section {
-    width: 100%;
+    width: 95vw;
+    max-width: $grid-width;
+    margin: 0 auto;
     padding-top: 5.8rem;
     padding-bottom: 3rem;
     border-top: solid 2px $dark-color;
     border-bottom: solid 2px $dark-color;
     position: relative;
-    margin-top: 2.8rem;
-    margin-bottom: 3.8rem;
+
+    text-align: center;
 
     @include respond(phone)  {
 
