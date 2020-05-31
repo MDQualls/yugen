@@ -27,12 +27,8 @@
     border-top: solid 2px $dark-color;
     border-bottom: solid 2px $dark-color;
     position: relative;
-
     text-align: center;
-
-    @include respond(phone)  {
-
-    }
+    margin-bottom: 4rem;
 
     &__title  {
         @include articalSectionTitle;

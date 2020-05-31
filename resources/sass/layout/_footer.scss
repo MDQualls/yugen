@@ -1,12 +1,13 @@
 .footer  {
-    @include gridWidthCenterd;
     background-color: $dark-color;
     color: $light-color;
     text-align: center;
+    margin: 0 2.5rem;
 
     &__content  {
-
         letter-spacing: .3rem;
+        max-width: $grid-width;
+        margin: 0 auto;
 
         & div  {
             font-size: 1.2rem;

@@ -866,6 +866,7 @@ main {
   border-bottom: solid 2px #263238;
   position: relative;
   text-align: center;
+  margin-bottom: 4rem;
 }
 
 .article-section__title {
@@ -1084,16 +1085,16 @@ main {
 }
 
 .footer {
-  max-width: 114rem;
-  min-width: 114rem;
-  margin: 0 auto;
   background-color: #263238;
   color: #FFFAFA;
   text-align: center;
+  margin: 0 2.5rem;
 }
 
 .footer__content {
   letter-spacing: 0.3rem;
+  max-width: 114rem;
+  margin: 0 auto;
 }
 
 .footer__content div {
