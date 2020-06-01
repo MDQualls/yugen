@@ -11,6 +11,7 @@
     border-bottom: solid 2px $dark-color;
     padding: 2.7rem 0 1rem 0;
     margin-bottom: 2.5rem;
+    text-align: center;
 
     @include respond(tab-port)  {
         margin-left: 2rem;

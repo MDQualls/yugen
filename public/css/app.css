@@ -847,6 +847,7 @@ main {
   border-bottom: solid 2px #263238;
   padding: 2.7rem 0 1rem 0;
   margin-bottom: 2.5rem;
+  text-align: center;
 }
 
 @media (max-width: 56.25em) {
@@ -1031,6 +1032,7 @@ main {
   visibility: hidden;
   width: 0;
   position: relative;
+  margin-bottom: 6rem;
 }
 
 @media (max-width: 56.25em) {
@@ -1046,6 +1048,8 @@ main {
   letter-spacing: 1.1rem;
   visibility: hidden;
   width: 0;
+  margin-top: -10rem;
+  margin-left: 3rem;
 }
 
 @media (max-width: 56.25em) {
@@ -1072,7 +1076,8 @@ main {
   height: 100vh;
   position: fixed;
   top: 0;
-  right: -25rem;
+  width: 25rem;
+  right: -36rem;
   padding: 15rem 5rem;
   background-color: #263238;
   z-index: 999;
@@ -1111,7 +1116,7 @@ main {
   width: 8rem;
   height: 8rem;
   top: 2rem;
-  right: 2rem;
+  right: 6rem;
   z-index: 1000;
   text-align: center;
   cursor: pointer;

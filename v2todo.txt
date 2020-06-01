@@ -1,7 +1,16 @@
 
 Make New layout RESPONSIVE!!!
 
-Time line of things done.
+Banner / brand on mobile nav
+User settings responsiveness
+Privacy Policy responsiveness
+Cookie Policy responsiveness
+Disclaimer responsiveness
+Paging of blog posts not working.
+move agent variable to view share for all views (https://stackoverflow.com/questions/29715813/laravel-5-global-blade-view-variable-available-in-all-templates)
+
+
+Time line of things done ~ Diary.
 
 all blog posts page ... add category listings ... and maybe tags ...
 
