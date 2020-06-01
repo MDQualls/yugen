@@ -41,7 +41,7 @@
 
 <div class="mobile-nav__brand" >
     <a href="{{ url('/') }}">
-        &nbsp;&nbsp;
+        &nbsp;
         <span>
             {{ config('app.name', 'Yugen Farm') }}
         </span>
