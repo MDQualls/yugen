@@ -35,7 +35,7 @@ class PostRepository implements PostRepositoryInterface
      */
     public function getAllPostsPaginated($pageSize = 6)
     {
-        return $this->post::where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate($pageSize);
+        return $this->post::where('archived', '=', 0)->orderBy('published_at', 'desc')->simplePaginate($pageSize);
     }
 
     /**

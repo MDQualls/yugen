@@ -972,7 +972,7 @@ main {
 }
 
 @media (max-width: 56.25em) {
-  nav {
+  .nav {
     display: none;
   }
 }
@@ -1306,9 +1306,9 @@ main {
 
 .blog-pagination {
   max-width: 114rem;
-  min-width: 114rem;
   margin: 0 auto;
   text-align: center;
+  color: #000;
 }
 
 .blog-pagination .pagination {

@@ -49,7 +49,7 @@ class HomeController extends Controller
      */
     public function blog()
     {
-        $posts = $this->postRepository->getAllPostsPaginated(6);
+        $posts = $this->postRepository->getAllPostsPaginated(9);
         return view('blog')
             ->with('title', 'All the news from the farm.')
             ->with('summary', 'We hope that you are able to find something interesting that might

@@ -1,15 +1,14 @@
 
 Make New layout RESPONSIVE!!!
 
-Banner / brand on mobile nav
 User settings responsiveness
 Privacy Policy responsiveness
 Cookie Policy responsiveness
 Disclaimer responsiveness
-Paging of blog posts not working.
-Make Hero Unit look better on Mobile
+Image responsiveness is horrible
+Make Hero Unit look better on Mobile ~ or remove/redesign
+make images look better on article card ... center them at least
 move agent variable to view share for all views (https://stackoverflow.com/questions/29715813/laravel-5-global-blade-view-variable-available-in-all-templates)
-
 
 Time line of things done ~ Diary.
 
@@ -19,3 +18,5 @@ do facebook integration
 do twitter integration
 do newsletter signup box
 do amazon affiliate sign up
+
+Consider complete redo of design ... I am not crazy about it now that it is done ...

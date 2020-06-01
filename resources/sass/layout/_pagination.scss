@@ -1,7 +1,9 @@
 
 .blog-pagination {
-    @include gridWidthCenterd;
+    max-width: $grid-width;
+    margin: 0 auto;
     text-align: center;
+    color: $black-color;
 
     .pagination {
         list-style: none;
