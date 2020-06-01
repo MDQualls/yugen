@@ -39,6 +39,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        parent::__construct();
         $this->middleware('guest');
     }
 
@@ -72,5 +73,15 @@ class RegisterController extends Controller
             'role_id' => Role::where('role_name', '=', 'member')->first()->id,
             'status_id' => UserStatus::where('status', '=', 'active')->first()->id,
         ]);
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showRegistrationForm()
+    {
+        return view('auth.register')
+            ->with('agent', $this->agent);
+
     }
 }

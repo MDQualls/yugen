@@ -27,12 +27,15 @@
         <!-- Site Overlay -->
         <div class="site-overlay"></div>
 
-
+        @if($agent->isMobile() || $agent->isTablet())
+            @include('partials.mobile-nav')
+        @else
             @include('partials.nav')
-            <main>
-                @yield('content')
-            </main>
+        @endif
 
+        <main>
+            @yield('content')
+        </main>
 
         <footer class="footer">
             <div class="footer__content">

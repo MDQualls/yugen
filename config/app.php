@@ -176,6 +176,8 @@ return [
          * Package Service Providers...
          */
 
+        Jenssegers\Agent\AgentServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -252,6 +254,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
     ],
 
 ];

@@ -1041,11 +1041,7 @@ main {
 }
 
 .mobile-nav__brand {
-  display: inline-block;
   font-size: 4rem;
-  position: absolute;
-  top: 4rem;
-  left: 3rem;
   font-weight: 600;
   letter-spacing: 1.1rem;
   visibility: hidden;
@@ -1107,11 +1103,6 @@ main {
   letter-spacing: 0.2rem;
 }
 
-.mobile-nav__link:active,
-.mobile-nav__link:hover {
-  border-bottom: 0.2rem solid transparent;
-}
-
 .mobile-nav__button {
   color: #FFFAFA;
   background: #f9aa33;
@@ -1120,7 +1111,7 @@ main {
   width: 8rem;
   height: 8rem;
   top: 2rem;
-  right: 4rem;
+  right: 2rem;
   z-index: 1000;
   text-align: center;
   cursor: pointer;

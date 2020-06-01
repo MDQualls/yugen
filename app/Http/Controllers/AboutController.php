@@ -6,6 +6,8 @@ class AboutController extends Controller
 {
     public function index()
     {
-        return view('about')->with('title', 'About Yugen Farm');
+        return view('about')
+            ->with('title', 'About Yugen Farm')
+            ->with('agent', $this->agent);
     }
 }

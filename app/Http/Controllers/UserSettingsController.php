@@ -19,6 +19,7 @@ class UserSettingsController extends Controller
 
     public function __construct(UpdatePasswordInterface $updatePasswordService)
     {
+        parent::__construct();
         $this->updatePasswordService = $updatePasswordService;
     }
 
@@ -28,7 +29,10 @@ class UserSettingsController extends Controller
      */
     public function index(User $user)
     {
-        return view('user.usersettings')->with('user', $user)->with('title', 'User Settings');
+        return view('user.usersettings')
+            ->with('user', $user)
+            ->with('title', 'User Settings')
+            ->with('agent', $this->agent);
     }
 
     public function update(UpdateUserRequest $request, User $user)
@@ -54,7 +58,10 @@ class UserSettingsController extends Controller
      */
     public function editPassword(User $user)
     {
-        return view('user.password')->with('user', $user)->with('title', 'Update Password');
+        return view('user.password')
+            ->with('user', $user)
+            ->with('title', 'Update Password')
+            ->with('agent', $this->agent);
     }
 
     /**
@@ -70,6 +77,9 @@ class UserSettingsController extends Controller
         }
 
         session()->flash('error', 'Password update failed.  Please review your entries and try again');
-        return view('user.password')->with('user', $user)->with('title', 'Update Password');
+        return view('user.password')
+            ->with('user', $user)
+            ->with('title', 'Update Password')
+            ->with('agent', $this->agent);
     }
 }

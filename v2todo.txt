@@ -1,6 +1,8 @@
 
 Make New layout RESPONSIVE!!!
 
+Time line of things done.
+
 all blog posts page ... add category listings ... and maybe tags ...
 
 do facebook integration
