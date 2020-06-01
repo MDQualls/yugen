@@ -9,35 +9,6 @@
         width: 100%;
     }
 
-    &__brand  {
-        font-size: 4rem;
-        font-weight: 600;
-        letter-spacing: 1.1rem;
-        visibility: hidden;
-        width: 0;
-        margin-top: -10rem;
-        margin-left: 3rem;
-
-        @include respond(tab-port) {
-            visibility: visible;
-            width: 100%;
-        }
-
-        & a:link,
-        & a:visited{
-            color: $dark-color;
-            text-decoration: none;
-            padding-bottom: 2rem;
-            border-bottom: 2px $secondary-color dashed;
-        }
-
-        & a:active,
-        & a:hover{
-            color: $dark-color;
-        }
-
-    }
-
     &__nav {
         height: 100vh;
         position: fixed;
@@ -141,4 +112,38 @@
         top: 0;
         transform: rotate(-135deg);
     }
+}
+
+.mobile-nav__brand  {
+    display: inline;
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: 1.1rem;
+    visibility: hidden;
+    width: 0;
+    position: absolute;
+    top: 3rem;
+
+    @include respond(tab-port) {
+        visibility: visible;
+        width: 100%;
+    }
+
+    & a:link,
+    & a:visited{
+        color: $dark-color;
+        text-decoration: none;
+    }
+
+    & a:active,
+    & a:hover{
+        color: $dark-color;
+    }
+
+    & span  {
+        display: inline-block;
+        padding-bottom: 2rem;
+        border-bottom: 2px $secondary-color dashed;
+    }
+
 }

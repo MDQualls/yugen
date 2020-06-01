@@ -1,11 +1,4 @@
 <div class="mobile-nav">
-
-    <div class="mobile-nav__brand" >
-        <a href="{{ url('/') }}">
-            {{ config('app.name', 'Yugen Farm') }}
-        </a>
-    </div>
-
     <input type="checkbox" class="mobile-nav__checkbox" id="navi-toggle">
     <label for="navi-toggle" class="mobile-nav__button">
         <span class="mobile-nav__icon">&nbsp;</span>
@@ -44,4 +37,13 @@
             @endguest
         </ul>
     </div>
+</div>
+
+<div class="mobile-nav__brand" >
+    <a href="{{ url('/') }}">
+        &nbsp;&nbsp;
+        <span>
+            {{ config('app.name', 'Yugen Farm') }}
+        </span>
+    </a>
 </div>
