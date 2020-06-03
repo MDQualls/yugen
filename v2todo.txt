@@ -1,20 +1,21 @@
 
-Make New layout RESPONSIVE!!!
-
 User settings responsiveness
-Image responsiveness is horrible
 Make Hero Unit look better on Mobile ~ or remove/redesign
-make images look better on article card ... center them at least
 move agent variable to view share for all views (https://stackoverflow.com/questions/29715813/laravel-5-global-blade-view-variable-available-in-all-templates)
-popup css cookie alert
 
-Time line of things done ~ Diary.
-
-all blog posts page ... add category listings ... and maybe tags ...
+LLC formation
+do amazon affiliate sign up
 
 do facebook integration
 do twitter integration
-do newsletter signup box
-do amazon affiliate sign up
 
-Consider complete redo of design ... I am not crazy about it now that it is done ...
+Time line of things done ~ Diary.
+Photo Gallery
+word count on blog posts.
+
+do newsletter signup box
+
+all blog posts page ... add category listings ... and maybe tags ... redo layout
+Image responsiveness is horrible
+make images look better on article card ... center them at least
+popup css cookie alert
