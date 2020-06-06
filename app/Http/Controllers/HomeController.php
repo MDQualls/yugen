@@ -83,9 +83,9 @@ class HomeController extends Controller
         $posts = $this->postRepository->getCategoryPostsPaginated($category, 9);
 
         return view('blog')
-            ->with('title', sprintf('News for the category: %s', $category))
-            ->with('summary', sprintf('All of our blog posts categorized as: %s
-                We hope you find the posts in the category interesting and informative!', $category))
+            ->with('title', sprintf('News Category: %s', $category))
+            ->with('summary', sprintf('Blog posts categorized as: %s
+                We hope you find these posts interesting and informative!', $category))
             ->with('posts', $posts)
             ->with('categories', Category::orderBy('name', 'asc')->get())
             ->with('agent', $this->agent);
