@@ -632,6 +632,7 @@ body {
 }
 
 .form__check-label {
+  display: inline-block;
   padding-left: 3.8rem;
   cursor: pointer;
   position: relative;
@@ -684,6 +685,12 @@ body {
   letter-spacing: 0.2rem;
   border: none;
   cursor: pointer;
+}
+
+@media (max-width: 56.25em) {
+  .btn {
+    margin-bottom: 2rem;
+  }
 }
 
 .btn--primary {
@@ -1512,5 +1519,18 @@ main {
   top: 1rem;
   left: 10rem;
   width: 80%;
+}
+
+@media (max-width: 56.25em) {
+  .img__row__desc {
+    left: 12rem;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .img__row__desc {
+    left: 14rem;
+    width: 70%;
+  }
 }
 

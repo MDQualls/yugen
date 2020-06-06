@@ -18,7 +18,7 @@
 
                             <div class="form__group">
                                 <h4 class="h4__title">{{$user->name}}'s User Gravatar</h4>
-                                <div class="img__row row">
+                                <div class="img__row">
                                     <div class="thumbnail__image right-margin-rem2">
                                         <img class="thumbnail__image--thumbnail" src="{{ Gravatar::src($user->email) }}" alt="Gravatar">
                                     </div>
@@ -85,17 +85,12 @@
                             </div>
 
                             <div class="form-group">
-
-
                                 <button class="btn btn--primary" type="submit"><i class="fas fa-user-circle"></i>
                                     Update
                                     Settings
                                 </button>
-
                                 <a href="{{route('user-password', $user->id)}}" class="btn btn--primary"><i
                                         class="fas fa-lock"></i> Update Password</a>
-
-
                                 <a href="{{route('/')}}" class="btn btn--grey"><i
                                         class="fas fa-arrow-left"></i> Cancel</a>
                             </div>
