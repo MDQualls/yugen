@@ -19,6 +19,8 @@ class UserSettingsController extends Controller
 
     public function __construct(UpdatePasswordInterface $updatePasswordService)
     {
+        $this->middleware('userisuser');
+
         parent::__construct();
         $this->updatePasswordService = $updatePasswordService;
     }

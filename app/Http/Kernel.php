@@ -6,6 +6,7 @@ use App\Http\Middleware\VerifyCategoryCount;
 use App\Http\Middleware\VerifyCategoryHasNoPosts;
 use App\Http\Middleware\VerifyIsAdmin;
 use App\Http\Middleware\VerifyNotSuspended;
+use App\Http\Middleware\VerifyUserIsUser;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -69,6 +70,7 @@ class Kernel extends HttpKernel
         'admin' => VerifyIsAdmin::class,
         'VerifyCategoryHasNoPosts' => VerifyCategoryHasNoPosts::class,
         'suspended' => VerifyNotSuspended::class,
+        'userisuser' => VerifyUserIsUser::class,
     ];
 
     /**

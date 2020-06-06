@@ -1,4 +1,5 @@
 
+Fix security hole in user settings & all other user related pages
 User settings responsiveness
 Make Hero Unit look better on Mobile ~ or remove/redesign
 move agent variable to view share for all views (https://stackoverflow.com/questions/29715813/laravel-5-global-blade-view-variable-available-in-all-templates)
