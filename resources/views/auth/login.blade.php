@@ -5,7 +5,7 @@
         @include('partials.errors')
 
         <div class="card">
-            <div class="card__header card--dark">
+            <div class="card__header card--grey">
                 {{ __('Login') }}
             </div>
 

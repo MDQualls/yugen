@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="card">
-            <div class="card__header card--primary">{{ __('Register') }}</div>
+            <div class="card__header card--grey">{{ __('Register') }}</div>
 
             <div class="card__body">
                 <form method="POST" action="{{ route('register') }}">
