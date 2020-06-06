@@ -19,8 +19,10 @@
                             <div class="form__group">
                                 <h4 class="h4__title">{{$user->name}}'s User Gravatar</h4>
                                 <div class="img__row">
-                                    <div class="thumbnail__image right-margin-rem2">
-                                        <img class="thumbnail__image--thumbnail" src="{{ Gravatar::src($user->email) }}" alt="Gravatar">
+                                    <div class="img__row__img">
+                                        <div class="thumbnail__image right-margin-rem2">
+                                            <img class="thumbnail__image--thumbnail" src="{{ Gravatar::src($user->email) }}" alt="Gravatar">
+                                        </div>
                                     </div>
                                     <div class="p__content--lead img__row__desc">
                                         We use Gravatar for our user images. If you do not have an

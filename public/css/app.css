@@ -1509,16 +1509,18 @@ main {
 }
 
 .img__row {
-  position: relative;
   margin-left: 0.5rem;
+  display: -webkit-box;
+  display: flex;
+}
+
+.img__row__img {
+  display: inline-block;
 }
 
 .img__row__desc {
   display: inline-block;
-  position: absolute;
-  top: 1rem;
-  left: 10rem;
-  width: 80%;
+  width: 70%;
 }
 
 @media (max-width: 56.25em) {
@@ -1530,7 +1532,6 @@ main {
 @media (max-width: 37.5em) {
   .img__row__desc {
     left: 14rem;
-    width: 70%;
   }
 }
 

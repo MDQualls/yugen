@@ -1,14 +1,14 @@
 .img__row  {
-
-    position: relative;
     margin-left: .5rem;
+    display: flex;
+
+    &__img  {
+        display: inline-block;
+    }
 
     &__desc  {
         display: inline-block;
-        position: absolute;
-        top: 1rem;
-        left: 10rem;
-        width: 80%;
+        width: 70%;
 
         @include respond(tab-port)  {
             left: 12rem;
@@ -16,7 +16,6 @@
 
         @include respond(phone)  {
             left: 14rem;
-            width: 70%;
         }
     }
 }
