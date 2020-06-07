@@ -1,9 +1,9 @@
 
-User settings responsiveness
 Make Hero Unit look better on Mobile ~ or remove/redesign
-move agent variable to view share for all views (https://stackoverflow.com/questions/29715813/laravel-5-global-blade-view-variable-available-in-all-templates)
+move agent variable to view share for all views
+    (https://stackoverflow.com/questions/29715813/laravel-5-global-blade-view-variable-available-in-all-templates)
 
-LLC formation
+LLC ~~ confirm that it is complete
 do amazon affiliate sign up
 
 do facebook integration

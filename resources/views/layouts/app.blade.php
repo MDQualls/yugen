@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Yugen Farm is a sustainable, permaculture hobby farm in Oklahoma.">
-    <meta name = "keywords" content = "Permaculture, Hügelkultur, Farming, Hobby Farming, Alpacas, Bee Keeping, Backyard Chickens" />
+    <meta name="description" content="Yugen Farm is a sustainable, permaculture small-scale farm in Oklahoma.">
+    <meta name = "keywords" content = "Permaculture, Hügelkultur, Farming, Small-scale Farming, Alpacas, Bee Keeping, Backyard Chickens, lavender" />
     <meta name="author" content="Michael Qualls">
 
     <title>{{ config('app.name') }}</title>
