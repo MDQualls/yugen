@@ -75,7 +75,7 @@ class UserSettingsController extends Controller
     {
         if ($this->updatePasswordService->attemptToUpdatePassword($user->email, $request->currentPassword, $request->newPassword)) {
             session()->flash('success', 'Your password as been successfully updated');
-            return redirect()->route('home');
+            return redirect()->route('/');
         }
 
         session()->flash('error', 'Password update failed.  Please review your entries and try again');

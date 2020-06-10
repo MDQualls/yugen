@@ -4,7 +4,7 @@
     left: 50%;
     transform: translate(-50%, 0);
     z-index: 9999;
-    width: 80rem;
+    max-width: 80rem;
     box-shadow: 0 .5rem .5rem rgba($black-color, .4);
 
     &--alert {
@@ -24,6 +24,12 @@
     &--danger {
         background-color: $red;
         color: $light-font;
+        border: solid 1pt darkred;
+    }
+
+    &--info  {
+        background-color: $cyan;
+        color: $dark-font;
         border: solid 1pt darkred;
     }
 }

@@ -733,7 +733,7 @@ body {
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   z-index: 9999;
-  width: 80rem;
+  max-width: 80rem;
   box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.4);
 }
 
@@ -754,6 +754,12 @@ body {
 .alert__container--danger {
   background-color: #e3342f;
   color: #efefef;
+  border: solid 1pt darkred;
+}
+
+.alert__container--info {
+  background-color: #6cb2eb;
+  color: #333;
   border: solid 1pt darkred;
 }
 

@@ -8,9 +8,17 @@
 
             <div class="card__body">
                 @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
+                    <div class="alert__container">
+                        <div class="alert__container--alert alert__container--info" role="alert">
+                            {{ session('status') }}
+                        </div>
                     </div>
+
+                    <script>
+                        setTimeout(function() {
+                            jQuery('.alert__container').fadeOut("slow");
+                        }, 5000);
+                    </script>
                 @endif
 
                 <p class="p__content--lead">
@@ -40,10 +48,9 @@
                     </div>
 
                     <div class="form__group">
-
-                            <button type="submit" class="btn btn--primary">
-                                {{ __('Send Password Reset Link') }}
-                            </button>
+                        <button type="submit" class="btn btn--primary">
+                            {{ __('Send Password Reset Link') }}
+                        </button>
                     </div>
                 </form>
             </div>
