@@ -7,7 +7,7 @@
             </div>
             <div class="article-card__image--img">
                 @if($post->header_image)
-                    <img src="{{$post->header_image}}" alt="any">
+                    <img class="img--fluid" src="{{$post->header_image}}" alt="any">
                 @else
                     <img class="img--fluid" src="{{url(sprintf("images/farm_stock_%s.jpg",rand(1,20)))}}" alt="any">
                 @endif
