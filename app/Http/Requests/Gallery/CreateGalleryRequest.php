@@ -24,7 +24,8 @@ class CreateGalleryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|unique:galleries',
+            'summary' => 'max:255',
         ];
     }
 }

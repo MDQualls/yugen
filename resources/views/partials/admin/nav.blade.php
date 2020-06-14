@@ -28,6 +28,9 @@
                 <li class="nav-item px-2">
                     <a href="{{ route('post-comments') }}" class="nav-link">Comments</a>
                 </li>
+                <li class="nav-item px-2">
+                    <a href="{{ route('galleryadmin.index') }}" class="nav-link">Galleries</a>
+                </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">
