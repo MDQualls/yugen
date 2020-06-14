@@ -1,5 +1,6 @@
 <?php
 
+use App\Providers\GalleryServiceProvider;
 use App\Providers\RepositoryServiceProvider;
 use App\Providers\SummerNoteImageServiceProvider;
 use App\Providers\TagServiceProvider;
@@ -201,6 +202,7 @@ return [
         HeaderImageServiceProvider::class,
         UserPasswordProvider::class,
         UserAlertProvider::class,
+        GalleryServiceProvider::class
 
     ],
 

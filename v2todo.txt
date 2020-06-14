@@ -1,7 +1,5 @@
 
-Test all scripts and fix 500 errors
 Make Hero Unit look better on Mobile ~ or remove/redesign
-Image responsiveness is horrible
 move agent variable to view share for all views
     (https://stackoverflow.com/questions/29715813/laravel-5-global-blade-view-variable-available-in-all-templates)
 
