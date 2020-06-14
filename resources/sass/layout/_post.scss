@@ -13,6 +13,11 @@
     &__content  {
         margin-bottom: 2rem;
         font-size: 1.6rem !important;
+
+        img  {
+            max-width: 100%;
+            height: auto;
+        }
     }
 
     &--meta  {
