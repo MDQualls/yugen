@@ -24,6 +24,7 @@ Route::get('posttag/{tag}', 'HomeController@tagPost')->name('post-tag');
 Route::get('privacypolicy', 'PrivacyController@index')->name('privacy');
 Route::get('cookiespolicy', 'PrivacyController@cookies')->name('cookies');
 Route::get('disclaimerpolicy', 'PrivacyController@disclaimer')->name('disclaimer');
+Route::get('gallery', 'GalleryController@index')->name('gallery');
 
 //autheniticated routes
 Route::middleware(['verified', 'auth', 'suspended'])->group(function () {
