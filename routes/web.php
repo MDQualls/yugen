@@ -46,6 +46,7 @@ Route::middleware(['auth', 'suspended', 'admin'])->group(function () {
     Route::resource('post', 'Admin\PostController');
     Route::resource('user', 'Admin\UserController');
     Route::resource('tag', 'Admin\TagController');
+    Route::resource('galleryadmin', 'Admin\GalleryAdminController');
 
     Route::put('archive/{post}', 'Admin\PostController@archive')->name('archive-post');
     Route::put('restore/{post}', 'Admin\PostController@restore')->name('restore-post');
