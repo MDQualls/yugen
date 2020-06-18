@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\Services\Gallery\GalleryService;
-use App\Services\Gallery\GalleryServiceInterface;
+use App\Services\Gallery\GalleryImageService;
+use App\Services\Gallery\GalleryImageServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
-class GalleryServiceProvider extends ServiceProvider
+class GalleryImageServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -15,7 +15,7 @@ class GalleryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(GalleryServiceInterface::class, GalleryService::class);
+        $this->app->bind(GalleryImageServiceInterface::class, GalleryImageService::class);
     }
 
     /**

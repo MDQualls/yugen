@@ -2,7 +2,7 @@
 
 namespace App\Services\Gallery;
 
-class GalleryService implements GalleryServiceInterface
+class GalleryImageService implements GalleryImageServiceInterface
 {
     public function getImages($galleryId)
     {
