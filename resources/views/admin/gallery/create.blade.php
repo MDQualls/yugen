@@ -14,18 +14,18 @@
     <div class="col">
         <div class="card card-default">
             <div class="card-header">
-                <h4>{{isset($post) ? 'Edit' : 'Create'}} Gallery</h4>
+                <h4>{{isset($gallery) ? 'Edit' : 'Create'}} Gallery</h4>
             </div>
             <div class="card-body">
 
                 @include('partials.errors')
 
                 <form
-                    action="{{isset($post) ? route('galleryadmin.update', $category->id) : route('galleryadmin.store')}}"
+                    action="{{isset($gallery) ? route('galleryadmin.update', $gallery->id) : route('galleryadmin.store')}}"
                     method="POST">
 
                     @csrf
-                    @if(isset($post))
+                    @if(isset($gallery))
                         @method('PUT')
                     @endif
 
@@ -34,17 +34,17 @@
                                                             class="ml-2 text-danger"><i
                                 class="fas fa-certificate"></i> Required.</span>
                         <input type="text" class="form-control" name="name"
-                               value="{{ isset($post) ? $post->name : '' }}">
+                               value="{{ isset($gallery) ? $gallery->name : '' }}">
                     </div>
 
                     <div class="form-group">
                         <label for="name">Summary</label>
                         <input type="text" class="form-control" name="summary"
-                               value="{{ isset($post) ? $post->summary : '' }}">
+                               value="{{ isset($gallery) ? $gallery->summary : '' }}">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success bg-brown">
-                            {{isset($post) ? 'Update' : 'Add'}} Gallery
+                            {{isset($gallery) ? 'Update' : 'Add'}} Gallery
                         </button>
                     </div>
                 </form>

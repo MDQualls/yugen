@@ -9,7 +9,9 @@ use App\Http\Requests\Gallery\UpdateGalleryRequest;
 use App\Services\Gallery\GalleryImageServiceInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
@@ -45,7 +47,7 @@ class GalleryAdminController extends Controller
 
     /**
      * @param CreateGalleryRequest $request
-     * @return Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return Application|RedirectResponse|Redirector
      */
     public function store(CreateGalleryRequest $request)
     {
@@ -62,18 +64,28 @@ class GalleryAdminController extends Controller
         return redirect(route('galleryadmin.index'));
     }
 
-    public function edit(Gallery $gallery)
+    public function edit(Gallery $galleryadmin)
     {
-        return view('admin.gallery.create');
+        return view('admin.gallery.create')
+                ->with('gallery', $galleryadmin);
     }
 
-    public function update(UpdateGalleryRequest $request, Gallery $gallery)
+    public function update(UpdateGalleryRequest $request, Gallery $galleryadmin)
     {
+        $data = $request->only('id', 'name', 'summary');
 
+        $galleryadmin->update($data);
+
+        session()->flash('success', 'Gallery updated successfully.');
+
+        return redirect(route('galleryadmin.index'));
     }
 
-    public function destroy(Gallery $gallery)
+    public function destroy(Gallery $galleryadmin)
     {
+        $galleryadmin->delete();
+        session()->flash('success', 'Gallery deleted successfully');
 
+        return redirect(route('galleryadmin.index'));
     }
 }
