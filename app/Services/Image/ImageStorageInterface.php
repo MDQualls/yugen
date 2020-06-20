@@ -1,7 +1,7 @@
 <?php
-namespace App\Services\Post;
+namespace App\Services\Image;
 
-interface HeaderImageInterface
+interface ImageStorageInterface
 {
     public function store($fileName, $file);
 

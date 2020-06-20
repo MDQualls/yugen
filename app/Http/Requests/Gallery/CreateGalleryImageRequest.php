@@ -27,6 +27,7 @@ class CreateGalleryImageRequest extends FormRequest
             'image' => 'required',
             'gallery_id' => 'required',
             'cover_image' => 'required',
+            'alt_text' => 'required|max:255',
         ];
     }
 }

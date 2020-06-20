@@ -10,6 +10,7 @@ class GalleryImage extends Model
         'image',
         'cover_image',
         'gallery_id',
+        'alt_text',
     ];
 
     public function gallery()

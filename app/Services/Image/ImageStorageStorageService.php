@@ -1,10 +1,10 @@
 <?php
-namespace App\Services\Post;
+namespace App\Services\Image;
 
 use App\Services\File\FileStorageWithUrlInterface;
 use App\Services\Image\ImageResizeInterface;
 
-class HeaderImageService implements HeaderImageInterface
+class ImageStorageStorageService implements ImageStorageInterface
 {
     /**
      * @var ImageResizeInterface
@@ -28,7 +28,7 @@ class HeaderImageService implements HeaderImageInterface
 
         $resizedImage = $this->interventionService->resize(
             $file,
-            1140,
+            800,
             null);
 
         $success = $this->s3->put($fileName, $resizedImage->encode($fileExt));

@@ -9,10 +9,11 @@ use App\Http\Requests\Posts\UpdatePostRequest;
 use App\Jobs\ProcessContentAlerts;
 use App\Post;
 use App\Services\Notification\ContentAlertInterface;
-use App\Services\Post\HeaderImageInterface;
+use App\Services\Image\ImageStorageInterface;
 use App\Services\Post\SummerNoteImageInterface;
 use App\Services\Tag\TagServiceInterface;
 use Exception;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
@@ -33,7 +34,7 @@ class PostController extends Controller
     protected $summerNoteImageService;
 
     /**
-     * @var HeaderImageInterface
+     * @var ImageStorageInterface
      */
     protected $headerImageService;
 
@@ -52,7 +53,7 @@ class PostController extends Controller
     public function __construct(
         TagServiceInterface $tagService,
         SummerNoteImageInterface $summerNoteImageService,
-        HeaderImageInterface $headerImageService,
+        ImageStorageInterface $headerImageService,
         ContentAlertInterface $contentAlertService,
         ProcessContentAlerts $processContentAlerts)
     {
@@ -66,9 +67,7 @@ class PostController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return Response
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -78,9 +77,7 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
+     * @return Application|Factory|View
      */
     public function create()
     {
