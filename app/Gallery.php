@@ -11,4 +11,10 @@ class Gallery extends Model
         'summary',
         'user_id',
     ];
+
+
+    public function images()
+    {
+        return $this->hasMany(GalleryImage::class);
+    }
 }

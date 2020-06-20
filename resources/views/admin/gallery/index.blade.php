@@ -20,7 +20,12 @@
                 <div class="card-header">
                     Photo Gallery
                 </div>
-                <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                @foreach($gallery->images() as $image)
+                    @if($image->cover_image)
+                        <img class="card-img-top" src="{{$image->image}}" alt="Card image cap">
+                        @break
+                    @endif
+                @endforeach
                 <div class="card-body">
                     <div class="card-title">
                         <h4>{{$gallery->name}}</h4>
@@ -31,6 +36,7 @@
                 </div>
                 <div class="card-footer text-muted">
                     <a href="{{route('galleryadmin.edit', $gallery->id)}}" class="card-link">Edit</a>
+                    <a href="{{route('galleryimageadmin.edit', $gallery->id)}}" class="card-link">Images</a>
                     <a href="#" onclick="handleGalleryDelete({{$gallery->id}})" class="card-link">Delete</a>
                 </div>
             </div>

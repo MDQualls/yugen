@@ -33,8 +33,10 @@ class GalleryAdminController extends Controller
      */
     public function index()
     {
+        $galleries = Gallery::paginate(10);
+
         return view('admin.gallery.index')
-                ->with('galleries', Gallery::paginate(10));
+                ->with('galleries', $galleries);
     }
 
     /**
