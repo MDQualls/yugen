@@ -48,9 +48,12 @@ Route::middleware(['auth', 'suspended', 'admin'])->group(function () {
     Route::resource('tag', 'Admin\TagController');
     Route::resource('galleryadmin', 'Admin\GalleryAdminController');
 
+    Route::get('galleryimageadmin/index/{gallery}', 'Admin\GalleryImageAdminController@index')->name('galleryimage.index');
     Route::get('galleryimageadmin/create/{gallery}', 'Admin\GalleryImageAdminController@create')->name('galleryimage.create');
     Route::post('galleryimageadmin/store', 'Admin\GalleryImageAdminController@store')->name('galleryimage.store');
-    Route::get('galleryimageadmin/{gallery}/edit', 'Admin\GalleryImageAdminController@edit')->name('galleryimage.edit');
+    Route::get('galleryimageadmin/{galleryimage}/edit', 'Admin\GalleryImageAdminController@edit')->name('galleryimage.edit');
+    Route::put('galleryimageadmin/{galleryimage}/update', 'Admin\GalleryImageAdminController@update')->name('galleryimage.update');
+    Route::delete('galleryimageadmin/{galleryimage}', 'Admin\GalleryImageAdminController@destroy')->name('galleryimage.destroy');
 
     Route::put('archive/{post}', 'Admin\PostController@archive')->name('archive-post');
     Route::put('restore/{post}', 'Admin\PostController@restore')->name('restore-post');

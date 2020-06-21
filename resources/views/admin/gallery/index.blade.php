@@ -36,7 +36,7 @@
                 </div>
                 <div class="card-footer text-muted">
                     <a href="{{route('galleryadmin.edit', $gallery->id)}}" class="card-link">Edit</a>
-                    <a href="{{route('galleryimage.edit', $gallery->id)}}" class="card-link">Images</a>
+                    <a href="{{route('galleryimage.index', $gallery->id)}}" class="card-link">Images</a>
                     <a href="#" onclick="handleGalleryDelete({{$gallery->id}})" class="card-link">Delete</a>
                 </div>
             </div>

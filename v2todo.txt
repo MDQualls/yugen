@@ -1,4 +1,7 @@
 
+Photo Gallery
+~ Redo cover image logic?
+
 Make Hero Unit look better on Mobile ~ or remove/redesign
 move agent variable to view share for all views
     (https://stackoverflow.com/questions/29715813/laravel-5-global-blade-view-variable-available-in-all-templates)
@@ -9,7 +12,6 @@ do facebook integration
 do twitter integration
 
 Time line of things done ~ Diary.
-Photo Gallery
 word count on blog posts.
 
 do newsletter signup box

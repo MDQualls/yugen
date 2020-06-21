@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Gallery\CreateGalleryRequest;
 use App\Http\Requests\Gallery\UpdateGalleryRequest;
 use App\Services\Gallery\GalleryImageServiceInterface;
+use App\Services\Image\ImageStorageInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -22,10 +23,16 @@ class GalleryAdminController extends Controller
      */
     protected $galleryService;
 
-    public function __construct(GalleryImageServiceInterface $galleryService)
+    /**
+     * @var ImageStorageInterface
+     */
+    protected $imageStorageService;
+
+    public function __construct(GalleryImageServiceInterface $galleryService, ImageStorageInterface $imageStorageService)
     {
         parent::__construct();
         $this->galleryService = $galleryService;
+        $this->imageStorageService = $imageStorageService;
     }
 
     /**
@@ -85,6 +92,11 @@ class GalleryAdminController extends Controller
 
     public function destroy(Gallery $galleryadmin)
     {
+        foreach ($galleryadmin->images as $image)  {
+            $this->imageStorageService->delete($image->image);
+            $image->delete();
+        }
+
         $galleryadmin->delete();
         session()->flash('success', 'Gallery deleted successfully');
 
