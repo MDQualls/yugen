@@ -62,10 +62,15 @@ class GalleryAdminController extends Controller
     {
         $id = Auth::user()->id;
 
+        $img = $this->imageStorageService->store(
+            $request->cover_image->getClientOriginalName(),
+            $request->cover_image);
+
         Gallery::create([
             'name' => $request->name,
             'summary' => $request->summary,
             'user_id' => $id,
+            'cover_image' => $img,
         ]);
 
         session()->flash('success', 'Gallery successfully created');
@@ -79,9 +84,22 @@ class GalleryAdminController extends Controller
                 ->with('gallery', $galleryadmin);
     }
 
+    /**
+     * @param UpdateGalleryRequest $request
+     * @param Gallery $galleryadmin
+     * @return Application|RedirectResponse|Redirector
+     */
     public function update(UpdateGalleryRequest $request, Gallery $galleryadmin)
     {
         $data = $request->only('id', 'name', 'summary');
+
+        $this->imageStorageService->delete($galleryadmin->cover_image);
+
+        $img = $this->imageStorageService->store(
+            $request->cover_image->getClientOriginalName(),
+            $request->cover_image);
+
+        $data['cover_image'] = $img;
 
         $galleryadmin->update($data);
 

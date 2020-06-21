@@ -26,6 +26,7 @@ class UpdateGalleryRequest extends FormRequest
         return [
             'name' => 'required|unique:galleries',
             'summary' => 'max:255',
+            'cover_image' => 'required|max:191',
         ];
     }
 }

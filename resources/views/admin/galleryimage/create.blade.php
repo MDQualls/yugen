@@ -62,19 +62,6 @@
                             value="{{isset($galleryimage) ? $galleryimage->alt_text : ''}}"
                         >
                     </div>
-                    <div class="form-check">
-                        <input
-                            class="form-check-input"
-                            type="checkbox"
-                            value="1"
-                            id="cover_image"
-                            name="cover_image"
-                            @if(isset($galleryimage) && $galleryimage->cover_image)
-                                checked
-                            @endif
-                        >
-                        <label class="form-check-label ml-2" for="cover_image">Cover Image</label>
-                    </div>
                 </div>
                 <div class="card-footer">
                     <input type="hidden" id="gallery_id" name="gallery_id" value="{{$gallery->id}}">

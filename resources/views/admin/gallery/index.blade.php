@@ -20,12 +20,7 @@
                 <div class="card-header">
                     Photo Gallery
                 </div>
-                @foreach($gallery->images as $image)
-                    @if($image->cover_image)
-                        <img class="card-img-top" src="{{$image->image}}" alt="Card image cap">
-                        @break
-                    @endif
-                @endforeach
+                <img class="card-img-top" src="{{$gallery->cover_image}}" alt="Card image cap">
                 <div class="card-body">
                     <div class="card-title">
                         <h4>{{$gallery->name}}</h4>

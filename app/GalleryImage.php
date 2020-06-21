@@ -8,7 +8,6 @@ class GalleryImage extends Model
 {
     protected $fillable = [
         'image',
-        'cover_image',
         'gallery_id',
         'alt_text',
     ];

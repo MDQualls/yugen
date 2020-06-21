@@ -26,9 +26,6 @@
                 <img class="card-img-top" src="{{$image->image}}" alt="Card image cap">
                 <div class="card-body">
                     <div class="card-text">
-                        @if($image->cover_image)
-                            <i class="fas fa-images"></i>&nbsp;
-                        @endif
                         {{$image->alt_text}}
                     </div>
                 </div>

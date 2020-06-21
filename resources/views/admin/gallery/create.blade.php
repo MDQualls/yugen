@@ -22,7 +22,7 @@
 
                 <form
                     action="{{isset($gallery) ? route('galleryadmin.update', $gallery->id) : route('galleryadmin.store')}}"
-                    method="POST">
+                    method="POST" enctype="multipart/form-data">
 
                     @csrf
                     @if(isset($gallery))
@@ -42,6 +42,19 @@
                         <input type="text" class="form-control" name="summary"
                                value="{{ isset($gallery) ? $gallery->summary : '' }}">
                     </div>
+
+                    <div class="form-group">
+                        <label for="name">Cover Image</label>
+                        @if(isset($gallery))
+                            <h4 class="mb-5">{{$gallery->cover_image}}</h4>
+                        @endif
+
+                        <span data-for="cover_image" data-role="verification" class="ml-2 text-danger">
+                            <i class="fas fa-certificate"></i> Required.
+                        </span>
+                        <input type="file" class="form-control" name="cover_image" id="cover_image">
+                    </div>
+
                     <div class="form-group">
                         <button class="btn btn-success bg-brown">
                             {{isset($gallery) ? 'Update' : 'Add'}} Gallery

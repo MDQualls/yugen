@@ -90,11 +90,9 @@ class GalleryImageAdminController extends Controller
             $request->image->getClientOriginalName(),
             $request->image);
 
-        $cover_image = isset($request->cover_image) ? 1 : 0;
 
         $galleryImage = GalleryImage::create([
             'image' => $img,
-            'cover_image' => $cover_image,
             'gallery_id' => $request->gallery_id,
             'alt_text' => $request->alt_text,
         ]);

@@ -10,6 +10,7 @@ class Gallery extends Model
         'name',
         'summary',
         'user_id',
+        'cover_image',
     ];
 
 
