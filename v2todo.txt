@@ -9,7 +9,9 @@ do facebook integration
 do twitter integration
 
 Time line of things done ~ Diary.
-word count on blog posts.
+
+redo photo gallery to use drag and drop interface
+
 
 do newsletter signup box
 

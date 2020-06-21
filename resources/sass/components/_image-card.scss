@@ -3,6 +3,8 @@
     height: auto;
     position: relative;
     overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 0 .2rem .5rem rgba($black-color, .1);
 
     @include respond(tab-port)  {
         text-align: center;
@@ -13,6 +15,18 @@
     h4{
         color:#fff;
     }
+
+    &__header,
+    &__footer{
+        font-size: 2rem;
+        background-color: $light-grey;
+        padding: 1rem;
+        text-align: center;
+    }
+    &__footer {
+        margin-top: -.3rem;
+    };
+
 
     &__overlay {
         display: flex;

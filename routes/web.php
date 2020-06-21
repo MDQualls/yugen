@@ -25,6 +25,7 @@ Route::get('privacypolicy', 'PrivacyController@index')->name('privacy');
 Route::get('cookiespolicy', 'PrivacyController@cookies')->name('cookies');
 Route::get('disclaimerpolicy', 'PrivacyController@disclaimer')->name('disclaimer');
 Route::get('gallery', 'GalleryController@index')->name('gallery');
+Route::get('gallery/{gallery}/show', 'GalleryController@show')->name('gallery.show');
 
 //autheniticated routes
 Route::middleware(['verified', 'auth', 'suspended'])->group(function () {

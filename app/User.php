@@ -74,4 +74,9 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isMember()  {
         return $this->role->role_name == 'member';
     }
+
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class);
+    }
 }

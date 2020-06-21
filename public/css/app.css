@@ -412,6 +412,8 @@ body {
   height: auto;
   position: relative;
   overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 56.25em) {
@@ -424,6 +426,18 @@ body {
 
 .image-card h4 {
   color: #fff;
+}
+
+.image-card__header,
+.image-card__footer {
+  font-size: 2rem;
+  background-color: lightgrey;
+  padding: 1rem;
+  text-align: center;
+}
+
+.image-card__footer {
+  margin-top: -0.3rem;
 }
 
 .image-card__overlay {
@@ -930,7 +944,8 @@ main {
   color: lightgrey;
 }
 
-.about-section {
+.about-section,
+.gallery-section {
   margin: 0 2.75rem;
 }
 
