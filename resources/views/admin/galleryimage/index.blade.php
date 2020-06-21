@@ -21,16 +21,19 @@
         </div>
     </div>
     @foreach($images as $image)
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-3 col-sm-12  mb-5">
             <div class="card">
-                <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                <img class="card-img-top" src="{{$image->image}}" alt="Card image cap">
                 <div class="card-body">
                     <div class="card-text">
+                        @if($image->cover_image)
+                            <i class="fas fa-images"></i>&nbsp;
+                        @endif
                         {{$image->alt_text}}
                     </div>
                 </div>
                 <div class="card-footer text-center">
-                    <a href="{{route('galleryiamgeadmin.edit', $image->id)}}" class="card-link">Edit</a>
+                    <a href="{{route('galleryimage.edit', $image->id)}}" class="card-link">Edit</a>
                     <a href="#" onclick="handleGalleryImageDelete({{$image->id}})" class="card-link">Delete</a>
                 </div>
             </div>
@@ -43,7 +46,7 @@
             </div>
             <div class="card-body">
                 <div class="card-text text-center">
-                    <a href="#" onclick="handleGalleryImageAdd()">
+                    <a href="{{route("galleryimage.create", $gallery->id)}}">
                         <i style="font-size: 20rem;color:green" class="fas fa-plus-square"></i>
                     </a>
                 </div>
@@ -80,46 +83,6 @@
     </form>
 
     <!-- Add Modal -->
-    <form action="" method="post" id="addGalleryImageForm">
-        @csrf
-        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addGalleryImageLabel"
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addModalLabel">Add New Image</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-bold">
-                            Select new image to add to the {{$gallery->name}} gallery
-                        </p>
-                        <div class="form-group">
-                            <label for="name">Image</label>
-                            <span data-for="image" data-role="verification" class="ml-2 text-danger">
-                                <i class="fas fa-certificate"></i> Required.
-                            </span>
-                            <input type="file" class="form-control" name="image" id="image" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="alt_text">Alt Text</label>
-                            <span data-for="alt_text" data-role="verification" class="ml-2 text-danger">
-                                <i class="fas fa-certificate"></i> Required.
-                            </span>
-                            <input type="text" class="form-control" name="alt_text" id="alt_text" required>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="hidden" id="gallery_id" name="gallery_id" value="{{$gallery->id}}">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No, go back</button>
-                        <button type="button" onclick="submitAddGalleryImageForm();" class="btn btn-success">Yes, submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
 @endsection
 
 @section('scripts')
@@ -128,17 +91,6 @@
             var form = document.getElementById("deleteGalleryImageForm");
             form.action = '/galleryimageadmin/' + id;
             $('#deleteModal').modal('show');
-        }
-
-        function handleGalleryImageAdd() {
-            var form = document.getElementById("addGalleryImageForm");
-            form.action = "{!! route('galleryimageadmin.store') !!}";
-            $('#addModal').modal('show');
-        }
-
-        function submitAddGalleryImageForm() {
-            var form = document.getElementById("addGalleryImageForm");
-            form.submit();
         }
     </script>
 @endsection

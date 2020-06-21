@@ -20,7 +20,7 @@
                 <div class="card-header">
                     Photo Gallery
                 </div>
-                @foreach($gallery->images() as $image)
+                @foreach($gallery->images as $image)
                     @if($image->cover_image)
                         <img class="card-img-top" src="{{$image->image}}" alt="Card image cap">
                         @break
@@ -36,7 +36,7 @@
                 </div>
                 <div class="card-footer text-muted">
                     <a href="{{route('galleryadmin.edit', $gallery->id)}}" class="card-link">Edit</a>
-                    <a href="{{route('galleryimageadmin.edit', $gallery->id)}}" class="card-link">Images</a>
+                    <a href="{{route('galleryimage.edit', $gallery->id)}}" class="card-link">Images</a>
                     <a href="#" onclick="handleGalleryDelete({{$gallery->id}})" class="card-link">Delete</a>
                 </div>
             </div>

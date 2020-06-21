@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use App\Gallery;
 use App\GalleryImage;
@@ -29,23 +29,26 @@ class GalleryImageAdminController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return Response
+     * @param Gallery $gallery
+     * @return Application|Factory|View
      */
-    public function index()
+    public function edit(Gallery $gallery)
     {
-        //
+        $images = $gallery->images;
+
+        return view('admin.galleryimage.index')
+            ->with('gallery', $gallery)
+            ->with('images', $images);
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
+     * @param Gallery $gallery
+     * @return Application|Factory|View
      */
-    public function create()
+    public function create(Gallery $gallery)
     {
-        //
+        return view('admin.galleryimage.create')
+            ->with('gallery', $gallery);
     }
 
     /**
@@ -58,62 +61,17 @@ class GalleryImageAdminController extends Controller
             $request->image->getClientOriginalName(),
             $request->image);
 
+        $cover_image = isset($request->cover_image) ? 1 : 0;
+
         $galleryImage = GalleryImage::create([
             'image' => $img,
-            'cover_image' => $request->cover_image,
+            'cover_image' => $cover_image,
             'gallery_id' => $request->gallery_id,
             'alt_text' => $request->alt_text,
         ]);
 
         session()->flash('success', 'Image successfully added to gallery');
 
-        return redirect(route('galleryimageadmin.edit', $request->gallery_id));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * @param Gallery $galleryimageadmin
-     * @return Application|Factory|View
-     */
-    public function edit(Gallery $galleryimageadmin)
-    {
-        $images = $galleryimageadmin->images();
-
-        return view('admin.galleryimage.index')
-            ->with('gallery', $galleryimageadmin)
-            ->with('images', $images);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        $x = $id;
+        return redirect(route('galleryimage.edit', $request->gallery_id));
     }
 }

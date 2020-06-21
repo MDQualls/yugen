@@ -46,6 +46,7 @@
                         <button class="btn btn-success bg-brown">
                             {{isset($gallery) ? 'Update' : 'Add'}} Gallery
                         </button>
+                        <a href="{{route('galleryadmin.index')}}" class="btn btn-secondary">Cancel</a>
                     </div>
                 </form>
             </div>
