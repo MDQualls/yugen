@@ -58,8 +58,7 @@
 @section('scripts')
     <script>
         function setImagePopupSource(source)  {
-            var x = source;
-            $('#popup__image').attr('src', x);
+            $('#popup__image').attr('src', source);
             $("#popup").show();
         }
 
