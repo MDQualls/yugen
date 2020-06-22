@@ -36,8 +36,6 @@
                             @endif
                             <div class='image-card__footer'>
                                 {{Carbon\Carbon::parse($image->published_at)->format('m/d/Y')}}
-                                <br>
-                                {{$image->gallery->user->name}}
                             </div>
                         </div>
                     </div>
