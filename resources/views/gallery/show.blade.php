@@ -12,9 +12,9 @@
     <div class="gallery-section">
         <a id="gallery-section"></a>
         @foreach($gallery->images as $image)
-            @if($loop->first || $loop->iteration == 5)
+            @if($loop->first || $loop->iteration % 4 == 0)
                 <div class="row">
-                    @endif
+            @endif
                     <div class="col-1-of-4">
                         <div class='image-card bottom-margin-rem2'>
                             @if($agent->isMobile() || $agent->isTablet())
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                     </div>
-                    @if($loop->iteration ==4 || $loop->last)
+            @if($loop->iteration % 4 == 0 || $loop->last)
                 </div>
             @endif
         @endforeach

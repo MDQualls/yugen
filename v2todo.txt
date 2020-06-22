@@ -9,8 +9,10 @@ do facebook integration
 do twitter integration
 
 Time line of things done ~ Diary.
+comments on diary
 
 redo photo gallery to use drag and drop interface
+comments on photo gallery images
 
 
 do newsletter signup box
