@@ -19,10 +19,8 @@
                         <div class='image-card bottom-margin-rem2'>
                             @if($agent->isMobile() || $agent->isTablet())
                                 <img src='{{$image->image}}' alt='{{$image->alt_text}}' class='img--fluid'>
-                                <div class='image-card__overlay'>
-                                    <div class='image-card__detail'>
-                                        <span>{{$image->alt_text}}</span>
-                                    </div>
+                                <div class='image-card__footer'>
+                                    {{$image->alt_text}}
                                 </div>
                             @else
                                 <a onclick="setImagePopupSource('{{$image->image}}')" href="#popup">
@@ -33,10 +31,10 @@
                                         </div>
                                     </div>
                                 </a>
+                                <div class='image-card__footer'>
+                                    {{Carbon\Carbon::parse($image->published_at)->format('m/d/Y')}}
+                                </div>
                             @endif
-                            <div class='image-card__footer'>
-                                {{Carbon\Carbon::parse($image->published_at)->format('m/d/Y')}}
-                            </div>
                         </div>
                     </div>
             @if($loop->iteration % 4 == 0 || $loop->last)
