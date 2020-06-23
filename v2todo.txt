@@ -3,19 +3,17 @@ Make Hero Unit look better on Mobile ~ or remove/redesign
 move agent variable to view share for all views
     (https://stackoverflow.com/questions/29715813/laravel-5-global-blade-view-variable-available-in-all-templates)
 
+do google analytics ~ https://ahrefs.com/blog/google-analytics-for-seo/
 do amazon affiliate sign up
-
 do facebook integration
 do twitter integration
+do newsletter signup box
 
 Time line of things done ~ Diary.
 comments on diary
 
 redo photo gallery to use drag and drop interface
 comments on photo gallery images
-
-
-do newsletter signup box
 
 all blog posts page ... add category listings ... and maybe tags ... redo layout
 make images look better on article card ... center them at least
