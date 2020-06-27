@@ -32,7 +32,7 @@
                                     </div>
                                 </a>
                                 <div class='image-card__footer'>
-                                    {{Carbon\Carbon::parse($image->published_at)->format('m/d/Y')}}
+                                    {{Carbon\Carbon::parse($image->created_at)->format('m/d/Y')}}
                                 </div>
                             @endif
                         </div>

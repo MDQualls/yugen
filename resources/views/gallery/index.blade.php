@@ -27,7 +27,7 @@
                             </div>
                         </a>
                         <div class='image-card__footer'>
-                            {{Carbon\Carbon::parse($gallery->published_at)->format('m/d/Y')}}
+                            {{Carbon\Carbon::parse($gallery->created_at)->format('m/d/Y')}}
                             <br>
                             {{$gallery->user->name}}
                         </div>
