@@ -2,6 +2,10 @@
 
 
 @section('content')
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+            src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=269779617426299&autoLogAppEvents=1"
+            nonce="xuhvEwTq"></script>
     <div class="row">
         <div class="col-3-of-4">
             <article class="article__post">
@@ -9,26 +13,29 @@
                 @if($post->header_image)
                     <div class="image-card bottom-margin-rem2">
                         <img src="{{$post->header_image}}" alt="" class="img--fluid">
-{{--                        <div class='image-card__overlay'>--}}
-{{--                            <div class='image-card__detail'>--}}
-{{--                                <span>{{$post->title}}</span>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-                    </div><!--thumb-->
+                    </div>
                 @endif
                 <div class="article__post__container">
-
+                    <div class="text-right">
+                        <div class="fb-like"
+                             data-href="{!! url()->current() !!}"
+                             data-width="" data-layout="button"
+                             data-action="like"
+                             data-size="small"
+                             data-share="true">
+                        </div>
+                    </div>
                     <ul class="article__post--meta list-inline">
                         <li class="list-inline__item">
                             <i class="fas fa-user-circle"></i> <a class="lead-link"
-                                href="{{route('post-author', $post->user->name)}}">{{$post->user->name}}</a>
+                                                                  href="{{route('post-author', $post->user->name)}}">{{$post->user->name}}</a>
                         </li>
                         <li class="list-inline__item">
                             <i class="fas fa-calendar-o"></i> {{Carbon\Carbon::parse($post->published_at)->format('m/d/Y')}}
                         </li>
                         <li class="list-inline__item">
                             <i class="fas fa-boxes"></i> <a class="lead-link"
-                                href="{{route('post-category', $post->category->name)}}">{{$post->category->name}}</a>
+                                                            href="{{route('post-category', $post->category->name)}}">{{$post->category->name}}</a>
                         </li>
                     </ul>
 
@@ -41,7 +48,7 @@
                             @foreach($post->tags as $tag)
                                 <li class="list-inline__item">
                                     <i class="fas fa-tag"></i> <a class="lead-link"
-                                        href="{{route('post-tag',$tag->name)}}">#{{$tag->name}}</a>
+                                                                  href="{{route('post-tag',$tag->name)}}">#{{$tag->name}}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -66,7 +73,8 @@
                         @csrf
                         <div class="form__group">
                             <label class="form__label">Comment</label>
-                            <textarea id="comment" name="comment" class="form__control" rows="3" placeholder="Comment" required></textarea>
+                            <textarea id="comment" name="comment" class="form__control" rows="3" placeholder="Comment"
+                                      required></textarea>
                         </div>
                         <div class="clearfix">
                             <input type="hidden" id="parent_comment_id" name="parent_comment_id" value="">
@@ -82,7 +90,7 @@
                                 <input type="hidden" id="parent_comment_id" name="parent_comment_id" value="">
                                 <div class="form-group">
                                     <textarea id="commentReplyTextarea" name="commentReplyTextarea" class="form-control"
-                                      rows="1" placeholder="Reply" required></textarea>
+                                              rows="1" placeholder="Reply" required></textarea>
                                     <div class="comment-reply-button-box">
                                         <a class="comment-reply-submit" href="#"><i class="fas fa-check-circle"></i></a>
                                         <a data-parent-id="" class="comment-reply-cancel" href="#"><i

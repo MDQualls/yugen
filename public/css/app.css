@@ -35,6 +35,10 @@ $breakpoint argument choices:
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .bottom-margin-rem2 {
   margin-bottom: 2rem !important;
 }
