@@ -24,6 +24,7 @@
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="{!! $post->title !!}" />
         <meta property="og:description"   content="{!! $post->summary !!}" />
+        <meta property="og:image"         content="{!! $post->header_image !!}" />
     @else
         <title>{{ config('app.name') }}</title>
         <meta name="description" content="Yugen Farm is a sustainable, permaculture small-scale farm in Oklahoma.">
