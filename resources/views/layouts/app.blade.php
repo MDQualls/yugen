@@ -18,18 +18,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    @if(isset($post))
+    @if(isset($post) && strpos(url()->current(),'article'))
+        <title>Yugen Farm: {!! $post->title !!}</title>
         <meta property="og:url"           content="{!! url()->current() !!}" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="{!! $post->title !!}" />
         <meta property="og:description"   content="{!! $post->summary !!}" />
+    @else
+        <title>{{ config('app.name') }}</title>
+        <meta name="description" content="Yugen Farm is a sustainable, permaculture small-scale farm in Oklahoma.">
     @endif
-    <meta name="description" content="Yugen Farm is a sustainable, permaculture small-scale farm in Oklahoma.">
     <meta name="keywords"
           content="Permaculture, Hügelkultur, Farming, Small-scale Farming, Alpacas, Bee Keeping, Backyard Chickens, lavender"/>
     <meta name="author" content="Michael Qualls">
-
-    <title>{{ config('app.name') }}</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
           integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
