@@ -17,6 +17,13 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    @if(isset($post))
+        <meta property="og:url"           content="{!! url()->current() !!}" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="{!! $post->title !!}" />
+        <meta property="og:description"   content="{!! $post->summary !!}" />
+    @endif
     <meta name="description" content="Yugen Farm is a sustainable, permaculture small-scale farm in Oklahoma.">
     <meta name="keywords"
           content="Permaculture, Hügelkultur, Farming, Small-scale Farming, Alpacas, Bee Keeping, Backyard Chickens, lavender"/>
