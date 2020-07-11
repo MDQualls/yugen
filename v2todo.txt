@@ -3,17 +3,22 @@ Make Hero Unit look better on Mobile ~ or remove/redesign
 move agent variable to view share for all views
     (https://stackoverflow.com/questions/29715813/laravel-5-global-blade-view-variable-available-in-all-templates)
 
-do facebook integration
-do twitter integration
-do newsletter signup box
-do amazon affiliate sign up
-
+Error handling ~ make less brittle ~ example ~ don't die if article not found on GET
 Time line of things done ~ Diary.
 comments on diary
-
-redo photo gallery to use drag and drop interface
 comments on photo gallery images
 
+do instagram integration
+do pinterest integration
+do twitter integration
+do newsletter signup box
+
+
+do facebook "Yugen Farm Page" integration ~~~ Post articles directly to page
+redo photo gallery to use drag and drop interface
+do amazon affiliate sign up
+do drop shipping signup for farming/gardening products
+
+
 all blog posts page ... add category listings ... and maybe tags ... redo layout
-make images look better on article card ... center them at least
 popup css cookie alert

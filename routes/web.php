@@ -11,6 +11,9 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Auth::routes(['verify' => true]);
 
 //public routes
@@ -28,11 +31,14 @@ Route::get('gallery', 'GalleryController@index')->name('gallery');
 Route::get('gallery/{gallery}/show', 'GalleryController@show')->name('gallery.show');
 
 //autheniticated routes
-Route::middleware(['verified', 'auth', 'suspended'])->group(function () {
+Route::middleware(['auth', 'suspended'])->group(function () {
     Route::post('postcomment/{post}', 'PostCommentController@postComment')->name('post-comment');
     Route::put('updatecomment/{post}', 'PostCommentController@updateComment')->name('update-comment');
 
     Route::post('postreply/{post}', 'PostCommentController@postReply')->name('post-reply');
+});
+
+Route::middleware(['verified', 'auth', 'suspended'])->group(function () {
     Route::get('usersettings/{user}', 'UserSettingsController@index')->name('user-settings');
     Route::get('userpassword/{user}', 'UserSettingsController@editPassword')->name('user-password');
 
