@@ -7,6 +7,8 @@ Error handling ~ make less brittle ~ example ~ don't die if article not found on
 Time line of things done ~ Diary.
 comments on diary
 comments on photo gallery images
+add database notifications in header bar
+code the "published at" logic
 
 do instagram integration
 do pinterest integration
