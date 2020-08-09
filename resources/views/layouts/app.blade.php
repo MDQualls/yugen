@@ -20,11 +20,11 @@
 
     @if(isset($post) && strpos(url()->current(),'article'))
         <title>Yugen Farm: {!! $post->title !!}</title>
-        <meta property="og:url"           content="{!! url()->current() !!}" />
-        <meta property="og:type"          content="website" />
-        <meta property="og:title"         content="{!! $post->title !!}" />
-        <meta property="og:description"   content="{!! $post->summary !!}" />
-        <meta property="og:image"         content="{!! $post->header_image !!}" />
+        <meta property="og:url" content="{!! url()->current() !!}"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="{!! $post->title !!}"/>
+        <meta property="og:description" content="{!! $post->summary !!}"/>
+        <meta property="og:image" content="{!! $post->header_image !!}"/>
     @else
         <title>{{ config('app.name') }}</title>
         <meta name="description" content="Yugen Farm is a sustainable, permaculture small-scale farm in Oklahoma.">
@@ -65,7 +65,9 @@
 <footer class="footer">
     <div class="footer__content">
         <h4 class="h4__title"><i class="fas fa-envelope"></i> yugenfarm@gmail.com</h4>
-        <div>&copy; Copyright <span id="year"></span> {{ config('app.name') }} | Application by Michael Qualls</div>
+        <div>&copy; Copyright <span id="year"></span> {{ config('app.name') }} | Application by Michael Qualls, Yugen
+            Farm LLC.
+        </div>
         <div>
             <a href="{{route('privacy')}}">Privacy Policy</a> |
             <a href="{{route('cookies')}}">Cookies Policy</a> |

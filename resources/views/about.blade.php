@@ -6,16 +6,15 @@
 
             <h3 class="h3__title">Welcome to the Yugen Farm Web Presence</h3>
             <p class="p__content--lead">
-                As of April, 2020 we are still located in Oklahoma City, Ok trying to outlast the Covid-19 Pandemic.
+                We are a sustainable farm located in Oklahoma City, Ok.
                 The original goal was the move to New Mexico to start our farming journey, but life and pandemics have
-                a way of changing things.  As of today, we are under contract to sell our house.  We are also under
-                contract to purchase a farm east of Oklahoma City.  While it is not New Mexico, it is land and we will
-                be able to fulfill our dream of sustainable farming.  If all goes as planned (finally), we should be
-                on our farm by the end of May, 2020.
+                a way of changing things. While it is not New Mexico, it is land and we will
+                be able to fulfill our dream of sustainable farming.  This site is our main online presence for
+                articles we write and products we (will soon) offer.
             </p>
             <p class="p__content--lead">
-                There’s me, Holly, and my husband Michael at the (future) farm, along with two dogs, Abigail and Onder,
-                and our half feral cat, Castor.  We can be reached at <a class="lead-link" href="#">yugenfarm@gmail.com</a>.
+                There’s me, Holly, and my husband Michael at the , along with two dogs, Abigail and Onder,
+                and our personal version of grumpy cat, Castor. We can be reached at <a class="lead-link" href="#">yugenfarm@gmail.com</a>.
                 Michael built this site to document our journey, for ourselves and for others, as we move towards
                 a self-sufficient way of life using sustainable principles. We hope to show that
                 once established, the farm is enjoyable, cheap and kind to the planet.
@@ -85,11 +84,16 @@
                 </a>
             </p>
             <p class="p__content--lead text-center">
-                Yūgen (幽玄) is an important concept in traditional Japanese aesthetics. The exact translation of the word depends on the context. In the Chinese philosophical texts the term was taken from, yūgen meant “dim”, “deep” or “mysterious”. In the criticism of Japanese waka poetry, it was used to describe the subtle profundity of things that are only vaguely suggested by the poems.
+                Yūgen (幽玄) is an important concept in traditional Japanese aesthetics. The exact translation of the word
+                depends on the context. In the Chinese philosophical texts the term was taken from, yūgen meant “dim”,
+                “deep” or “mysterious”. In the criticism of Japanese waka poetry, it was used to describe the subtle
+                profundity of things that are only vaguely suggested by the poems.
 
-                Yūgen is said to mean “a profound, mysterious sense of the beauty of the universe… and the sad beauty of human suffering”.
+                Yūgen is said to mean “a profound, mysterious sense of the beauty of the universe… and the sad beauty of
+                human suffering”.
 
-                Yūgen suggests that beyond what can be said but is not an allusion to another world. It is about this world, this experience.
+                Yūgen suggests that beyond what can be said but is not an allusion to another world. It is about this
+                world, this experience.
             </p>
             <p class="p__content--lead text-center dark-bottom-border">
                 (Ortolani, 325). Ortolani, Benito. The Japanese Theatre. Princeton University Press: Princeton, 1995
