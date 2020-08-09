@@ -71,4 +71,6 @@ Route::middleware(['auth', 'suspended', 'admin'])->group(function () {
     Route::get('comments', 'Admin\CommentController@index')->name('post-comments');
     Route::get('comments/{comment}', 'Admin\CommentController@manage')->name('manage-comment');
     Route::delete('comments/{comment}','Admin\CommentController@delete')->name('delete-comment');
+
+    Route::get('admintimelines', 'Admin\TimelineController@index')->name('admin-timelines');
 });
