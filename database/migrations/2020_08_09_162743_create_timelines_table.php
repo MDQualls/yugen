@@ -15,6 +15,8 @@ class CreateTimelinesTable extends Migration
     {
         Schema::create('timelines', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('timeline_entry')->nullable(false);
+            $table->integer('user_id')->nullable(false);
             $table->timestamps();
         });
     }
