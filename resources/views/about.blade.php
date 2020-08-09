@@ -6,7 +6,7 @@
 
             <h3 class="h3__title">Welcome to the Yugen Farm Web Presence</h3>
             <p class="p__content--lead">
-                We are a sustainable farm located in Oklahoma City, Ok.
+                We are building a sustainable farm located in Oklahoma City, Ok.
                 The original goal was the move to New Mexico to start our farming journey, but life and pandemics have
                 a way of changing things. While it is not New Mexico, it is land and we will
                 be able to fulfill our dream of sustainable farming.  This site is our main online presence for
