@@ -9,6 +9,8 @@ comments on diary
 comments on photo gallery images
 add database notifications in header bar
 code the "published at" logic
+add dropzone.js to make file uploads in photo gallery less suck.
+redo about page ... again
 
 do instagram integration
 do pinterest integration
@@ -17,10 +19,10 @@ do newsletter signup box
 
 
 do facebook "Yugen Farm Page" integration ~~~ Post articles directly to page
-redo photo gallery to use drag and drop interface
 do amazon affiliate sign up
 do drop shipping signup for farming/gardening products
+add quora style questions and answers
 
 
-all blog posts page ... add category listings ... and maybe tags ... redo layout
+all blog posts page ... add category listings ... and maybe tags
 popup css cookie alert

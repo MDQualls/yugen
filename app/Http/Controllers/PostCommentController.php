@@ -43,6 +43,8 @@ class PostCommentController extends Controller
         $this->responseAlertService = $responseAlertService;
         $this->commentRepository = $commentRepository;
         $this->processResponseAlerts = $processResponseAlerts;
+
+        parent::__construct();
     }
 
     /**

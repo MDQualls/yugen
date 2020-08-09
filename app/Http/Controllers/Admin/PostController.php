@@ -20,6 +20,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+use function Couchbase\passthruEncoder;
 
 class PostController extends Controller
 {
@@ -64,6 +65,8 @@ class PostController extends Controller
         $this->headerImageService = $headerImageService;
         $this->contentAlertService = $contentAlertService;
         $this->processContentAlerts = $processContentAlerts;
+
+        parent::__construct();
     }
 
     /**
