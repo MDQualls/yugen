@@ -2,7 +2,6 @@
 Time line of things done ~ Diary.
 
 code the "published at" logic
-redo about page ... again
 
 add dropzone.js to make file uploads in photo gallery less suck.
 

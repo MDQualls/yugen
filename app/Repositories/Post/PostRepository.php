@@ -10,6 +10,7 @@ class PostRepository implements PostRepositoryInterface
      * @var Post
      */
     private $post;
+    
 
     public function __construct(Post $post)
     {
@@ -23,6 +24,7 @@ class PostRepository implements PostRepositoryInterface
     {
         $posts = $this->post::all()
             ->where('archived', '=', 0)
+            ->where('published_at', '<=', now())
             ->sortByDesc('published_at')
             ->take($number);
 
@@ -35,7 +37,10 @@ class PostRepository implements PostRepositoryInterface
      */
     public function getAllPostsPaginated($pageSize = 6)
     {
-        return $this->post::where('archived', '=', 0)->orderBy('published_at', 'desc')->simplePaginate($pageSize);
+        return $this->post::where('archived', '=', 0)
+            ->where('published_at', '<=', now())
+            ->orderBy('published_at', 'desc')
+            ->simplePaginate($pageSize);
     }
 
     /**
@@ -47,7 +52,10 @@ class PostRepository implements PostRepositoryInterface
     {
         return $this->post::whereHas('category', function (Builder $query) use ($category) {
             $query->where('name', '=', $category);
-            })->where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate($pageSize);
+            })->where('archived', '=', 0)
+            ->where('published_at', '<=', now())
+            ->orderBy('published_at', 'desc')
+            ->paginate($pageSize);
     }
 
     /**
@@ -59,7 +67,10 @@ class PostRepository implements PostRepositoryInterface
     {
         return $this->post::whereHas('user', function (Builder $query) use ($user) {
             $query->where('name', '=', $user);
-        })->where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate($pageSize);
+        })->where('archived', '=', 0)
+            ->where('published_at', '<=', now())
+            ->orderBy('published_at', 'desc')
+            ->paginate($pageSize);
     }
 
     /**
@@ -80,6 +91,9 @@ class PostRepository implements PostRepositoryInterface
     {
         return $this->post::whereHas('tags', function (Builder $query) use ($tag) {
             $query->where('name', '=', $tag);
-        })->where('archived', '=', 0)->orderBy('published_at', 'desc')->paginate($pageSize);
+        })->where('archived', '=', 0)
+            ->where('published_at', '<=', now())
+            ->orderBy('published_at', 'desc')
+            ->paginate($pageSize);
     }
 }
