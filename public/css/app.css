@@ -252,7 +252,11 @@ body {
 
 @media (max-width: 37.5em) {
   .hero__content {
+    color: #efefef;
     width: 100%;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(/images/pole_barn_1.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/pole_barn_1.jpg);
+    background-position: top;
   }
 }
 

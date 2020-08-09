@@ -34,7 +34,13 @@
         position: relative;
 
         @include respond(phone) {
+            color: $light-font;
             width: 100%;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)),
+                url(/images/pole_barn_1.jpg);
+            background-position: top;
         }
 
         &--explore  {
