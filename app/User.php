@@ -81,4 +81,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Gallery::class);
     }
+
+    public function timeline()
+    {
+        return $this->hasMany(Timeline::class);
+    }
 }
