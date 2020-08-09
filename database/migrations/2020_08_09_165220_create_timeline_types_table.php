@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTimelinesTable extends Migration
+class CreateTimelineTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateTimelinesTable extends Migration
      */
     public function up()
     {
-        Schema::create('timelines', function (Blueprint $table) {
+        Schema::create('timeline_types', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('timeline_entry')->nullable(false);
-            $table->unsignedBigInteger('user_id')->nullable(false);
+            $table->string('timeline_type')->nullable(false);
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateTimelinesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('timelines');
+        Schema::dropIfExists('timeline_types');
     }
 }
