@@ -10,6 +10,7 @@ use App\Providers\FileStorageServiceProvider;
 use App\Providers\HeaderImageServiceProvider;
 use App\Providers\UserPasswordProvider;
 use App\Providers\UserAlertProvider;
+use App\Providers\ViewServiceProvider;
 
 return [
 
@@ -202,7 +203,8 @@ return [
         HeaderImageServiceProvider::class,
         UserPasswordProvider::class,
         UserAlertProvider::class,
-        GalleryImageServiceProvider::class
+        GalleryImageServiceProvider::class,
+        ViewServiceProvider::class,
 
     ],
 

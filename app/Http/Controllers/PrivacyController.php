@@ -14,21 +14,18 @@ class PrivacyController extends Controller
     public function index()
     {
         return view('privacy')
-            ->with('title', 'Our Privacy Policy')
-            ->with('agent', $this->agent);
+            ->with('title', 'Our Privacy Policy');
     }
 
     public function cookies()
     {
         return view('cookies')
-            ->with('title', 'Our Cookies Policy')
-            ->with('agent', $this->agent);
+            ->with('title', 'Our Cookies Policy');
     }
 
     public function disclaimer()
     {
         return view('disclaimer')
-            ->with('title', 'Disclaimer Notice')
-            ->with('agent', $this->agent);
+            ->with('title', 'Disclaimer Notice');
     }
 }

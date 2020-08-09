@@ -33,8 +33,7 @@ class UserSettingsController extends Controller
     {
         return view('user.usersettings')
             ->with('user', $user)
-            ->with('title', 'User Settings')
-            ->with('agent', $this->agent);
+            ->with('title', 'User Settings');
     }
 
     public function update(UpdateUserRequest $request, User $user)
@@ -62,8 +61,7 @@ class UserSettingsController extends Controller
     {
         return view('user.password')
             ->with('user', $user)
-            ->with('title', 'Update Password')
-            ->with('agent', $this->agent);
+            ->with('title', 'Update Password');
     }
 
     /**
@@ -81,7 +79,6 @@ class UserSettingsController extends Controller
         session()->flash('error', 'Password update failed.  Please review your entries and try again');
         return view('user.password')
             ->with('user', $user)
-            ->with('title', 'Update Password')
-            ->with('agent', $this->agent);
+            ->with('title', 'Update Password');
     }
 }

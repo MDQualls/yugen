@@ -25,7 +25,6 @@ class ForgotPasswordController extends Controller
      */
     public function showLinkRequestForm()
     {
-        return view('auth.passwords.email')
-                ->with('agent', $this->agent);
+        return view('auth.passwords.email');
     }
 }

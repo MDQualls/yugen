@@ -43,7 +43,6 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('auth.login')
-            ->with('agent', $this->agent);
+        return view('auth.login');
     }
 }

@@ -80,8 +80,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('auth.register')
-            ->with('agent', $this->agent);
+        return view('auth.register');
 
     }
 }

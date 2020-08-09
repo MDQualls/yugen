@@ -40,8 +40,7 @@ class HomeController extends Controller
         return view('home')
             ->with('title', 'Yugen Farm Blog Posts')
             ->with('posts', $posts)
-            ->with('categories', Category::orderBy('name', 'asc')->get())
-            ->with('agent', $this->agent);
+            ->with('categories', Category::orderBy('name', 'asc')->get());
     }
 
     /**
@@ -55,8 +54,7 @@ class HomeController extends Controller
             ->with('summary', 'We hope that you are able to find something interesting that might
                         help you on your own sustainable journey.')
             ->with('posts', $posts)
-            ->with('categories', Category::orderBy('name', 'asc')->get())
-            ->with('agent', $this->agent);
+            ->with('categories', Category::orderBy('name', 'asc')->get());
     }
 
     /**
@@ -70,8 +68,7 @@ class HomeController extends Controller
         return view('post.post')
             ->with('post', $post)
             ->with('categories', Category::orderBy('name', 'asc')->get())
-            ->with('title', $post->title)
-            ->with('agent', $this->agent);
+            ->with('title', $post->title);
     }
 
     /**
@@ -87,8 +84,7 @@ class HomeController extends Controller
             ->with('summary', sprintf('Blog posts categorized as: %s
                 We hope you find these posts interesting and informative!', $category))
             ->with('posts', $posts)
-            ->with('categories', Category::orderBy('name', 'asc')->get())
-            ->with('agent', $this->agent);
+            ->with('categories', Category::orderBy('name', 'asc')->get());
     }
 
     /**
@@ -104,8 +100,7 @@ class HomeController extends Controller
             ->with('summary', sprintf('Here are all the posts that %s has written.
                 We hope you find the posts in the category interesting and informative!', $user))
             ->with('posts', $posts)
-            ->with('categories', Category::orderBy('name', 'asc')->get())
-            ->with('agent', $this->agent);
+            ->with('categories', Category::orderBy('name', 'asc')->get());
     }
 
     /**
@@ -121,7 +116,6 @@ class HomeController extends Controller
             ->with('summary', sprintf('Here are all the posts that have been tagged %s.
                 We hope you find the posts in the category interesting and informative!', $tag))
             ->with('posts', $posts)
-            ->with('categories', Category::orderBy('name', 'asc')->get())
-            ->with('agent', $this->agent);
+            ->with('categories', Category::orderBy('name', 'asc')->get());
     }
 }

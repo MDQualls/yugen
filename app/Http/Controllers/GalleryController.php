@@ -10,14 +10,12 @@ class GalleryController extends Controller
     public function index()
     {
         return view('gallery.index')
-            ->with('agent', $this->agent)
             ->with('galleries', Gallery::all());
     }
 
     public function show(Gallery $gallery)
     {
         return view('gallery.show')
-            ->with('agent', $this->agent)
             ->with('gallery', $gallery);
     }
 }
