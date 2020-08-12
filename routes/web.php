@@ -70,7 +70,12 @@ Route::middleware(['auth', 'suspended', 'admin'])->group(function () {
 
     Route::get('comments', 'Admin\CommentController@index')->name('post-comments');
     Route::get('comments/{comment}', 'Admin\CommentController@manage')->name('manage-comment');
-    Route::delete('comments/{comment}','Admin\CommentController@delete')->name('delete-comment');
+    Route::delete('comments/{comment}', 'Admin\CommentController@delete')->name('delete-comment');
 
-    Route::get('admintimelines', 'Admin\TimelineController@index')->name('admin-timelines');
+    Route::get('admin/timelines', 'Admin\TimelineController@index')->name('admin-timelines');
+    Route::get('admin/timelines/create', 'Admin\TimelineController@create')->name('admin-timelines-create');
+    Route::post('admin/timelines/store', 'Admin\TimelineController@store')->name('admin-timelines-store');
+    Route::get('admin/timelines/edit', 'Admin\TimelineController@edit')->name('admin-timelines-edit');
+    Route::put('admin/timelines/update', 'Admin\TimelineController@update')->name('admin-timelines-update');
+    Route::delete('admin/timelines/destroy', 'Admin\TimelineController@destroy')->name('admin-timelines-destroy');
 });

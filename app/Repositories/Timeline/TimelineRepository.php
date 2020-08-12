@@ -22,8 +22,7 @@ class TimelineRepository implements TimelineRepositoryInterface
      */
     public function getAllTimelinesPaginated($pageSize = 6)
     {
-        return $this->timeline::paginate($pageSize)
-            ->sortBy('created_at', SORT_REGULAR, true);
+        return $this->timeline::simplePaginate($pageSize);
     }
 
     /**

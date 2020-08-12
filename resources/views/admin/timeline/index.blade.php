@@ -14,8 +14,14 @@
 
 @section('section_actions')
     <div class="col-md-3">
-        <a href="{{ route('dashboard') }}" class="btn btn-light btn-block"><i class="fas fa-arrow-left"></i> Back to
-            Dashboard</a>
+        <a href="{{ route('dashboard') }}" class="btn btn-light btn-block">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="{{ route('admin-timelines-create') }}" class="btn btn-success bg-lavender btn-block">
+            <i class="fas fa-plus"></i> Add Timeline Entry
+        </a>
     </div>
 @endsection('section_actions')
 
@@ -49,7 +55,7 @@
                         </tbody>
                     </table>
                     <div class="card-footer">
-                        {{$timeline->links() }}
+                        {{$timelines->links() }}
                     </div>
                 @endif
             </div>
