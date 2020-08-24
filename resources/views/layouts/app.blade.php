@@ -25,6 +25,13 @@
         <meta property="og:title" content="{!! $post->title !!}"/>
         <meta property="og:description" content="{!! $post->summary !!}"/>
         <meta property="og:image" content="{!! $post->header_image !!}"/>
+    @elseif(isset($gallery) && strpos(url()->current(),'gallery'))
+        <title>Yugen Farm: {!! $gallery->name !!}</title>
+        <meta property="og:url" content="{!! url()->current() !!}"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="{!! $gallery->name !!}"/>
+        <meta property="og:description" content="{!! $gallery->summary !!}"/>
+        <meta property="og:image" content="{!! $gallery->cover_image !!}"/>
     @else
         <title>{{ config('app.name') }}</title>
         <meta name="description" content="Yugen Farm is a sustainable, permaculture small-scale farm in Oklahoma.">
