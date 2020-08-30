@@ -35,9 +35,9 @@ class TimelineController extends Controller
             ->with('timelines', $timelines);
     }
 
-    public function show()
+    public function show(Timeline $timeline)
     {
-
+        return view('admin.timeline.show')->with('timeline', $timeline);
     }
 
     public function create()
@@ -60,9 +60,10 @@ class TimelineController extends Controller
         return redirect(route('admin-timelines'));
     }
 
-    public function edit()
+    public function edit(Timeline $timeline)
     {
-        return view('admin.timeline.create');
+        return view('admin.timeline.create')
+            ->with('timelineEntry', $timeline);
     }
 
     public function update()

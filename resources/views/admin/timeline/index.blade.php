@@ -45,7 +45,7 @@
                         @foreach($timelines as $timeline)
                             <tr>
                                 <td>
-                                    {{$timeline->timeline_entry}}
+                                    <a href="{{ route('admin-timelines-show', $timeline->id) }}">{{ $timeline->timeline_entry }}</a>
                                 </td>
                                 <td>
                                     {{$timeline->user->name}}

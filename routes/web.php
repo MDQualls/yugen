@@ -75,7 +75,8 @@ Route::middleware(['auth', 'suspended', 'admin'])->group(function () {
     Route::get('admin/timelines', 'Admin\TimelineController@index')->name('admin-timelines');
     Route::get('admin/timelines/create', 'Admin\TimelineController@create')->name('admin-timelines-create');
     Route::post('admin/timelines/store', 'Admin\TimelineController@store')->name('admin-timelines-store');
-    Route::get('admin/timelines/edit', 'Admin\TimelineController@edit')->name('admin-timelines-edit');
+    Route::get('admin/timelines/{timeline}/edit', 'Admin\TimelineController@edit')->name('admin-timelines-edit');
     Route::put('admin/timelines/update', 'Admin\TimelineController@update')->name('admin-timelines-update');
     Route::delete('admin/timelines/destroy', 'Admin\TimelineController@destroy')->name('admin-timelines-destroy');
+    Route::get('admin/timelines/{timeline}/show', 'Admin\TimelineController@show')->name('admin-timelines-show');
 });

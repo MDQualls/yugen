@@ -44,13 +44,14 @@
 
                     <div class="form-group">
                         <label for="timeline_entry">Entry for {{Carbon\Carbon::parse(now())->format('m/d/Y')}}</label>
-                        <textarea required class="form-control" id="timeline_entry" name="timeline_entry">{{ isset($timelineEntry) ? $timelineEntry->timeline_entry : '' }}</textarea>
+                        <textarea style="font-size: 1.7rem;" required class="form-control" id="timeline_entry" name="timeline_entry">{{ isset($timelineEntry) ? $timelineEntry->timeline_entry : '' }}</textarea>
                     </div>
 
                     <div class="form-group">
                         <button class="btn btn-success bg-lavender">
                             {{isset($timelineEntry) ? 'Update' : 'Add'}} Timeline Entry
                         </button>
+                        &nbsp;<a href="{{route('admin-timelines-show', $timelineEntry->id)}}" class="btn btn-secondary">Cancel</a>
                     </div>
                 </form>
             </div>
