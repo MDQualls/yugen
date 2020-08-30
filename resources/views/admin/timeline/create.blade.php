@@ -12,6 +12,17 @@
     </header>
 @endsection('header_section')
 
+@section('section_actions')
+    <div class="col-md-3">
+        <a href="{{ route('admin-timelines') }}" class="btn btn-light btn-block"><i class="fas fa-arrow-left"></i> Back to
+            Diary Timeline</a>
+    </div>
+    <div class="col-md-3">
+        <a href="{{ route('dashboard') }}" class="btn btn-light btn-block"><i class="fas fa-arrow-left"></i> Back to
+            Dashboard</a>
+    </div>
+@endsection('section_actions')
+
 @section('content')
     <div class="col">
         <div class="card card-default">

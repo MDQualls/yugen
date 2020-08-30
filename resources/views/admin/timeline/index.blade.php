@@ -29,7 +29,7 @@
     <div class="col">
         <div class="card card-default">
             <div class="card-header">
-                <h4>Timelines</h4>
+                <h4>Diary Timelines</h4>
             </div>
             <div class="card-body">
                 @if($timelines->count() == 0)
@@ -38,8 +38,8 @@
                     <table class="table">
                         <thead>
                         <th>Name</th>
-                        <th>Post Count</th>
-                        {{--                        <th></th>--}}
+                        <th>User</th>
+                        <th>Date</th>
                         </thead>
                         <tbody>
                         @foreach($timelines as $timeline)
@@ -49,6 +49,9 @@
                                 </td>
                                 <td>
                                     {{$timeline->user->name}}
+                                </td>
+                                <td>
+                                    {{Carbon\Carbon::parse($timeline->created_at)->format('F j, Y')}}
                                 </td>
                             </tr>
                         @endforeach
