@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Timeline\CreateTimelineRequest;
+use App\Http\Requests\Timeline\UpdateTimelineRequest;
 use App\Repositories\Timeline\TimelineRepositoryInterface;
 use App\Timeline;
 use App\User;
@@ -66,8 +67,14 @@ class TimelineController extends Controller
             ->with('timelineEntry', $timeline);
     }
 
-    public function update()
+    public function update(UpdateTimelineRequest $request, Timeline $timeline)
     {
+        $timeline->update([
+           'timeline_entry' => $request->timeline_entry
+        ]);
+
+        session()->flash('success', 'Diary Timeline updated successfully.');
+
         return redirect(route('admin-timelines'));
     }
 
