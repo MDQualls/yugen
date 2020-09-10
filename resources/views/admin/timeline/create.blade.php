@@ -36,7 +36,8 @@
 
                 <form
                     action="{{isset($timelineEntry) ? route('admin-timelines-update', $timelineEntry->id) : route('admin-timelines-store')}}"
-                    method="POST">
+                    method="POST"
+                >
 
                     @csrf
                     @if(isset($timelineEntry))
@@ -50,13 +51,121 @@
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-success bg-lavender">
-                            {{isset($timelineEntry) ? 'Update' : 'Add'}} Timeline Entry
+                        <table id="datatype_table" class="table table-striped">
+                            <tr>
+                                <th>Data Type</th>
+                                <th>Data Point</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select class="form-control" name="timeline_datatype_0" id="timeline_datatype_0">
+                                        <option value="0">Select</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" name="timeline_datapoint_0" id="timeline_datapoint_0">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button id="add_another_data_point" class="btn btn-light btn-block">
+                                        <i class="fas fa-share"></i> Add another data point
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="form-group mt-5">
+                        <button type="submit" class="btn btn-success bg-lavender">
+                                {{isset($timelineEntry) ? 'Update' : 'Add'}} Timeline Entry
                         </button>
+
+                        <button type="button" class="btn btn-success bg-lavender"
+                           data-toggle="modal"
+                           data-target="#exampleModal"
+                           data-whatever="@mdo"
+                        >
+                            Add New Data Type
+                        </button>
+
                         &nbsp;<a href="{{route('admin-timelines')}}" class="btn btn-secondary">Cancel</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Recipient:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 @endsection('content')
+
+@section('scripts')
+    <script>
+        var i = 0;
+        function increment(){
+            i += 1;
+        }
+
+        function addElement() {
+            var tr = document.createElement('tr');
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+
+            var selectElement = document.getElementById("timeline_datatype_0").cloneNode(true);
+
+            var inputElement = document.createElement("input");
+            inputElement.setAttribute("type", "text");
+            inputElement.setAttribute("class", "form-control")
+
+            increment();
+            inputElement.setAttribute("Name", "timeline_datapoint_" + i);
+            inputElement.setAttribute("id", "timeline_datapoint_" + i);
+            selectElement.setAttribute("Name", "timeline_datatype_" + i);
+            selectElement.setAttribute("id", "timeline_datatype_" + i);
+
+            td1.appendChild(selectElement);
+            td2.appendChild(inputElement);
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            $("#datatype_table tr:last").prev().after(tr);
+        }
+
+        $(function () {
+            $('#add_another_data_point').on('click', (e) => {
+                e.preventDefault();
+                addElement();
+            });
+        })
+    </script>
+@endsection
