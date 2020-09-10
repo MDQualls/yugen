@@ -83,7 +83,7 @@
 
                         <button type="button" class="btn btn-success bg-lavender"
                            data-toggle="modal"
-                           data-target="#exampleModal"
+                           data-target="#dataTypeModal"
                            data-whatever="@mdo"
                         >
                             Add New Data Type
@@ -96,37 +96,32 @@
         </div>
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
+    <div class="modal fade" id="dataTypeModal" tabindex="-1" aria-labelledby="dataTypModalLabel" aria-hidden="true">
+        <form id="timeline_type_form" name="timeline_type_form" method="POST" action="{{ route('timeline-type-store') }}">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="dataTypModalLabel">Add New Data Type</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                            @csrf
+                            @method('POST')
+                            <div class="form-group">
+                                <label for="new_data_type" class="col-form-label">Data type:</label>
+                                <input type="text" class="form-control" name="timeline_type" id="timeline_type" required>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Add data type</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
-
-
-
 @endsection('content')
 
 @section('scripts')
@@ -141,7 +136,7 @@
             var td1 = document.createElement('td');
             var td2 = document.createElement('td');
 
-            var selectElement = document.getElementById("timeline_datatype_0").cloneNode(true);
+            var selectElement = document.getElementById("timeline_type_0").cloneNode(true);
 
             var inputElement = document.createElement("input");
             inputElement.setAttribute("type", "text");
@@ -150,8 +145,8 @@
             increment();
             inputElement.setAttribute("Name", "timeline_datapoint_" + i);
             inputElement.setAttribute("id", "timeline_datapoint_" + i);
-            selectElement.setAttribute("Name", "timeline_datatype_" + i);
-            selectElement.setAttribute("id", "timeline_datatype_" + i);
+            selectElement.setAttribute("Name", "timeline_type_" + i);
+            selectElement.setAttribute("id", "timeline_type_" + i);
 
             td1.appendChild(selectElement);
             td2.appendChild(inputElement);

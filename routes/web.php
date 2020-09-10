@@ -79,4 +79,6 @@ Route::middleware(['auth', 'suspended', 'admin'])->group(function () {
     Route::put('admin/timelines/{timeline}/update', 'Admin\TimelineController@update')->name('admin-timelines-update');
     Route::delete('admin/timelines/destroy', 'Admin\TimelineController@destroy')->name('admin-timelines-destroy');
     Route::get('admin/timelines/{timeline}/show', 'Admin\TimelineController@show')->name('admin-timelines-show');
+
+    Route::post('admin/timelinetypes/store', 'Admin\TimelineDatatypeController@store')->name('timeline-type-store');
 });
