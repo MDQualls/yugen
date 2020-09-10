@@ -33,6 +33,7 @@
             <div class="card-body">
                 <div class="list-group">
                     <a href="{{ route('admin-timelines-edit', $timeline->id) }}"
+                       data-toggle="tooltip" data-placement="top" title="Click to edit"
                        class="list-group-item list-group-item-action bg-lavender">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">Diary Entry</h5>
@@ -46,3 +47,11 @@
         </div>
     </div>
 @endsection('content')
+
+@section('scripts')
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        })
+    </script>
+@endsection
