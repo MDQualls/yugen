@@ -14,7 +14,8 @@
 
 @section('section_actions')
     <div class="col-md-3">
-        <a href="{{ route('admin-timelines') }}" class="btn btn-light btn-block"><i class="fas fa-arrow-left"></i> Back to
+        <a href="{{ route('admin-timelines') }}" class="btn btn-light btn-block"><i class="fas fa-arrow-left"></i> Back
+            to
             Diary Timeline</a>
     </div>
     <div class="col-md-3">
@@ -44,14 +45,15 @@
 
                     <div class="form-group">
                         <label for="timeline_entry">Entry for {{Carbon\Carbon::parse(now())->format('m/d/Y')}}</label>
-                        <textarea style="font-size: 1.7rem;" required class="form-control" id="timeline_entry" name="timeline_entry">{{ isset($timelineEntry) ? $timelineEntry->timeline_entry : '' }}</textarea>
+                        <textarea style="font-size: 1.7rem;" required class="form-control" id="timeline_entry"
+                                  name="timeline_entry">{{ isset($timelineEntry) ? $timelineEntry->timeline_entry : '' }}</textarea>
                     </div>
 
                     <div class="form-group">
                         <button class="btn btn-success bg-lavender">
                             {{isset($timelineEntry) ? 'Update' : 'Add'}} Timeline Entry
                         </button>
-                        &nbsp;<a href="{{route('admin-timelines-show', $timelineEntry->id)}}" class="btn btn-secondary">Cancel</a>
+                        &nbsp;<a href="{{route('admin-timelines')}}" class="btn btn-secondary">Cancel</a>
                     </div>
                 </form>
             </div>
