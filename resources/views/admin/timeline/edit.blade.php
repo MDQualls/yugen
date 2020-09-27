@@ -28,26 +28,26 @@
     <div class="col">
         <div class="card card-default">
             <div class="card-header">
-                <h4>{{isset($timelineEntry) ? 'Edit' : 'Create'}} Timeline Entry</h4>
+                <h4>Edit Timeline Entry</h4>
             </div>
             <div class="card-body">
 
                 @include('partials.errors')
 
                 <form
-                    action="{{isset($timelineEntry) ? route('admin-timelines-update', $timelineEntry->id) : route('admin-timelines-store')}}"
+                    action="{{route('admin-timelines-update', $timelineEntry->id)}}"
                     method="POST"
                 >
-
                     @csrf
-                    @if(isset($timelineEntry))
-                        @method('PUT')
-                    @endif
+                    @method('PUT')
+
+                    <input type="hidden" name="datatype_count" id="datatype_count"
+                           value="{{$timelineEntry->timelineData->count()}}">
 
                     <div class="form-group">
                         <label for="timeline_entry">Entry for {{Carbon\Carbon::parse(now())->format('m/d/Y')}}</label>
                         <textarea style="font-size: 1.7rem;" required class="form-control" id="timeline_entry"
-                                  name="timeline_entry">{{ isset($timelineEntry) ? $timelineEntry->timeline_entry : '' }}</textarea>
+                                  name="timeline_entry">{{ $timelineEntry->timeline_entry }}</textarea>
                     </div>
 
                     <div class="form-group">
@@ -56,20 +56,56 @@
                                 <th>Data Type</th>
                                 <th>Data Point</th>
                             </tr>
-                            <tr>
-                                <td>
-                                    <select class="form-control" name="timeline_datatype_0" id="timeline_datatype_0">
-                                        <option value="0">Select</option>
-                                        @foreach($timelineDataTypes as $datatype)
-                                            <option value="{{$datatype->id}}">{{$datatype->timeline_type}}</option>
-                                        @endforeach
-                                    </select>
-                                </td>
-                                <td>
-                                    <input class="form-control" type="text" name="timeline_datapoint_0"
-                                           id="timeline_datapoint_0">
-                                </td>
-                            </tr>
+                            @if($timelineEntry->timelineData->count())
+                                @foreach($timelineEntry->timelineData as $key => $data)
+                                    <tr>
+                                        <td>
+                                            <select class="form-control" name="timeline_datatype_{{$key}}"
+                                                    id="timeline_datatype_{{$key}}">
+                                                <option value="0">Select</option>
+                                                @foreach($timelineDataTypes as $datatype)
+                                                    <option value="{{$datatype->id}}"
+                                                            @if($datatype->id == $data->timeline_type_id)
+                                                            selected
+                                                        @endif
+                                                    >
+                                                        {{$datatype->timeline_type}}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input class="form-control"
+                                                   type="text"
+                                                   name="timeline_datapoint_{{$key}}"
+                                                   id="timeline_datapoint_{{$key}}"
+                                                   value="{{$data->data_entry}}"
+                                            >
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td>
+                                        <select class="form-control" name="timeline_datatype_0"
+                                                id="timeline_datatype_0">
+                                            <option value="0">Select</option>
+                                            @foreach($timelineDataTypes as $datatype)
+                                                <option value="{{$datatype->id}}">{{$datatype->timeline_type}}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input class="form-control"
+                                               type="text"
+                                               name="timeline_datapoint_0"
+                                               id="timeline_datapoint_0"
+                                        >
+                                    </td>
+                                </tr>
+
+                            @endif
                             <tr>
                                 <td colspan="2">
                                     <button id="add_another_data_point" class="btn btn-light btn-block">
@@ -82,7 +118,7 @@
 
                     <div class="form-group mt-5">
                         <button type="submit" class="btn btn-success bg-lavender">
-                            {{isset($timelineEntry) ? 'Update' : 'Add'}} Timeline Entry
+                            Update Timeline Entry
                         </button>
 
                         <button type="button" class="btn btn-success bg-lavender"
@@ -131,43 +167,5 @@
 @endsection('content')
 
 @section('scripts')
-    <script>
-        var i = 0;
-
-        function increment() {
-            i += 1;
-        }
-
-        function addElement() {
-            var tr = document.createElement('tr');
-            var td1 = document.createElement('td');
-            var td2 = document.createElement('td');
-
-            var selectElement = document.getElementById("timeline_datatype_0").cloneNode(true);
-
-            var inputElement = document.createElement("input");
-            inputElement.setAttribute("type", "text");
-            inputElement.setAttribute("class", "form-control")
-
-            increment();
-            inputElement.setAttribute("Name", "timeline_datapoint_" + i);
-            inputElement.setAttribute("id", "timeline_datapoint_" + i);
-            selectElement.setAttribute("Name", "timeline_datatype_" + i);
-            selectElement.setAttribute("id", "timeline_datatype_" + i);
-
-            td1.appendChild(selectElement);
-            td2.appendChild(inputElement);
-
-            tr.appendChild(td1);
-            tr.appendChild(td2);
-            $("#datatype_table tr:last").prev().after(tr);
-        }
-
-        $(function () {
-            $('#add_another_data_point').on('click', (e) => {
-                e.preventDefault();
-                addElement();
-            });
-        })
-    </script>
+    <script src="{{ asset('js/timeline.js') }}"></script>
 @endsection
