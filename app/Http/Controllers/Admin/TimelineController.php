@@ -88,7 +88,7 @@ class TimelineController extends Controller
     {
         $timelineDataTypes = $this->timelineDataTypeRepository->getAll();
 
-        return view('admin.timeline.create')
+        return view('admin.timeline.edit')
             ->with('timelineEntry', $timeline)
             ->with('timelineDataTypes', $timelineDataTypes);;
     }

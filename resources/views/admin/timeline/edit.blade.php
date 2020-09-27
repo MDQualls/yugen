@@ -28,23 +28,26 @@
     <div class="col">
         <div class="card card-default">
             <div class="card-header">
-                <h4>Create Timeline Entry</h4>
+                <h4>{{isset($timelineEntry) ? 'Edit' : 'Create'}} Timeline Entry</h4>
             </div>
             <div class="card-body">
 
                 @include('partials.errors')
 
                 <form
-                    action="{{route('admin-timelines-store')}}"
+                    action="{{isset($timelineEntry) ? route('admin-timelines-update', $timelineEntry->id) : route('admin-timelines-store')}}"
                     method="POST"
                 >
 
                     @csrf
+                    @if(isset($timelineEntry))
+                        @method('PUT')
+                    @endif
 
                     <div class="form-group">
                         <label for="timeline_entry">Entry for {{Carbon\Carbon::parse(now())->format('m/d/Y')}}</label>
                         <textarea style="font-size: 1.7rem;" required class="form-control" id="timeline_entry"
-                                  name="timeline_entry"></textarea>
+                                  name="timeline_entry">{{ isset($timelineEntry) ? $timelineEntry->timeline_entry : '' }}</textarea>
                     </div>
 
                     <div class="form-group">
@@ -79,7 +82,7 @@
 
                     <div class="form-group mt-5">
                         <button type="submit" class="btn btn-success bg-lavender">
-                            Add Timeline Entry
+                            {{isset($timelineEntry) ? 'Update' : 'Add'}} Timeline Entry
                         </button>
 
                         <button type="button" class="btn btn-success bg-lavender"
