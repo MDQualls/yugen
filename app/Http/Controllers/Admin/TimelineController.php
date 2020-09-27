@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Timeline\CreateTimelineRequest;
 use App\Http\Requests\Timeline\UpdateTimelineRequest;
+use App\Repositories\Timeline\TimelineDataTypeRepositoryInterface;
 use App\Repositories\Timeline\TimelineRepositoryInterface;
 use App\Timeline;
 use App\User;
@@ -19,10 +20,18 @@ class TimelineController extends Controller
      */
     protected $timelineRepository;
 
-    public function __construct(TimelineRepositoryInterface $timelineRepository)
-    {
+    /**
+     * @var TimelineDataTypeRepositoryInterface
+     */
+    protected $timelineDataTypeRepository;
+
+    public function __construct(
+        TimelineRepositoryInterface $timelineRepository,
+        TimelineDataTypeRepositoryInterface $timelineDataTypeRepository
+    ){
         parent::__construct();
         $this->timelineRepository = $timelineRepository;
+        $this->timelineDataTypeRepository = $timelineDataTypeRepository;
     }
 
     /**
@@ -43,7 +52,9 @@ class TimelineController extends Controller
 
     public function create()
     {
-        return view('admin.timeline.create');
+        $timelineDataTypes = $this->timelineDataTypeRepository->getAll();
+
+        return view('admin.timeline.create')->with('timelineDataTypes', $timelineDataTypes);
     }
 
     public function store(CreateTimelineRequest $timeline)

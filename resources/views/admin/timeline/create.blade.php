@@ -60,10 +60,14 @@
                                 <td>
                                     <select class="form-control" name="timeline_datatype_0" id="timeline_datatype_0">
                                         <option value="0">Select</option>
+                                        @foreach($timelineDataTypes as $datatype)
+                                            <option value="{{$datatype->id}}">{{$datatype->timeline_type}}</option>
+                                        @endforeach
                                     </select>
                                 </td>
                                 <td>
-                                    <input class="form-control" type="text" name="timeline_datapoint_0" id="timeline_datapoint_0">
+                                    <input class="form-control" type="text" name="timeline_datapoint_0"
+                                           id="timeline_datapoint_0">
                                 </td>
                             </tr>
                             <tr>
@@ -78,13 +82,13 @@
 
                     <div class="form-group mt-5">
                         <button type="submit" class="btn btn-success bg-lavender">
-                                {{isset($timelineEntry) ? 'Update' : 'Add'}} Timeline Entry
+                            {{isset($timelineEntry) ? 'Update' : 'Add'}} Timeline Entry
                         </button>
 
                         <button type="button" class="btn btn-success bg-lavender"
-                           data-toggle="modal"
-                           data-target="#dataTypeModal"
-                           data-whatever="@mdo"
+                                data-toggle="modal"
+                                data-target="#dataTypeModal"
+                                data-whatever="@mdo"
                         >
                             Add New Data Type
                         </button>
@@ -96,8 +100,10 @@
         </div>
     </div>
 
+    <!-- MODAL TO ADD NEW DATA TYPES -->
     <div class="modal fade" id="dataTypeModal" tabindex="-1" aria-labelledby="dataTypModalLabel" aria-hidden="true">
-        <form id="timeline_type_form" name="timeline_type_form" method="POST" action="{{ route('timeline-type-store') }}">
+        <form id="timeline_type_form" name="timeline_type_form" method="POST"
+              action="{{ route('timeline-type-store') }}">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -107,12 +113,12 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                            @csrf
-                            @method('POST')
-                            <div class="form-group">
-                                <label for="new_data_type" class="col-form-label">Data type:</label>
-                                <input type="text" class="form-control" name="timeline_type" id="timeline_type" required>
-                            </div>
+                        @csrf
+                        @method('POST')
+                        <div class="form-group">
+                            <label for="new_data_type" class="col-form-label">Data type:</label>
+                            <input type="text" class="form-control" name="timeline_type" id="timeline_type" required>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Add data type</button>
@@ -127,7 +133,8 @@
 @section('scripts')
     <script>
         var i = 0;
-        function increment(){
+
+        function increment() {
             i += 1;
         }
 
@@ -136,7 +143,7 @@
             var td1 = document.createElement('td');
             var td2 = document.createElement('td');
 
-            var selectElement = document.getElementById("timeline_type_0").cloneNode(true);
+            var selectElement = document.getElementById("timeline_datatype_0").cloneNode(true);
 
             var inputElement = document.createElement("input");
             inputElement.setAttribute("type", "text");
@@ -145,8 +152,8 @@
             increment();
             inputElement.setAttribute("Name", "timeline_datapoint_" + i);
             inputElement.setAttribute("id", "timeline_datapoint_" + i);
-            selectElement.setAttribute("Name", "timeline_type_" + i);
-            selectElement.setAttribute("id", "timeline_type_" + i);
+            selectElement.setAttribute("Name", "timeline_datatype_" + i);
+            selectElement.setAttribute("id", "timeline_datatype_" + i);
 
             td1.appendChild(selectElement);
             td2.appendChild(inputElement);
