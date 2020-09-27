@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var i = parseInt(document.getElementById("datatype_count").value);
+var i = document.getElementById("datatype_count") ? parseInt(document.getElementById("datatype_count").value) : 0;
 
 function increment() {
   i += 1;
