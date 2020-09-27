@@ -7,7 +7,9 @@ use App\Http\Requests\Timeline\CreateTimelineRequest;
 use App\Http\Requests\Timeline\UpdateTimelineRequest;
 use App\Repositories\Timeline\TimelineDataTypeRepositoryInterface;
 use App\Repositories\Timeline\TimelineRepositoryInterface;
+use App\Services\Timeline\TimeLineDataServiceInterface;
 use App\Timeline;
+use App\TimelineData;
 use App\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -25,13 +27,21 @@ class TimelineController extends Controller
      */
     protected $timelineDataTypeRepository;
 
+    /**
+     * @var TimeLineDataServiceInterface
+     */
+    protected $timelineDataService;
+
     public function __construct(
         TimelineRepositoryInterface $timelineRepository,
-        TimelineDataTypeRepositoryInterface $timelineDataTypeRepository
-    ){
+        TimelineDataTypeRepositoryInterface $timelineDataTypeRepository,
+        TimeLineDataServiceInterface $timelineDataService
+    )
+    {
         parent::__construct();
         $this->timelineRepository = $timelineRepository;
         $this->timelineDataTypeRepository = $timelineDataTypeRepository;
+        $this->timelineDataService = $timelineDataService;
     }
 
     /**
@@ -60,12 +70,14 @@ class TimelineController extends Controller
     public function store(CreateTimelineRequest $timeline)
     {
         //all timelines go to Holly
-        $user = User::where('email','=','hollyqualls@gmail.com')->first();
+        $user = User::where('email', '=', 'hollyqualls@gmail.com')->first();
 
-        Timeline::create([
+        $newEntry = Timeline::create([
             'timeline_entry' => $timeline->timeline_entry,
             'user_id' => $user->id,
         ]);
+
+        $this->timelineDataService->updateData($newEntry, $timeline);
 
         session()->flash('success', 'Timeline Entry successfully created');
 
@@ -81,7 +93,7 @@ class TimelineController extends Controller
     public function update(UpdateTimelineRequest $request, Timeline $timeline)
     {
         $timeline->update([
-           'timeline_entry' => $request->timeline_entry
+            'timeline_entry' => $request->timeline_entry
         ]);
 
         session()->flash('success', 'Diary Timeline updated successfully.');

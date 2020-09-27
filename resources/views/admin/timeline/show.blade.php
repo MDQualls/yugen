@@ -36,11 +36,19 @@
                        data-toggle="tooltip" data-placement="top" title="Click to edit"
                        class="list-group-item list-group-item-action bg-lavender">
                         <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Diary Entry</h5>
+                            <h5 class="mb-1">Diary Entry <small>on {{ $timeline->updated_at }}</small></h5>
                             <small>by {{ $timeline->user->name }}</small>
                         </div>
                         <p class="mb-1">{{ $timeline->timeline_entry }}</p>
-                        <small>on {{ $timeline->updated_at }}</small>
+
+
+                        <ul class="list-group mt-4">
+                            @foreach($timeline->timelineData as $item)
+                                <li class="list-group-item">
+                                    {{$item->timelineType->timeline_type}} :: {{$item->data_entry}}
+                                </li>
+                            @endforeach
+                        </ul>
                     </a>
                 </div>
             </div>
