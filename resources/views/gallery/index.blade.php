@@ -12,7 +12,7 @@
     <div class="gallery-section">
         <div class="row">
             @foreach($galleries as $gallery)
-                <div class="col-1-of-3">
+                <div class="col-1-of-3 bottom-margin-rem2">
                     <div class='image-card'>
                         <div class='image-card__header'>
                             {{$gallery->name}}
