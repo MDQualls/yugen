@@ -10,12 +10,15 @@
         </div>
     </div>
     <div class="gallery-section">
-        <div class="row">
-            @foreach($galleries as $gallery)
+        @foreach($galleries as $key => $gallery)
+            @if ($loop->first || $key % 3 == 0)
+                <div class="row">
+            @endif
+
                 <div class="col-1-of-3 bottom-margin-rem2">
                     <div class='image-card'>
                         <div class='image-card__header'>
-                            {{$gallery->name}}
+                            {{$gallery->name}} {{$key}}
                         </div>
                         <a href="{{route('gallery.show', $gallery->id)}}">
                             <img src='{{$gallery->cover_image}}' alt='{{$gallery->summary}}' class='img--fluid'>
@@ -33,8 +36,10 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
 
-        </div>
+            @if ($loop->last || $key % 3 == 0)
+                </div>
+            @endif
+        @endforeach
     </div>
 @endsection
