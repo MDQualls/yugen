@@ -10,8 +10,10 @@
         </div>
     </div>
     <div class="gallery-section">
-        <div class="row">
-            @foreach($galleries as $key => $gallery)
+        @foreach($galleries as $gallery)
+            @if($loop->first || $loop->iteration % 3 == 0)
+                <div class="row">
+            @endif
                 <div class="col-1-of-3 bottom-margin-rem2">
                     <div class='image-card'>
                         <div class='image-card__header'>
@@ -33,8 +35,9 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
-
-        </div>
+            @if($loop->iteration % 3 == 0 || $loop->last)
+                </div>
+            @endif
+        @endforeach
     </div>
 @endsection
