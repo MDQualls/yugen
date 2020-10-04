@@ -10,7 +10,7 @@ class GalleryController extends Controller
     public function index()
     {
         return view('gallery.index')
-            ->with('galleries', Gallery::all());
+            ->with('galleries', Gallery::orderBy('created_at', 'desc')->get());
     }
 
     public function show(Gallery $gallery)
