@@ -11,18 +11,18 @@
                         </button>
                     </div>
                     <div class="modal-body">
-@csrf
-@method('POST')
-<div class="form-group">
-    <label for="new_data_type" class="col-form-label">Data type:</label>
-    <input type="text" class="form-control" name="timeline_type" id="timeline_type" required>
-</div>
-</div>
-<div class="modal-footer">
-    <button type="submit" class="btn btn-primary">Add data type</button>
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-</div>
-</div>
-</div>
-</form>
+                        @csrf
+                        @method('POST')
+                        <div class="form-group">
+                            <label for="new_data_type" class="col-form-label">Data type:</label>
+                            <input type="text" class="form-control" name="timeline_type" id="timeline_type" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Add data type</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
 </div>

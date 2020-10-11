@@ -131,8 +131,13 @@ class TimelineController extends Controller
     /**
      * @return Application|RedirectResponse|Redirector
      */
-    public function destroy()
+    public function destroy(Timeline $timeline)
     {
+        $timeline->timelineData()->delete();
+        $timeline->delete();
+
+        session()->flash('success', 'Timeline entry deleted successfully');
+
         return redirect(route('admin-timelines'));
     }
 }

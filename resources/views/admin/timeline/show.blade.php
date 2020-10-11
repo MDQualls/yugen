@@ -28,7 +28,7 @@
     <div class="col">
         <div class="card card-default">
             <div class="card-header">
-                <h4>Diary Timelines</h4>
+                <h4>Diary Timeline Entry</h4>
             </div>
             <div class="card-body">
                 <div class="list-group">

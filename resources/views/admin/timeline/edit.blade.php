@@ -128,17 +128,62 @@
                         >
                             Add New Data Type
                         </button>
-
-                        &nbsp;<a href="{{route('admin-timelines')}}" class="btn btn-secondary">Cancel</a>
+                        <button id="deleteButton" name="deleteButton" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                        <a href="{{route('admin-timelines')}}" class="btn btn-secondary">Cancel</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
+    <!-- Modal -->
+    <form action="" method="post" id="deleteTimelineForm">
+        @csrf
+        @method('delete')
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+             aria-hidden="true">
+            <input type="hidden" id="timelineId" name="timelineId" value="{{$timelineEntry->id}}">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Delete Timeline Entry</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-bold">
+                            Are you sure you want to delete this timeline entry?
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No, go back</button>
+                        <button type="submit" class="btn btn-danger">Yes, delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
     @include('admin.timeline.partials.type')
 @endsection('content')
 
 @section('scripts')
     <script src="{{ asset('js/timeline.js') }}"></script>
+
+    <script>
+        function handleDelete() {
+            let form = document.getElementById("deleteTimelineForm");
+            let id = document.getElementById("timelineId").value;
+            form.action = '/admin/timelines/' + id + '/destroy';
+            $('#deleteModal').modal('show');
+        }
+
+        $(document).on('click', '#deleteButton', function (e) {
+            e.preventDefault();
+            handleDelete();
+        });
+    </script>
 @endsection
