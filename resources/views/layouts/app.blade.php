@@ -37,7 +37,7 @@
         <meta name="description" content="Yugen Farm is a sustainable, permaculture small-scale farm in Oklahoma.">
     @endif
     <meta name="keywords"
-          content="Permaculture, Hügelkultur, Farming, Small-scale Farming, Alpacas, Bee Keeping, Backyard Chickens, lavender"/>
+          content="Permaculture, Hügelkultur, Farming, Small-scale Farming, Donkeys, Sheep, Backyard Chickens, Bee Keeping"/>
     <meta name="author" content="Michael Qualls">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -78,7 +78,8 @@
         <div>
             <a href="{{route('privacy')}}">Privacy Policy</a> |
             <a href="{{route('cookies')}}">Cookies Policy</a> |
-            <a href="{{route('disclaimer')}}">Disclaimer</a>
+            <a href="{{route('disclaimer')}}">Disclaimer</a>  |
+            <a href="{{route('about')}}">About Us</a>
         </div>
     </div>
 </footer>
