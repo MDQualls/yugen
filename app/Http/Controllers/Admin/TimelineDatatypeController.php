@@ -8,7 +8,7 @@ use App\TimelineType;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class TimelineDataTypeController extends Controller
+class TimelineDatatypeController extends Controller
 {
     /**
      * @param CreateTimelineDataTypeRequest $type
