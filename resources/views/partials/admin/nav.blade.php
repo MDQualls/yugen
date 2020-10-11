@@ -31,6 +31,9 @@
                 <li class="nav-item px-2">
                     <a href="{{ route('galleryadmin.index') }}" class="nav-link">Galleries</a>
                 </li>
+                <li class="nav-item px-2">
+                    <a href="{{ route('admin-timelines') }}" class="nav-link">Timeline</a>
+                </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">

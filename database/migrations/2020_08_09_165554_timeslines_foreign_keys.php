@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTimelinesTable extends Migration
+class TimeslinesForeignKeys extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateTimelinesTable extends Migration
      */
     public function up()
     {
-        Schema::create('timelines', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('timeline_entry')->nullable(false);
-            $table->unsignedBigInteger('user_id')->nullable(false);
-            $table->timestamps();
+        Schema::table('timelines', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateTimelinesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('timelines');
+        Schema::table('timelines', function (Blueprint $table) {
+            $table->dropForeign('timelines_user_id_foreign');
+        });
     }
 }

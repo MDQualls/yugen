@@ -4,9 +4,11 @@ namespace App\Providers;
 
 use App\Services\Tag\TagService;
 use App\Services\Tag\TagServiceInterface;
+use App\Services\Timeline\TimeLineDataService;
+use App\Services\Timeline\TimeLineDataServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
-class TagServiceProvider extends ServiceProvider
+class ServicesServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -16,6 +18,7 @@ class TagServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(TagServiceInterface::class, TagService::class);
+        $this->app->bind(TimeLineDataServiceInterface::class, TimeLineDataService::class);
     }
 
     /**
