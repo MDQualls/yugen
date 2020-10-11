@@ -42,7 +42,7 @@ class TimeLineDataService implements TimeLineDataServiceInterface
 
                 $position = substr($key, -1);
 
-                if(empty($request->{"timeline_datapoint_$position"}))  {
+                if(trim($request->{"timeline_datapoint_$position"}) === "")  {
                     continue;
                 }
 
