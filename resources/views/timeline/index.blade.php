@@ -3,63 +3,25 @@
 @section('content')
     <div class="timeline-container">
         <div class="timeline">
-            <div class="entry">
-                <div class="title">
-                    <h3>2014 - Present</h3>
-                    <p>Title, Company</p>
-                </div>
-                <div class="body">
-                    <p>Voluptatibus veniam ea reprehenderit atque reiciendis non laborum adipisci ipsa pariatur omnis.</p>
-                    <ul>
-                        <li>Rerum sit libero possimus amet excepturi</li>
-                        <li>Exercitationem enim dolores sunt praesentium dolorum praesentium</li>
-                        <li>Modi aut dolores dignissimos sequi sit ut aliquid molestias deserunt illo</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="title">
-                    <h3>2010 - Present</h3>
-                    <p>Title, Company</p>
-                </div>
-                <div class="body">
-                    <p>Voluptatibus veniam ea reprehenderit atque reiciendis non laborum adipisci ipsa pariatur omnis.</p>
-                    <ul>
-                        <li>Rerum sit libero possimus amet excepturi</li>
-                        <li>Exercitationem enim dolores sunt praesentium dolorum praesentium</li>
-                        <li>Modi aut dolores dignissimos sequi sit ut aliquid molestias deserunt illo</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="title">
-                    <h3>2009 - 2010</h3>
-                    <p>Title, Company</p>
-                </div>
-                <div class="body">
-                    <p>Voluptatibus veniam ea reprehenderit atque reiciendis non laborum adipisci ipsa pariatur omnis.</p>
-                    <ul>
-                        <li>Rerum sit libero possimus amet excepturi</li>
-                        <li>Exercitationem enim dolores sunt praesentium dolorum praesentium</li>
-                        <li>Modi aut dolores dignissimos sequi sit ut aliquid molestias deserunt illo</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="title">
-                    <h3>2006 - 2008</h3>
-                    <p>Title, Company</p>
-                </div>
-                <div class="body">
-                    <p>Voluptatibus veniam ea reprehenderit atque reiciendis non laborum adipisci ipsa pariatur omnis.</p>
-                    <ul>
-                        <li>Rerum sit libero possimus amet excepturi</li>
-                        <li>Exercitationem enim dolores sunt praesentium dolorum praesentium</li>
-                        <li>Modi aut dolores dignissimos sequi sit ut aliquid molestias deserunt illo</li>
-                    </ul>
-                </div>
-            </div>
 
+            @foreach($timeline as $entry)
+                <div class="entry">
+                    <div class="title">
+                        <h3>{{Carbon\Carbon::parse($entry->created_at)->format('m/d/Y')}}</h3>
+                        <p>by {{$entry->user->name }}</p>
+                    </div>
+                    <div class="body">
+                        <p>{{$entry->timeline_entry}}</p>
+                        @if($entry->timelineData->count())
+                            <ul>
+                                @foreach($entry->timelineData as $data)
+                                    <li>{{$data->timelineType->timeline_type}} : {{$data->data_entry}}</li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 @endsection('content')
