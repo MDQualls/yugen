@@ -10,7 +10,7 @@
                 <a class="nav__link" href="{{route('gallery')}}"><i class="fas fa-file-image"></i> Gallery</a>
             </li>
             <li class="nav__item">
-                <a class="nav__link" href="#"><i class="far fa-calendar-alt"></i> Timeline</a>
+                <a class="nav__link" href="{{route('timeline')}}"><i class="far fa-calendar-alt"></i> Timeline</a>
             </li>
 
             @guest
