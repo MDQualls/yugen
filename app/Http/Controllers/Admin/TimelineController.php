@@ -82,8 +82,7 @@ class TimelineController extends Controller
      */
     public function store(CreateTimelineRequest $timeline)
     {
-        //all timelines go to Holly
-        $user = User::where('email', '=', 'hollyqualls@gmail.com')->first();
+        $user = auth()->user();
 
         $newEntry = Timeline::create([
             'timeline_entry' => $timeline->timeline_entry,
