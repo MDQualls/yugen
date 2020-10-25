@@ -883,6 +883,222 @@ body {
   color: #344955;
 }
 
+/*==================================
+    TIMELINE
+==================================*/
+
+/*-- GENERAL STYLES
+------------------------------*/
+
+.timeline-container {
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+@media (max-width: 37.5em) {
+  .timeline-container {
+    padding-right: 10px;
+  }
+}
+
+.timeline {
+  line-height: 1.6em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.timeline h1,
+.timeline h2,
+.timeline h3,
+.timeline h4,
+.timeline h5,
+.timeline h6 {
+  line-height: inherit;
+}
+
+.timeline-marker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+}
+
+.timeline-marker:before {
+  background: #FF6B6B;
+  border: 3px solid transparent;
+  border-radius: 100%;
+  content: "";
+  display: block;
+  height: 15px;
+  position: absolute;
+  top: 21px;
+  left: -3px;
+  width: 15px;
+  -webkit-transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+@media (max-width: 37.5em) {
+  .timeline-marker:before {
+    top: 25px;
+  }
+}
+
+.timeline-marker:after {
+  content: "";
+  width: 3px;
+  background: #CCD5DB;
+  display: block;
+  position: absolute;
+  top: 42px;
+  bottom: 0;
+  left: 6px;
+}
+
+@media (max-width: 37.5em) {
+  .timeline-marker:after {
+    top: 46px;
+  }
+}
+
+.timeline-item:last-child .timeline-marker:after {
+  content: none;
+}
+
+.data-type-list {
+  list-style: none;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/*----------------------------------------------
+    MOD: TIMELINE CENTERED
+----------------------------------------------*/
+
+.timeline-centered,
+.timeline-centered .timeline-item,
+.timeline-centered .timeline-info,
+.timeline-centered .timeline-marker,
+.timeline-centered .timeline-content {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline-centered .timeline-item {
+  overflow: hidden;
+  position: relative;
+}
+
+.timeline-centered .timeline-marker {
+  position: absolute;
+  left: 50%;
+  margin-left: -7.5px;
+}
+
+@media (max-width: 37.5em) {
+  .timeline-centered .timeline-marker {
+    left: 0;
+    margin-left: 3rem;
+  }
+}
+
+.timeline-centered .timeline-item:not(:first-of-type) .timeline-marker:before {
+  top: 0;
+  left: -3px;
+}
+
+.timeline-centered .timeline-item:not(:first-of-type) .timeline-marker:after {
+  top: 21px;
+  bottom: 0;
+  left: 6px;
+}
+
+.timeline-centered .timeline-info {
+  width: 52.3%;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 0 0 0.5em 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 37.5em) {
+  .timeline-centered .timeline-info {
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
+
+.timeline-centered .timeline-content {
+  width: 48%;
+  padding-bottom: 2rem;
+}
+
+.timeline-centered .timeline-content p {
+  font-size: 1.2rem;
+}
+
+.timeline-centered .timeline-content p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 37.5em) {
+  .timeline-centered .timeline-content {
+    width: 90%;
+  }
+}
+
+.timeline-centered > .timeline-item-odd .timeline-info {
+  float: left;
+  text-align: right;
+  padding-right: 30px;
+}
+
+.timeline-centered > .timeline-item-odd .timeline-content {
+  float: right;
+  text-align: left;
+}
+
+@media (max-width: 37.5em) {
+  .timeline-centered > .timeline-item-odd .timeline-content {
+    float: none;
+    margin-top: 5px;
+    margin-left: 45px;
+  }
+}
+
+.timeline-centered > .timeline-item-even .timeline-info {
+  float: right;
+  text-align: left;
+}
+
+@media (max-width: 37.5em) {
+  .timeline-centered > .timeline-item-even .timeline-info {
+    float: none;
+    padding-left: 20px;
+  }
+}
+
+.timeline-centered > .timeline-item-even .timeline-content {
+  float: left;
+  text-align: right;
+}
+
+@media (max-width: 37.5em) {
+  .timeline-centered > .timeline-item-even .timeline-content {
+    float: none;
+    text-align: left;
+    margin-top: 12px;
+    margin-left: 45px;
+    padding-right: 45px;
+  }
+}
+
 main {
   min-height: calc(100vh - 148px - 127px);
   overflow: hidden;
