@@ -890,6 +890,17 @@ body {
 /*-- GENERAL STYLES
 ------------------------------*/
 
+.timeline-container {
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+@media (max-width: 37.5em) {
+  .timeline-container {
+    padding-right: 10px;
+  }
+}
+
 .timeline {
   line-height: 1.6em;
   list-style: none;
@@ -930,6 +941,12 @@ body {
   transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 
+@media (max-width: 37.5em) {
+  .timeline-marker:before {
+    top: 25px;
+  }
+}
+
 .timeline-marker:after {
   content: "";
   width: 3px;
@@ -939,6 +956,12 @@ body {
   top: 42px;
   bottom: 0;
   left: 6px;
+}
+
+@media (max-width: 37.5em) {
+  .timeline-marker:after {
+    top: 46px;
+  }
 }
 
 .timeline-item:last-child .timeline-marker:after {
@@ -976,6 +999,13 @@ body {
   margin-left: -7.5px;
 }
 
+@media (max-width: 37.5em) {
+  .timeline-centered .timeline-marker {
+    left: 0;
+    margin-left: 3rem;
+  }
+}
+
 .timeline-centered .timeline-item:not(:first-of-type) .timeline-marker:before {
   top: 0;
   left: -3px;
@@ -988,13 +1018,20 @@ body {
 }
 
 .timeline-centered .timeline-info {
-  width: 51.5%;
-  font-size: 12px;
+  width: 52.3%;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: 3px;
   margin: 0 0 0.5em 0;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+@media (max-width: 37.5em) {
+  .timeline-centered .timeline-info {
+    width: 100%;
+    margin: 1rem 0;
+  }
 }
 
 .timeline-centered .timeline-content {
@@ -1010,11 +1047,16 @@ body {
   margin-bottom: 0;
 }
 
+@media (max-width: 37.5em) {
+  .timeline-centered .timeline-content {
+    width: 90%;
+  }
+}
+
 .timeline-centered > .timeline-item-odd .timeline-info {
   float: left;
   text-align: right;
   padding-right: 30px;
-  border: solid orangered 1px;
 }
 
 .timeline-centered > .timeline-item-odd .timeline-content {
@@ -1022,15 +1064,39 @@ body {
   text-align: left;
 }
 
+@media (max-width: 37.5em) {
+  .timeline-centered > .timeline-item-odd .timeline-content {
+    float: none;
+    margin-top: 5px;
+    margin-left: 45px;
+  }
+}
+
 .timeline-centered > .timeline-item-even .timeline-info {
   float: right;
   text-align: left;
 }
 
+@media (max-width: 37.5em) {
+  .timeline-centered > .timeline-item-even .timeline-info {
+    float: none;
+    padding-left: 20px;
+  }
+}
+
 .timeline-centered > .timeline-item-even .timeline-content {
   float: left;
   text-align: right;
-  margin-top: 20px;
+}
+
+@media (max-width: 37.5em) {
+  .timeline-centered > .timeline-item-even .timeline-content {
+    float: none;
+    text-align: left;
+    margin-top: 12px;
+    margin-left: 45px;
+    padding-right: 45px;
+  }
 }
 
 main {

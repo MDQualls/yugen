@@ -8,6 +8,16 @@ $primary-color-hover: scale-color($primary-color, $lightness: 32%);
 
 /*-- GENERAL STYLES
 ------------------------------*/
+
+
+.timeline-container {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    @include respond(phone)  {
+        padding-right: 10px;
+    }
+}
+
 .timeline {
     line-height: 1.6em;
     list-style: none;
@@ -35,6 +45,9 @@ $primary-color-hover: scale-color($primary-color, $lightness: 32%);
         width: 15px;
         transition: background 0.3s ease-in-out,
         border 0.3s ease-in-out;
+        @include respond(phone)  {
+            top: 25px;
+        }
     }
     &:after {
         content: "";
@@ -43,6 +56,9 @@ $primary-color-hover: scale-color($primary-color, $lightness: 32%);
         display: block;
         position: absolute;
         top: 42px; bottom: 0; left: 6px;
+        @include respond(phone)  {
+            top: 46px;
+        }
     }
     .timeline-item:last-child &:after {
         content: none;
@@ -77,6 +93,11 @@ $primary-color-hover: scale-color($primary-color, $lightness: 32%);
         position: absolute;
         left: 50%;
         margin-left: -7.5px;
+
+        @include respond(phone)  {
+            left: 0;
+            margin-left: 3rem;
+        }
     }
     .timeline-item:not(:first-of-type)  {
         .timeline-marker  {
@@ -90,13 +111,18 @@ $primary-color-hover: scale-color($primary-color, $lightness: 32%);
         }
     }
     .timeline-info  {
-        width: 51.5%;
-        font-size: 12px;
+        width: 52.3%;
+        font-size: 2rem;
         font-weight: 700;
         letter-spacing: 3px;
         margin: 0 0 .5em 0;
         text-transform: uppercase;
         white-space: nowrap;
+
+        @include respond(phone)  {
+            width: 100%;
+            margin: 1rem 0;
+        }
     }
     .timeline-content {
         width: 48%;
@@ -107,6 +133,10 @@ $primary-color-hover: scale-color($primary-color, $lightness: 32%);
         p:last-child {
             margin-bottom: 0;
         }
+
+        @include respond(phone)  {
+            width: 90%;
+        }
     }
 
 
@@ -114,21 +144,36 @@ $primary-color-hover: scale-color($primary-color, $lightness: 32%);
         float: left;
         text-align: right;
         padding-right: 30px;
-        border: solid orangered 1px;
     }
     > .timeline-item-odd .timeline-content {
         float: right;
         text-align: left;
+        @include respond(phone)  {
+            float: none;
+            margin-top: 5px;
+            margin-left: 45px;
+        }
     }
 
 
     > .timeline-item-even .timeline-info {
         float: right;
         text-align: left;
+        @include respond(phone)  {
+            float: none;
+            padding-left: 20px;
+        }
     }
     > .timeline-item-even .timeline-content {
         float: left;
         text-align: right;
-        margin-top: 20px;
+
+        @include respond(phone)  {
+            float: none;
+            text-align: left;
+            margin-top: 12px;
+            margin-left: 45px;
+            padding-right: 45px;
+        }
     }
 }
