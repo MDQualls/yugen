@@ -1059,6 +1059,13 @@ body {
   padding-right: 30px;
 }
 
+@media (max-width: 37.5em) {
+  .timeline-centered > .timeline-item-odd .timeline-info {
+    float: none;
+    padding-left: 20px;
+  }
+}
+
 .timeline-centered > .timeline-item-odd .timeline-content {
   float: right;
   text-align: left;

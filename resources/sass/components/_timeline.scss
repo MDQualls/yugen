@@ -144,6 +144,10 @@ $primary-color-hover: scale-color($primary-color, $lightness: 32%);
         float: left;
         text-align: right;
         padding-right: 30px;
+        @include respond(phone)  {
+            float: none;
+            padding-left: 20px;
+        }
     }
     > .timeline-item-odd .timeline-content {
         float: right;
