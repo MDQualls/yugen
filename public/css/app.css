@@ -1063,6 +1063,7 @@ body {
   .timeline-centered > .timeline-item-odd .timeline-info {
     float: none;
     padding-left: 20px;
+    text-align: left;
   }
 }
 
