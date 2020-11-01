@@ -1636,6 +1636,13 @@ main {
   height: auto;
 }
 
+@media (max-width: 37.5em) {
+  .article__post__content {
+    font-size: 2.5rem !important;
+    line-height: 1.5;
+  }
+}
+
 .article__post--meta {
   margin-bottom: 2rem;
 }
