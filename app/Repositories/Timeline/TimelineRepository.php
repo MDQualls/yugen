@@ -40,6 +40,6 @@ class TimelineRepository implements TimelineRepositoryInterface
 
     public function getAllTimelines()
     {
-        return $this->timeline::orderBy('created_at', 'desc');
+        return $this->timeline::orderBy('created_at', 'desc')->get ();
     }
 }
