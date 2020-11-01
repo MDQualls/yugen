@@ -21,7 +21,7 @@ class TimelineController extends Controller
 
     public function index()
     {
-        $timeline = $this->timelineRepository->getAllTimelinesPaginated();
+        $timeline = $this->timelineRepository->getAllTimelines();
         return view('timeline.index')->with('timeline',$timeline);
     }
 }

@@ -37,4 +37,9 @@ class TimelineRepository implements TimelineRepositoryInterface
             ->sortBy('created_at', SORT_REGULAR, true)
             ->simplePaginate($pageSize);
     }
+
+    public function getAllTimelines()
+    {
+        return $this->timeline::orderBy('created_at', 'desc');
+    }
 }
