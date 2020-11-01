@@ -28,6 +28,10 @@ main  {
     font-weight: 300;
     font-size: 1.6rem;
     padding: 2rem 0;
+
+    @include respond(phone)  {
+        font-size: 2rem;
+    }
 }
 
 .p__content--lead  {
@@ -37,6 +41,10 @@ main  {
 
     &:not(:last-child)  {
         margin-bottom: 2rem;
+    }
+
+    @include respond(phone)  {
+        font-size: 2rem;
     }
 }
 

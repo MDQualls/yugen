@@ -1148,6 +1148,12 @@ main {
   padding: 2rem 0;
 }
 
+@media (max-width: 37.5em) {
+  .h4__title {
+    font-size: 2rem;
+  }
+}
+
 .p__content--lead {
   font-size: 1.6rem;
   letter-spacing: 0.3rem;
@@ -1156,6 +1162,12 @@ main {
 
 .p__content--lead:not(:last-child) {
   margin-bottom: 2rem;
+}
+
+@media (max-width: 37.5em) {
+  .p__content--lead {
+    font-size: 2rem;
+  }
 }
 
 .p__content--body {
