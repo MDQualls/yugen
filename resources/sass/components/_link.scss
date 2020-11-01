@@ -7,6 +7,10 @@
         line-height: 1.5;
         text-decoration: none;
         color: $blue;
+
+        @include respond(phone)  {
+            font-size: 2rem;
+        }
     }
 
     @include link-hover;

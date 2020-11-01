@@ -187,6 +187,13 @@ body {
   color: #2980b9;
 }
 
+@media (max-width: 37.5em) {
+  .lead-link:link,
+  .lead-link:visited {
+    font-size: 2rem;
+  }
+}
+
 .lead-link:hover,
 .lead-link:active {
   border-bottom: solid 1px #2980b9;
@@ -1622,6 +1629,12 @@ main {
   }
 }
 
+@media (max-width: 37.5em) {
+  .article__post {
+    font-size: 2rem !important;
+  }
+}
+
 .article__post__container {
   margin-bottom: 2rem;
 }
@@ -1645,6 +1658,12 @@ main {
 
 .article__post--meta {
   margin-bottom: 2rem;
+}
+
+@media (max-width: 37.5em) {
+  .article__post--meta {
+    margin-top: 2rem;
+  }
 }
 
 @media (max-width: 56.25em) {

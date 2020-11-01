@@ -6,6 +6,12 @@
         margin: 0 2.5rem;
     }
 
+    @include respond(phone)  {
+        font-size: 2rem !important;
+
+
+    }
+
     &__container  {
         margin-bottom: 2rem;
     }
@@ -27,6 +33,10 @@
 
     &--meta  {
         margin-bottom: 2rem;
+
+        @include respond(phone)  {
+            margin-top: 2rem;
+        }
     }
 }
 @include respond(tab-port) {
