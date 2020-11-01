@@ -1620,18 +1620,13 @@ main {
 }
 
 .article__post {
-  font-size: 1.6rem;
+  font-size: 2rem;
+  line-height: 1.5;
 }
 
 @media (max-width: 56.25em) {
   .article__post {
     margin: 0 2.5rem;
-  }
-}
-
-@media (max-width: 37.5em) {
-  .article__post {
-    font-size: 2rem !important;
   }
 }
 
