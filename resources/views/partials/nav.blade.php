@@ -6,8 +6,21 @@
             </a>
         </div>
         <ul class="nav__navbar">
-            <li class="nav__item">
-                <a class="nav__link" href="{{route('gallery')}}"><i class="fas fa-file-image"></i> Gallery</a>
+            <li class="nav__item--dropdown">
+                <input type="checkbox" class="nav__item--dropdown__checkbox" id="navi-toggle">
+
+                <label class="nav__item--dropdown__label" for="navi-toggle">
+                    <i class="fas fa-photo-video"></i> Media <i class="fas fa-caret-up"></i>
+                </label>
+
+                <div class="dropdown__menu dropdown__menu--right" aria-labelledby="navbarDropdown">
+
+                    <a href="{{route('gallery')}}"
+                       class="dropdown__item"><i class="fas fa-file-image"></i> &nbsp;Gallery</a>
+
+                    <a href="{{route('videos')}}"
+                       class="dropdown__item"><i class="fab fa-tiktok"></i> &nbsp;TikTok</a>
+                </div>
             </li>
             <li class="nav__item">
                 <a class="nav__link" href="{{route('timeline')}}"><i class="far fa-calendar-alt"></i> Timeline</a>

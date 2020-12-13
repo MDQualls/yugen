@@ -1,6 +1,6 @@
 <?php
 
-use App\Providers\GalleryImageServiceProvider;
+use App\Providers\MediaServiceProvider;
 use App\Providers\RepositoryServiceProvider;
 use App\Providers\SummerNoteImageServiceProvider;
 use App\Providers\ServicesServiceProvider;
@@ -203,7 +203,7 @@ return [
         HeaderImageServiceProvider::class,
         UserPasswordProvider::class,
         UserAlertProvider::class,
-        GalleryImageServiceProvider::class,
+        MediaServiceProvider::class,
         ViewServiceProvider::class,
 
     ],

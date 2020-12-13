@@ -37,12 +37,10 @@
         <meta name="description" content="Yugen Farm is a sustainable, permaculture small-scale farm in Oklahoma.">
     @endif
     <meta name="keywords"
-          content="Permaculture, Hügelkultur, Farming, Small-scale Farming, Donkeys, Sheep, Backyard Chickens, Bee Keeping"/>
+          content="Permaculture, Hügelkultur, Sustainability, Soil Regeneration, Farming, Small-scale Farming, Donkeys, Sheep, Free-range Chickens, Bee Keeping"/>
     <meta name="author" content="Michael Qualls">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -78,7 +76,7 @@
         <div>
             <a href="{{route('privacy')}}">Privacy Policy</a> |
             <a href="{{route('cookies')}}">Cookies Policy</a> |
-            <a href="{{route('disclaimer')}}">Disclaimer</a>  |
+            <a href="{{route('disclaimer')}}">Disclaimer</a> |
             <a href="{{route('about')}}">About Us</a>
         </div>
     </div>
