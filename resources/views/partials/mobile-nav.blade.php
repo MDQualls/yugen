@@ -7,6 +7,7 @@
     <div class="mobile-nav__nav">
         <ul class="mobile-nav__list">
             <li class="mobile-nav__item"><a href="{{route('gallery')}}" class="mobile-nav__link">Gallery</a></li>
+            <li class="mobile-nav__item"><a href="{{route('videos')}}" class="mobile-nav__link">Videos</a></li>
             <li class="mobile-nav__item"><a href="{{route('timeline')}}" class="mobile-nav__link">Timeline</a></li>
             @guest
                 <li class="mobile-nav__item"><a href="{{route('login')}}" class="mobile-nav__link">Login</a></li>

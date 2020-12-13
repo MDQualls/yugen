@@ -18,12 +18,6 @@ class VideoService implements VideoServiceInterface
 
     public function getVideoList() : array
     {
-        $videos = $this->adapter->getVideos();
-
-        if($this->adapter->getDataFormat() == 'json')  {
-            return json_decode($videos);
-        }
-
-        return $videos;
+        return $this->adapter->getVideos();
     }
 }

@@ -21,16 +21,13 @@ class TikTokAdapter implements VideoAdapterInterface
      * @var array
      */
     protected $videos = [
+        'https://www.tiktok.com/@yugenfarm/video/6905794086154849541?lang=en',
         'https://www.tiktok.com/@yugenfarm/video/6904689104110308613?lang=en',
         'https://www.tiktok.com/@yugenfarm/video/6899550917524262149?lang=en',
         'https://www.tiktok.com/@yugenfarm/video/6897977735109414149?lang=en',
         'https://www.tiktok.com/@yugenfarm/video/6897737949790883077?lang=en',
     ];
 
-    /**
-     * @var string
-     */
-    protected $dataFormat = 'json';
 
     public function __construct(Client $httpClient)
     {
@@ -48,11 +45,6 @@ class TikTokAdapter implements VideoAdapterInterface
         }
 
         return $result;
-    }
-
-    public function getDataFormat() : string
-    {
-        return $this->dataFormat;
     }
 
     public function __toString(): string
