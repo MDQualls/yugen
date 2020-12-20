@@ -54,7 +54,7 @@
         transition: all .4s ease;
     }
 
-    &__checkbox:checked ~ &__label i {
+    &__checkbox:checked ~ &__label i:last-of-type {
         opacity: 1;
         transform: rotate(180deg);
     }

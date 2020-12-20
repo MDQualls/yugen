@@ -7,9 +7,9 @@
         </div>
         <ul class="nav__navbar">
             <li class="nav__item--dropdown">
-                <input type="checkbox" class="nav__item--dropdown__checkbox" id="navi-toggle">
+                <input type="checkbox" class="nav__item--dropdown__checkbox" id="navi-toggle-media">
 
-                <label class="nav__item--dropdown__label" for="navi-toggle">
+                <label class="nav__item--dropdown__label" for="navi-toggle-media">
                     <i class="fas fa-photo-video"></i> Media <i class="fas fa-caret-up"></i>
                 </label>
 
