@@ -21,6 +21,7 @@ class TikTokAdapter implements VideoAdapterInterface
      * @var array
      */
     protected $videos = [
+        'https://www.tiktok.com/@yugenfarm/video/6909916091728792837?lang=en',
         'https://www.tiktok.com/@yugenfarm/video/6905794086154849541?lang=en',
         'https://www.tiktok.com/@yugenfarm/video/6904689104110308613?lang=en',
         'https://www.tiktok.com/@yugenfarm/video/6899550917524262149?lang=en',

@@ -1,9 +1,7 @@
 
-add dropzone.js to make file uploads in photo gallery less suck.
 
 Error handling ~ make less brittle ~ example ~ don't die if article not found on GET
 comments on photo gallery images
-add database notifications in header bar ~ notifications of features/changes?
 
 do twitter integration
 do pinterest integration
@@ -13,9 +11,8 @@ do tiktok integration
 do etsy integration
 
 Add caching
+add database notifications in header bar ~ notifications of features/changes?
 do facebook "Yugen Farm Page" integration ~~~ Post articles directly to page
-do amazon affiliate sign up
-do drop shipping signup for farming/gardening products
 add quora style questions and answers
 
 add category listings
