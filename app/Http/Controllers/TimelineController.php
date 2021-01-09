@@ -3,25 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\Timeline\TimelineRepositoryInterface;
+use App\Services\Timeline\TimeLineServiceInterface;
+
 
 class TimelineController extends Controller
 {
     /**
-     * @var TimelineRepositoryInterface
+     * @var TimeLineServiceInterface
      */
-    protected $timelineRepository;
+    protected TimeLineServiceInterface $timelineService;
 
-    public function __construct(
-        TimelineRepositoryInterface $timelineRepository
-    )
+    public function __construct(TimeLineServiceInterface $timelineService)
     {
         parent::__construct();
-        $this->timelineRepository = $timelineRepository;
+        $this->timelineService = $timelineService;
     }
 
     public function index()
     {
-        $timeline = $this->timelineRepository->getAllTimelines();
-        return view('timeline.index')->with('timeline',$timeline);
+        $timeline = $this->timelineService->getTimelineGroupedByYear();
+
+        return view('timeline.index')->with('timeline', $timeline);
     }
 }

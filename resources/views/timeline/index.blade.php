@@ -17,45 +17,53 @@
 
     <div class="timeline-container">
         <div class="row">
-            <ul class="timeline timeline-centered">
-                @php $year = Carbon\Carbon::parse(now())->format('Y') @endphp
-                @foreach($timeline as $entry)
+            @php $lastYear = Carbon\Carbon::parse(now())->format('Y') @endphp
+            @foreach($timeline as $yearIndex => $year):
+                @if(($lastYear && $yearIndex != $lastYear) || $loop->first)
+                    <ul class="timeline timeline-centered">
+                @endif
 
-                    @if($entry->user->name == 'HollyQ')
+                @foreach($year as $entry):
+
+                    @if($entry['userName'] == 'HollyQ')
                         <li class="timeline-item timeline-item-odd">
                     @else
                         <li class="timeline-item timeline-item-even">
                     @endif
 
-                        @if($year != Carbon\Carbon::parse($entry->created_at)->format('Y') || $loop->first)
+                        @if($loop->first)
                             <div class="timeline-info">
-                                <span>{{Carbon\Carbon::parse($entry->created_at)->format('Y')}}</span>
+                                <span>{{Carbon\Carbon::parse($entry['created_at'])->format('Y')}}</span>
                             </div>
                         @endif
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <h3 class="timeline-title">
-                                {{Carbon\Carbon::parse($entry->created_at)->format('m/d/Y g:i a')}}
-                                <div><small>by {{$entry->user->name}}</small></div>
+                                {{Carbon\Carbon::parse($entry['created_at'])->format('m/d/Y g:i a')}}
+                                <div><small>by {{$entry['userName']}}</small></div>
                             </h3>
                             <p>
-                                {{$entry->timeline_entry}}
+                            {{$entry['timeline_entry']}}
 
-                                @if($entry->timelineData()->count() > 0)
-                                    <ul class="data-type-list">
-                                        @foreach($entry->timelineData as $data)
-                                            <li>
-                                                {{ $data->timelineType->timeline_type }} : {{ $data->data_entry }}
-                                            </li>
-                                        @endforeach
-                                    </ul>
+                            @if($entry['timelineData'])
+                                <ul class="data-type-list">
+                                    @foreach($entry['timelineData'] as $data)
+                                        <li>
+                                            {{ $data->timelineType->timeline_type }} : {{ $data->data_entry }}
+                                        </li>
+                                    @endforeach
+                                </ul>
                                 @endif
-                            </p>
+                                </p>
                         </div>
                     </li>
-                    @php $year = Carbon\Carbon::parse($entry->created_at)->format('Y') @endphp
                 @endforeach
-            </ul>
+
+                @if(($lastYear && $yearIndex != $lastYear) || $loop->first)
+                    </ul>
+                @endif
+                @php $lastYear = Carbon\Carbon::parse($yearIndex)->format('Y') @endphp
+            @endforeach
         </div>
     </div>
 @endsection('content')
