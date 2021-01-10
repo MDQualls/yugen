@@ -29,7 +29,7 @@ Route::get('cookiespolicy', 'PrivacyController@cookies')->name('cookies');
 Route::get('disclaimerpolicy', 'PrivacyController@disclaimer')->name('disclaimer');
 Route::get('gallery', 'GalleryController@index')->name('gallery');
 Route::get('gallery/{gallery}/show', 'GalleryController@show')->name('gallery.show');
-Route::get('timeline', 'TimelineController@index')->name('timeline');
+Route::get('timeline/{year}', 'TimelineController@index')->name('timeline');
 Route::get('videos', 'VideoController@index')->name('videos');
 
 //autheniticated routes

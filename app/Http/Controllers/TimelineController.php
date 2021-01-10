@@ -19,10 +19,12 @@ class TimelineController extends Controller
         $this->timelineService = $timelineService;
     }
 
-    public function index()
+    public function index($year)
     {
         $timeline = $this->timelineService->getTimelineGroupedByYear();
 
-        return view('timeline.index')->with('timeline', $timeline);
+        return view('timeline.index')
+            ->with('timeline', $timeline)
+            ->with('year', $year);
     }
 }

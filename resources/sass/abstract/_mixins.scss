@@ -68,6 +68,14 @@ $breakpoint argument choices:
     }
 }
 
+@mixin link-hover-primary-color  {
+    &:hover,
+    &:active  {
+        padding-bottom: .2rem;
+        border-bottom: solid 2px $primary-color;
+    }
+}
+
 @mixin articalSectionTitle  {
     display: inline-block;
     padding: 1rem;

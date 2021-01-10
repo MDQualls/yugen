@@ -27,3 +27,20 @@
 
     @include link-hover;
 }
+
+.header-link  {
+    &:link,
+    &:visited  {
+        font-size: 2rem;
+        letter-spacing: .3rem;
+        line-height: 1.5;
+        text-decoration: none;
+        color: $primary-color;
+
+        @include respond(phone)  {
+            font-size: 2rem;
+        }
+    }
+
+    @include link-hover-primary-color;
+}

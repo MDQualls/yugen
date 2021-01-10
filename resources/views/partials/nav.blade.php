@@ -23,7 +23,7 @@
                 </div>
             </li>
             <li class="nav__item">
-                <a class="nav__link" href="{{route('timeline')}}"><i class="far fa-calendar-alt"></i> Timeline</a>
+                <a class="nav__link" href="{{route('timeline', Carbon\Carbon::parse(now())->format('Y'))}}"><i class="far fa-calendar-alt"></i> Timeline</a>
             </li>
 
             @guest

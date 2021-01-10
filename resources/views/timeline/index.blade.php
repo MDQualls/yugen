@@ -14,16 +14,29 @@
             </div>
         </div>
     </div>
-
     <div class="timeline-container">
         <div class="row">
-            @php $lastYear = Carbon\Carbon::parse(now())->format('Y') @endphp
-            @foreach($timeline as $yearIndex => $year):
-                @if(($lastYear && $yearIndex != $lastYear) || $loop->first)
-                    <ul class="timeline timeline-centered">
+
+            @foreach($timeline as $yearIndex => $yearData)
+
+                @if ($yearIndex <= $year)
+                    @continue
                 @endif
 
-                @foreach($year as $entry):
+                <div class="card bottom-margin-rem2">
+                    <div class="card__body text-center margin padding-point4rem">
+                        <h3><a class="header-link" href="{{route('timeline', $yearIndex)}}">{{$yearIndex}}</a></h3>
+                    </div>
+                </div>
+            @endforeach
+            <ul class="timeline timeline-centered">
+            @foreach($timeline as $yearIndex => $yearData)
+
+                @if ($yearIndex != $year)
+                    @continue
+                @endif
+
+                @foreach($yearData as $entry)
 
                     @if($entry['userName'] == 'HollyQ')
                         <li class="timeline-item timeline-item-odd">
@@ -32,8 +45,10 @@
                     @endif
 
                         @if($loop->first)
-                            <div class="timeline-info">
-                                <span>{{Carbon\Carbon::parse($entry['created_at'])->format('Y')}}</span>
+                            <div class="card" style="padding-top: 1rem;">
+                                <div class="timeline-info">
+                                    <span>{{Carbon\Carbon::parse($entry['created_at'])->format('Y')}}</span>
+                                </div>
                             </div>
                         @endif
                         <div class="timeline-marker"></div>
@@ -53,16 +68,24 @@
                                         </li>
                                     @endforeach
                                 </ul>
-                                @endif
-                                </p>
+                            @endif
+                            </p>
                         </div>
                     </li>
                 @endforeach
+            @endforeach
+            </ul>
+            @foreach($timeline as $yearIndex => $yearData)
 
-                @if(($lastYear && $yearIndex != $lastYear) || $loop->first)
-                    </ul>
+                @if ($yearIndex >= $year)
+                    @continue
                 @endif
-                @php $lastYear = Carbon\Carbon::parse($yearIndex)->format('Y') @endphp
+
+                <div class="card bottom-margin-rem2">
+                    <div class="card__body text-center margin padding-point4rem">
+                        <h3><a class="header-link" href="{{route('timeline', $yearIndex)}}">{{$yearIndex}}</a></h3>
+                    </div>
+                </div>
             @endforeach
         </div>
     </div>

@@ -100,6 +100,10 @@ $breakpoint argument choices:
   color: #efefef;
 }
 
+.padding-point4rem {
+  padding: 0.4rem !important;
+}
+
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
@@ -209,6 +213,28 @@ body {
 .body-link:hover,
 .body-link:active {
   border-bottom: solid 1px #2980b9;
+}
+
+.header-link:link,
+.header-link:visited {
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
+  line-height: 1.5;
+  text-decoration: none;
+  color: #344955;
+}
+
+@media (max-width: 37.5em) {
+  .header-link:link,
+  .header-link:visited {
+    font-size: 2rem;
+  }
+}
+
+.header-link:hover,
+.header-link:active {
+  padding-bottom: 0.2rem;
+  border-bottom: solid 2px #344955;
 }
 
 .hero {
@@ -1011,6 +1037,21 @@ body {
     left: 0;
     margin-left: 3rem;
   }
+}
+
+.timeline-centered .timeline-item:first-of-type .timeline-content {
+  margin-top: 15px;
+}
+
+.timeline-centered .timeline-item:first-of-type .timeline-marker:before {
+  top: 50px;
+  left: -3px;
+}
+
+.timeline-centered .timeline-item:first-of-type .timeline-marker:after {
+  top: 71px;
+  bottom: 0;
+  left: 6px;
 }
 
 .timeline-centered .timeline-item:not(:first-of-type) .timeline-marker:before {
