@@ -7,6 +7,7 @@ use App\Http\Requests\Users\UpdateUserRequest;
 use App\Role;
 use App\User;
 use App\UserStatus;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Application|Factory|Response|View
      */
     public function index()
     {
