@@ -1,6 +1,7 @@
 
 
 Error handling ~ make less brittle ~ example ~ don't die if article not found on GET
+
 comments on photo gallery images
 
 do twitter integration

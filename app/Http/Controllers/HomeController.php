@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Post;
 use App\Repositories\Post\PostRepositoryInterface;
+use App\Services\Log\LogServiceInterface;
 use App\User;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -19,13 +23,20 @@ class HomeController extends Controller
     private $postRepository;
 
     /**
+     * @var LogServiceInterface
+     */
+    private $logSerivce;
+
+    /**
      * HomeController constructor.
      * @param PostRepositoryInterface $postRepository
      */
-    public function __construct(PostRepositoryInterface $postRepository)
+    public function __construct(PostRepositoryInterface $postRepository,
+        LogServiceInterface $logService)
     {
         parent::__construct();
         $this->postRepository = $postRepository;
+        $this->logSerivce = $logService;
     }
 
     /**
@@ -59,63 +70,83 @@ class HomeController extends Controller
 
     /**
      * @param string $title
-     * @return Factory|View
+     * @return Application|Factory|RedirectResponse|View
      */
     public function blogPost($title)
     {
-        $post = $this->postRepository->getPostWithTitle($title);
+        try {
+            $post = $this->postRepository->getPostWithTitle($title);
 
-        return view('post.post')
-            ->with('post', $post)
-            ->with('categories', Category::orderBy('name', 'asc')->get())
-            ->with('title', $post->title);
+            return view('post.post')
+                ->with('post', $post)
+                ->with('categories', Category::orderBy('name', 'asc')->get())
+                ->with('title', $post->title);
+        } catch (Exception $e) {
+            $this->logSerivce->error($e->getMessage());
+            return redirect('/');
+        }
     }
 
     /**
      * @param string $category
-     * @return Factory|View
+     * @return Application|Factory|RedirectResponse|Redirector|View
      */
     public function categoryPost($category)
     {
-        $posts = $this->postRepository->getCategoryPostsPaginated($category, 9);
+        try {
+            $posts = $this->postRepository->getCategoryPostsPaginated($category, 9);
 
-        return view('blog')
-            ->with('title', sprintf('News Category: %s', $category))
-            ->with('summary', sprintf('Blog posts categorized as: %s
+            return view('blog')
+                ->with('title', sprintf('News Category: %s', $category))
+                ->with('summary', sprintf('Blog posts categorized as: %s
                 We hope you find these posts interesting and informative!', $category))
-            ->with('posts', $posts)
-            ->with('categories', Category::orderBy('name', 'asc')->get());
+                ->with('posts', $posts)
+                ->with('categories', Category::orderBy('name', 'asc')->get());
+        } catch (Exception $e) {
+            $this->logSerivce->error($e->getMessage());
+            return redirect('/');
+        }
     }
 
     /**
      * @param string $user
-     * @return Factory|View
+     * @return Application|Factory|RedirectResponse|Redirector|View
      */
     public function authorPost($user)
     {
-        $posts = $this->postRepository->getAuthorPostsPaginated($user, 9);
+        try {
+            $posts = $this->postRepository->getAuthorPostsPaginated($user, 9);
 
-        return view('blog')
-            ->with('title', sprintf('Posts authored by : %s', $user))
-            ->with('summary', sprintf('Here are all the posts that %s has written.
+            return view('blog')
+                ->with('title', sprintf('Posts authored by : %s', $user))
+                ->with('summary', sprintf('Here are all the posts that %s has written.
                 We hope you find the posts in the category interesting and informative!', $user))
-            ->with('posts', $posts)
-            ->with('categories', Category::orderBy('name', 'asc')->get());
+                ->with('posts', $posts)
+                ->with('categories', Category::orderBy('name', 'asc')->get());
+        } catch (Exception $e) {
+            $this->logSerivce->error($e->getMessage());
+            return redirect('/');
+        }
     }
 
     /**
      * @param $tag
-     * @return Factory|View
+     * @return Application|Factory|RedirectResponse|Redirector|View
      */
     public function tagPost($tag)
     {
-        $posts = $this->postRepository->getTagPostsPaginated($tag, 9);
+        try {
+            $posts = $this->postRepository->getTagPostsPaginated($tag, 9);
 
-        return view('blog')
-            ->with('title', sprintf('Posts tagged with: %s', $tag))
-            ->with('summary', sprintf('Here are all the posts that have been tagged %s.
+            return view('blog')
+                ->with('title', sprintf('Posts tagged with: %s', $tag))
+                ->with('summary', sprintf('Here are all the posts that have been tagged %s.
                 We hope you find the posts in the category interesting and informative!', $tag))
-            ->with('posts', $posts)
-            ->with('categories', Category::orderBy('name', 'asc')->get());
+                ->with('posts', $posts)
+                ->with('categories', Category::orderBy('name', 'asc')->get());
+        } catch (Exception $e) {
+            $this->logSerivce->error($e->getMessage());
+            return redirect('/');
+        }
     }
 }
