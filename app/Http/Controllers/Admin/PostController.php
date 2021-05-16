@@ -8,6 +8,7 @@ use App\Http\Requests\Posts\CreatePostRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use App\Jobs\ProcessContentAlerts;
 use App\Post;
+use App\Services\Log\LogServiceInterface;
 use App\Services\Notification\ContentAlertInterface;
 use App\Services\Image\ImageStorageInterface;
 use App\Services\Post\SummerNoteImageInterface;
@@ -49,6 +50,10 @@ class PostController extends Controller
      */
     protected $processContentAlerts;
 
+    /**
+     * @var LogServiceInterface
+     */
+    protected $logService;
 
 
     public function __construct(
@@ -56,7 +61,8 @@ class PostController extends Controller
         SummerNoteImageInterface $summerNoteImageService,
         ImageStorageInterface $headerImageService,
         ContentAlertInterface $contentAlertService,
-        ProcessContentAlerts $processContentAlerts)
+        ProcessContentAlerts $processContentAlerts,
+        LogServiceInterface $logService)
     {
         $this->middleware('verifyCategoryCount')->only(['create', 'store']);
 
@@ -65,6 +71,7 @@ class PostController extends Controller
         $this->headerImageService = $headerImageService;
         $this->contentAlertService = $contentAlertService;
         $this->processContentAlerts = $processContentAlerts;
+        $this->logService = $logService;
 
         parent::__construct();
     }
@@ -93,35 +100,41 @@ class PostController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
-        $img = '';
-        if($request->hasFile('header_image'))  {
-            $img = $this->headerImageService->store(
-                $request->header_image->getClientOriginalName(),
-                $request->header_image);
+        try {
+            $img = '';
+            if ($request->hasFile('header_image')) {
+                $img = $this->headerImageService->store(
+                    $request->header_image->getClientOriginalName(),
+                    $request->header_image);
+            }
+
+            $post_content = $this->summerNoteImageService->storeImages($request->post_content);
+
+            $post = Post::create([
+                'title' => $request->title,
+                'summary' => $request->summary,
+                'post_content' => $post_content,
+                'published_at' => $request->published_at,
+                'category_id' => $request->category,
+                'user_id' => auth()->user()->id,
+                'header_image' => $img,
+            ]);
+
+            if ($request->tags) {
+                $this->tagService->updateTags($post, $request->tags);
+            }
+
+            $title = rawurlencode($post->title);
+            $url = url("/article/{$title}");
+
+            $this->processContentAlerts::dispatch($this->contentAlertService, $post, $url)->onConnection('sqs');
+
+            session()->flash('success', 'Post successfully created.');
+        } catch (Exception $e) {
+            $this->logService->error($e->getMessage(), [
+                debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 10),
+            ]);
         }
-
-        $post_content = $this->summerNoteImageService->storeImages($request->post_content);
-
-        $post = Post::create([
-            'title' => $request->title,
-            'summary' => $request->summary,
-            'post_content' => $post_content,
-            'published_at' => $request->published_at,
-            'category_id' => $request->category,
-            'user_id' => auth()->user()->id,
-            'header_image' => $img,
-        ]);
-
-        if ($request->tags) {
-            $this->tagService->updateTags($post, $request->tags);
-        }
-
-        $title = rawurlencode($post->title);
-        $url = url("/article/{$title}");
-
-        $this->processContentAlerts::dispatch($this->contentAlertService, $post, $url)->onConnection('sqs');
-
-        session()->flash('success', 'Post successfully created.');
 
         return redirect(route('post.index'));
     }
@@ -144,24 +157,30 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        $data = $request->only('title', 'summary', 'post_content', 'published_at', 'category');
+        try {
+            $data = $request->only('title', 'summary', 'post_content', 'published_at', 'category');
 
-        $data['post_content'] = $this->summerNoteImageService->storeImages($data['post_content']);
-        $data['category_id'] = $request->category;
+            $data['post_content'] = $this->summerNoteImageService->storeImages($data['post_content']);
+            $data['category_id'] = $request->category;
 
-        if($request->hasFile('header_image'))  {
-            $img = $this->headerImageService->store(
-                $request->header_image->getClientOriginalName(),
-                $request->header_image);
-            $this->headerImageService->delete($post->header_image);
-            $data['header_image'] = $img;
+            if ($request->hasFile('header_image')) {
+                $img = $this->headerImageService->store(
+                    $request->header_image->getClientOriginalName(),
+                    $request->header_image);
+                $this->headerImageService->delete($post->header_image);
+                $data['header_image'] = $img;
+            }
+
+            $post->update($data);
+
+            $this->tagService->updateTags($post, $request->tags);
+
+            session()->flash('success', 'Post updated successfully.');
+        } catch (Exception $e) {
+            $this->logService->error($e->getMessage(), [
+                debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 10),
+            ]);
         }
-
-        $post->update($data);
-
-        $this->tagService->updateTags($post, $request->tags);
-
-        session()->flash('success', 'Post updated successfully.');
 
         return redirect(route('post.index'));
     }
@@ -173,10 +192,16 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $this->headerImageService->delete($post->header_image);
-        $this->summerNoteImageService->destroyImages($post->post_content);
-        $post->delete();
-        session()->flash('success', 'Post deleted successfully');
+        try {
+            $this->headerImageService->delete($post->header_image);
+            $this->summerNoteImageService->destroyImages($post->post_content);
+            $post->delete();
+            session()->flash('success', 'Post deleted successfully');
+        } catch (Exception $e) {
+            $this->logService->error($e->getMessage(), [
+                debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 10),
+            ]);
+        }
 
         return redirect(route('archived-posts'));
     }
