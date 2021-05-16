@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\Log\LogService;
+use App\Services\Log\LogServiceInterface;
 use App\Services\Tag\TagService;
 use App\Services\Tag\TagServiceInterface;
 use App\Services\Timeline\TimeLineDataService;
@@ -22,6 +24,7 @@ class ServicesServiceProvider extends ServiceProvider
         $this->app->bind(TagServiceInterface::class, TagService::class);
         $this->app->bind(TimeLineDataServiceInterface::class, TimeLineDataService::class);
         $this->app->bind(TimeLineServiceInterface::class, TimeLineService::class);
+        $this->app->bind(LogServiceInterface::class, LogService::class);
     }
 
     /**

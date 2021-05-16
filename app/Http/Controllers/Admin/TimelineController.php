@@ -7,14 +7,17 @@ use App\Http\Requests\Timeline\CreateTimelineRequest;
 use App\Http\Requests\Timeline\UpdateTimelineRequest;
 use App\Repositories\Timeline\TimelineDataTypeRepositoryInterface;
 use App\Repositories\Timeline\TimelineRepositoryInterface;
+use App\Services\Log\LogServiceInterface;
 use App\Services\Timeline\TimeLineDataServiceInterface;
 use App\Timeline;
 use App\TimelineData;
 use App\User;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
 class TimelineController extends Controller
@@ -34,16 +37,23 @@ class TimelineController extends Controller
      */
     protected $timelineDataService;
 
+    /**
+     * @var LogServiceInterface
+     */
+    protected $logService;
+
     public function __construct(
         TimelineRepositoryInterface $timelineRepository,
         TimelineDataTypeRepositoryInterface $timelineDataTypeRepository,
-        TimeLineDataServiceInterface $timelineDataService
+        TimeLineDataServiceInterface $timelineDataService,
+        LogServiceInterface $logService
     )
     {
         parent::__construct();
         $this->timelineRepository = $timelineRepository;
         $this->timelineDataTypeRepository = $timelineDataTypeRepository;
         $this->timelineDataService = $timelineDataService;
+        $this->logService = $logService;
     }
 
     /**
@@ -51,7 +61,14 @@ class TimelineController extends Controller
      */
     public function index()
     {
-        $timelines = $this->timelineRepository->getAllTimelinesPaginated();
+        try {
+            $timelines = $this->timelineRepository->getAllTimelinesPaginated();
+            throw new Exception("Another crazy pants error");
+        } catch (Exception $e) {
+            $this->logService->error($e->getMessage(), [
+                debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 10),
+            ]);
+        }
 
         return view('admin.timeline.index')
             ->with('timelines', $timelines);
@@ -82,17 +99,22 @@ class TimelineController extends Controller
      */
     public function store(CreateTimelineRequest $timeline)
     {
-        $user = auth()->user();
+        try {
+            $user = auth()->user();
 
-        $newEntry = Timeline::create([
-            'timeline_entry' => $timeline->timeline_entry,
-            'user_id' => $user->id,
-        ]);
+            $newEntry = Timeline::create([
+                'timeline_entry' => $timeline->timeline_entry,
+                'user_id' => $user->id,
+            ]);
 
-        $this->timelineDataService->addData($newEntry, $timeline);
+            $this->timelineDataService->addData($newEntry, $timeline);
 
-        session()->flash('success', 'Timeline Entry successfully created');
-
+            session()->flash('success', 'Timeline Entry successfully created');
+        } catch (Exception $e) {
+            $this->logService->error($e->getMessage(), [
+                debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 10),
+            ]);
+        }
         return redirect(route('admin-timelines'));
     }
 
@@ -116,13 +138,20 @@ class TimelineController extends Controller
      */
     public function update(UpdateTimelineRequest $request, Timeline $timeline)
     {
-        $timeline->update([
-            'timeline_entry' => $request->timeline_entry
-        ]);
+        try {
+            $timeline->update([
+                'timeline_entry' => $request->timeline_entry
+            ]);
 
-        $this->timelineDataService->updateData($timeline, $request);
+            $this->timelineDataService->updateData($timeline, $request);
 
-        session()->flash('success', 'Diary Timeline updated successfully.');
+            session()->flash('success', 'Diary Timeline updated successfully.');
+
+        } catch (Exception $e) {
+            $this->logService->error($e->getMessage(), [
+                debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 10),
+            ]);
+        }
 
         return redirect(route('admin-timelines'));
     }
@@ -132,11 +161,16 @@ class TimelineController extends Controller
      */
     public function destroy(Timeline $timeline)
     {
-        $timeline->timelineData()->delete();
-        $timeline->delete();
+        try {
+            $timeline->timelineData()->delete();
+            $timeline->delete();
 
-        session()->flash('success', 'Timeline entry deleted successfully');
-
+            session()->flash('success', 'Timeline entry deleted successfully');
+        } catch (Exception $e) {
+            $this->logService->error($e->getMessage(), [
+                debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 10),
+            ]);
+        }
         return redirect(route('admin-timelines'));
     }
 }
