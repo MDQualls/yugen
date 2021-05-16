@@ -63,7 +63,6 @@ class TimelineController extends Controller
     {
         try {
             $timelines = $this->timelineRepository->getAllTimelinesPaginated();
-            throw new Exception("Another crazy pants error");
         } catch (Exception $e) {
             $this->logService->error($e->getMessage(), [
                 debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 10),
