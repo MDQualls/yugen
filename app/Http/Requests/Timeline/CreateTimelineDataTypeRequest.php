@@ -24,7 +24,7 @@ class CreateTimelineDataTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            'timeline_type' => 'required|max:100',
+            'timeline_type' => 'required|max:100|unique:timeline_types',
         ];
     }
 }
