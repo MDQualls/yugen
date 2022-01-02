@@ -1,5 +1,6 @@
 <nav class="sticky-top">
     <div class="nav">
+        <img src='{{url("images/yugan_black_tree_h60.png")}}' alt='' class='img--fluid'>
         <div class="nav__brand" >
             <a href="{{ url('/') }}">
                 {{ config('app.name', 'Yugen Farm') }}
