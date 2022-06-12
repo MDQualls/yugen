@@ -23,9 +23,9 @@
                        class="dropdown__item"><i class="fab fa-tiktok"></i> &nbsp;TikTok</a>
                 </div>
             </li>
-            <li class="nav__item">
-                <a class="nav__link" href="{{route('timeline', Carbon\Carbon::parse(now())->format('Y'))}}"><i class="far fa-calendar-alt"></i> Timeline</a>
-            </li>
+{{--            <li class="nav__item">--}}
+{{--                <a class="nav__link" href="{{route('timeline', Carbon\Carbon::parse(now())->format('Y'))}}"><i class="far fa-calendar-alt"></i> Timeline</a>--}}
+{{--            </li>--}}
 
             @guest
                 <li class="nav__item">
